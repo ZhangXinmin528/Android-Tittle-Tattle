@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="home_sort_arrays">
+        <item>线程相关</item>
+    </string-array>
+
+    <string-array name="thread_sort_arrays">
+        <item>IntentService示例</item>
+    </string-array>
+</resources>
