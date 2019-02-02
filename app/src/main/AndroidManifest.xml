@@ -35,6 +35,11 @@
 
         <service android:name=".service.ProgressService" />
 
+        <activity
+            android:name=".ui.thread.ThreadPoolActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+
     </application>
 
 </manifest>

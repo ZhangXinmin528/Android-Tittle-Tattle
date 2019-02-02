@@ -7,5 +7,6 @@
 
     <string-array name="thread_sort_arrays">
         <item>IntentService示例</item>
+        <item>线程池相关</item>
     </string-array>
 </resources>

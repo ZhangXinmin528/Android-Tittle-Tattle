@@ -8,6 +8,7 @@ import android.text.TextUtils;
 
 import com.coding.zxm.android_tittle_tattle.ui.thread.IntentServiceActivity;
 import com.coding.zxm.android_tittle_tattle.ui.thread.ThreadActivity;
+import com.coding.zxm.android_tittle_tattle.ui.thread.ThreadPoolActivity;
 
 /**
  * Created by ZhangXinmin on 2019/1/30.
@@ -51,6 +52,11 @@ public final class SortDispatcher {
             switch (position) {
                 case 0:
                     intent.setClass(context, IntentServiceActivity.class);
+                    intent.putExtra(DisplayUtil.PARAMS_LABEL, label);
+                    context.startActivity(intent);
+                    break;
+                case 1:
+                    intent.setClass(context, ThreadPoolActivity.class);
                     intent.putExtra(DisplayUtil.PARAMS_LABEL, label);
                     context.startActivity(intent);
                     break;

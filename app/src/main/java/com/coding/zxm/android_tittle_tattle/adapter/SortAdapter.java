@@ -53,9 +53,8 @@ public class SortAdapter extends RecyclerView.Adapter<SortViewHolder> {
     public int getItemCount() {
         if (dataList != null && !dataList.isEmpty()) {
             return dataList.size();
-        } else {
-            return 0;
         }
+        return 0;
     }
 
     /**
@@ -66,8 +65,7 @@ public class SortAdapter extends RecyclerView.Adapter<SortViewHolder> {
      */
     public String getItem(int position) {
 
-        if (dataList != null && !dataList.isEmpty()
-                && position <= dataList.size()) {
+        if (dataList != null && !dataList.isEmpty()) {
             return dataList.get(position);
         } else {
             return "";
