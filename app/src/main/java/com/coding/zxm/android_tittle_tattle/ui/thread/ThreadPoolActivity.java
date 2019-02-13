@@ -17,6 +17,7 @@ public class ThreadPoolActivity extends BaseActivity implements View.OnClickList
     private ExecutorService mFixedPool;
     private ExecutorService mCachedPool;
     private ExecutorService mSingleExecutor;
+    private ExecutorService mScheduledPool;
 
     @Override
     protected Object setLayout() {
@@ -28,13 +29,15 @@ public class ThreadPoolActivity extends BaseActivity implements View.OnClickList
         mFixedPool = Executors.newFixedThreadPool(3);
         mCachedPool = Executors.newCachedThreadPool();
         mSingleExecutor = Executors.newSingleThreadExecutor();
+        mScheduledPool = Executors.newScheduledThreadPool(3);
     }
 
     @Override
     protected void initViews() {
         findViewById(R.id.btn_fixed_pool).setOnClickListener(this);
-        findViewById(R.id.brn_cached_pool).setOnClickListener(this);
-        findViewById(R.id.brn_single_thread).setOnClickListener(this);
+        findViewById(R.id.btn_cached_pool).setOnClickListener(this);
+        findViewById(R.id.btn_single_thread).setOnClickListener(this);
+        findViewById(R.id.btn_scheduled_thread).setOnClickListener(this);
     }
 
     @Override
@@ -43,12 +46,35 @@ public class ThreadPoolActivity extends BaseActivity implements View.OnClickList
             case R.id.btn_fixed_pool:
                 addJobToFixedPool();
                 break;
-            case R.id.brn_cached_pool:
+            case R.id.btn_cached_pool:
                 addJobToCachedPool();
                 break;
-            case R.id.brn_single_thread:
+            case R.id.btn_single_thread:
                 addJobToSingleThread();
                 break;
+            case R.id.btn_scheduled_thread:
+                addJobToScheduledPool();
+                break;
+        }
+    }
+
+    /**
+     * ScheduledPool
+     */
+    private void addJobToScheduledPool() {
+        for (int i = 0; i < 2000; i++) {
+            final int tempIndex = i;
+            mScheduledPool.execute(new Runnable() {
+                @Override
+                public void run() {
+                    try {
+                        Thread.sleep(200);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                    Logger.e(TAG, "ScheduledPool..index : " + tempIndex + "..current thread : " + Thread.currentThread().getName());
+                }
+            });
         }
     }
 
@@ -91,6 +117,11 @@ public class ThreadPoolActivity extends BaseActivity implements View.OnClickList
             mFixedPool.execute(new Runnable() {
                 @Override
                 public void run() {
+                    try {
+                        Thread.sleep(200);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
                     Logger.e(TAG, "FixedThreadPool..index : " + tempIndex + "..current thread : " + Thread.currentThread().getName());
                 }
             });
