@@ -6,6 +6,8 @@ import android.support.annotation.IntRange;
 import android.support.annotation.NonNull;
 import android.text.TextUtils;
 
+import com.coding.zxm.android_tittle_tattle.ui.sql.OriginalSqlActivity;
+import com.coding.zxm.android_tittle_tattle.ui.thread.CountDownLatchActivity;
 import com.coding.zxm.android_tittle_tattle.ui.thread.IntentServiceActivity;
 import com.coding.zxm.android_tittle_tattle.ui.thread.ThreadActivity;
 import com.coding.zxm.android_tittle_tattle.ui.thread.ThreadPoolActivity;
@@ -35,6 +37,11 @@ public final class SortDispatcher {
                     intent.putExtra(DisplayUtil.PARAMS_LABEL, label);
                     context.startActivity(intent);
                     break;
+                case 1:
+                    intent.setClass(context, OriginalSqlActivity.class);
+                    intent.putExtra(DisplayUtil.PARAMS_LABEL, label);
+                    context.startActivity(intent);
+                    break;
             }
         }
     }
@@ -57,6 +64,11 @@ public final class SortDispatcher {
                     break;
                 case 1:
                     intent.setClass(context, ThreadPoolActivity.class);
+                    intent.putExtra(DisplayUtil.PARAMS_LABEL, label);
+                    context.startActivity(intent);
+                    break;
+                case 2:
+                    intent.setClass(context, CountDownLatchActivity.class);
                     intent.putExtra(DisplayUtil.PARAMS_LABEL, label);
                     context.startActivity(intent);
                     break;

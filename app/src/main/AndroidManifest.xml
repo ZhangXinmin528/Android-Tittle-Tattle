@@ -35,10 +35,23 @@
 
         <service android:name=".service.ProgressService" />
 
+        <!--线程池-->
         <activity
             android:name=".ui.thread.ThreadPoolActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait" />
+
+        <!--CountDownLatch-->
+        <activity
+            android:name=".ui.thread.CountDownLatchActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+
+        <!--原生数据库-->
+        <activity android:name=".ui.sql.OriginalSqlActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+
 
     </application>
 

@@ -1,9 +1,13 @@
 package com.coding.zxm.android_tittle_tattle.ui.thread;
 
+import android.content.Intent;
+import android.support.v7.app.ActionBar;
+import android.text.TextUtils;
 import android.view.View;
 
 import com.coding.zxm.android_tittle_tattle.BaseActivity;
 import com.coding.zxm.android_tittle_tattle.R;
+import com.coding.zxm.android_tittle_tattle.util.DisplayUtil;
 import com.coding.zxm.android_tittle_tattle.util.Logger;
 
 import java.util.concurrent.ExecutorService;
@@ -30,6 +34,17 @@ public class ThreadPoolActivity extends BaseActivity implements View.OnClickList
         mCachedPool = Executors.newCachedThreadPool();
         mSingleExecutor = Executors.newSingleThreadExecutor();
         mScheduledPool = Executors.newScheduledThreadPool(3);
+
+        Intent intent = getIntent();
+        if (intent != null) {
+            final String label = intent.getStringExtra(DisplayUtil.PARAMS_LABEL);
+            if (!TextUtils.isEmpty(label)) {
+                ActionBar actionBar = getSupportActionBar();
+                if (actionBar != null) {
+                    actionBar.setTitle(label);
+                }
+            }
+        }
     }
 
     @Override
