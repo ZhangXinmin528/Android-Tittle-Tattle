@@ -2,12 +2,19 @@ package com.coding.zxm.android_tittle_tattle.ui.sql;
 
 import android.content.Intent;
 import android.support.v7.app.ActionBar;
+import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
 import android.view.View;
 
 import com.coding.zxm.android_tittle_tattle.BaseActivity;
 import com.coding.zxm.android_tittle_tattle.R;
+import com.coding.zxm.android_tittle_tattle.sql.local.OriginalSqlManager;
+import com.coding.zxm.android_tittle_tattle.sql.local.StudentDao;
+import com.coding.zxm.android_tittle_tattle.sql.local.model.Student;
 import com.coding.zxm.android_tittle_tattle.util.DisplayUtil;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by ZhangXinmin on 2019/2/14.
@@ -15,6 +22,12 @@ import com.coding.zxm.android_tittle_tattle.util.DisplayUtil;
  * 数据库的增删改查；
  */
 public class OriginalSqlActivity extends BaseActivity implements View.OnClickListener {
+
+    //列表
+    private RecyclerView recyclerView;
+    private List<Student> mDataList;
+
+    private StudentDao mStudentDao;
 
     @Override
     protected Object setLayout() {
@@ -33,6 +46,12 @@ public class OriginalSqlActivity extends BaseActivity implements View.OnClickLis
                 }
             }
         }
+
+        mDataList = new ArrayList<>();
+
+
+        mStudentDao = OriginalSqlManager.getInstance(mContext).getStudentDao();
+
     }
 
     @Override

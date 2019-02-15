@@ -5,8 +5,9 @@
     <string name="all_cached_pool">cached_pool</string>
     <string name="all_single_thread">Single_Thread</string>
     <string name="all_scheduled_thread">Scheduled_Thread</string>
-    <string name="all_name">Name</string>
-    <string name="all_country">Country</string>
+    <string name="all_student_id">Student ID</string>
+    <string name="all_student_name">Student Name</string>
+    <string name="all_student_province">Student Provice</string>
     <string name="all_add">Add</string>
     <string name="all_delete">Delete</string>
     <string name="all_modify">Modify</string>

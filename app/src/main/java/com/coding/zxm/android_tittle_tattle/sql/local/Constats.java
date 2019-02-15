@@ -14,6 +14,6 @@ public final class Constats {
 
     public static final String COLUMN_NAME = "Name";
 
-    public static final String COLUMN_COUNTRY = "Country";
+    public static final String COLUMN_PROVINCE = "Province";
 
 }

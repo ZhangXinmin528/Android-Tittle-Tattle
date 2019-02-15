@@ -23,9 +23,9 @@ public class OriginalSqlHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         final String sql = "create table if not exists " + Constats.TABLE_NAME + "(" +
-                Constats.COLUMN_ID + " integer primary key autoincrement," +
+                Constats.COLUMN_ID + " integer primary key," +
                 Constats.COLUMN_NAME + " varchar(10)," +
-                Constats.COLUMN_COUNTRY + " varchar(15)" +
+                Constats.COLUMN_PROVINCE + " varchar(15)" +
                 ")";
 
         db.execSQL(sql);

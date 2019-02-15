@@ -13,10 +13,14 @@ public final class OriginalSqlManager {
 
     private Context context;
     private OriginalSqlHelper originalSqlHelper;
+    private StudentDao studentDao;
 
     private OriginalSqlManager(Context context) {
         this.context = context;
         originalSqlHelper = new OriginalSqlHelper(context);
+
+        studentDao = new StudentDao(originalSqlHelper);
+
     }
 
     public static OriginalSqlManager getInstance(Context context) {
@@ -26,5 +30,8 @@ public final class OriginalSqlManager {
         return INSTANCE;
     }
 
+    public StudentDao getStudentDao() {
+        return studentDao;
+    }
 
 }
