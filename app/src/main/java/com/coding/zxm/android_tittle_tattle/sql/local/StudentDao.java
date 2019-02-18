@@ -1,11 +1,15 @@
 package com.coding.zxm.android_tittle_tattle.sql.local;
 
 import android.content.ContentValues;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.support.annotation.NonNull;
 import android.text.TextUtils;
 
 import com.coding.zxm.android_tittle_tattle.sql.local.model.Student;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by ZhangXinmin on 2019/2/14.
@@ -61,7 +65,7 @@ public final class StudentDao {
     /**
      * Convenience method for deleting rows in the database.
      *
-     * @param key
+     * @param whereClause
      * @param whereArgs You may include ?s in the where clause, which will be replaced by the
      *                  values from whereArgs. The values
      *                  will be bound as Strings.
@@ -69,9 +73,9 @@ public final class StudentDao {
      * otherwise. To remove all rows and get a count pass "1" as the
      * whereClause.
      */
-    public int deleteByKey(@NonNull String key, @NonNull String[] whereArgs) {
-        if (!TextUtils.isEmpty(key)) {
-            return sqLiteDatabase.delete(Constats.TABLE_NAME, key + " = ?", whereArgs);
+    public int deleteWhereClause(@NonNull String whereClause, @NonNull String[] whereArgs) {
+        if (!TextUtils.isEmpty(whereClause)) {
+            return sqLiteDatabase.delete(Constats.TABLE_NAME, whereClause + " = ?", whereArgs);
         } else return -1;
     }
 
@@ -81,7 +85,7 @@ public final class StudentDao {
      * @param student
      * @return the number of rows affected or -1 if a student is valid
      */
-    public int upodate(Student student) {
+    public int update(Student student) {
         if (student != null) {
             final ContentValues values = new ContentValues();
             values.put(Constats.COLUMN_ID, student.getId());
@@ -92,5 +96,74 @@ public final class StudentDao {
         } else {
             return -1;
         }
+    }
+
+    /**
+     * @param selection
+     * @param selectionArgs
+     * @return
+     */
+    public List<Student> query(String selection, String[] selectionArgs) {
+        final List<Student> result = new ArrayList<>();
+        if (!TextUtils.isEmpty(selection) && selectionArgs != null) {
+            final Cursor cursor = sqLiteDatabase.query(Constats.TABLE_NAME,
+                    new String[]{Constats.COLUMN_ID, Constats.COLUMN_NAME, Constats.COLUMN_PROVINCE},
+                    selection + "= ?", selectionArgs, null, null, null);
+            if (cursor.getCount() > 0) {
+                while (cursor.moveToNext()) {
+                    final int id = cursor.getInt(cursor.getColumnIndex(Constats.COLUMN_ID));
+                    final String name = cursor.getString(cursor.getColumnIndex(Constats.COLUMN_NAME));
+                    final String province = cursor.getString(cursor.getColumnIndex(Constats.COLUMN_PROVINCE));
+
+                    final Student student = new Student();
+                    student.setId(id);
+                    student.setName(name);
+                    student.setProvince(province);
+                    result.add(student);
+                }
+            }
+        }
+        return result;
+
+    }
+
+    /**
+     * Query all element.
+     *
+     * @return
+     */
+    public List<Student> queryAll() {
+        final List<Student> result = new ArrayList<>();
+        final Cursor cursor = sqLiteDatabase.rawQuery("select * from " + Constats.TABLE_NAME,
+                null);
+
+        if (cursor.getCount() > 0) {
+            while (cursor.moveToNext()) {
+                final int id = cursor.getInt(cursor.getColumnIndex(Constats.COLUMN_ID));
+                final String name = cursor.getString(cursor.getColumnIndex(Constats.COLUMN_NAME));
+                final String province = cursor.getString(cursor.getColumnIndex(Constats.COLUMN_PROVINCE));
+
+                final Student student = new Student();
+                student.setId(id);
+                student.setName(name);
+                student.setProvince(province);
+                result.add(student);
+            }
+        }
+        return result;
+
+    }
+
+    /**
+     * Get data count.
+     *
+     * @return
+     */
+    public int queryCount() {
+        final Cursor cursor = sqLiteDatabase.rawQuery("select count(*) from " + Constats.TABLE_NAME,
+                null);
+
+        cursor.moveToFirst();
+        return cursor.getInt(0);
     }
 }
