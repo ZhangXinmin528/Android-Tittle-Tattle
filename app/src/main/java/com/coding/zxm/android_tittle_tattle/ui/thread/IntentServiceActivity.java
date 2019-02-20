@@ -11,10 +11,10 @@ import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-import com.coding.zxm.android_tittle_tattle.BaseActivity;
 import com.coding.zxm.android_tittle_tattle.R;
 import com.coding.zxm.android_tittle_tattle.service.ProgressService;
 import com.coding.zxm.android_tittle_tattle.util.DisplayUtil;
+import com.coding.zxm.libcore.ui.BaseActivity;
 
 import static com.coding.zxm.android_tittle_tattle.service.ProgressService.ACTION_PROGRESS;
 
@@ -35,7 +35,7 @@ public class IntentServiceActivity extends BaseActivity {
     }
 
     @Override
-    protected void initParamsAndViews() {
+    protected void initParamsAndValues() {
         Intent intent = getIntent();
         final String label = intent.getStringExtra(DisplayUtil.PARAMS_LABEL);
         if (!TextUtils.isEmpty(label)) {

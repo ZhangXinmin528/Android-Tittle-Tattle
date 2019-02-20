@@ -7,11 +7,11 @@ import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
 import android.view.View;
 
-import com.coding.zxm.android_tittle_tattle.BaseActivity;
 import com.coding.zxm.android_tittle_tattle.R;
 import com.coding.zxm.android_tittle_tattle.adapter.SortAdapter;
 import com.coding.zxm.android_tittle_tattle.listender.OnItemClickListener;
 import com.coding.zxm.android_tittle_tattle.util.SortDispatcher;
+import com.coding.zxm.libcore.ui.BaseActivity;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -29,7 +29,7 @@ public class HomeActivity extends BaseActivity implements OnItemClickListener {
     }
 
     @Override
-    protected void initParamsAndViews() {
+    protected void initParamsAndValues() {
         mDataList = new ArrayList<>();
 
         final String[] sorts = mResources.getStringArray(R.array.home_sort_arrays);

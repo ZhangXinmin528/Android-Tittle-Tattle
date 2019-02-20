@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">rxjava1</string>
+    <string name="string_version_1_hit">初始RxJava Version 1,详细信息查看代码</string>
+    <string name="string_version_1_operator_hit">RxJava操作符学习,详细信息查看代码</string>
+</resources>

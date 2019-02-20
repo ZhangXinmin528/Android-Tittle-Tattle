@@ -52,6 +52,11 @@
             android:launchMode="singleTask"
             android:screenOrientation="portrait" />
 
+        <!--RxJava1-->
+        <activity android:name=".ui.rxjava.RxJava1Activity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+
 
     </application>
 

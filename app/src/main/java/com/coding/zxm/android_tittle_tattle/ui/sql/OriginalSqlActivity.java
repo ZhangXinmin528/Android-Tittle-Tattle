@@ -12,7 +12,6 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.TextView;
 
-import com.coding.zxm.android_tittle_tattle.BaseActivity;
 import com.coding.zxm.android_tittle_tattle.R;
 import com.coding.zxm.android_tittle_tattle.adapter.SqlExampleAdapter;
 import com.coding.zxm.android_tittle_tattle.listender.OnItemClickListener;
@@ -22,6 +21,7 @@ import com.coding.zxm.android_tittle_tattle.sql.local.StudentDao;
 import com.coding.zxm.android_tittle_tattle.sql.local.model.Student;
 import com.coding.zxm.android_tittle_tattle.util.DisplayUtil;
 import com.coding.zxm.android_tittle_tattle.util.Logger;
+import com.coding.zxm.libcore.ui.BaseActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -52,7 +52,7 @@ public class OriginalSqlActivity extends BaseActivity implements View.OnClickLis
     }
 
     @Override
-    protected void initParamsAndViews() {
+    protected void initParamsAndValues() {
         Intent intent = getIntent();
         if (intent != null) {
             final String label = intent.getStringExtra(DisplayUtil.PARAMS_LABEL);
@@ -92,6 +92,7 @@ public class OriginalSqlActivity extends BaseActivity implements View.OnClickLis
         mRecyclerView.addItemDecoration(new DividerItemDecoration(mContext, DividerItemDecoration.VERTICAL));
         mRecyclerView.setAdapter(mAdapter);
         mAdapter.setOnItmeClickListener(this);
+
         queryAndUpdate();
 
         updateDataCount();
@@ -136,8 +137,9 @@ public class OriginalSqlActivity extends BaseActivity implements View.OnClickLis
      * Delete element.
      */
     private void deleteElement() {
-        final long rowId = mStudentDao.deleteWhereClause(Constats.COLUMN_NAME, new String[]{"王小豆"});
-        Logger.d(TAG, "delete item where " + Constats.COLUMN_NAME + " = 王小豆, row id = " + rowId);
+        final String name = mNameEt.getEditableText().toString().trim();
+        final long rowId = mStudentDao.deleteWhereClause(Constats.COLUMN_NAME, new String[]{name});
+        Logger.d(TAG, "delete item where " + Constats.COLUMN_NAME + " = " + name + ", row id = " + rowId);
     }
 
     /**
@@ -168,14 +170,13 @@ public class OriginalSqlActivity extends BaseActivity implements View.OnClickLis
     private void queryAndUpdate() {
 
         final List<Student> list = mStudentDao.queryAll();
-        if (list != null && !list.isEmpty()) {
-            if (!mDataList.isEmpty()) {
-                mDataList.clear();
-            }
-
-            mDataList.addAll(list);
-            mAdapter.notifyDataSetChanged();
+        if (!mDataList.isEmpty()) {
+            mDataList.clear();
         }
+        if (list != null && !list.isEmpty()) {
+            mDataList.addAll(list);
+        }
+        mAdapter.notifyDataSetChanged();
 
     }
 

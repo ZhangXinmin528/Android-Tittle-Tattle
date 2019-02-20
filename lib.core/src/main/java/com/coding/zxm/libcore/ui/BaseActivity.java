@@ -1,13 +1,10 @@
-package com.coding.zxm.android_tittle_tattle;
+package com.coding.zxm.libcore.ui;
 
 import android.content.Context;
-import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
-import android.text.TextUtils;
 import android.view.View;
 
 /**
@@ -20,6 +17,7 @@ public abstract class BaseActivity extends AppCompatActivity {
 
 
     protected final String TAG = getClass().getSimpleName();
+
     protected Context mContext;
     protected Resources mResources;
 
@@ -47,7 +45,7 @@ public abstract class BaseActivity extends AppCompatActivity {
                     "to bind view for activity! ");
         }
 
-        initParamsAndViews();
+        initParamsAndValues();
 
         initViews();
 
@@ -56,7 +54,7 @@ public abstract class BaseActivity extends AppCompatActivity {
     /**
      * init params and values for activity
      */
-    protected abstract void initParamsAndViews();
+    protected abstract void initParamsAndValues();
 
     /**
      * init views for activity

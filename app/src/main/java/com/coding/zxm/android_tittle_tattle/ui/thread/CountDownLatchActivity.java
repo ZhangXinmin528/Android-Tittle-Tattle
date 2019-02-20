@@ -5,11 +5,11 @@ import android.support.v7.app.ActionBar;
 import android.text.TextUtils;
 import android.view.View;
 
-import com.coding.zxm.android_tittle_tattle.BaseActivity;
 import com.coding.zxm.android_tittle_tattle.R;
 import com.coding.zxm.android_tittle_tattle.service.latch.Attendees;
 import com.coding.zxm.android_tittle_tattle.service.latch.VideoController;
 import com.coding.zxm.android_tittle_tattle.util.DisplayUtil;
+import com.coding.zxm.libcore.ui.BaseActivity;
 
 /**
  * Created by ZhangXinmin on 2019/2/14.
@@ -24,7 +24,7 @@ public class CountDownLatchActivity extends BaseActivity {
     }
 
     @Override
-    protected void initParamsAndViews() {
+    protected void initParamsAndValues() {
         Intent intent = getIntent();
         if (intent != null) {
             final String label = intent.getStringExtra(DisplayUtil.PARAMS_LABEL);

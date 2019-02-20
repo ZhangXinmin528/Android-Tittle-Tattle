@@ -1,0 +1,44 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.coding.zxm.librxjava1">
+
+    <application
+        android:allowBackup="true"
+        android:supportsRtl="true">
+
+        <!--初识-->
+        <activity
+            android:name=".ui.RxJavaABCActivity"
+            android:screenOrientation="portrait" />
+
+        <!--创建操作符-->
+        <activity
+            android:name=".ui.CreatingOperatorActivity"
+            android:screenOrientation="portrait" />
+
+        <!--转换操作符-->
+        <activity
+            android:name=".ui.TransferingOperatorActivity"
+            android:screenOrientation="portrait" />
+
+        <!--过滤操作符-->
+        <activity
+            android:name=".ui.FilteringOperatorActivity"
+            android:screenOrientation="portrait" />
+
+        <!--组合操作符-->
+        <activity
+            android:name=".ui.CombiningOperatorActivity"
+            android:screenOrientation="portrait" />
+
+        <!--错误操作符-->
+        <activity
+            android:name=".ui.ErrorHandlingOperatorActivity"
+            android:screenOrientation="portrait" />
+
+        <!--辅助性操作符-->
+        <activity
+            android:name=".ui.UtilityOperatorActivity"
+            android:screenOrientation="portrait" />
+
+    </application>
+</manifest>

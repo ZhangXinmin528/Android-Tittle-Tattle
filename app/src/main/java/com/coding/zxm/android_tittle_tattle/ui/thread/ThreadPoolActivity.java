@@ -5,10 +5,10 @@ import android.support.v7.app.ActionBar;
 import android.text.TextUtils;
 import android.view.View;
 
-import com.coding.zxm.android_tittle_tattle.BaseActivity;
 import com.coding.zxm.android_tittle_tattle.R;
 import com.coding.zxm.android_tittle_tattle.util.DisplayUtil;
 import com.coding.zxm.android_tittle_tattle.util.Logger;
+import com.coding.zxm.libcore.ui.BaseActivity;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -29,7 +29,7 @@ public class ThreadPoolActivity extends BaseActivity implements View.OnClickList
     }
 
     @Override
-    protected void initParamsAndViews() {
+    protected void initParamsAndValues() {
         mFixedPool = Executors.newFixedThreadPool(3);
         mCachedPool = Executors.newCachedThreadPool();
         mSingleExecutor = Executors.newSingleThreadExecutor();
