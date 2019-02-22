@@ -5,6 +5,7 @@
         <item>线程相关</item>
         <item>数据库相关</item>
         <item>RxJava 1.x</item>
+        <item>Retrofit常用网络请求</item>
     </string-array>
 
     <string-array name="thread_sort_arrays">

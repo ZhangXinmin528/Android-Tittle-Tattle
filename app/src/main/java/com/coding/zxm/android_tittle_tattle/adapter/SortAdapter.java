@@ -8,8 +8,8 @@ import android.view.ViewGroup;
 
 import com.coding.zxm.android_tittle_tattle.R;
 import com.coding.zxm.android_tittle_tattle.adapter.vh.SortViewHolder;
-import com.coding.zxm.android_tittle_tattle.listender.OnItemClickListener;
 import com.coding.zxm.android_tittle_tattle.util.DisplayUtil;
+import com.coding.zxm.libcore.listender.OnItemClickListener;
 
 import java.util.List;
 

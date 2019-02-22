@@ -41,8 +41,19 @@ ext {
     rxandroid1Version ='1.2.1'
     rxjava1Version = '1.2.9'
 
+    //retrofit
+    retrofitVersion = '2.5.0'
+    //gson
+    gsonVersion = '2.8.5'
+    //rxjava2
+    rxjava2Version = '2.2.6'
+    //rxandroid2
+    rxandroid2Version = '2.1.1'
+
+    //glide
+    glideVersion = '4.9.0'
+
     smartrefreshVersion = '1.0.5.1'
-    glideVersion = '4.0.0'
     lottieVersion = '2.5.0-beta3'
     okgoVersion = '3.0.4'
     fastjsonVersion = '1.2.46'

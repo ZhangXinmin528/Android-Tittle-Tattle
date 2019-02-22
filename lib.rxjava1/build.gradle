@@ -31,4 +31,5 @@ dependencies {
     // explicitly depend on RxJava's latest version for bug fixes and new features.
     implementation "io.reactivex:rxjava:$rootProject.rxjava1Version"
     implementation project(':lib.core')
+    implementation project(':lib.util')
 }

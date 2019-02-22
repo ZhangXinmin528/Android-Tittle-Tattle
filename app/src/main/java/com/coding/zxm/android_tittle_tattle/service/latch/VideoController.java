@@ -2,7 +2,7 @@ package com.coding.zxm.android_tittle_tattle.service.latch;
 
 import android.annotation.SuppressLint;
 
-import com.coding.zxm.android_tittle_tattle.util.Logger;
+import com.coding.zxm.libutil.Logger;
 
 import java.util.concurrent.CountDownLatch;
 

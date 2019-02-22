@@ -2,8 +2,8 @@ package com.coding.zxm.librxjava1.ui;
 
 
 import com.coding.zxm.libcore.ui.BaseActivity;
-import com.coding.zxm.libcore.util.Logger;
 import com.coding.zxm.librxjava1.R;
+import com.coding.zxm.libutil.Logger;
 
 import rx.Observable;
 import rx.Subscriber;

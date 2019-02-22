@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@android:color/white"
+    android:orientation="horizontal"
+    android:padding="12dp">
+
+    <ImageView
+        android:id="@+id/iv_movie_poster"
+        android:layout_width="80dp"
+        android:layout_height="120dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/icon_movie" />
+
+    <android.support.v7.widget.LinearLayoutCompat
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:paddingStart="16dp"
+        tools:ignore="RtlSymmetry">
+
+        <!--中文名-->
+        <TextView
+            android:id="@+id/tv_movie_name_cn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            tools:text="肖申克的救赎" />
+
+        <!--英文名-->
+        <TextView
+            android:id="@+id/tv_movie_name_en"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:textSize="18sp"
+            tools:text="The Shawshank Redemption" />
+
+        <!--导演-->
+        <TextView
+            android:id="@+id/tv_movie_director"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            tools:text="弗兰克·德拉邦特" />
+
+        <!--类型-->
+        <TextView
+            android:id="@+id/tv_movie_type"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            tools:text="剧情 / 犯罪" />
+
+    </android.support.v7.widget.LinearLayoutCompat>
+
+</android.support.v7.widget.LinearLayoutCompat>

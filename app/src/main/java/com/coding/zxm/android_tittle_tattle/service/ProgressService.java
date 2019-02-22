@@ -5,7 +5,8 @@ import android.content.Intent;
 import android.support.annotation.IntRange;
 import android.support.annotation.Nullable;
 
-import com.coding.zxm.android_tittle_tattle.util.Logger;
+import com.coding.zxm.libutil.Logger;
+
 
 /**
  * Created by ZhangXinmin on 2019/1/30.
