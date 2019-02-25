@@ -1,6 +1,9 @@
 package com.coding.zxm.librxjava1.ui;
 
 import android.content.Context;
+import android.content.Intent;
+import android.support.v7.app.ActionBar;
+import android.text.TextUtils;
 
 import com.coding.zxm.libcore.ui.BaseActivity;
 import com.coding.zxm.librxjava1.R;
@@ -27,7 +30,16 @@ public class RxJavaABCActivity extends BaseActivity {
 
     @Override
     protected void initParamsAndValues() {
-        mContext = this;
+        Intent intent = getIntent();
+        if (intent != null) {
+            final String label = intent.getStringExtra("params_label");
+            if (!TextUtils.isEmpty(label)) {
+                ActionBar actionBar = getSupportActionBar();
+                if (actionBar != null) {
+                    actionBar.setTitle(label);
+                }
+            }
+        }
     }
 
     @Override

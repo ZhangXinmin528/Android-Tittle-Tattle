@@ -50,4 +50,5 @@ dependencies {
     implementation project(':lib.rxjava1')
     implementation project(':lib.core')
     implementation project(':lib.util')
+    implementation project(':lib.net')
 }

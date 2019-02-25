@@ -18,6 +18,7 @@ import com.coding.zxm.libimage.model.GlideApp;
 import com.coding.zxm.libnet.R;
 import com.coding.zxm.libnet.adapter.vh.MovieViewHolder;
 import com.coding.zxm.libnet.model.MovieEntity;
+import com.coding.zxm.libnet.model.Staff;
 import com.coding.zxm.libutil.ClickableMovementMethod;
 import com.coding.zxm.libutil.SpanUtils;
 
@@ -61,14 +62,14 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieViewHolder> {
         if (entity != null) {
             //海报
             GlideApp.with(holder.itemView)
-                    .load(entity.getAlt())
+                    .load(entity.getImages().getMedium())
                     .into(holder.getPoster());
 
             //title
             SpannableStringBuilder nameCnBuilder =
-                    SpanUtils.getBuilder(mContext, entity.getTitle(), false)
+                    SpanUtils.getBuilder(mContext, entity.getTitle(), true)
                             .setTextColor(Color.BLACK)
-                            .append("(" + entity.getYear() + ")", true)
+                            .append("(" + entity.getYear() + ")", false)
                             .setTextColor(Color.GRAY)
                             .create();
             holder.getMovieNameCN().setText(nameCnBuilder);
@@ -80,7 +81,7 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieViewHolder> {
             SpannableStringBuilder directorBuilder =
                     SpanUtils.getBuilder(mContext, "导演：", true)
                             .setTextColor(Color.GRAY)
-                            .append(entity.getStaff().get(0).getName(), true)
+                            .append(generateDirectors(entity), true)
                             .setClickSpan(new ClickableSpan() {
                                 @Override
                                 public void onClick(View widget) {
@@ -98,6 +99,30 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieViewHolder> {
             directorTv.setMovementMethod(ClickableMovementMethod.getInstance());
             directorTv.setClickable(false);
             directorTv.setHighlightColor(Color.TRANSPARENT);
+
+            //类型
+            final TextView type = holder.getType();
+            SpannableStringBuilder typeBuilder =
+                    SpanUtils.getBuilder(mContext, "类型：", true)
+                            .setTextColor(Color.GRAY)
+                            .append(generateMovieType(entity), true)
+                            .setClickSpan(new ClickableSpan() {
+                                @Override
+                                public void onClick(View widget) {
+                                    Toast.makeText(mContext, "点击了类型", Toast.LENGTH_SHORT).show();
+                                }
+
+                                @Override
+                                public void updateDrawState(TextPaint ds) {
+                                    ds.setColor(Color.BLUE);
+                                    ds.setUnderlineText(true);
+                                }
+                            }).create();
+
+            type.setText(typeBuilder);
+            type.setMovementMethod(ClickableMovementMethod.getInstance());
+            type.setClickable(false);
+            type.setHighlightColor(Color.TRANSPARENT);
 
         }
     }
@@ -123,6 +148,54 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieViewHolder> {
         } else {
             return null;
         }
+    }
+
+    /**
+     * 获取导演人员信息
+     *
+     * @param entity
+     * @return
+     */
+    private String generateDirectors(@NonNull MovieEntity entity) {
+        if (entity != null) {
+            final List<Staff> directors = entity.getDirectors();
+            if (directors != null && !directors.isEmpty()) {
+                final int size = directors.size();
+                final StringBuilder sb = new StringBuilder();
+                for (int i = 0; i < size; i++) {
+                    sb.append(directors.get(i).getName());
+                    if (i < size - 1) {
+                        sb.append("/");
+                    }
+                }
+                return sb.toString();
+            }
+        }
+        return "";
+    }
+
+    /**
+     * 获取电影类型
+     *
+     * @param entity
+     * @return
+     */
+    private String generateMovieType(@NonNull MovieEntity entity) {
+        if (entity != null) {
+            final List<String> genresList = entity.getGenres();
+            if (genresList != null && !genresList.isEmpty()) {
+                final int size = genresList.size();
+                final StringBuffer sb = new StringBuffer();
+                for (int i = 0; i < size; i++) {
+                    sb.append(genresList.get(i));
+                    if (i < size - 1) {
+                        sb.append("/");
+                    }
+                }
+                return sb.toString();
+            }
+        }
+        return "";
     }
 
     /**

@@ -27,7 +27,7 @@
             android:id="@+id/tv_movie_name_cn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="20sp"
+            android:textSize="18sp"
             tools:text="肖申克的救赎" />
 
         <!--英文名-->
@@ -35,8 +35,9 @@
             android:id="@+id/tv_movie_name_en"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:textSize="18sp"
+            android:layout_marginTop="6dp"
+            android:maxLines="2"
+            android:textSize="16sp"
             tools:text="The Shawshank Redemption" />
 
         <!--导演-->
@@ -44,7 +45,7 @@
             android:id="@+id/tv_movie_director"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
+            android:layout_marginTop="6dp"
             tools:text="弗兰克·德拉邦特" />
 
         <!--类型-->

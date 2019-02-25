@@ -1,8 +1,10 @@
 package com.coding.zxm.librxjava1.ui;
 
+import android.content.Intent;
 import android.content.res.AssetManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.support.v7.app.ActionBar;
 import android.text.TextUtils;
 import android.widget.ImageView;
 
@@ -36,7 +38,16 @@ public class TransferingOperatorActivity extends BaseActivity {
 
     @Override
     protected void initParamsAndValues() {
-
+        Intent intent = getIntent();
+        if (intent != null) {
+            final String label = intent.getStringExtra("params_label");
+            if (!TextUtils.isEmpty(label)) {
+                ActionBar actionBar = getSupportActionBar();
+                if (actionBar != null) {
+                    actionBar.setTitle(label);
+                }
+            }
+        }
     }
 
     @Override

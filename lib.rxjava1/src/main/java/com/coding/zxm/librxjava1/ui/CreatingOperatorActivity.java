@@ -1,6 +1,10 @@
 package com.coding.zxm.librxjava1.ui;
 
 
+import android.content.Intent;
+import android.support.v7.app.ActionBar;
+import android.text.TextUtils;
+
 import com.coding.zxm.libcore.ui.BaseActivity;
 import com.coding.zxm.librxjava1.R;
 import com.coding.zxm.libutil.Logger;
@@ -26,7 +30,16 @@ public class CreatingOperatorActivity extends BaseActivity {
 
     @Override
     protected void initParamsAndValues() {
-
+        Intent intent = getIntent();
+        if (intent != null) {
+            final String label = intent.getStringExtra("params_label");
+            if (!TextUtils.isEmpty(label)) {
+                ActionBar actionBar = getSupportActionBar();
+                if (actionBar != null) {
+                    actionBar.setTitle(label);
+                }
+            }
+        }
     }
 
     @Override

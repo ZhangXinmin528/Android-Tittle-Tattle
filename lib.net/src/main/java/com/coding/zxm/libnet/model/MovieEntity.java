@@ -16,7 +16,7 @@ public final class MovieEntity implements Serializable {
     //上映日期
     private String year;
     //导演
-    private List<Staff> staff;
+    private List<Staff> directors;
     //类型
     private String subtype;
     //original_title
@@ -63,14 +63,6 @@ public final class MovieEntity implements Serializable {
 
     public void setYear(String year) {
         this.year = year;
-    }
-
-    public List<Staff> getStaff() {
-        return staff;
-    }
-
-    public void setStaff(List<Staff> staff) {
-        this.staff = staff;
     }
 
     public String getSubtype() {
@@ -121,6 +113,14 @@ public final class MovieEntity implements Serializable {
         this.rating = rating;
     }
 
+    public List<Staff> getDirectors() {
+        return directors;
+    }
+
+    public void setDirectors(List<Staff> directors) {
+        this.directors = directors;
+    }
+
     @Override
     public String toString() {
         return "MovieEntity{" +
@@ -128,7 +128,7 @@ public final class MovieEntity implements Serializable {
                 ", alt='" + alt + '\'' +
                 ", images=" + images +
                 ", year='" + year + '\'' +
-                ", staff=" + staff +
+                ", directors=" + directors +
                 ", subtype='" + subtype + '\'' +
                 ", original_title='" + original_title + '\'' +
                 ", casts=" + casts +
