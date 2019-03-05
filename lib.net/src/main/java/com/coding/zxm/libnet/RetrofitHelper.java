@@ -22,9 +22,8 @@ public final class RetrofitHelper {
     public static class Builder{
         private Retrofit retrofit;
         private OkHttpClient okHttpClient;
-
-
     }
+
     public static class RetrofitBuildeController{
 
     }

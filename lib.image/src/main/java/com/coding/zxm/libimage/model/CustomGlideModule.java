@@ -8,5 +8,10 @@ import com.bumptech.glide.module.AppGlideModule;
  * Copyright (c) 2018 . All rights reserved.
  */
 @GlideModule
-public class GlideModel extends AppGlideModule {
+public class CustomGlideModule extends AppGlideModule {
+    @Override
+    public boolean isManifestParsingEnabled() {
+        //禁用清单解析，节省时间
+        return false;
+    }
 }
