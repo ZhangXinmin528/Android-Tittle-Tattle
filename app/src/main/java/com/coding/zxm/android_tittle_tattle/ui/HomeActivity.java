@@ -31,11 +31,11 @@ public class HomeActivity extends BaseActivity implements OnItemClickListener {
     @Override
     protected void initParamsAndValues() {
         mDataList = new ArrayList<>();
-
         final String[] sorts = mResources.getStringArray(R.array.home_sort_arrays);
         mDataList.addAll(Arrays.asList(sorts));
 
         mAdapter = new SortAdapter(mDataList);
+
     }
 
     @Override
