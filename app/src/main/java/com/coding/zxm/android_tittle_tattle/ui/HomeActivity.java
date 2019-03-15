@@ -46,6 +46,7 @@ public class HomeActivity extends BaseActivity implements OnItemClickListener {
         mRecyclerView.setAdapter(mAdapter);
 
         mAdapter.setOnItmeClickListener(this);
+        
     }
 
     @Override

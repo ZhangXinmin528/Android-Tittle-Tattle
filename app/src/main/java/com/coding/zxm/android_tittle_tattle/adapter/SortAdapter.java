@@ -34,6 +34,7 @@ public class SortAdapter extends RecyclerView.Adapter<SortViewHolder> {
         return new SortViewHolder(view);
     }
 
+
     @Override
     public void onBindViewHolder(@NonNull SortViewHolder holder, int position) {
         holder.itemView.setOnClickListener(new View.OnClickListener() {
