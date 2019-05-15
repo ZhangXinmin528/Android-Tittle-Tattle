@@ -8,13 +8,13 @@
     <application
         android:name=".app.BaseApplication"
         android:allowBackup="true"
+        android:fullBackupContent="@xml/backup_descriptor"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
-        tools:ignore="GoogleAppIndexingWarning"
-        android:fullBackupContent="@xml/backup_descriptor">
+        tools:ignore="GoogleAppIndexingWarning">
         <activity
             android:name=".ui.HomeActivity"
             android:screenOrientation="portrait">
@@ -63,6 +63,11 @@
             android:launchMode="singleTask"
             android:screenOrientation="portrait" />
 
+        <!--对象池-->
+        <activity
+            android:name="com.taikang.ui.ObjectPoolActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
 
     </application>
 

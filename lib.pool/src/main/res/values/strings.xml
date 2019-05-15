@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">lib_pool</string>
+    <string name="all_no_pool">未使用对象池</string>
+    <string name="all_use_pool">使用对象池</string>
+</resources>

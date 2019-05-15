@@ -20,6 +20,7 @@ import com.coding.zxm.librxjava1.ui.FilteringOperatorActivity;
 import com.coding.zxm.librxjava1.ui.RxJavaABCActivity;
 import com.coding.zxm.librxjava1.ui.TransferingOperatorActivity;
 import com.coding.zxm.librxjava1.ui.UtilityOperatorActivity;
+import com.taikang.ui.ObjectPoolActivity;
 
 /**
  * Created by ZhangXinmin on 2019/1/30.
@@ -61,6 +62,10 @@ public final class SortDispatcher {
                     intent.putExtra(DisplayUtil.PARAMS_LABEL, label);
                     context.startActivity(intent);
                     break;
+                case 4:
+                    intent.setClass(context, ObjectPoolActivity.class);
+                    intent.putExtra(DisplayUtil.PARAMS_LABEL, label);
+                    context.startActivity(intent);
             }
         }
     }

@@ -1,1 +1,1 @@
-include ':app', ':lib.core', ':lib.rxjava1', ':lib.net', ':lib.image', ':lib.util', ':lib.web'
+include ':app', ':lib.core', ':lib.rxjava1', ':lib.net', ':lib.image', ':lib.util', ':lib.web', ':lib.pool'

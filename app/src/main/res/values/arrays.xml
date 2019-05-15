@@ -6,6 +6,7 @@
         <item>数据库相关</item>
         <item>RxJava 1.x</item>
         <item>Retrofit常用网络请求</item>
+        <item>对象池</item>
     </string-array>
 
     <string-array name="thread_sort_arrays">
