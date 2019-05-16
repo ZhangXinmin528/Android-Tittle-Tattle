@@ -14,10 +14,10 @@ public class SynchronizedPool<T> implements Pool<T> {
 
     private final Object poolLock = new Object();
 
-    private LinkedBlockingQueue<T> queue;
     private int maxPoolSize;
-
     private boolean isPoolActive;
+
+    private LinkedBlockingQueue<T> queue;
     private ObjectFactory<T> factory;
 
     public SynchronizedPool(@IntRange(from = 1) int maxPoolSize, @NonNull ObjectFactory<T> factory) {
@@ -49,18 +49,35 @@ public class SynchronizedPool<T> implements Pool<T> {
     @Override
     public boolean release(@NonNull T instance) {
         synchronized (this.poolLock) {
-            if (this.queue.contains(instance)) {
-                throw new IllegalStateException("Already in the pool!");
-            } else {
-                try {
-                    queue.put(instance);
-                    return true;
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                    return false;
+            if (isPoolActive) {
+                if (this.queue.contains(instance)) {
+                    throw new IllegalStateException("Already in the pool!");
+                } else {
+                    try {
+                        queue.put(instance);
+                        return true;
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                        return false;
+                    }
                 }
+            } else {
+                throw new UnsupportedOperationException("Object pool is not active!");
             }
         }
+    }
+
+    @Override
+    public void shutDown() {
+        if (factory != null) {
+            factory = null;
+        }
+        if (queue != null && !queue.isEmpty()) {
+            queue.clear();
+            queue = null;
+        }
+        isPoolActive = false;
+
     }
 
     private void fillUpPool() {
@@ -70,6 +87,14 @@ public class SynchronizedPool<T> implements Pool<T> {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
+        }
+    }
+
+    public int getElementSize() {
+        if (queue != null) {
+            return queue.size();
+        } else {
+            return 0;
         }
     }
 }

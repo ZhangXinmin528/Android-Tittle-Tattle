@@ -24,4 +24,9 @@ public interface Pool<T> {
      * @return The state of operation.
      */
     boolean release(@NonNull T t) throws InterruptedException;
+
+    /**
+     * ShutDown the pool and release the resources.
+     */
+    void shutDown();
 }

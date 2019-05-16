@@ -26,7 +26,7 @@ public class Student implements Parcelable {
     private int id;
     private String name;
 
-    private Student() {
+    public Student() {
 
     }
 
