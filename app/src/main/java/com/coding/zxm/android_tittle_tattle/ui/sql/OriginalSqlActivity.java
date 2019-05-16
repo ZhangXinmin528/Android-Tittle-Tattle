@@ -18,7 +18,7 @@ import com.coding.zxm.android_tittle_tattle.sql.local.Constats;
 import com.coding.zxm.android_tittle_tattle.sql.local.OriginalSqlManager;
 import com.coding.zxm.android_tittle_tattle.sql.local.StudentDao;
 import com.coding.zxm.android_tittle_tattle.sql.local.model.Student;
-import com.coding.zxm.android_tittle_tattle.util.DisplayUtil;
+import com.coding.zxm.libutil.DisplayUtil;
 import com.coding.zxm.libcore.listender.OnItemClickListener;
 import com.coding.zxm.libcore.ui.BaseActivity;
 import com.coding.zxm.libutil.Logger;

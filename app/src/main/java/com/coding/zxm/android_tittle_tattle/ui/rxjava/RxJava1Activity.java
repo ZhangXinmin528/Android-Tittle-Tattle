@@ -11,7 +11,7 @@ import android.view.View;
 
 import com.coding.zxm.android_tittle_tattle.R;
 import com.coding.zxm.android_tittle_tattle.adapter.SortAdapter;
-import com.coding.zxm.android_tittle_tattle.util.DisplayUtil;
+import com.coding.zxm.libutil.DisplayUtil;
 import com.coding.zxm.android_tittle_tattle.util.SortDispatcher;
 import com.coding.zxm.libcore.listender.OnItemClickListener;
 import com.coding.zxm.libcore.ui.BaseActivity;

@@ -6,7 +6,7 @@ import android.text.TextUtils;
 import android.view.View;
 
 import com.coding.zxm.android_tittle_tattle.R;
-import com.coding.zxm.android_tittle_tattle.util.DisplayUtil;
+import com.coding.zxm.libutil.DisplayUtil;
 import com.coding.zxm.libcore.ui.BaseActivity;
 import com.coding.zxm.libutil.Logger;
 

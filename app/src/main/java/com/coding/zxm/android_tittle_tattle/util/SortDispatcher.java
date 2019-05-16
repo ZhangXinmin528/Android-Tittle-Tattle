@@ -12,6 +12,8 @@ import com.coding.zxm.android_tittle_tattle.ui.thread.CountDownLatchActivity;
 import com.coding.zxm.android_tittle_tattle.ui.thread.IntentServiceActivity;
 import com.coding.zxm.android_tittle_tattle.ui.thread.ThreadActivity;
 import com.coding.zxm.android_tittle_tattle.ui.thread.ThreadPoolActivity;
+import com.coding.zxm.lib_polling.ui.PollingActivity;
+import com.coding.zxm.lib_pool.ui.ObjectPoolActivity;
 import com.coding.zxm.libnet.ui.MovieActivity;
 import com.coding.zxm.librxjava1.ui.CombiningOperatorActivity;
 import com.coding.zxm.librxjava1.ui.CreatingOperatorActivity;
@@ -20,7 +22,7 @@ import com.coding.zxm.librxjava1.ui.FilteringOperatorActivity;
 import com.coding.zxm.librxjava1.ui.RxJavaABCActivity;
 import com.coding.zxm.librxjava1.ui.TransferingOperatorActivity;
 import com.coding.zxm.librxjava1.ui.UtilityOperatorActivity;
-import com.taikang.ui.ObjectPoolActivity;
+import com.coding.zxm.libutil.DisplayUtil;
 
 /**
  * Created by ZhangXinmin on 2019/1/30.
@@ -66,6 +68,12 @@ public final class SortDispatcher {
                     intent.setClass(context, ObjectPoolActivity.class);
                     intent.putExtra(DisplayUtil.PARAMS_LABEL, label);
                     context.startActivity(intent);
+                    break;
+                case 5:
+                    intent.setClass(context, PollingActivity.class);
+                    intent.putExtra(DisplayUtil.PARAMS_LABEL, label);
+                    context.startActivity(intent);
+                    break;
             }
         }
     }

@@ -13,7 +13,7 @@ import android.widget.TextView;
 
 import com.coding.zxm.android_tittle_tattle.R;
 import com.coding.zxm.android_tittle_tattle.service.ProgressService;
-import com.coding.zxm.android_tittle_tattle.util.DisplayUtil;
+import com.coding.zxm.libutil.DisplayUtil;
 import com.coding.zxm.libcore.ui.BaseActivity;
 
 import static com.coding.zxm.android_tittle_tattle.service.ProgressService.ACTION_PROGRESS;

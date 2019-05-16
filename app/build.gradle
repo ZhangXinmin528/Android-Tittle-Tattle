@@ -58,6 +58,7 @@ dependencies {
     implementation project(':lib.core')
     implementation project(':lib.util')
     implementation project(':lib.net')
-    implementation project(path: ':lib.pool')
+    implementation project(path: ':lib.pools')
+    implementation project(path: ':lib.polling')
 
 }

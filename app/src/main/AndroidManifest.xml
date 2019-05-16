@@ -65,7 +65,7 @@
 
         <!--对象池-->
         <activity
-            android:name="com.taikang.ui.ObjectPoolActivity"
+            android:name="com.coding.zxm.lib_pool.ui.ObjectPoolActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait" />
 

@@ -1,0 +1,12 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.coding.zxm.lib_polling">
+
+    <application android:allowBackup="true">
+        <activity
+            android:name=".ui.PollingActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+
+        <service android:name=".PollingService" />
+    </application>
+</manifest>
