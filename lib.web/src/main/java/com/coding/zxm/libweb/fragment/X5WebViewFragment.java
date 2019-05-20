@@ -13,9 +13,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.coding.zxm.libutil.Logger;
 import com.coding.zxm.libweb.x5.X5WebView;
 import com.tencent.smtt.sdk.WebView;
+import com.zxm.utils.core.log.MLogger;
+
+import java.util.logging.Logger;
 
 
 /**
@@ -163,6 +165,7 @@ public class X5WebViewFragment extends Fragment implements X5WebView.WebViewList
     @Override
     public void onPageFinish(WebView view) {
         mIsPageFinished = true;
-        Logger.e(TAG, "onPageFinish");
+        MLogger.e(TAG, "onPageFinish");
+
     }
 }

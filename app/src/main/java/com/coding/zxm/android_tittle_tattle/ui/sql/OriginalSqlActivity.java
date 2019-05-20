@@ -21,7 +21,7 @@ import com.coding.zxm.android_tittle_tattle.sql.local.model.Student;
 import com.coding.zxm.libutil.DisplayUtil;
 import com.coding.zxm.libcore.listender.OnItemClickListener;
 import com.coding.zxm.libcore.ui.BaseActivity;
-import com.coding.zxm.libutil.Logger;
+import com.zxm.utils.core.log.MLogger;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -130,7 +130,7 @@ public class OriginalSqlActivity extends BaseActivity implements View.OnClickLis
         student.setProvince(province);
 
         final int rowId = mStudentDao.update(student);
-        Logger.d(TAG, "update item row id = " + rowId);
+        MLogger.d(TAG, "update item row id = " + rowId);
     }
 
     /**
@@ -139,7 +139,7 @@ public class OriginalSqlActivity extends BaseActivity implements View.OnClickLis
     private void deleteElement() {
         final String name = mNameEt.getEditableText().toString().trim();
         final long rowId = mStudentDao.deleteWhereClause(Constats.COLUMN_NAME, new String[]{name});
-        Logger.d(TAG, "delete item where " + Constats.COLUMN_NAME + " = " + name + ", row id = " + rowId);
+        MLogger.d(TAG, "delete item where " + Constats.COLUMN_NAME + " = " + name + ", row id = " + rowId);
     }
 
     /**
@@ -161,7 +161,7 @@ public class OriginalSqlActivity extends BaseActivity implements View.OnClickLis
             mNameEt.getEditableText().clear();
             mProvinceEt.getEditableText().clear();
         }
-        Logger.d(TAG, "insertOrThrow item row id = " + rowId);
+        MLogger.d(TAG, "insertOrThrow item row id = " + rowId);
     }
 
     /**

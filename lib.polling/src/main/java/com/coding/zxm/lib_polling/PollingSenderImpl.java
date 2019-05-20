@@ -9,15 +9,23 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Build;
 import android.text.TextUtils;
-import android.util.Log;
 
-import com.coding.zxm.libutil.Logger;
+import com.zxm.utils.core.TimeUtil;
+import com.zxm.utils.core.log.MLogger;
+
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Locale;
+
 
 /**
  * Created by ZhangXinmin on 2019/5/16.
  * Copyright (c) 2018 . All rights reserved.
  */
 public class PollingSenderImpl implements PollingSender {
+    public static final DateFormat DATE_FORMAT =
+            new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS", Locale.CHINA);
+
     private static final String TAG = "PollingSenderImpl";
 
     private PollingService service;
@@ -39,13 +47,13 @@ public class PollingSenderImpl implements PollingSender {
     private void init() {
         receiver = new PollingReceiver();
         action = getClass().getName();
-        keepAlive = 2000;
+        keepAlive = 20000;
         isStarted = false;
     }
 
     @Override
     public void start() {
-        Logger.i(TAG, "start()~");
+        MLogger.i(TAG, "start()~");
         service.registerReceiver(receiver, new IntentFilter(action));
 
         pendingIntent = PendingIntent.getBroadcast(service, 0, new Intent(
@@ -57,7 +65,7 @@ public class PollingSenderImpl implements PollingSender {
 
     @Override
     public void stop() {
-        Logger.i(TAG, "stop()~");
+        MLogger.i(TAG, "stop()~");
 
         if (isStarted) {
             if (pendingIntent != null) {
@@ -80,7 +88,7 @@ public class PollingSenderImpl implements PollingSender {
     public void schedule(long delayMillseconds) {
         final long nextAlarmMillseconds = System.currentTimeMillis() + delayMillseconds;
 
-        Logger.i(TAG, "schedule()~");
+        MLogger.i(TAG, "schedule next alerm at : " + TimeUtil.getNowString());
 
         AlarmManager alarmManager = (AlarmManager) service
                 .getSystemService(Service.ALARM_SERVICE);
@@ -89,13 +97,18 @@ public class PollingSenderImpl implements PollingSender {
             if (Build.VERSION.SDK_INT >= 23) {
                 // In SDK 23 and above, dosing will prevent setExact, setExactAndAllowWhileIdle will force
                 // the device to run this task whilst dosing.
+                MLogger.i(TAG, "Alarm scheule using setExactAndAllowWhileIdle, next : " + delayMillseconds);
                 alarmManager.setExactAndAllowWhileIdle(AlarmManager.RTC_WAKEUP, nextAlarmMillseconds,
                         pendingIntent);
             } else if (Build.VERSION.SDK_INT >= 19) {
-                alarmManager.setExact(AlarmManager.RTC_WAKEUP, nextAlarmMillseconds,
+                MLogger.i(TAG, "Alarm scheule using setExact, next : "
+                        + nextAlarmMillseconds);
+                alarmManager.setExact(AlarmManager.RTC_WAKEUP, delayMillseconds,
                         pendingIntent);
             } else {
-                alarmManager.set(AlarmManager.RTC_WAKEUP, nextAlarmMillseconds,
+                MLogger.i(TAG, "Alarm scheule using set, next : "
+                        + nextAlarmMillseconds);
+                alarmManager.set(AlarmManager.RTC_WAKEUP, delayMillseconds,
                         pendingIntent);
             }
         }
@@ -109,7 +122,8 @@ public class PollingSenderImpl implements PollingSender {
             if (intent != null) {
                 final String action = intent.getAction();
                 if (!TextUtils.isEmpty(action)) {
-                    Logger.i(TAG, "onReceive()~");
+                    MLogger.i(TAG, "Sending Ping at : " + TimeUtil.getNowString());
+                    schedule(keepAlive);
                 }
             }
         }

@@ -5,7 +5,8 @@ import android.content.Intent;
 import android.os.IBinder;
 import android.support.annotation.Nullable;
 
-import com.coding.zxm.libutil.Logger;
+import com.zxm.utils.core.log.MLogger;
+
 
 /**
  * Created by ZhangXinmin on 2019/5/16.
@@ -20,13 +21,13 @@ public class PollingService extends Service {
     @Override
     public void onCreate() {
         super.onCreate();
-        Logger.i(TAG,"onCreate()~");
+        MLogger.i(TAG, "onCreate()~");
         pollingSender = new PollingSenderImpl(this);
     }
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
-        Logger.i(TAG,"onStartCommand()~");
+        MLogger.i(TAG, "onStartCommand()~");
         pollingSender.start();
         return super.onStartCommand(intent, flags, startId);
     }
@@ -34,13 +35,14 @@ public class PollingService extends Service {
     @Nullable
     @Override
     public IBinder onBind(Intent intent) {
-        Logger.i(TAG,"onBind()~");
+        MLogger.i(TAG, "onBind()~");
         return null;
     }
 
     @Override
     public void onDestroy() {
-        Logger.i(TAG,"onDestroy()~");
+        pollingSender.stop();
+        MLogger.i(TAG, "onDestroy()~");
         super.onDestroy();
     }
 }

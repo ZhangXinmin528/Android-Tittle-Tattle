@@ -17,8 +17,8 @@ import com.coding.zxm.libnet.adapter.MovieAdapter;
 import com.coding.zxm.libnet.model.DoubanMovie;
 import com.coding.zxm.libnet.model.MovieEntity;
 import com.coding.zxm.libnet.service.MoviceService;
-import com.coding.zxm.libutil.Logger;
 import com.coding.zxm.libweb.fragment.X5WebViewFragment;
+import com.zxm.utils.core.log.MLogger;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -114,7 +114,7 @@ public class MovieActivity extends BaseActivity implements OnItemClickListener {
 
             @Override
             public void onFailure(Call<DoubanMovie> call, Throwable t) {
-                Logger.e(TAG, "onFailure" + t.getMessage());
+                MLogger.e(TAG, "onFailure" + t.getMessage());
             }
         });
     }
@@ -143,7 +143,7 @@ public class MovieActivity extends BaseActivity implements OnItemClickListener {
                 }, new Consumer<Throwable>() {
                     @Override
                     public void accept(Throwable throwable) throws Exception {
-                        Logger.e(TAG, "onFailure" + throwable.getMessage());
+                        MLogger.e(TAG, "onFailure" + throwable.getMessage());
                     }
                 });
     }

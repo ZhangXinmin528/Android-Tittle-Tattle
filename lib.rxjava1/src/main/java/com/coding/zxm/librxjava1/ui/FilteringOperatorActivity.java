@@ -6,7 +6,7 @@ import android.text.TextUtils;
 
 import com.coding.zxm.libcore.ui.BaseActivity;
 import com.coding.zxm.librxjava1.R;
-import com.coding.zxm.libutil.Logger;
+import com.zxm.utils.core.log.MLogger;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -100,7 +100,7 @@ public class FilteringOperatorActivity extends BaseActivity {
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
-                    Logger.i(TAG,"发送..onNext:" + i);
+                    MLogger.i(TAG,"发送..onNext:" + i);
                     subscriber.onNext(i);
                 }
                 subscriber.onCompleted();
@@ -112,17 +112,17 @@ public class FilteringOperatorActivity extends BaseActivity {
                 .subscribe(new Subscriber<Integer>() {
                     @Override
                     public void onCompleted() {
-                        Logger.i(TAG,"operatorDebounce..onCompleted");
+                        MLogger.i(TAG,"operatorDebounce..onCompleted");
                     }
 
                     @Override
                     public void onError(Throwable e) {
-                        Logger.i(TAG,"operatorDebounce..onError");
+                        MLogger.i(TAG,"operatorDebounce..onError");
                     }
 
                     @Override
                     public void onNext(Integer integer) {
-                        Logger.i(TAG,"operatorDebounce..onNext:" + integer);
+                        MLogger.i(TAG,"operatorDebounce..onNext:" + integer);
                     }
                 });
     }
@@ -137,7 +137,7 @@ public class FilteringOperatorActivity extends BaseActivity {
                 .subscribe(new Action1<Integer>() {
                     @Override
                     public void call(Integer integer) {
-                        Logger.i(TAG,"operatorDistinct..call:" + integer);
+                        MLogger.i(TAG,"operatorDistinct..call:" + integer);
                     }
                 });
     }
@@ -151,7 +151,7 @@ public class FilteringOperatorActivity extends BaseActivity {
                 .subscribe(new Action1<Integer>() {
                     @Override
                     public void call(Integer integer) {
-                        Logger.i(TAG,"elementAt..call:" + integer);
+                        MLogger.i(TAG,"elementAt..call:" + integer);
                     }
                 });
 
@@ -160,7 +160,7 @@ public class FilteringOperatorActivity extends BaseActivity {
                 .subscribe(new Action1<Integer>() {
                     @Override
                     public void call(Integer integer) {
-                        Logger.i(TAG,"elementAtOrDefault..call:" + integer);
+                        MLogger.i(TAG,"elementAtOrDefault..call:" + integer);
                     }
                 });
     }
@@ -174,7 +174,7 @@ public class FilteringOperatorActivity extends BaseActivity {
                 .subscribe(new Action1<String>() {
                     @Override
                     public void call(String s) {
-                        Logger.i(TAG,"operatorFilter..ofType..call:" + s);
+                        MLogger.i(TAG,"operatorFilter..ofType..call:" + s);
                     }
                 });
 
@@ -191,7 +191,7 @@ public class FilteringOperatorActivity extends BaseActivity {
                 .subscribe(new Action1<Integer>() {
                     @Override
                     public void call(Integer integer) {
-                        Logger.i(TAG,"operatorFilter..filter..call:" + integer);
+                        MLogger.i(TAG,"operatorFilter..filter..call:" + integer);
                     }
                 });
     }
@@ -205,7 +205,7 @@ public class FilteringOperatorActivity extends BaseActivity {
                 .subscribe(new Action1<Integer>() {
                     @Override
                     public void call(Integer integer) {
-                        Logger.i(TAG,"operatorFirst..first1..call:" + integer);
+                        MLogger.i(TAG,"operatorFirst..first1..call:" + integer);
                     }
                 });
 
@@ -219,7 +219,7 @@ public class FilteringOperatorActivity extends BaseActivity {
                 .subscribe(new Action1<Integer>() {
                     @Override
                     public void call(Integer integer) {
-                        Logger.i(TAG,"operatorFirst..first2..call:" + integer);
+                        MLogger.i(TAG,"operatorFirst..first2..call:" + integer);
                     }
                 });
 
@@ -233,7 +233,7 @@ public class FilteringOperatorActivity extends BaseActivity {
                 .subscribe(new Action1<Integer>() {
                     @Override
                     public void call(Integer integer) {
-                        Logger.i(TAG,"operatorFirst..first3..call:" + integer);
+                        MLogger.i(TAG,"operatorFirst..first3..call:" + integer);
                     }
                 });
     }
@@ -247,7 +247,7 @@ public class FilteringOperatorActivity extends BaseActivity {
                 .subscribe(new Action1<Integer>() {
                     @Override
                     public void call(Integer integer) {
-                        Logger.i(TAG,"operatorLast..last1..call:" + integer);
+                        MLogger.i(TAG,"operatorLast..last1..call:" + integer);
                     }
                 });
 
@@ -261,7 +261,7 @@ public class FilteringOperatorActivity extends BaseActivity {
                 .subscribe(new Action1<Integer>() {
                     @Override
                     public void call(Integer integer) {
-                        Logger.i(TAG,"operatorLast..last2..call:" + integer);
+                        MLogger.i(TAG,"operatorLast..last2..call:" + integer);
                     }
                 });
 
@@ -275,7 +275,7 @@ public class FilteringOperatorActivity extends BaseActivity {
                 .subscribe(new Action1<Integer>() {
                     @Override
                     public void call(Integer integer) {
-                        Logger.i(TAG,"operatorLast..last3..call:" + integer);
+                        MLogger.i(TAG,"operatorLast..last3..call:" + integer);
                     }
                 });
     }
@@ -289,17 +289,17 @@ public class FilteringOperatorActivity extends BaseActivity {
                 .subscribe(new Subscriber<Integer>() {
                     @Override
                     public void onCompleted() {
-                        Logger.i(TAG,"operatorIgnoreElements..onCompleted");
+                        MLogger.i(TAG,"operatorIgnoreElements..onCompleted");
                     }
 
                     @Override
                     public void onError(Throwable e) {
-                        Logger.i(TAG,"operatorIgnoreElements..onError");
+                        MLogger.i(TAG,"operatorIgnoreElements..onError");
                     }
 
                     @Override
                     public void onNext(Integer integer) {
-                        Logger.i(TAG,"operatorIgnoreElements..onNext:" + integer);
+                        MLogger.i(TAG,"operatorIgnoreElements..onNext:" + integer);
                     }
                 });
 
@@ -329,7 +329,7 @@ public class FilteringOperatorActivity extends BaseActivity {
                 .subscribe(new Action1<Integer>() {
                     @Override
                     public void call(Integer integer) {
-                        Logger.i(TAG,"operatorSample..sample..call:" + integer);
+                        MLogger.i(TAG,"operatorSample..sample..call:" + integer);
                     }
                 });
 
@@ -352,7 +352,7 @@ public class FilteringOperatorActivity extends BaseActivity {
                 .subscribe(new Action1<Integer>() {
                     @Override
                     public void call(Integer integer) {
-                        Logger.i(TAG,"operatorSample.throttleFirst..call:" + integer);
+                        MLogger.i(TAG,"operatorSample.throttleFirst..call:" + integer);
                     }
                 });
     }
@@ -368,7 +368,7 @@ public class FilteringOperatorActivity extends BaseActivity {
                 .subscribe(new Action1<Integer>() {
                     @Override
                     public void call(Integer integer) {
-                        Logger.i(TAG,"operatorSkip..skip(int)..call:" + integer);
+                        MLogger.i(TAG,"operatorSkip..skip(int)..call:" + integer);
                     }
                 });
 
@@ -379,17 +379,17 @@ public class FilteringOperatorActivity extends BaseActivity {
                 .subscribe(new Subscriber<Long>() {
                     @Override
                     public void onCompleted() {
-                        Logger.i(TAG,"operatorSkip..skip(long,TimeUnit)..onCompleted");
+                        MLogger.i(TAG,"operatorSkip..skip(long,TimeUnit)..onCompleted");
                     }
 
                     @Override
                     public void onError(Throwable e) {
-                        Logger.i(TAG,"operatorSkip..skip(long,TimeUnit)..onError:" + e.getMessage());
+                        MLogger.i(TAG,"operatorSkip..skip(long,TimeUnit)..onError:" + e.getMessage());
                     }
 
                     @Override
                     public void onNext(Long aLong) {
-                        Logger.i(TAG,"operatorSkip..skip(long,TimeUnit)..onNext:" + aLong);
+                        MLogger.i(TAG,"operatorSkip..skip(long,TimeUnit)..onNext:" + aLong);
                     }
                 });
 
@@ -398,7 +398,7 @@ public class FilteringOperatorActivity extends BaseActivity {
                 .subscribe(new Action1<Integer>() {
                     @Override
                     public void call(Integer integer) {
-                        Logger.i(TAG,"operatorSkip..skipLast(int)..call:" + integer);
+                        MLogger.i(TAG,"operatorSkip..skipLast(int)..call:" + integer);
                     }
                 });
     }
@@ -413,7 +413,7 @@ public class FilteringOperatorActivity extends BaseActivity {
                 .subscribe(new Action1<Integer>() {
                     @Override
                     public void call(Integer integer) {
-                        Logger.i(TAG,"operatorTake..take(int)..call:" + integer);
+                        MLogger.i(TAG,"operatorTake..take(int)..call:" + integer);
                     }
                 });
 
@@ -423,7 +423,7 @@ public class FilteringOperatorActivity extends BaseActivity {
                 .subscribe(new Action1<Integer>() {
                     @Override
                     public void call(Integer integer) {
-                        Logger.i(TAG,"operatorTake..takeLast(int)..call:" + integer);
+                        MLogger.i(TAG,"operatorTake..takeLast(int)..call:" + integer);
                     }
                 });
 
@@ -433,7 +433,7 @@ public class FilteringOperatorActivity extends BaseActivity {
                 .subscribe(new Action1<List<Integer>>() {
                     @Override
                     public void call(List<Integer> integers) {
-                        Logger.i(TAG,"operatorTake..takeLastBuffer(int)..call:" + integers);
+                        MLogger.i(TAG,"operatorTake..takeLastBuffer(int)..call:" + integers);
                     }
                 });
     }

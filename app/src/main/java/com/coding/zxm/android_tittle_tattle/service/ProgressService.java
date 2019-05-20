@@ -5,7 +5,7 @@ import android.content.Intent;
 import android.support.annotation.IntRange;
 import android.support.annotation.Nullable;
 
-import com.coding.zxm.libutil.Logger;
+import com.zxm.utils.core.log.MLogger;
 
 
 /**
@@ -31,12 +31,12 @@ public final class ProgressService extends IntentService {
     @Override
     public void onCreate() {
         super.onCreate();
-        Logger.d(TAG, "ProgressService..onCreate()");
+        MLogger.d(TAG, "ProgressService..onCreate()");
     }
 
     @Override
     protected void onHandleIntent(@Nullable Intent intent) {
-        Logger.d(TAG, "ProgressService..onHandleIntent()");
+        MLogger.d(TAG, "ProgressService..onHandleIntent()");
         int progress = 0;
         while (progress < 100) {
             progress += 5;
@@ -53,13 +53,13 @@ public final class ProgressService extends IntentService {
 
     @Override
     public int onStartCommand(@Nullable Intent intent, int flags, int startId) {
-        Logger.d(TAG, "ProgressService..onStartCommand()");
+        MLogger.d(TAG, "ProgressService..onStartCommand()");
         return super.onStartCommand(intent, flags, startId);
     }
 
     @Override
     public void onDestroy() {
-        Logger.d(TAG, "ProgressService..onDestroy()");
+        MLogger.d(TAG, "ProgressService..onDestroy()");
         super.onDestroy();
     }
 

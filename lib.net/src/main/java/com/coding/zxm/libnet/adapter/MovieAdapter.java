@@ -2,7 +2,6 @@ package com.coding.zxm.libnet.adapter;
 
 import android.content.Context;
 import android.graphics.Color;
-import android.graphics.drawable.BitmapDrawable;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.text.SpannableStringBuilder;
@@ -14,16 +13,14 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.bumptech.glide.load.resource.bitmap.BitmapTransitionOptions;
-import com.bumptech.glide.request.RequestOptions;
 import com.coding.zxm.libcore.listender.OnItemClickListener;
 import com.coding.zxm.libimage.model.GlideApp;
 import com.coding.zxm.libnet.R;
 import com.coding.zxm.libnet.adapter.vh.MovieViewHolder;
 import com.coding.zxm.libnet.model.MovieEntity;
 import com.coding.zxm.libnet.model.Staff;
-import com.coding.zxm.libutil.ClickableMovementMethod;
-import com.coding.zxm.libutil.SpanUtils;
+import com.zxm.utils.core.text.ClickableMovementMethod;
+import com.zxm.utils.core.text.SpanUtils;
 
 import java.util.List;
 

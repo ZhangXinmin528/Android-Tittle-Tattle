@@ -5,7 +5,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.support.annotation.Nullable;
 
-import com.coding.zxm.libutil.Logger;
+import com.zxm.utils.core.log.MLogger;
 
 /**
  * Created by ZhangXinmin on 2019/2/14.
@@ -29,11 +29,11 @@ public class OriginalSqlHelper extends SQLiteOpenHelper {
                 ")";
 
         db.execSQL(sql);
-        Logger.d(TAG, "SqLiteDatabase onCreate!");
+        MLogger.d(TAG, "SqLiteDatabase onCreate!");
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        Logger.d(TAG, "SqLiteDatabase onUpgrade,newVersion : !" + newVersion);
+        MLogger.d(TAG, "SqLiteDatabase onUpgrade,newVersion : !" + newVersion);
     }
 }

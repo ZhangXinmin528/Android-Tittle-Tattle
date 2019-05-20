@@ -8,7 +8,7 @@ import android.view.View;
 import com.coding.zxm.android_tittle_tattle.R;
 import com.coding.zxm.libutil.DisplayUtil;
 import com.coding.zxm.libcore.ui.BaseActivity;
-import com.coding.zxm.libutil.Logger;
+import com.zxm.utils.core.log.MLogger;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -87,7 +87,7 @@ public class ThreadPoolActivity extends BaseActivity implements View.OnClickList
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
-                    Logger.e(TAG, "ScheduledPool..index : " + tempIndex + "..current thread : " + Thread.currentThread().getName());
+                    MLogger.e(TAG, "ScheduledPool..index : " + tempIndex + "..current thread : " + Thread.currentThread().getName());
                 }
             });
         }
@@ -102,7 +102,7 @@ public class ThreadPoolActivity extends BaseActivity implements View.OnClickList
             mSingleExecutor.execute(new Runnable() {
                 @Override
                 public void run() {
-                    Logger.e(TAG, "SingleThreadExector..index : " + tempIndex + "..current thread : " + Thread.currentThread().getName());
+                    MLogger.e(TAG, "SingleThreadExector..index : " + tempIndex + "..current thread : " + Thread.currentThread().getName());
                 }
             });
         }
@@ -117,7 +117,7 @@ public class ThreadPoolActivity extends BaseActivity implements View.OnClickList
             mCachedPool.execute(new Runnable() {
                 @Override
                 public void run() {
-                    Logger.e(TAG, "CachedThreadPool..index : " + tempIndex + "..current thread : " + Thread.currentThread().getName());
+                    MLogger.e(TAG, "CachedThreadPool..index : " + tempIndex + "..current thread : " + Thread.currentThread().getName());
                 }
             });
         }
@@ -137,7 +137,7 @@ public class ThreadPoolActivity extends BaseActivity implements View.OnClickList
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
-                    Logger.e(TAG, "FixedThreadPool..index : " + tempIndex + "..current thread : " + Thread.currentThread().getName());
+                    MLogger.e(TAG, "FixedThreadPool..index : " + tempIndex + "..current thread : " + Thread.currentThread().getName());
                 }
             });
         }

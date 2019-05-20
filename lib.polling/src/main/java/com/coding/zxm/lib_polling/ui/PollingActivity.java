@@ -41,6 +41,7 @@ public class PollingActivity extends BaseActivity implements View.OnClickListene
     @Override
     protected void initViews() {
         findViewById(R.id.btn_start).setOnClickListener(this);
+        findViewById(R.id.btn_stop).setOnClickListener(this);
     }
 
     @Override
@@ -48,7 +49,7 @@ public class PollingActivity extends BaseActivity implements View.OnClickListene
         final int viewId = v.getId();
         if (viewId == R.id.btn_start) {
             startService(pollingIntent);
-        } else {
+        } else if (viewId == R.id.btn_stop) {
             stopService(pollingIntent);
         }
     }
