@@ -88,7 +88,7 @@ public class PollingSenderImpl implements PollingSender {
     public void schedule(long delayMillseconds) {
         final long nextAlarmMillseconds = System.currentTimeMillis() + delayMillseconds;
 
-        MLogger.i(TAG, "schedule next alerm at : " + TimeUtil.getNowString());
+        MLogger.i(TAG, "schedule next alerm at : " + TimeUtil.getNowString(DATE_FORMAT));
 
         AlarmManager alarmManager = (AlarmManager) service
                 .getSystemService(Service.ALARM_SERVICE);
@@ -122,7 +122,8 @@ public class PollingSenderImpl implements PollingSender {
             if (intent != null) {
                 final String action = intent.getAction();
                 if (!TextUtils.isEmpty(action)) {
-                    MLogger.i(TAG, "Sending Ping at : " + TimeUtil.getNowString());
+                    MLogger.i(TAG, "Sending Ping at : " + TimeUtil.getNowString(DATE_FORMAT));
+                    //进行下次定时任务
                     schedule(keepAlive);
                 }
             }

@@ -17,7 +17,7 @@ import com.coding.zxm.libnet.adapter.MovieAdapter;
 import com.coding.zxm.libnet.model.DoubanMovie;
 import com.coding.zxm.libnet.model.MovieEntity;
 import com.coding.zxm.libnet.service.MoviceService;
-import com.coding.zxm.libweb.fragment.X5WebViewFragment;
+import com.coding.zxm.lib_webview.fragment.X5WebViewFragment;
 import com.zxm.utils.core.log.MLogger;
 
 import java.util.ArrayList;

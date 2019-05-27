@@ -1,4 +1,4 @@
-package com.coding.zxm.libweb.x5;
+package com.coding.zxm.lib_webview.x5;
 
 import android.content.Context;
 import android.content.DialogInterface;
@@ -10,7 +10,7 @@ import android.widget.AbsoluteLayout;
 import android.widget.FrameLayout;
 import android.widget.ProgressBar;
 
-import com.coding.zxm.libweb.R;
+import com.coding.zxm.lib_webview.R;
 import com.tencent.smtt.export.external.interfaces.JsResult;
 import com.tencent.smtt.export.external.interfaces.SslError;
 import com.tencent.smtt.export.external.interfaces.SslErrorHandler;

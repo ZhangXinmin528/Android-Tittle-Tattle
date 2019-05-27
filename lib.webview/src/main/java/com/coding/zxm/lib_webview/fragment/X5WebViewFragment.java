@@ -1,4 +1,4 @@
-package com.coding.zxm.libweb.fragment;
+package com.coding.zxm.lib_webview.fragment;
 
 import android.app.Activity;
 import android.content.Context;
@@ -13,11 +13,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.coding.zxm.libweb.x5.X5WebView;
+import com.coding.zxm.lib_webview.x5.X5WebView;
 import com.tencent.smtt.sdk.WebView;
 import com.zxm.utils.core.log.MLogger;
-
-import java.util.logging.Logger;
 
 
 /**

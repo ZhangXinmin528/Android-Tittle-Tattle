@@ -49,5 +49,5 @@ dependencies {
     implementation "io.reactivex.rxjava2:rxandroid:$rootProject.rxandroid2Version"
     //adapter-rxjava2
     implementation "com.squareup.retrofit2:adapter-rxjava2:$rootProject.retrofitVersion"
-    implementation project(':lib.web')
+    implementation project(':lib.webview')
 }
