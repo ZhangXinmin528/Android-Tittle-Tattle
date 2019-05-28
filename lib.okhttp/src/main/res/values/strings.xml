@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">lib_okhttp</string>
+    <string name="all_get">get</string>
+    <string name="all_post">post</string>
+</resources>
