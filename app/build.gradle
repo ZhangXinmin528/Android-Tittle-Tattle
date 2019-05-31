@@ -60,5 +60,6 @@ dependencies {
     implementation project(':lib.net')
     implementation project(path: ':lib.pools')
     implementation project(path: ':lib.polling')
+    implementation project(path: ':lib.okhttp')
 
 }

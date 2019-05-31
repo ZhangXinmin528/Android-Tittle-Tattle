@@ -12,6 +12,7 @@ import com.coding.zxm.android_tittle_tattle.ui.thread.CountDownLatchActivity;
 import com.coding.zxm.android_tittle_tattle.ui.thread.IntentServiceActivity;
 import com.coding.zxm.android_tittle_tattle.ui.thread.ThreadActivity;
 import com.coding.zxm.android_tittle_tattle.ui.thread.ThreadPoolActivity;
+import com.coding.zxm.lib_okhttp.ui.OkUsageActivity;
 import com.coding.zxm.lib_polling.ui.PollingActivity;
 import com.coding.zxm.lib_pool.ui.ObjectPoolActivity;
 import com.coding.zxm.libnet.ui.MovieActivity;
@@ -71,6 +72,11 @@ public final class SortDispatcher {
                     break;
                 case 5:
                     intent.setClass(context, PollingActivity.class);
+                    intent.putExtra(DisplayUtil.PARAMS_LABEL, label);
+                    context.startActivity(intent);
+                    break;
+                case 6:
+                    intent.setClass(context, OkUsageActivity.class);
                     intent.putExtra(DisplayUtil.PARAMS_LABEL, label);
                     context.startActivity(intent);
                     break;
