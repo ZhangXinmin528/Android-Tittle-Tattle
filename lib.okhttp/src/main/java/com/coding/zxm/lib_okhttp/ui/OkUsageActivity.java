@@ -9,6 +9,8 @@ import com.coding.zxm.lib_okhttp.R;
 import com.coding.zxm.libcore.ui.BaseActivity;
 
 import java.io.IOException;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 import okhttp3.MediaType;
 import okhttp3.OkHttpClient;
@@ -22,6 +24,7 @@ import okhttp3.Response;
  */
 public class OkUsageActivity extends BaseActivity implements View.OnClickListener {
 
+    private ExecutorService mPool;
     private TextView mResultTv;
 
     @Override
@@ -31,7 +34,7 @@ public class OkUsageActivity extends BaseActivity implements View.OnClickListene
 
     @Override
     protected void initParamsAndValues() {
-
+        mPool = Executors.newSingleThreadExecutor();
     }
 
     @Override
@@ -71,17 +74,23 @@ public class OkUsageActivity extends BaseActivity implements View.OnClickListene
     }
 
     private void get() {
-        final String url = "http://gank.io/api/today";
-        try {
-            final String result = doGet(url);
-            mResultTv.setText(result);
-            Log.i(TAG, "result : " + result);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        final String url = "https://publicobject.com/helloworld.txt";
+        mPool.execute(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    final String result = doGet(url);
+                    Log.i(TAG, "result : " + result);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+
     }
 
     private String doGet(String url) throws IOException {
+
         final OkHttpClient client = new OkHttpClient();
         final Request request = new Request.Builder()
                 .url(url)

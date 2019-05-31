@@ -10,6 +10,7 @@ import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
 import android.view.View;
 
+import com.coding.zxm.libcore.Constants;
 import com.coding.zxm.libcore.listender.OnItemClickListener;
 import com.coding.zxm.libcore.ui.BaseActivity;
 import com.coding.zxm.libnet.R;
@@ -38,7 +39,6 @@ import retrofit2.converter.gson.GsonConverterFactory;
  * Copyright (c) 2018 . All rights reserved.
  */
 public class MovieActivity extends BaseActivity implements OnItemClickListener {
-    public static final String BASE_URL = "https://api.douban.com/v2/movie/";
 
     private RecyclerView mRecyclerView;
     private List<MovieEntity> mDataList;
@@ -87,7 +87,7 @@ public class MovieActivity extends BaseActivity implements OnItemClickListener {
     private void requestData() {
 
         final Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(BASE_URL)
+                .baseUrl(Constants.BASE_DOUBAN_URL)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
@@ -123,7 +123,7 @@ public class MovieActivity extends BaseActivity implements OnItemClickListener {
     private void seniorRequestData() {
 
         final Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(BASE_URL)
+                .baseUrl(Constants.BASE_DOUBAN_URL)
                 .addConverterFactory(GsonConverterFactory.create())
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .build();

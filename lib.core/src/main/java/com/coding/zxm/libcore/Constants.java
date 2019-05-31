@@ -7,4 +7,5 @@ import java.net.URL;
  * Copyright (c) 2018 . All rights reserved.
  */
 public final class Constants {
+    public static final String BASE_DOUBAN_URL = "https://douban.uieee.com/v2/movie/";
 }
