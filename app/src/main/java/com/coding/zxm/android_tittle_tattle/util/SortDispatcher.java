@@ -24,6 +24,7 @@ import com.coding.zxm.librxjava1.ui.RxJavaABCActivity;
 import com.coding.zxm.librxjava1.ui.TransferingOperatorActivity;
 import com.coding.zxm.librxjava1.ui.UtilityOperatorActivity;
 import com.coding.zxm.libutil.DisplayUtil;
+import com.coding.zxm.video.VideoNavigationActivity;
 
 /**
  * Created by ZhangXinmin on 2019/1/30.
@@ -77,6 +78,11 @@ public final class SortDispatcher {
                     break;
                 case 6:
                     intent.setClass(context, OkUsageActivity.class);
+                    intent.putExtra(DisplayUtil.PARAMS_LABEL, label);
+                    context.startActivity(intent);
+                    break;
+                case 8:
+                    intent.setClass(context, VideoNavigationActivity.class);
                     intent.putExtra(DisplayUtil.PARAMS_LABEL, label);
                     context.startActivity(intent);
                     break;

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TableLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal">
+
+        <TableRow android:layout_marginTop="20dp">
+
+            <!--正常播放播放器:点播-->
+            <Button
+                android:id="@+id/btn_normal_vod"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="正常播放:点播"
+                tools:ignore="HardcodedText" />
+
+            <!--直播-->
+            <Button
+                android:id="@+id/btn_live"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:text="直播"
+                tools:ignore="HardcodedText" />
+        </TableRow>
+
+        <TableRow android:layout_marginTop="20dp">
+
+            <!--本地播放-->
+            <Button
+                android:id="@+id/btn_local"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="播放本地视频"
+                tools:ignore="HardcodedText" />
+
+            <!--无UI播放器-->
+            <Button
+                android:id="@+id/btn_empty"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:text="无UI播放器"
+                tools:ignore="HardcodedText" />
+        </TableRow>
+
+        <TableRow android:layout_marginTop="20dp">
+
+            <!--列表循环播放-->
+            <Button
+                android:id="@+id/btn_list"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="播放列表视频"
+                tools:ignore="HardcodedText" />
+        </TableRow>
+    </TableLayout>
+
+</LinearLayout>

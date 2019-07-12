@@ -8,8 +8,10 @@ android {
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
-        versionName "1.0"
+        versionName "1.0.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+        multiDexEnabled true
     }
     buildTypes {
         release {
@@ -53,13 +55,25 @@ dependencies {
     // Optional, if you use support library fragments:
     debugImplementation "com.squareup.leakcanary:leakcanary-support-fragment:$rootProject.leakcanaryVersion"
 
+    //分包
+    implementation "com.android.support:multidex:$rootProject.multidexVersion"
+
+
+    //核心
+    implementation project(':lib.core')
+    //工具
+    implementation project(':lib.util')
     //RxJava1
     implementation project(':lib.rxjava1')
-    implementation project(':lib.core')
-    implementation project(':lib.util')
+    //网络
     implementation project(':lib.net')
+    //池技术
     implementation project(path: ':lib.pools')
+    //轮询
     implementation project(path: ':lib.polling')
+    //网络请求
     implementation project(path: ':lib.okhttp')
+    //视频播放
+    implementation project(path: ':lib.video')
 
 }

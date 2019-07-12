@@ -1,0 +1,46 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.coding.zxm.video">
+
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <application
+        android:allowBackup="true"
+        android:supportsRtl="true">
+
+        <activity
+            android:name=".VideoNavigationActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize" />
+
+        <!--列表播放-->
+        <activity
+            android:name=".easy.EasyPlayActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:theme="@style/Theme.AppCompat.Fullscreen"/>
+
+        <!--空UI播放-->
+        <activity
+            android:name=".empty.EmptyPlayActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:theme="@style/Theme.AppCompat.Fullscreen"/>
+
+        <!--播放本地视频-->
+        <activity
+            android:name=".local.LocalActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:theme="@style/Theme.AppCompat.Fullscreen"/>
+
+        <!--点播-->
+        <activity
+            android:name=".vod.VodActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:theme="@style/Theme.AppCompat.Fullscreen"/>
+
+        <!--直播-->
+        <activity
+            android:name=".live.LiveActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:theme="@style/Theme.AppCompat.Fullscreen"/>
+
+    </application>
+</manifest>
