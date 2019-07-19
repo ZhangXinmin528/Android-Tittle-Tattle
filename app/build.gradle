@@ -58,7 +58,6 @@ dependencies {
     //分包
     implementation "com.android.support:multidex:$rootProject.multidexVersion"
 
-
     //核心
     implementation project(':lib.core')
     //工具

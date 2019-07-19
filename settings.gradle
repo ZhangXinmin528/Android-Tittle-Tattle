@@ -1,4 +1,4 @@
-include ':app', ':lib.okhttp', ':lib.queue'
+include ':app', ':lib.okhttp', ':lib.queue', ':lib.loading'
 include ':lib.core'
 include ':lib.rxjava1'
 include ':lib.net'
