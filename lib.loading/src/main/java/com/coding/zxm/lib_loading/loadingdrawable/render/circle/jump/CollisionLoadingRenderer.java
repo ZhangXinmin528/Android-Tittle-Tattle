@@ -13,8 +13,9 @@ import android.view.animation.AccelerateInterpolator;
 import android.view.animation.DecelerateInterpolator;
 import android.view.animation.Interpolator;
 
-import app.dinus.com.loadingdrawable.DensityUtil;
-import app.dinus.com.loadingdrawable.render.LoadingRenderer;
+import com.coding.zxm.lib_loading.loadingdrawable.render.LoadingRenderer;
+import com.zxm.utils.core.ScreenUtil;
+
 
 public class CollisionLoadingRenderer extends LoadingRenderer {
     private static final Interpolator ACCELERATE_INTERPOLATOR = new AccelerateInterpolator();
@@ -76,10 +77,10 @@ public class CollisionLoadingRenderer extends LoadingRenderer {
     }
 
     private void init(Context context) {
-        mBallRadius = DensityUtil.dip2px(context, DEFAULT_BALL_RADIUS);
-        mWidth = DensityUtil.dip2px(context, DEFAULT_WIDTH);
-        mHeight = DensityUtil.dip2px(context, DEFAULT_HEIGHT);
-        mOvalVerticalRadius = DensityUtil.dip2px(context, DEFAULT_OVAL_HEIGHT);
+        mBallRadius = ScreenUtil.dp2px(context, DEFAULT_BALL_RADIUS);
+        mWidth = ScreenUtil.dp2px(context, DEFAULT_WIDTH);
+        mHeight = ScreenUtil.dp2px(context, DEFAULT_HEIGHT);
+        mOvalVerticalRadius = ScreenUtil.dp2px(context, DEFAULT_OVAL_HEIGHT);
 
         mColors = DEFAULT_COLORS;
         mPositions = DEFAULT_POSITIONS;

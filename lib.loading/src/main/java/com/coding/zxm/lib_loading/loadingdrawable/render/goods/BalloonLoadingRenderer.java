@@ -11,8 +11,9 @@ import android.graphics.RectF;
 import android.view.animation.AccelerateInterpolator;
 import android.view.animation.Interpolator;
 
-import app.dinus.com.loadingdrawable.DensityUtil;
-import app.dinus.com.loadingdrawable.render.LoadingRenderer;
+import com.coding.zxm.lib_loading.loadingdrawable.render.LoadingRenderer;
+import com.zxm.utils.core.ScreenUtil;
+
 
 public class BalloonLoadingRenderer extends LoadingRenderer {
     private static final String PERCENT_SIGN = "%";
@@ -84,23 +85,23 @@ public class BalloonLoadingRenderer extends LoadingRenderer {
     }
 
     private void init(Context context) {
-        mTextSize = DensityUtil.dip2px(context, DEFAULT_TEXT_SIZE);
+        mTextSize = ScreenUtil.dp2px(context, DEFAULT_TEXT_SIZE);
 
-        mWidth = DensityUtil.dip2px(context, DEFAULT_WIDTH);
-        mHeight = DensityUtil.dip2px(context, DEFAULT_HEIGHT);
-        mStrokeWidth = DensityUtil.dip2px(context, DEFAULT_STROKE_WIDTH);
+        mWidth = ScreenUtil.dp2px(context, DEFAULT_WIDTH);
+        mHeight = ScreenUtil.dp2px(context, DEFAULT_HEIGHT);
+        mStrokeWidth = ScreenUtil.dp2px(context, DEFAULT_STROKE_WIDTH);
 
-        mGasTubeWidth = DensityUtil.dip2px(context, DEFAULT_GAS_TUBE_WIDTH);
-        mGasTubeHeight = DensityUtil.dip2px(context, DEFAULT_GAS_TUBE_HEIGHT);
-        mCannulaWidth = DensityUtil.dip2px(context, DEFAULT_CANNULA_WIDTH);
-        mCannulaHeight = DensityUtil.dip2px(context, DEFAULT_CANNULA_HEIGHT);
-        mCannulaOffsetY = DensityUtil.dip2px(context, DEFAULT_CANNULA_OFFSET_Y);
-        mCannulaMaxOffsetY = DensityUtil.dip2px(context, DEFAULT_CANNULA_MAX_OFFSET_Y);
-        mPipeBodyWidth = DensityUtil.dip2px(context, DEFAULT_PIPE_BODY_WIDTH);
-        mPipeBodyHeight = DensityUtil.dip2px(context, DEFAULT_PIPE_BODY_HEIGHT);
-        mBalloonWidth = DensityUtil.dip2px(context, DEFAULT_BALLOON_WIDTH);
-        mBalloonHeight = DensityUtil.dip2px(context, DEFAULT_BALLOON_HEIGHT);
-        mRectCornerRadius = DensityUtil.dip2px(context, DEFAULT_RECT_CORNER_RADIUS);
+        mGasTubeWidth = ScreenUtil.dp2px(context, DEFAULT_GAS_TUBE_WIDTH);
+        mGasTubeHeight = ScreenUtil.dp2px(context, DEFAULT_GAS_TUBE_HEIGHT);
+        mCannulaWidth = ScreenUtil.dp2px(context, DEFAULT_CANNULA_WIDTH);
+        mCannulaHeight = ScreenUtil.dp2px(context, DEFAULT_CANNULA_HEIGHT);
+        mCannulaOffsetY = ScreenUtil.dp2px(context, DEFAULT_CANNULA_OFFSET_Y);
+        mCannulaMaxOffsetY = ScreenUtil.dp2px(context, DEFAULT_CANNULA_MAX_OFFSET_Y);
+        mPipeBodyWidth = ScreenUtil.dp2px(context, DEFAULT_PIPE_BODY_WIDTH);
+        mPipeBodyHeight = ScreenUtil.dp2px(context, DEFAULT_PIPE_BODY_HEIGHT);
+        mBalloonWidth = ScreenUtil.dp2px(context, DEFAULT_BALLOON_WIDTH);
+        mBalloonHeight = ScreenUtil.dp2px(context, DEFAULT_BALLOON_HEIGHT);
+        mRectCornerRadius = ScreenUtil.dp2px(context, DEFAULT_RECT_CORNER_RADIUS);
 
         mBalloonColor = DEFAULT_BALLOON_COLOR;
         mGasTubeColor = DEFAULT_GAS_TUBE_COLOR;

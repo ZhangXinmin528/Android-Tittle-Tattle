@@ -13,8 +13,9 @@ import android.view.animation.AccelerateInterpolator;
 import android.view.animation.DecelerateInterpolator;
 import android.view.animation.Interpolator;
 
-import app.dinus.com.loadingdrawable.DensityUtil;
-import app.dinus.com.loadingdrawable.render.LoadingRenderer;
+import com.coding.zxm.lib_loading.loadingdrawable.render.LoadingRenderer;
+import com.zxm.utils.core.ScreenUtil;
+
 
 public class GearLoadingRenderer extends LoadingRenderer {
     private static final Interpolator ACCELERATE_INTERPOLATOR = new AccelerateInterpolator();
@@ -88,8 +89,8 @@ public class GearLoadingRenderer extends LoadingRenderer {
     }
 
     private void init(Context context) {
-        mStrokeWidth = DensityUtil.dip2px(context, DEFAULT_STROKE_WIDTH);
-        mCenterRadius = DensityUtil.dip2px(context, DEFAULT_CENTER_RADIUS);
+        mStrokeWidth = ScreenUtil.dp2px(context, DEFAULT_STROKE_WIDTH);
+        mCenterRadius = ScreenUtil.dp2px(context, DEFAULT_CENTER_RADIUS);
 
         mColor = DEFAULT_COLOR;
 

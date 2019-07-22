@@ -2,6 +2,7 @@ package com.coding.zxm.lib_loading.loadingdrawable.render;
 
 import android.animation.Animator;
 import android.animation.ValueAnimator;
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.ColorFilter;
@@ -10,7 +11,8 @@ import android.graphics.drawable.Drawable;
 import android.view.animation.Animation;
 import android.view.animation.LinearInterpolator;
 
-import app.dinus.com.loadingdrawable.DensityUtil;
+import com.zxm.utils.core.ScreenUtil;
+
 
 public abstract class LoadingRenderer {
     private static final long ANIMATION_DURATION = 1333;
@@ -97,12 +99,13 @@ public abstract class LoadingRenderer {
     }
 
     private void initParams(Context context) {
-        mWidth = DensityUtil.dip2px(context, DEFAULT_SIZE);
-        mHeight = DensityUtil.dip2px(context, DEFAULT_SIZE);
+        mWidth = ScreenUtil.dp2px(context, DEFAULT_SIZE);
+        mHeight = ScreenUtil.dp2px(context, DEFAULT_SIZE);
 
         mDuration = ANIMATION_DURATION;
     }
 
+    @SuppressLint("WrongConstant")
     private void setupAnimators() {
         mRenderAnimator = ValueAnimator.ofFloat(0.0f, 1.0f);
         mRenderAnimator.setRepeatCount(Animation.INFINITE);

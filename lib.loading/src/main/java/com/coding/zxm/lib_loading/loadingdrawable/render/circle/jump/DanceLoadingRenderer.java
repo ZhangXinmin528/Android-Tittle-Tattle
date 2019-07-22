@@ -12,8 +12,9 @@ import android.view.animation.AccelerateInterpolator;
 import android.view.animation.DecelerateInterpolator;
 import android.view.animation.Interpolator;
 
-import app.dinus.com.loadingdrawable.DensityUtil;
-import app.dinus.com.loadingdrawable.render.LoadingRenderer;
+import com.coding.zxm.lib_loading.loadingdrawable.render.LoadingRenderer;
+import com.zxm.utils.core.ScreenUtil;
+
 
 public class DanceLoadingRenderer extends LoadingRenderer {
     private static final Interpolator MATERIAL_INTERPOLATOR = new FastOutSlowInInterpolator();
@@ -88,9 +89,9 @@ public class DanceLoadingRenderer extends LoadingRenderer {
     }
 
     private void init(Context context) {
-        mStrokeWidth = DensityUtil.dip2px(context, DEFAULT_STROKE_WIDTH);
-        mCenterRadius = DensityUtil.dip2px(context, DEFAULT_CENTER_RADIUS);
-        mDanceBallRadius = DensityUtil.dip2px(context, DEFAULT_DANCE_BALL_RADIUS);
+        mStrokeWidth = ScreenUtil.dp2px(context, DEFAULT_STROKE_WIDTH);
+        mCenterRadius = ScreenUtil.dp2px(context, DEFAULT_CENTER_RADIUS);
+        mDanceBallRadius = ScreenUtil.dp2px(context, DEFAULT_DANCE_BALL_RADIUS);
 
         setColor(DEFAULT_COLOR);
         setInsets((int) mWidth, (int) mHeight);

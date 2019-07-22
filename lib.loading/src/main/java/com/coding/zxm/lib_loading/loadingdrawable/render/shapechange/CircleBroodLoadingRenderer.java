@@ -13,8 +13,9 @@ import android.view.animation.AccelerateInterpolator;
 import android.view.animation.DecelerateInterpolator;
 import android.view.animation.Interpolator;
 
-import app.dinus.com.loadingdrawable.DensityUtil;
-import app.dinus.com.loadingdrawable.render.LoadingRenderer;
+import com.coding.zxm.lib_loading.loadingdrawable.render.LoadingRenderer;
+import com.zxm.utils.core.ScreenUtil;
+
 
 public class CircleBroodLoadingRenderer extends LoadingRenderer {
 
@@ -112,11 +113,11 @@ public class CircleBroodLoadingRenderer extends LoadingRenderer {
     }
 
     private void init(Context context) {
-        mWidth = DensityUtil.dip2px(context, DEFAULT_WIDTH);
-        mHeight = DensityUtil.dip2px(context, DEFAULT_HEIGHT);
+        mWidth = ScreenUtil.dp2px(context, DEFAULT_WIDTH);
+        mHeight = ScreenUtil.dp2px(context, DEFAULT_HEIGHT);
 
-        mMaxMotherOvalSize = DensityUtil.dip2px(context, MAX_MATHER_OVAL_SIZE);
-        mBasicChildOvalRadius = DensityUtil.dip2px(context, MIN_CHILD_OVAL_RADIUS);
+        mMaxMotherOvalSize = ScreenUtil.dp2px(context, MAX_MATHER_OVAL_SIZE);
+        mBasicChildOvalRadius = ScreenUtil.dp2px(context, MIN_CHILD_OVAL_RADIUS);
 
         mOvalColor = DEFAULT_OVAL_COLOR;
         mOvalDeepColor = DEFAULT_OVAL_DEEP_COLOR;

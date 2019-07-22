@@ -23,15 +23,16 @@ import android.view.animation.DecelerateInterpolator;
 import android.view.animation.Interpolator;
 import android.view.animation.LinearInterpolator;
 
+import com.coding.zxm.lib_loading.R;
+import com.coding.zxm.lib_loading.loadingdrawable.render.LoadingRenderer;
+import com.zxm.utils.core.ScreenUtil;
+
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-import app.dinus.com.loadingdrawable.DensityUtil;
-import app.dinus.com.loadingdrawable.R;
-import app.dinus.com.loadingdrawable.render.LoadingRenderer;
 
 public class ElectricFanLoadingRenderer extends LoadingRenderer {
     private static final Interpolator LINEAR_INTERPOLATOR = new LinearInterpolator();
@@ -129,12 +130,12 @@ public class ElectricFanLoadingRenderer extends LoadingRenderer {
     private void init(Context context) {
         mMode = MODE_NORMAL;
 
-        mWidth = DensityUtil.dip2px(context, DEFAULT_WIDTH);
-        mHeight = DensityUtil.dip2px(context, DEFAULT_HEIGHT);
-        mTextSize = DensityUtil.dip2px(context, DEFAULT_TEXT_SIZE);
-        mStrokeWidth = DensityUtil.dip2px(context, DEFAULT_STROKE_WIDTH);
-        mCenterRadius = DensityUtil.dip2px(context, DEFAULT_CENTER_RADIUS);
-        mProgressCenterRadius = DensityUtil.dip2px(context, DEFAULT_PROGRESS_CENTER_RADIUS);
+        mWidth = ScreenUtil.dp2px(context, DEFAULT_WIDTH);
+        mHeight = ScreenUtil.dp2px(context, DEFAULT_HEIGHT);
+        mTextSize = ScreenUtil.dp2px(context, DEFAULT_TEXT_SIZE);
+        mStrokeWidth = ScreenUtil.dp2px(context, DEFAULT_STROKE_WIDTH);
+        mCenterRadius = ScreenUtil.dp2px(context, DEFAULT_CENTER_RADIUS);
+        mProgressCenterRadius = ScreenUtil.dp2px(context, DEFAULT_PROGRESS_CENTER_RADIUS);
 
         mProgressColor = DEFAULT_PROGRESS_COLOR;
         mProgressBgColor = DEFAULT_PROGRESS_BGCOLOR;

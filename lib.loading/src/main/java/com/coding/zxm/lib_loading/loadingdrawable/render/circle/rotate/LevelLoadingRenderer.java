@@ -15,8 +15,9 @@ import android.view.animation.DecelerateInterpolator;
 import android.view.animation.Interpolator;
 import android.view.animation.LinearInterpolator;
 
-import app.dinus.com.loadingdrawable.DensityUtil;
-import app.dinus.com.loadingdrawable.render.LoadingRenderer;
+import com.coding.zxm.lib_loading.loadingdrawable.render.LoadingRenderer;
+import com.zxm.utils.core.ScreenUtil;
+
 
 public class LevelLoadingRenderer extends LoadingRenderer {
     private static final Interpolator LINEAR_INTERPOLATOR = new LinearInterpolator();
@@ -38,8 +39,8 @@ public class LevelLoadingRenderer extends LoadingRenderer {
     private static final float DEFAULT_CENTER_RADIUS = 12.5f;
     private static final float DEFAULT_STROKE_WIDTH = 2.5f;
 
-    private static final int[] DEFAULT_LEVEL_COLORS = new int[]{Color.parseColor("#55ffffff"),
-            Color.parseColor("#b1ffffff"), Color.parseColor("#ffffffff")};
+    private static final int[] DEFAULT_LEVEL_COLORS = new int[]{Color.parseColor("#55b3b3b3"),
+            Color.parseColor("#b1b3b3b3"), Color.parseColor("#ffb3b3b3")};
 
     private final Paint mPaint = new Paint();
     private final RectF mTempBounds = new RectF();
@@ -87,8 +88,8 @@ public class LevelLoadingRenderer extends LoadingRenderer {
     }
 
     private void init(Context context) {
-        mStrokeWidth = DensityUtil.dip2px(context, DEFAULT_STROKE_WIDTH);
-        mCenterRadius = DensityUtil.dip2px(context, DEFAULT_CENTER_RADIUS);
+        mStrokeWidth = ScreenUtil.dp2px(context, DEFAULT_STROKE_WIDTH);
+        mCenterRadius = ScreenUtil.dp2px(context, DEFAULT_CENTER_RADIUS);
 
         mLevelSwipeDegrees = new float[3];
         mLevelColors = DEFAULT_LEVEL_COLORS;

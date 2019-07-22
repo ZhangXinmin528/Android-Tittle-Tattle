@@ -14,8 +14,9 @@ import android.graphics.RectF;
 import android.graphics.Region;
 import android.view.animation.Interpolator;
 
-import app.dinus.com.loadingdrawable.DensityUtil;
-import app.dinus.com.loadingdrawable.render.LoadingRenderer;
+import com.coding.zxm.lib_loading.loadingdrawable.render.LoadingRenderer;
+import com.zxm.utils.core.ScreenUtil;
+
 
 public class FishLoadingRenderer extends LoadingRenderer {
     private Interpolator FISH_INTERPOLATOR = new FishInterpolator();
@@ -76,17 +77,17 @@ public class FishLoadingRenderer extends LoadingRenderer {
     }
 
     private void init(Context context) {
-        mWidth = DensityUtil.dip2px(context, DEFAULT_WIDTH);
-        mHeight = DensityUtil.dip2px(context, DEFAULT_HEIGHT);
-        mRiverBankWidth = DensityUtil.dip2px(context, DEFAULT_RIVER_BANK_WIDTH);
+        mWidth = ScreenUtil.dp2px(context, DEFAULT_WIDTH);
+        mHeight = ScreenUtil.dp2px(context, DEFAULT_HEIGHT);
+        mRiverBankWidth = ScreenUtil.dp2px(context, DEFAULT_RIVER_BANK_WIDTH);
 
-        mPathFullLineSize = DensityUtil.dip2px(context, DEFAULT_PATH_FULL_LINE_SIZE);
-        mPathDottedLineSize = DensityUtil.dip2px(context, DEFAULT_PATH_DOTTED_LINE_SIZE);
-        mFishWidth = DensityUtil.dip2px(context, DEFAULT_FISH_WIDTH);
-        mFishHeight = DensityUtil.dip2px(context, DEFAULT_FISH_HEIGHT);
-        mFishEyeSize = DensityUtil.dip2px(context, DEFAULT_FISH_EYE_SIZE);
-        mRiverWidth = DensityUtil.dip2px(context, DEFAULT_RIVER_WIDTH);
-        mRiverHeight = DensityUtil.dip2px(context, DEFAULT_RIVER_HEIGHT);
+        mPathFullLineSize = ScreenUtil.dp2px(context, DEFAULT_PATH_FULL_LINE_SIZE);
+        mPathDottedLineSize = ScreenUtil.dp2px(context, DEFAULT_PATH_DOTTED_LINE_SIZE);
+        mFishWidth = ScreenUtil.dp2px(context, DEFAULT_FISH_WIDTH);
+        mFishHeight = ScreenUtil.dp2px(context, DEFAULT_FISH_HEIGHT);
+        mFishEyeSize = ScreenUtil.dp2px(context, DEFAULT_FISH_EYE_SIZE);
+        mRiverWidth = ScreenUtil.dp2px(context, DEFAULT_RIVER_WIDTH);
+        mRiverHeight = ScreenUtil.dp2px(context, DEFAULT_RIVER_HEIGHT);
 
         mColor = DEFAULT_COLOR;
 

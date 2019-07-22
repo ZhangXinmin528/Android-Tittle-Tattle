@@ -3,24 +3,25 @@ package com.coding.zxm.lib_loading.loadingdrawable.render;
 import android.content.Context;
 import android.util.SparseArray;
 
+import com.coding.zxm.lib_loading.loadingdrawable.render.animal.FishLoadingRenderer;
+import com.coding.zxm.lib_loading.loadingdrawable.render.animal.GhostsEyeLoadingRenderer;
+import com.coding.zxm.lib_loading.loadingdrawable.render.circle.jump.CollisionLoadingRenderer;
+import com.coding.zxm.lib_loading.loadingdrawable.render.circle.jump.DanceLoadingRenderer;
+import com.coding.zxm.lib_loading.loadingdrawable.render.circle.jump.GuardLoadingRenderer;
+import com.coding.zxm.lib_loading.loadingdrawable.render.circle.jump.SwapLoadingRenderer;
+import com.coding.zxm.lib_loading.loadingdrawable.render.circle.rotate.GearLoadingRenderer;
+import com.coding.zxm.lib_loading.loadingdrawable.render.circle.rotate.LevelLoadingRenderer;
+import com.coding.zxm.lib_loading.loadingdrawable.render.circle.rotate.MaterialLoadingRenderer;
+import com.coding.zxm.lib_loading.loadingdrawable.render.circle.rotate.WhorlLoadingRenderer;
+import com.coding.zxm.lib_loading.loadingdrawable.render.goods.BalloonLoadingRenderer;
+import com.coding.zxm.lib_loading.loadingdrawable.render.goods.WaterBottleLoadingRenderer;
+import com.coding.zxm.lib_loading.loadingdrawable.render.scenery.DayNightLoadingRenderer;
+import com.coding.zxm.lib_loading.loadingdrawable.render.scenery.ElectricFanLoadingRenderer;
+import com.coding.zxm.lib_loading.loadingdrawable.render.shapechange.CircleBroodLoadingRenderer;
+import com.coding.zxm.lib_loading.loadingdrawable.render.shapechange.CoolWaitLoadingRenderer;
+
 import java.lang.reflect.Constructor;
 
-import app.dinus.com.loadingdrawable.render.animal.FishLoadingRenderer;
-import app.dinus.com.loadingdrawable.render.animal.GhostsEyeLoadingRenderer;
-import app.dinus.com.loadingdrawable.render.circle.jump.CollisionLoadingRenderer;
-import app.dinus.com.loadingdrawable.render.circle.jump.DanceLoadingRenderer;
-import app.dinus.com.loadingdrawable.render.circle.jump.GuardLoadingRenderer;
-import app.dinus.com.loadingdrawable.render.circle.jump.SwapLoadingRenderer;
-import app.dinus.com.loadingdrawable.render.circle.rotate.GearLoadingRenderer;
-import app.dinus.com.loadingdrawable.render.circle.rotate.LevelLoadingRenderer;
-import app.dinus.com.loadingdrawable.render.circle.rotate.MaterialLoadingRenderer;
-import app.dinus.com.loadingdrawable.render.circle.rotate.WhorlLoadingRenderer;
-import app.dinus.com.loadingdrawable.render.goods.BalloonLoadingRenderer;
-import app.dinus.com.loadingdrawable.render.goods.WaterBottleLoadingRenderer;
-import app.dinus.com.loadingdrawable.render.scenery.DayNightLoadingRenderer;
-import app.dinus.com.loadingdrawable.render.scenery.ElectricFanLoadingRenderer;
-import app.dinus.com.loadingdrawable.render.shapechange.CircleBroodLoadingRenderer;
-import app.dinus.com.loadingdrawable.render.shapechange.CoolWaitLoadingRenderer;
 
 public final class LoadingRendererFactory {
     private static final SparseArray<Class<? extends LoadingRenderer>> LOADING_RENDERERS = new SparseArray<>();

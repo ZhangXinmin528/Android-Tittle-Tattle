@@ -8,8 +8,9 @@ import android.graphics.Paint;
 import android.view.animation.AccelerateDecelerateInterpolator;
 import android.view.animation.Interpolator;
 
-import app.dinus.com.loadingdrawable.DensityUtil;
-import app.dinus.com.loadingdrawable.render.LoadingRenderer;
+import com.coding.zxm.lib_loading.loadingdrawable.render.LoadingRenderer;
+import com.zxm.utils.core.ScreenUtil;
+
 
 public class SwapLoadingRenderer extends LoadingRenderer {
     private static final Interpolator ACCELERATE_DECELERATE_INTERPOLATOR = new AccelerateDecelerateInterpolator();
@@ -51,10 +52,10 @@ public class SwapLoadingRenderer extends LoadingRenderer {
     }
 
     private void init(Context context) {
-        mWidth = DensityUtil.dip2px(context, DEFAULT_WIDTH);
-        mHeight = DensityUtil.dip2px(context, DEFAULT_HEIGHT);
-        mBallRadius = DensityUtil.dip2px(context, DEFAULT_BALL_RADIUS);
-        mStrokeWidth = DensityUtil.dip2px(context, DEFAULT_STROKE_WIDTH);
+        mWidth = ScreenUtil.dp2px(context, DEFAULT_WIDTH);
+        mHeight = ScreenUtil.dp2px(context, DEFAULT_HEIGHT);
+        mBallRadius = ScreenUtil.dp2px(context, DEFAULT_BALL_RADIUS);
+        mStrokeWidth = ScreenUtil.dp2px(context, DEFAULT_STROKE_WIDTH);
 
         mColor = DEFAULT_COLOR;
         mDuration = ANIMATION_DURATION;

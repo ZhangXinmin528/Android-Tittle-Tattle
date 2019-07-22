@@ -2,15 +2,17 @@ package com.coding.zxm.lib_loading.loadingdrawable;
 
 import android.content.Context;
 import android.content.res.TypedArray;
+import android.support.v7.widget.AppCompatImageView;
 import android.util.AttributeSet;
 import android.view.View;
-import android.widget.ImageView;
 
-import app.dinus.com.loadingdrawable.render.LoadingDrawable;
-import app.dinus.com.loadingdrawable.render.LoadingRenderer;
-import app.dinus.com.loadingdrawable.render.LoadingRendererFactory;
+import com.coding.zxm.lib_loading.R;
+import com.coding.zxm.lib_loading.loadingdrawable.render.LoadingDrawable;
+import com.coding.zxm.lib_loading.loadingdrawable.render.LoadingRenderer;
+import com.coding.zxm.lib_loading.loadingdrawable.render.LoadingRendererFactory;
 
-public class LoadingView extends ImageView {
+
+public class LoadingView extends AppCompatImageView {
     private LoadingDrawable mLoadingDrawable;
 
     public LoadingView(Context context) {

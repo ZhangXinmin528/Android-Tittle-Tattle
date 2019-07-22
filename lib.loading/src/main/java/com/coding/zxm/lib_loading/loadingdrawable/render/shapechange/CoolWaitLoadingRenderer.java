@@ -14,8 +14,9 @@ import android.view.animation.AccelerateInterpolator;
 import android.view.animation.DecelerateInterpolator;
 import android.view.animation.Interpolator;
 
-import app.dinus.com.loadingdrawable.DensityUtil;
-import app.dinus.com.loadingdrawable.render.LoadingRenderer;
+import com.coding.zxm.lib_loading.loadingdrawable.render.LoadingRenderer;
+import com.zxm.utils.core.ScreenUtil;
+
 
 public class CoolWaitLoadingRenderer extends LoadingRenderer {
     private final Interpolator ACCELERATE_INTERPOLATOR08 = new AccelerateInterpolator(0.8f);
@@ -66,10 +67,10 @@ public class CoolWaitLoadingRenderer extends LoadingRenderer {
     }
 
     private void init(Context context) {
-        mWidth = DensityUtil.dip2px(context, DEFAULT_WIDTH);
-        mHeight = DensityUtil.dip2px(context, DEFAULT_HEIGHT);
-        mStrokeWidth = DensityUtil.dip2px(context, DEFAULT_STROKE_WIDTH);
-        mWaitCircleRadius = DensityUtil.dip2px(context, WAIT_CIRCLE_RADIUS);
+        mWidth = ScreenUtil.dp2px(context, DEFAULT_WIDTH);
+        mHeight = ScreenUtil.dp2px(context, DEFAULT_HEIGHT);
+        mStrokeWidth = ScreenUtil.dp2px(context, DEFAULT_STROKE_WIDTH);
+        mWaitCircleRadius = ScreenUtil.dp2px(context, WAIT_CIRCLE_RADIUS);
 
         mTopColor = Color.WHITE;
         mMiddleColor = Color.parseColor("#FFF3C742");

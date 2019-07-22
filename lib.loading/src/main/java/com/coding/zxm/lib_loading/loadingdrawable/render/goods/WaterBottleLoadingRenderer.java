@@ -11,12 +11,13 @@ import android.graphics.RectF;
 import android.support.v4.view.animation.FastOutSlowInInterpolator;
 import android.view.animation.Interpolator;
 
+import com.coding.zxm.lib_loading.loadingdrawable.render.LoadingRenderer;
+import com.zxm.utils.core.ScreenUtil;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-import app.dinus.com.loadingdrawable.DensityUtil;
-import app.dinus.com.loadingdrawable.render.LoadingRenderer;
 
 public class WaterBottleLoadingRenderer extends LoadingRenderer {
     private static final Interpolator MATERIAL_INTERPOLATOR = new FastOutSlowInInterpolator();
@@ -72,15 +73,15 @@ public class WaterBottleLoadingRenderer extends LoadingRenderer {
     }
 
     private void init(Context context) {
-        mTextSize = DensityUtil.dip2px(context, DEFAULT_TEXT_SIZE);
+        mTextSize = ScreenUtil.dp2px(context, DEFAULT_TEXT_SIZE);
 
-        mWidth = DensityUtil.dip2px(context, DEFAULT_WIDTH);
-        mHeight = DensityUtil.dip2px(context, DEFAULT_HEIGHT);
-        mStrokeWidth = DensityUtil.dip2px(context, DEFAULT_STROKE_WIDTH);
+        mWidth = ScreenUtil.dp2px(context, DEFAULT_WIDTH);
+        mHeight = ScreenUtil.dp2px(context, DEFAULT_HEIGHT);
+        mStrokeWidth = ScreenUtil.dp2px(context, DEFAULT_STROKE_WIDTH);
 
-        mBottleWidth = DensityUtil.dip2px(context, DEFAULT_BOTTLE_WIDTH);
-        mBottleHeight = DensityUtil.dip2px(context, DEFAULT_BOTTLE_HEIGHT);
-        mWaterLowestPointToBottleneckDistance = DensityUtil.dip2px(context, WATER_LOWEST_POINT_TO_BOTTLENECK_DISTANCE);
+        mBottleWidth = ScreenUtil.dp2px(context, DEFAULT_BOTTLE_WIDTH);
+        mBottleHeight = ScreenUtil.dp2px(context, DEFAULT_BOTTLE_HEIGHT);
+        mWaterLowestPointToBottleneckDistance = ScreenUtil.dp2px(context, WATER_LOWEST_POINT_TO_BOTTLENECK_DISTANCE);
 
         mBottleColor = DEFAULT_BOTTLE_COLOR;
         mWaterColor = DEFAULT_WATER_COLOR;

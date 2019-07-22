@@ -25,6 +25,12 @@ android {
         targetCompatibility JavaVersion.VERSION_1_8
     }
 
+    android.libraryVariants.all {
+        variant->variant.outputs.all {
+            outputFileName = "lib.util_${defaultConfig.versionName}.aar"
+        }
+    }
+
 }
 
 dependencies {

@@ -37,6 +37,12 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+
+    repositories {
+        flatDir {
+            dirs 'libs'
+        }
+    }
 }
 
 dependencies {
@@ -74,5 +80,7 @@ dependencies {
     implementation project(path: ':lib.okhttp')
     //视频播放
     implementation project(path: ':lib.video')
+    //加载动画
+    implementation project(path: ':lib.loading')
 
 }

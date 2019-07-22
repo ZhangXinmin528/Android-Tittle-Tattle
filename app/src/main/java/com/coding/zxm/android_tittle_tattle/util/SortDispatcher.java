@@ -6,6 +6,8 @@ import android.support.annotation.IntRange;
 import android.support.annotation.NonNull;
 import android.text.TextUtils;
 
+import com.coding.zxm.android_tittle_tattle.loading.LoadingActivity;
+import com.coding.zxm.android_tittle_tattle.loading.LoadingTestActivity;
 import com.coding.zxm.android_tittle_tattle.ui.rxjava.RxJava1Activity;
 import com.coding.zxm.android_tittle_tattle.ui.sql.OriginalSqlActivity;
 import com.coding.zxm.android_tittle_tattle.ui.thread.CountDownLatchActivity;
@@ -83,6 +85,11 @@ public final class SortDispatcher {
                     break;
                 case 8:
                     intent.setClass(context, VideoNavigationActivity.class);
+                    intent.putExtra(DisplayUtil.PARAMS_LABEL, label);
+                    context.startActivity(intent);
+                    break;
+                case 9:
+                    intent.setClass(context, LoadingActivity.class);
                     intent.putExtra(DisplayUtil.PARAMS_LABEL, label);
                     context.startActivity(intent);
                     break;

@@ -18,8 +18,8 @@ import android.view.animation.DecelerateInterpolator;
 import android.view.animation.Interpolator;
 import android.view.animation.LinearInterpolator;
 
-import com.coding.zxm.lib_loading.loadingdrawable.DensityUtil;
 import com.coding.zxm.lib_loading.loadingdrawable.render.LoadingRenderer;
+import com.zxm.utils.core.ScreenUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -117,22 +117,22 @@ public class DayNightLoadingRenderer extends LoadingRenderer {
     }
 
     private void init(Context context) {
-        mWidth = DensityUtil.dip2px(context, DEFAULT_WIDTH);
-        mHeight = DensityUtil.dip2px(context, DEFAULT_HEIGHT);
-        mStrokeWidth = DensityUtil.dip2px(context, DEFAULT_STROKE_WIDTH);
+        mWidth = ScreenUtil.dp2px(context, DEFAULT_WIDTH);
+        mHeight = ScreenUtil.dp2px(context, DEFAULT_HEIGHT);
+        mStrokeWidth = ScreenUtil.dp2px(context, DEFAULT_STROKE_WIDTH);
 
-        mStarRadius = DensityUtil.dip2px(context, DEFAULT_STAR_RADIUS);
-        mSun$MoonRadius = DensityUtil.dip2px(context, DEFAULT_SUN$MOON_RADIUS);
+        mStarRadius = ScreenUtil.dp2px(context, DEFAULT_STAR_RADIUS);
+        mSun$MoonRadius = ScreenUtil.dp2px(context, DEFAULT_SUN$MOON_RADIUS);
         mInitSun$MoonCoordinateY = mHeight + mSun$MoonRadius + mStrokeWidth * 2.0f;
         mMaxSun$MoonRiseDistance = mHeight / 2.0f + mSun$MoonRadius;
 
         mSunRayStartCoordinateY = mInitSun$MoonCoordinateY - mMaxSun$MoonRiseDistance //the center
                 - mSun$MoonRadius //sub the radius
                 - mStrokeWidth // sub the with the sun circle
-                - DensityUtil.dip2px(context, DEFAULT_SUN_RAY_OFFSET); //sub the interval between the sun and the sun ray
+                - ScreenUtil.dp2px(context, DEFAULT_SUN_RAY_OFFSET); //sub the interval between the sun and the sun ray
 
         //add strokeWidth * 2.0f because the stroke cap is Paint.Cap.ROUND
-        mSunRayEndCoordinateY = mSunRayStartCoordinateY - DensityUtil.dip2px(context, DEFAULT_SUN_RAY_LENGTH)
+        mSunRayEndCoordinateY = mSunRayStartCoordinateY - ScreenUtil.dp2px(context, DEFAULT_SUN_RAY_LENGTH)
                 + mStrokeWidth;
 
         mSunCoordinateY = mInitSun$MoonCoordinateY;

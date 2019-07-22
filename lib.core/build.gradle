@@ -28,5 +28,4 @@ dependencies {
     api "com.android.support:appcompat-v7:$rootProject.supportLibraryVersion"
     api "com.android.support:recyclerview-v7:$rootProject.supportLibraryVersion"
 
-
 }

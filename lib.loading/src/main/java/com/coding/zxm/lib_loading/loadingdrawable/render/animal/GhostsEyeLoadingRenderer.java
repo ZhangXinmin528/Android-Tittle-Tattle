@@ -10,8 +10,9 @@ import android.graphics.Rect;
 import android.graphics.RectF;
 import android.view.animation.Interpolator;
 
-import app.dinus.com.loadingdrawable.DensityUtil;
-import app.dinus.com.loadingdrawable.render.LoadingRenderer;
+import com.coding.zxm.lib_loading.loadingdrawable.render.LoadingRenderer;
+import com.zxm.utils.core.ScreenUtil;
+
 
 public class GhostsEyeLoadingRenderer extends LoadingRenderer {
     private Interpolator EYE_BALL_INTERPOLATOR = new EyeBallInterpolator();
@@ -71,18 +72,18 @@ public class GhostsEyeLoadingRenderer extends LoadingRenderer {
     }
 
     private void init(Context context) {
-        mWidth = DensityUtil.dip2px(context, DEFAULT_WIDTH);
-        mHeight = DensityUtil.dip2px(context, DEFAULT_HEIGHT);
-        mEyeEdgeWidth = DensityUtil.dip2px(context, DEFAULT_EYE_EDGE_WIDTH);
+        mWidth = ScreenUtil.dp2px(context, DEFAULT_WIDTH);
+        mHeight = ScreenUtil.dp2px(context, DEFAULT_HEIGHT);
+        mEyeEdgeWidth = ScreenUtil.dp2px(context, DEFAULT_EYE_EDGE_WIDTH);
 
-        mEyeInterval = DensityUtil.dip2px(context, DEFAULT_EYE_CIRCLE_INTERVAL);
-        mEyeBallOffsetY = DensityUtil.dip2px(context, DEFAULT_EYE_BALL_OFFSET_Y);
-        mEyeCircleRadius = DensityUtil.dip2px(context, DEFAULT_EYE_CIRCLE_RADIUS);
-        mMaxEyeJumptDistance = DensityUtil.dip2px(context, DEFAULT_MAX_EYE_JUMP_DISTANCE);
-        mAboveRadianEyeOffsetX = DensityUtil.dip2px(context, DEFAULT_ABOVE_RADIAN_EYE_CIRCLE_OFFSET);
+        mEyeInterval = ScreenUtil.dp2px(context, DEFAULT_EYE_CIRCLE_INTERVAL);
+        mEyeBallOffsetY = ScreenUtil.dp2px(context, DEFAULT_EYE_BALL_OFFSET_Y);
+        mEyeCircleRadius = ScreenUtil.dp2px(context, DEFAULT_EYE_CIRCLE_RADIUS);
+        mMaxEyeJumptDistance = ScreenUtil.dp2px(context, DEFAULT_MAX_EYE_JUMP_DISTANCE);
+        mAboveRadianEyeOffsetX = ScreenUtil.dp2px(context, DEFAULT_ABOVE_RADIAN_EYE_CIRCLE_OFFSET);
 
-        mEyeBallWidth = DensityUtil.dip2px(context, DEFAULT_EYE_BALL_WIDTH);
-        mEyeBallHeight = DensityUtil.dip2px(context, DEFAULT_EYE_BALL_HEIGHT);
+        mEyeBallWidth = ScreenUtil.dp2px(context, DEFAULT_EYE_BALL_WIDTH);
+        mEyeBallHeight = ScreenUtil.dp2px(context, DEFAULT_EYE_BALL_HEIGHT);
 
         mColor = DEFAULT_COLOR;
 
