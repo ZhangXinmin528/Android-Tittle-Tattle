@@ -12,6 +12,7 @@
         <item>队列</item>
         <item>视频播放</item>
         <item>Loading</item>
+        <item>Xml解析</item>
     </string-array>
 
     <string-array name="thread_sort_arrays">

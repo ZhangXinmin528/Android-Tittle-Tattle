@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <android.support.v7.widget.LinearLayoutCompat
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btn_generate_xml"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="generate"
+            tools:ignore="HardcodedText" />
+
+        <Button
+            android:id="@+id/btn_obtain_xml"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="obtain"
+            tools:ignore="HardcodedText" />
+    </android.support.v7.widget.LinearLayoutCompat>
+
+</LinearLayout>

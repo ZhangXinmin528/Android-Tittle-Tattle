@@ -46,10 +46,13 @@ ext {
 
     //retrofit
     retrofitVersion = '2.5.0'
+
     //gson
     gsonVersion = '2.8.5'
+
     //rxjava2
     rxjava2Version = '2.2.6'
+
     //rxandroid2
     rxandroid2Version = '2.1.1'
 
@@ -59,6 +62,13 @@ ext {
     //leakcanary
     leakcanaryVersion = '1.6.3'
 
+    //permission
+    permissionVersion = "1.0.1"
+    permissionsDispatcher = "3.1.0"
+
+    //multidex
+    multidexVersion = '1.0.3'
+
     smartrefreshVersion = '1.0.5.1'
     lottieVersion = '2.5.0-beta3'
     okgoVersion = '3.0.4'
@@ -66,11 +76,4 @@ ext {
     eventbusVersion = '3.1.1'
     crashreportVersion = '2.6.6.1'
     nativecrashreportVersion = '3.3.1'
-
-    //permission
-    permissionVersion = "1.0.1"
-    permissionsDispatcher = "3.1.0"
-
-    //multidex
-    multidexVersion = '1.0.3'
 }

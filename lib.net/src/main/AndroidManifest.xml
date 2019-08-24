@@ -13,9 +13,13 @@
             android:launchMode="singleTask"
             android:screenOrientation="portrait" />
 
-        <activity android:name=".ui.MovieWebActivity"
+        <!--电影详情页-->
+        <activity
+            android:name=".ui.MovieWebActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait" />
+
+        <!--图片测试-->
 
     </application>
 

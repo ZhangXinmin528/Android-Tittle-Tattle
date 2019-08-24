@@ -70,7 +70,7 @@
             android:screenOrientation="portrait" />
 
         <!--loading-->
-        <activity android:name=".loading.LoadingActivity"
+        <activity android:name=".ui.loading.LoadingActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait" />
 

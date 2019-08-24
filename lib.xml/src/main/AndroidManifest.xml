@@ -1,0 +1,12 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.coding.zxm.lib_xml">
+
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+
+
+    <application android:allowBackup="true">
+        <activity
+            android:name=".ui.XmlTestActivity"
+            android:screenOrientation="portrait" />
+    </application>
+</manifest>

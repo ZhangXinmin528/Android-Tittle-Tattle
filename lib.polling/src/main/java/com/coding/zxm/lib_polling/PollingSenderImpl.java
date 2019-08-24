@@ -10,8 +10,8 @@ import android.content.IntentFilter;
 import android.os.Build;
 import android.text.TextUtils;
 
-import com.zxm.utils.core.TimeUtil;
 import com.zxm.utils.core.log.MLogger;
+import com.zxm.utils.core.time.TimeUtil;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;

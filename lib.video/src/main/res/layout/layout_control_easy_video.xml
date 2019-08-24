@@ -10,12 +10,21 @@
         android:layout_height="match_parent"
         android:gravity="center" />
 
+    <moe.codeest.enviews.ENDownloadView
+        android:id="@+id/loading"
+        android:layout_width="28dp"
+        android:layout_height="28dp"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:visibility="visible" />
+
     <moe.codeest.enviews.ENPlayView
         android:id="@+id/start"
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
+        android:visibility="gone"
         android:layout_gravity="center_vertical" />
 
 </RelativeLayout>

@@ -6,8 +6,7 @@ import android.support.annotation.IntRange;
 import android.support.annotation.NonNull;
 import android.text.TextUtils;
 
-import com.coding.zxm.android_tittle_tattle.loading.LoadingActivity;
-import com.coding.zxm.android_tittle_tattle.loading.LoadingTestActivity;
+import com.coding.zxm.android_tittle_tattle.ui.loading.LoadingActivity;
 import com.coding.zxm.android_tittle_tattle.ui.rxjava.RxJava1Activity;
 import com.coding.zxm.android_tittle_tattle.ui.sql.OriginalSqlActivity;
 import com.coding.zxm.android_tittle_tattle.ui.thread.CountDownLatchActivity;
@@ -17,6 +16,7 @@ import com.coding.zxm.android_tittle_tattle.ui.thread.ThreadPoolActivity;
 import com.coding.zxm.lib_okhttp.ui.OkUsageActivity;
 import com.coding.zxm.lib_polling.ui.PollingActivity;
 import com.coding.zxm.lib_pool.ui.ObjectPoolActivity;
+import com.coding.zxm.lib_xml.ui.XmlTestActivity;
 import com.coding.zxm.libnet.ui.MovieActivity;
 import com.coding.zxm.librxjava1.ui.CombiningOperatorActivity;
 import com.coding.zxm.librxjava1.ui.CreatingOperatorActivity;
@@ -90,6 +90,11 @@ public final class SortDispatcher {
                     break;
                 case 9:
                     intent.setClass(context, LoadingActivity.class);
+                    intent.putExtra(DisplayUtil.PARAMS_LABEL, label);
+                    context.startActivity(intent);
+                    break;
+                case 10:
+                    intent.setClass(context, XmlTestActivity.class);
                     intent.putExtra(DisplayUtil.PARAMS_LABEL, label);
                     context.startActivity(intent);
                     break;
