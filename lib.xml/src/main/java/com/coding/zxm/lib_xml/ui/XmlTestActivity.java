@@ -1,22 +1,29 @@
 package com.coding.zxm.lib_xml.ui;
 
 import android.Manifest;
+import android.content.res.AssetManager;
 import android.os.Environment;
 import android.support.annotation.NonNull;
 import android.text.TextUtils;
+import android.util.Log;
 import android.util.Xml;
 import android.view.View;
+import android.widget.TextView;
 
 import com.coding.zxm.lib_xml.R;
 import com.coding.zxm.lib_xml.model.QuestionEntity;
 import com.coding.zxm.libcore.ui.BaseActivity;
 import com.zxm.utils.core.permission.PermissionChecker;
 
+import org.xmlpull.v1.XmlPullParser;
+import org.xmlpull.v1.XmlPullParserException;
+import org.xmlpull.v1.XmlPullParserFactory;
 import org.xmlpull.v1.XmlSerializer;
 
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -28,6 +35,7 @@ public class XmlTestActivity extends BaseActivity implements View.OnClickListene
 
     private String mFileDir;
     private String mFileName;
+    private TextView mResultTv;
 
     @Override
     protected Object setLayout() {
@@ -46,6 +54,8 @@ public class XmlTestActivity extends BaseActivity implements View.OnClickListene
 
     @Override
     protected void initViews() {
+        mResultTv = findViewById(R.id.tv_result);
+
         findViewById(R.id.btn_generate_xml).setOnClickListener(this);
         findViewById(R.id.btn_obtain_xml).setOnClickListener(this);
     }
@@ -56,7 +66,13 @@ public class XmlTestActivity extends BaseActivity implements View.OnClickListene
         if (viewId == R.id.btn_generate_xml) {
             generateXml(initTestData(), mFileDir + mFileName);
         } else if (viewId == R.id.btn_obtain_xml) {
+            final List<QuestionEntity> list = obtainXmlFromAsset("quesstions.xml");
 
+            final String result = list.toString();
+
+            Log.d(TAG, "data : " + list.size() + "..result : " + result);
+
+            mResultTv.setText(result);
         }
     }
 
@@ -149,5 +165,75 @@ public class XmlTestActivity extends BaseActivity implements View.OnClickListene
                 e.printStackTrace();
             }
         }
+    }
+
+    private List<QuestionEntity> obtainXmlFromAsset(String fileName) {
+        List<QuestionEntity> list = null;
+
+        if (!TextUtils.isEmpty(fileName)) {
+            //获取xml解析工厂
+            final XmlPullParserFactory factory;
+            XmlPullParser pullParser;
+
+            try {
+                factory = XmlPullParserFactory.newInstance();
+                pullParser = factory.newPullParser();
+                final AssetManager manager = getAssets();
+                if (manager != null) {
+                    final InputStream is = manager.open(fileName);
+                    pullParser.setInput(is, "UTF-8");
+
+                    int eventType = pullParser.getEventType();
+                    QuestionEntity question = null;
+
+                    /*while (eventType != XmlPullParser.END_DOCUMENT) {
+                        switch (eventType) {
+
+                        }
+                    }*/
+
+                    while (eventType != XmlPullParser.END_DOCUMENT) {
+                        switch (eventType) {
+                            case XmlPullParser.START_DOCUMENT:
+                                list = new ArrayList<>();
+                                break;
+                            case XmlPullParser.START_TAG:
+                                if ("question".equals(pullParser.getName())) {
+                                    question = new QuestionEntity();
+                                    final String id = pullParser.getAttributeValue(0);
+                                    question.setId(id);
+                                } else if ("topic".equals(pullParser.getName())) {
+                                    final String topic = pullParser.nextText();
+                                    question.setTopic(topic);
+                                } else if ("optionA".equals(pullParser.getName())) {
+                                    final String optionA = pullParser.nextText();
+                                    question.setOptionA(optionA);
+                                } else if ("optionB".equals(pullParser.getName())) {
+                                    final String optionB = pullParser.nextText();
+                                    question.setOptionB(optionB);
+                                } else if ("optionC".equals(pullParser.getName())) {
+                                    final String optionC = pullParser.nextText();
+                                    question.setOptionC(optionC);
+                                } else if ("optionD".equals(pullParser.getName())) {
+                                    final String optionD = pullParser.nextText();
+                                    question.setOptionD(optionD);
+                                }
+                                break;
+                            case XmlPullParser.END_TAG:
+                                if ("question".equals(pullParser.getName())) {
+                                    list.add(question);
+                                    question = null;
+                                }
+                                break;
+                        }
+                        eventType = pullParser.next();
+                    }
+                }
+
+            } catch (XmlPullParserException | IOException e) {
+                e.printStackTrace();
+            }
+        }
+        return list;
     }
 }

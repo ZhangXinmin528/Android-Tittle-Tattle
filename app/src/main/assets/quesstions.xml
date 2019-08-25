@@ -1,0 +1,87 @@
+<?xml version='1.0' encoding='UTF-8' standalone='yes' ?>
+<questions>
+	<question id="1">
+		<topic>您目前所处的年龄阶段？：</topic>
+		<optionA>A.65岁及以上</optionA>
+		<optionB>B.25岁以下</optionB>
+		<optionC>C.50（含）-65（不含）岁</optionC>
+		<optionD>D.25（含）-50（不含）岁</optionD>
+	</question>
+	<question id="2">
+		<topic>知识水平：</topic>
+		<optionA>A.初中及以下</optionA>
+		<optionB>B.中专及高中</optionB>
+		<optionC>C.大专</optionC>
+		<optionD>D.本科及以上</optionD>
+	</question>
+	<question id="3">
+		<topic>您的收入状况，包括工资收入、奖金及劳务报酬、投资收入、自有企业分红、租金收入、继承收入等全部财富收入来源：</topic>
+		<optionA>A.月均收入3000元以下</optionA>
+		<optionB>B.月均收入3000-10000元</optionB>
+		<optionC>C.月均收入10000-20000元</optionC>
+		<optionD>D.月均收入20000元以上</optionD>
+	</question>
+	<question id="4">
+		<topic>您每月必要支出所占当月收入比例：</topic>
+		<optionA>A.90%以上</optionA>
+		<optionB>B.60%-90%</optionB>
+		<optionC>C.40%-60%</optionC>
+		<optionD>D.40%以下</optionD>
+	</question>
+	<question id="5">
+		<topic>您的家庭可投资金融资产规模净值是多少？（包括储蓄、保险、金融理财投资、房地产投资、实物投资等，不包括自用住宅和私营等实业投资,并需扣除未结清贷款、信用卡账单等债务）</topic>
+		<optionA>A.5万元及以下</optionA>
+		<optionB>B.5万元-20万元</optionB>
+		<optionC>C.20万元-100万元</optionC>
+		<optionD>D.100万元及以上</optionD>
+	</question>
+	<question id="6">
+		<topic>短期内，您可承受的最大投资损失占投资初始金额之比为？</topic>
+		<optionA>A.不能承受任何损失</optionA>
+		<optionB>B.亏损不超过10%</optionB>
+		<optionC>C.亏损在10%与30%之间</optionC>
+		<optionD>D.亏损可大于30%</optionD>
+	</question>
+	<question id="7">
+		<topic>假设您持有某投资连结保险已达6个月以上，但仍有超出您承受范围的投资损失，这时您会怎么做？</topic>
+		<optionA>A.心情焦虑，坚决要求退保，并表示生活将受到严重负面影响</optionA>
+		<optionB>B.调整策略，将资金转到低风险等级账户，有时会考虑退保</optionB>
+		<optionC>C.保持关注，但仍保持现有配置比例，等待观察长期走势</optionC>
+		<optionD>D.追加保费，或考虑增加高风险等级账户的投资配置比例</optionD>
+	</question>
+	<question id="8">
+		<topic>您理财投资占您可投资产（不包括自住房产）的百分之几？</topic>
+		<optionA>A.0%</optionA>
+		<optionB>B.0%至25%</optionB>
+		<optionC>C.25%至50%</optionC>
+		<optionD>D.大于50%</optionD>
+	</question>
+	<question id="9">
+		<topic>您认可的最理想的投资年限：</topic>
+		<optionA>A.小于1年</optionA>
+		<optionB>B.1-3年</optionB>
+		<optionC>C.3-5年</optionC>
+		<optionD>D.5年以上长期投资</optionD>
+	</question>
+	<question id="10">
+		<topic>以下哪项最能说明您目前的资产配置结构？</topic>
+		<optionA>A.除存款、国债之外，我几乎不投资其他金融产品</optionA>
+		<optionB>B.大多投资于存款、国债等，少量配置银行理财、保险等相对安全产品</optionB>
+		<optionC>C.均衡配置于存款、国债、银行理财、信托、股票、基金、保险等各类产品</optionC>
+		<optionD>D.除必要存款保险之外，大多配置于股票、基金、外汇等高风险投资产品</optionD>
+	</question>
+	<question id="11">
+		<topic>以下哪项描述最符合您的投资态度？</topic>
+		<optionA>A.厌恶风险，不希望本金损失，希望获得稳定回报</optionA>
+		<optionB>B.保守投资，不希望本金损失，愿意承担一定幅度的收益波动</optionB>
+		<optionC>C.寻求资金的较高收益和成长性，愿意为此承担有限本金损失</optionC>
+		<optionD>D.希望赚取高回报，能接受为期较长期间的负面波动，包括本金损失</optionD>
+	</question>
+	<question id="12">
+		<topic>您有多少年投资股票、基金、外汇、金融衍生产品等风险投资品的经验？</topic>
+		<optionA>A．没有经验</optionA>
+		<optionB>B.有经验，但少于2年</optionB>
+		<optionC>C．2至5年</optionC>
+		<optionD>D.5年以上	</optionD>
+	</question>
+</questions>
