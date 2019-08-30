@@ -20,7 +20,7 @@ import com.coding.zxm.recyclerviewhelper.AbsRecyclerAdapter;
  * Created by ZhangXinmin on 2019/8/29.
  * Copyright (c) 2019 . All rights reserved.
  */
-public class BaseViewHolder extends RecyclerView.ViewHolder {
+public final class BaseViewHolder extends RecyclerView.ViewHolder {
 
     private final SparseArray<View> mViews;
 
