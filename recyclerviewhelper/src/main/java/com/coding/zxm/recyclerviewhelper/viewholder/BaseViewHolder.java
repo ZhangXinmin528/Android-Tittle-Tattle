@@ -15,6 +15,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.coding.zxm.recyclerviewhelper.AbsRecyclerAdapter;
+import com.coding.zxm.recyclerviewhelper.listener.OnItemChildClickListener;
+import com.coding.zxm.recyclerviewhelper.listener.OnItemClickListener;
 
 /**
  * Created by ZhangXinmin on 2019/8/29.
@@ -260,19 +262,23 @@ public final class BaseViewHolder extends RecyclerView.ViewHolder {
      * Register a callback to be invoked when this view is clicked. If this view is not
      * clickable, it becomes clickable.
      *
-     * @param viewId the ID to search for
      * @return
      */
-    public BaseViewHolder setOnItemClickListener(@IdRes int viewId) {
-        final View view = getView(viewId);
-        if (view != null) {
-            if (!view.isClickable()) {
-                view.setClickable(true);
+    @Deprecated
+    public BaseViewHolder setOnItemClickListener() {
+        if (mItemView != null) {
+            if (!mItemView.isClickable()) {
+                mItemView.setClickable(true);
             }
-            view.setOnClickListener(new View.OnClickListener() {
+            mItemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-
+                    if (mAdapter != null) {
+                        final OnItemClickListener listener = mAdapter.getOnItemClickListener();
+                        if (listener != null) {
+                            listener.onItemClick(mAdapter, mItemView, getItemLayoutPosition());
+                        }
+                    }
                 }
             });
         }
@@ -294,7 +300,13 @@ public final class BaseViewHolder extends RecyclerView.ViewHolder {
             view.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-
+                    if (mAdapter != null) {
+                        final OnItemChildClickListener listener =
+                                mAdapter.getItemChildClickListener();
+                        if (listener != null) {
+                            listener.onItemChildClick(mAdapter, view, getItemLayoutPosition());
+                        }
+                    }
                 }
             });
         }
@@ -319,5 +331,13 @@ public final class BaseViewHolder extends RecyclerView.ViewHolder {
         } else {
             return null;
         }
+    }
+
+    private int getItemLayoutPosition() {
+        final int layoutPosition = getLayoutPosition();
+        if (mAdapter != null && layoutPosition >= mAdapter.getHeaderLayoutCount()) {
+            return layoutPosition - mAdapter.getHeaderLayoutCount();
+        }
+        return 0;
     }
 }

@@ -13,6 +13,7 @@
         <item>视频播放</item>
         <item>Loading</item>
         <item>Xml解析</item>
+        <item>RecyclerViewHelper</item>
     </string-array>
 
     <string-array name="thread_sort_arrays">

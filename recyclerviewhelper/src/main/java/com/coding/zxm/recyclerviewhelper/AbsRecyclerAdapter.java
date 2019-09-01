@@ -1,15 +1,21 @@
 package com.coding.zxm.recyclerviewhelper;
 
 import android.content.Context;
+import android.support.annotation.IntRange;
 import android.support.annotation.LayoutRes;
 import android.support.annotation.NonNull;
+import android.support.v7.widget.LinearLayoutCompat;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.coding.zxm.recyclerviewhelper.listener.OnItemChildClickListener;
+import com.coding.zxm.recyclerviewhelper.listener.OnItemClickListener;
 import com.coding.zxm.recyclerviewhelper.viewholder.BaseViewHolder;
 
+import java.lang.invoke.MethodHandle;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,6 +24,8 @@ import java.util.List;
  * Copyright (c) 2019 . All rights reserved.
  */
 public abstract class AbsRecyclerAdapter<D, V extends BaseViewHolder> extends RecyclerView.Adapter<V> {
+
+    protected static final String TAG = "AbsRecyclerAdapter";
 
     public static final int VIEW_HEADER = 0x00000111;
     public static final int VIEW_LOADING = 0x00000222;
@@ -30,22 +38,34 @@ public abstract class AbsRecyclerAdapter<D, V extends BaseViewHolder> extends Re
     private int mLayoutResId;
     private List<D> mData;
 
+    //header
+    private LinearLayoutCompat mHeaderLayout;
+
+    //Item click
+    private OnItemClickListener mItemClickListener;
+
+    //Item child click
+    private OnItemChildClickListener mItemChildClickListener;
+
     public AbsRecyclerAdapter(@LayoutRes int layoutResId, @NonNull List<D> data) {
         this.mData = data == null ? new ArrayList<>() : data;
         if (layoutResId != -1) {
             this.mLayoutResId = layoutResId;
         }
+        Log.d(TAG, "构造器~");
     }
-
 
     @NonNull
     @Override
     public V onCreateViewHolder(@NonNull ViewGroup viewGroup, int viewType) {
+        Log.d(TAG, "onCreateViewHolder..viewType : " + viewType);
         V baseViewHolder = null;
         this.mContext = viewGroup.getContext();
         this.mLayoutInflater = LayoutInflater.from(mContext);
+
         switch (viewType) {
             case VIEW_HEADER:
+
                 break;
             case VIEW_LOADING:
                 break;
@@ -64,26 +84,110 @@ public abstract class AbsRecyclerAdapter<D, V extends BaseViewHolder> extends Re
     @Override
     public void onBindViewHolder(@NonNull V holder, int position) {
         final int viewType = holder.getItemViewType();
+
+        Log.d(TAG, "onBindViewHolder..viewType : " + viewType + ".. position : " + position);
+
         switch (viewType) {
             case VIEW_HEADER:
+
                 break;
             case VIEW_LOADING:
+
                 break;
             case VIEW_EMPTY:
+
                 break;
             case VIEW_FOOTER:
 
                 break;
             default:
-
+                bindView(holder, getItem(position));
                 break;
         }
 
     }
 
+    /**
+     * Implement this method and then bind views with the holder.
+     *
+     * @param holder a viewholder.
+     * @param data   an element of data
+     */
+    protected abstract void bindView(V holder, D data);
+
     @Override
     public int getItemCount() {
+        if (mData != null && !mData.isEmpty()) {
+            return mData.size();
+        }
         return 0;
+    }
+
+    /**
+     * Get the data element int the position.
+     *
+     * @param position the position
+     * @return
+     */
+    public D getItem(@IntRange(from = 0) int position) {
+        final int size = getItemCount();
+        if (size > 0) {
+            if (position < size) {
+                return mData.get(position);
+            }
+        }
+        return null;
+    }
+
+    /**
+     * Register a callback to be invoked when an item in this RecyclerView has
+     * been clicked.
+     *
+     * @param listener The callback that will be invoked.
+     */
+    @Deprecated
+    public void setOnItemClickListener(@NonNull OnItemClickListener listener) {
+        this.mItemClickListener = listener;
+    }
+
+    /**
+     * Get the instance of {@link OnItemClickListener}.
+     *
+     * @return
+     */
+    public OnItemClickListener getOnItemClickListener() {
+        return mItemClickListener;
+    }
+
+    /**
+     * Get the instance of {@link OnItemChildClickListener}.
+     *
+     * @return
+     */
+    public OnItemChildClickListener getItemChildClickListener() {
+        return mItemChildClickListener;
+    }
+
+    /**
+     * Register a callback to be invoked when an item child view in this RecyclerView has
+     * been clicked.
+     *
+     * @param listener The callback that will be invoked.
+     */
+    public void setItemChildClickListener(@NonNull OnItemChildClickListener listener) {
+        this.mItemChildClickListener = listener;
+    }
+
+    /**
+     * Get the header layout count.
+     *
+     * @return
+     */
+    public int getHeaderLayoutCount() {
+        if (mHeaderLayout == null || mHeaderLayout.getChildCount() == 0) {
+            return 0;
+        }
+        return 1;
     }
 
     private V createBaseViewHolder(@NonNull ViewGroup viewGroup) {
@@ -94,4 +198,5 @@ public abstract class AbsRecyclerAdapter<D, V extends BaseViewHolder> extends Re
     private View getItemView(@LayoutRes int layoutResId, @NonNull ViewGroup parent) {
         return mLayoutInflater.inflate(layoutResId, parent, false);
     }
+
 }
