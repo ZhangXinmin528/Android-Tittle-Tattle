@@ -188,7 +188,7 @@ public abstract class AbsRecyclerAdapter<D, V extends BaseViewHolder> extends Re
      * @param index the positon
      * @return
      */
-    public int addOrUpdateHorizontally(@NonNull View header, @IntRange(from = 0) int index) {
+    public int addOrUpdateHeaderHorizontally(@NonNull View header, @IntRange(from = 0) int index) {
         return addOrUpdateHeader(header, index, LinearLayoutCompat.HORIZONTAL);
     }
 
@@ -199,7 +199,7 @@ public abstract class AbsRecyclerAdapter<D, V extends BaseViewHolder> extends Re
      * @param index the positon
      * @return
      */
-    public int addOrUpdateVertically(@NonNull View header, @IntRange(from = 0) int index) {
+    public int addOrUpdateHeaderVertically(@NonNull View header, @IntRange(from = 0) int index) {
         return addOrUpdateHeader(header, index, LinearLayoutCompat.VERTICAL);
     }
 
