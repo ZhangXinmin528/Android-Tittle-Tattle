@@ -15,7 +15,6 @@ import com.coding.zxm.recyclerviewhelper.listener.OnItemChildClickListener;
 import com.coding.zxm.recyclerviewhelper.listener.OnItemClickListener;
 import com.coding.zxm.recyclerviewhelper.viewholder.BaseViewHolder;
 
-import java.lang.invoke.MethodHandle;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,13 +24,12 @@ import java.util.List;
  */
 public abstract class AbsRecyclerAdapter<D, V extends BaseViewHolder> extends RecyclerView.Adapter<V> {
 
+    protected static final int VIEW_HEADER = 0x00000111;
+    protected static final int VIEW_LOADING = 0x00000222;
+    protected static final int VIEW_FOOTER = 0x00000333;
+    protected static final int VIEW_EMPTY = 0x00000555;
+
     protected static final String TAG = "AbsRecyclerAdapter";
-
-    public static final int VIEW_HEADER = 0x00000111;
-    public static final int VIEW_LOADING = 0x00000222;
-    public static final int VIEW_FOOTER = 0x00000333;
-    public static final int VIEW_EMPTY = 0x00000555;
-
     protected Context mContext;
     protected LayoutInflater mLayoutInflater;
 
@@ -68,10 +66,13 @@ public abstract class AbsRecyclerAdapter<D, V extends BaseViewHolder> extends Re
 
                 break;
             case VIEW_LOADING:
+
                 break;
             case VIEW_EMPTY:
+
                 break;
             case VIEW_FOOTER:
+
                 break;
             default:
                 baseViewHolder = createBaseViewHolder(viewGroup);
@@ -140,6 +141,15 @@ public abstract class AbsRecyclerAdapter<D, V extends BaseViewHolder> extends Re
     }
 
     /**
+     * Get the instance of {@link OnItemClickListener}.
+     *
+     * @return
+     */
+    public OnItemClickListener getOnItemClickListener() {
+        return mItemClickListener;
+    }
+
+    /**
      * Register a callback to be invoked when an item in this RecyclerView has
      * been clicked.
      *
@@ -148,15 +158,6 @@ public abstract class AbsRecyclerAdapter<D, V extends BaseViewHolder> extends Re
     @Deprecated
     public void setOnItemClickListener(@NonNull OnItemClickListener listener) {
         this.mItemClickListener = listener;
-    }
-
-    /**
-     * Get the instance of {@link OnItemClickListener}.
-     *
-     * @return
-     */
-    public OnItemClickListener getOnItemClickListener() {
-        return mItemClickListener;
     }
 
     /**
@@ -178,6 +179,90 @@ public abstract class AbsRecyclerAdapter<D, V extends BaseViewHolder> extends Re
         this.mItemChildClickListener = listener;
     }
 
+    //HeaderLayout
+
+    /**
+     * Add the view at last or update the view at the specified position in the group horizontally.
+     *
+     * @param header header view
+     * @param index the positon
+     * @return
+     */
+    public int addOrUpdateHorizontally(@NonNull View header, @IntRange(from = 0) int index) {
+        return addOrUpdateHeader(header, index, LinearLayoutCompat.HORIZONTAL);
+    }
+
+    /**
+     * Add the view at last or update the view at the specified position in the group vertically.
+     *
+     * @param header header view
+     * @param index the positon
+     * @return
+     */
+    public int addOrUpdateVertically(@NonNull View header, @IntRange(from = 0) int index) {
+        return addOrUpdateHeader(header, index, LinearLayoutCompat.VERTICAL);
+    }
+
+    /**
+     * Add the view at last or update the view at the specified position in the group.
+     *
+     * @param header      header view
+     * @param index       the positon
+     * @param orientation {@code #LinearLayoutCompat.VERTICAL} or {@code #LinearLayoutCompat.HORIZONTAL}
+     * @return
+     */
+    public int addOrUpdateHeader(@NonNull View header, @IntRange(from = 0) int index, int orientation) {
+        if (header != null) {
+            if (mHeaderLayout == null) {
+                final int childCount = mHeaderLayout.getChildCount();
+                if (index > childCount) {
+                    return addHeaderView(header, index, orientation);
+                } else {
+                    mHeaderLayout.removeViewAt(index);
+                    mHeaderLayout.addView(header, index);
+                    return index;
+                }
+            }
+        }
+        return -1;
+    }
+
+    /**
+     * Add header view to the recyclerview.
+     *
+     * @param header      header view
+     * @param index       position in the header layout
+     * @param orientation {@code #LinearLayoutCompat.VERTICAL} or {@code #LinearLayoutCompat.HORIZONTAL}
+     * @return
+     */
+    protected int addHeaderView(@NonNull View header, @IntRange(from = 0) int index, int orientation) {
+        if (mHeaderLayout == null) {
+            mHeaderLayout = new LinearLayoutCompat(header.getContext());
+            mHeaderLayout.setOrientation(orientation);
+            if (orientation == LinearLayoutCompat.VERTICAL) {
+                mHeaderLayout.setLayoutParams(new LinearLayoutCompat.LayoutParams(
+                        ViewGroup.LayoutParams.MATCH_PARENT,
+                        ViewGroup.LayoutParams.WRAP_CONTENT));
+            } else {
+                mHeaderLayout.setLayoutParams(new LinearLayoutCompat.LayoutParams(
+                        ViewGroup.LayoutParams.WRAP_CONTENT,
+                        ViewGroup.LayoutParams.MATCH_PARENT
+                ));
+            }
+        }
+
+        final int childCount = mHeaderLayout.getChildCount();
+        if (index < 0 || index > childCount) {
+            index = childCount;
+        }
+        if (header != null) {
+            mHeaderLayout.addView(header, index);
+            return index;
+        } else {
+            return -1;
+        }
+    }
+
     /**
      * Get the header layout count.
      *
@@ -188,6 +273,15 @@ public abstract class AbsRecyclerAdapter<D, V extends BaseViewHolder> extends Re
             return 0;
         }
         return 1;
+    }
+
+    /**
+     * Get the Header Layout.
+     *
+     * @return
+     */
+    public LinearLayoutCompat getHeaderLayout() {
+        return mHeaderLayout;
     }
 
     private V createBaseViewHolder(@NonNull ViewGroup viewGroup) {
