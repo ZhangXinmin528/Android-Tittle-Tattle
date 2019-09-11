@@ -24,8 +24,8 @@ import java.util.List;
  */
 public abstract class AbsRecyclerAdapter<D, V extends BaseViewHolder> extends RecyclerView.Adapter<V> {
 
-    protected static final int VIEW_HEADER = 0x00000111;
-    protected static final int VIEW_LOADING = 0x00000222;
+    protected static final int VIEW_LOADING = 0x00000111;
+    protected static final int VIEW_HEADER = 0x00000222;
     protected static final int VIEW_FOOTER = 0x00000333;
     protected static final int VIEW_EMPTY = 0x00000555;
 
@@ -38,6 +38,8 @@ public abstract class AbsRecyclerAdapter<D, V extends BaseViewHolder> extends Re
 
     //header
     private LinearLayoutCompat mHeaderLayout;
+    //footer
+    private LinearLayoutCompat mFooterLayout;
 
     //Item click
     private OnItemClickListener mItemClickListener;
@@ -62,10 +64,10 @@ public abstract class AbsRecyclerAdapter<D, V extends BaseViewHolder> extends Re
         this.mLayoutInflater = LayoutInflater.from(mContext);
 
         switch (viewType) {
-            case VIEW_HEADER:
+            case VIEW_LOADING:
 
                 break;
-            case VIEW_LOADING:
+            case VIEW_HEADER:
 
                 break;
             case VIEW_EMPTY:
@@ -89,10 +91,10 @@ public abstract class AbsRecyclerAdapter<D, V extends BaseViewHolder> extends Re
         Log.d(TAG, "onBindViewHolder..viewType : " + viewType + ".. position : " + position);
 
         switch (viewType) {
-            case VIEW_HEADER:
+            case VIEW_LOADING:
 
                 break;
-            case VIEW_LOADING:
+            case VIEW_HEADER:
 
                 break;
             case VIEW_EMPTY:
@@ -119,9 +121,26 @@ public abstract class AbsRecyclerAdapter<D, V extends BaseViewHolder> extends Re
     @Override
     public int getItemCount() {
         if (mData != null && !mData.isEmpty()) {
-            return mData.size();
+            return getHeaderLayoutCount() + mData.size();
         }
         return 0;
+    }
+
+    @Override
+    public int getItemViewType(int position) {
+
+        if (position == 0) {
+            return VIEW_LOADING;
+        } else {
+            final int headerCount = getHeaderLayoutCount();
+            final int adapterCount = getItemCount();
+            if (headerCount == 0) {
+
+            } else {
+
+            }
+        }
+        return super.getItemViewType(position);
     }
 
     /**
@@ -185,7 +204,7 @@ public abstract class AbsRecyclerAdapter<D, V extends BaseViewHolder> extends Re
      * Add the view at last or update the view at the specified position in the group horizontally.
      *
      * @param header header view
-     * @param index the positon
+     * @param index  the positon
      * @return
      */
     public int addOrUpdateHeaderHorizontally(@NonNull View header, @IntRange(from = 0) int index) {
@@ -196,7 +215,7 @@ public abstract class AbsRecyclerAdapter<D, V extends BaseViewHolder> extends Re
      * Add the view at last or update the view at the specified position in the group vertically.
      *
      * @param header header view
-     * @param index the positon
+     * @param index  the positon
      * @return
      */
     public int addOrUpdateHeaderVertically(@NonNull View header, @IntRange(from = 0) int index) {
@@ -282,6 +301,20 @@ public abstract class AbsRecyclerAdapter<D, V extends BaseViewHolder> extends Re
      */
     public LinearLayoutCompat getHeaderLayout() {
         return mHeaderLayout;
+    }
+
+    //Footer
+
+    /**
+     * If had footer will return 1, else 0;
+     *
+     * @return
+     */
+    public int getFooterLayoutCount() {
+        if (mFooterLayout == null || mFooterLayout.getChildCount() == 0) {
+            return 0;
+        }
+        return 1;
     }
 
     private V createBaseViewHolder(@NonNull ViewGroup viewGroup) {
