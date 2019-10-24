@@ -1,5 +1,7 @@
 package com.coding.zxm.lib_pool.ui;
 
+import android.content.Intent;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 
@@ -8,6 +10,7 @@ import com.coding.zxm.lib_pool.model.Student;
 import com.coding.zxm.lib_pool.model.StudentFactory;
 import com.coding.zxm.lib_pool.pool.SynchronizedPool;
 import com.coding.zxm.libcore.ui.BaseActivity;
+import com.coding.zxm.libutil.DisplayUtil;
 
 /**
  * Created by ZhangXinmin on 2019/5/15.
@@ -27,6 +30,14 @@ public class ObjectPoolActivity extends BaseActivity implements View.OnClickList
 
     @Override
     protected void initParamsAndValues() {
+        Intent intent = getIntent();
+        if (intent != null) {
+            final String label = intent.getStringExtra(DisplayUtil.PARAMS_LABEL);
+            if (!TextUtils.isEmpty(label)) {
+                setTitle(label);
+            }
+        }
+
         mSize = 1000;
         mPool = new SynchronizedPool<>(5, new StudentFactory());
     }

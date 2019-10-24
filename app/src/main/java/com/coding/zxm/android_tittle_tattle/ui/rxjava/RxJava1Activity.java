@@ -47,10 +47,7 @@ public class RxJava1Activity extends BaseActivity implements OnItemClickListener
         if (intent != null) {
             final String label = intent.getStringExtra(DisplayUtil.PARAMS_LABEL);
             if (!TextUtils.isEmpty(label)) {
-                ActionBar actionBar = getSupportActionBar();
-                if (actionBar != null) {
-                    actionBar.setTitle(label);
-                }
+                setTitle(label);
             }
         }
     }

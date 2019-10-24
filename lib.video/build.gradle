@@ -36,5 +36,6 @@ dependencies {
         exclude module: "support-v13"
     }
     annotationProcessor "com.github.hotchemi:permissionsdispatcher-processor:$rootProject.permissionsDispatcher"
+    implementation project(path: ':lib.util')
 
 }

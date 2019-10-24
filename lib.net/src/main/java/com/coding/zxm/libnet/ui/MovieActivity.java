@@ -19,6 +19,7 @@ import com.coding.zxm.libnet.model.DoubanMovie;
 import com.coding.zxm.libnet.model.MovieEntity;
 import com.coding.zxm.libnet.service.MoviceService;
 import com.coding.zxm.lib_webview.fragment.X5WebViewFragment;
+import com.coding.zxm.libutil.DisplayUtil;
 import com.zxm.utils.core.log.MLogger;
 
 import java.util.ArrayList;
@@ -58,12 +59,9 @@ public class MovieActivity extends BaseActivity implements OnItemClickListener {
 
         Intent intent = getIntent();
         if (intent != null) {
-            final String label = intent.getStringExtra("params_label");
+            final String label = intent.getStringExtra(DisplayUtil.PARAMS_LABEL);
             if (!TextUtils.isEmpty(label)) {
-                ActionBar actionBar = getSupportActionBar();
-                if (actionBar != null) {
-                    actionBar.setTitle(label);
-                }
+                setTitle(label);
             }
         }
     }

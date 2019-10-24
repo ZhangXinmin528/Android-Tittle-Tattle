@@ -29,7 +29,8 @@ import java.util.List;
  * <p>
  * 用于RecyclerView演示；
  */
-public class RvActivity extends BaseActivity implements OnItemClickListener, OnItemChildClickListener {
+public class RvActivity extends BaseActivity implements
+        OnItemClickListener, OnItemChildClickListener {
 
     private RecyclerView mRecyclerView;
     private List<String> mDataList;
@@ -47,10 +48,7 @@ public class RvActivity extends BaseActivity implements OnItemClickListener, OnI
         if (intent != null) {
             final String label = intent.getStringExtra(DisplayUtil.PARAMS_LABEL);
             if (!TextUtils.isEmpty(label)) {
-                ActionBar actionBar = getSupportActionBar();
-                if (actionBar != null) {
-                    actionBar.setTitle(label);
-                }
+                setTitle(label);
             }
         }
 

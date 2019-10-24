@@ -57,10 +57,7 @@ public class OriginalSqlActivity extends BaseActivity implements View.OnClickLis
         if (intent != null) {
             final String label = intent.getStringExtra(DisplayUtil.PARAMS_LABEL);
             if (!TextUtils.isEmpty(label)) {
-                ActionBar actionBar = getSupportActionBar();
-                if (actionBar != null) {
-                    actionBar.setTitle(label);
-                }
+                setTitle(label);
             }
         }
 

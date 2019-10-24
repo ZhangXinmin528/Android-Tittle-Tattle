@@ -30,10 +30,7 @@ public class PollingActivity extends BaseActivity implements View.OnClickListene
         if (intent != null) {
             final String label = intent.getStringExtra(DisplayUtil.PARAMS_LABEL);
             if (!TextUtils.isEmpty(label)) {
-                ActionBar actionBar = getSupportActionBar();
-                if (actionBar != null) {
-                    actionBar.setTitle(label);
-                }
+                setTitle(label);
             }
         }
     }

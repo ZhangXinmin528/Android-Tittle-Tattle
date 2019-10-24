@@ -29,4 +29,5 @@ dependencies {
     implementation "com.android.support:recyclerview-v7:$rootProject.supportLibraryVersion"
     implementation("com.squareup.okhttp3:okhttp:3.14.2")
     implementation project(path: ':lib.core')
+    implementation project(path: ':lib.util')
 }

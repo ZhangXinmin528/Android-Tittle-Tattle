@@ -1,9 +1,12 @@
 package com.coding.zxm.android_tittle_tattle.ui.loading;
 
+import android.content.Intent;
+import android.text.TextUtils;
 import android.view.View;
 
 import com.coding.zxm.android_tittle_tattle.R;
 import com.coding.zxm.libcore.ui.BaseActivity;
+import com.coding.zxm.libutil.DisplayUtil;
 import com.zxm.utils.core.dialog.LoadingDialog;
 
 /**
@@ -20,7 +23,13 @@ public class LoadingActivity extends BaseActivity implements View.OnClickListene
 
     @Override
     protected void initParamsAndValues() {
-
+        Intent intent = getIntent();
+        if (intent != null) {
+            final String label = intent.getStringExtra(DisplayUtil.PARAMS_LABEL);
+            if (!TextUtils.isEmpty(label)) {
+                setTitle(label);
+            }
+        }
     }
 
     @Override

@@ -1,12 +1,15 @@
 package com.coding.zxm.lib_okhttp.ui;
 
+import android.content.Intent;
 import android.support.annotation.NonNull;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
 import com.coding.zxm.lib_okhttp.R;
 import com.coding.zxm.libcore.ui.BaseActivity;
+import com.coding.zxm.libutil.DisplayUtil;
 
 import java.io.IOException;
 import java.util.concurrent.ExecutorService;
@@ -34,6 +37,14 @@ public class OkUsageActivity extends BaseActivity implements View.OnClickListene
 
     @Override
     protected void initParamsAndValues() {
+        Intent intent = getIntent();
+        if (intent != null) {
+            final String label = intent.getStringExtra(DisplayUtil.PARAMS_LABEL);
+            if (!TextUtils.isEmpty(label)) {
+                setTitle(label);
+            }
+        }
+
         mPool = Executors.newSingleThreadExecutor();
     }
 

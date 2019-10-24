@@ -2,7 +2,6 @@ package com.coding.zxm.android_tittle_tattle.ui.thread;
 
 import android.content.Intent;
 import android.support.annotation.NonNull;
-import android.support.v7.app.ActionBar;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -11,10 +10,10 @@ import android.view.View;
 
 import com.coding.zxm.android_tittle_tattle.R;
 import com.coding.zxm.android_tittle_tattle.adapter.SortAdapter;
-import com.coding.zxm.libutil.DisplayUtil;
 import com.coding.zxm.android_tittle_tattle.util.SortDispatcher;
 import com.coding.zxm.libcore.listender.OnItemClickListener;
 import com.coding.zxm.libcore.ui.BaseActivity;
+import com.coding.zxm.libutil.DisplayUtil;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -47,10 +46,7 @@ public class ThreadActivity extends BaseActivity implements OnItemClickListener 
         if (intent != null) {
             final String label = intent.getStringExtra(DisplayUtil.PARAMS_LABEL);
             if (!TextUtils.isEmpty(label)) {
-                ActionBar actionBar = getSupportActionBar();
-                if (actionBar != null) {
-                    actionBar.setTitle(label);
-                }
+                setTitle(label);
             }
         }
     }

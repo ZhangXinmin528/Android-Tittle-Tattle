@@ -27,4 +27,5 @@ dependencies {
 
     implementation "com.android.support:appcompat-v7:$rootProject.supportLibraryVersion"
     implementation project(path: ':lib.core')
+    implementation project(':lib.util')
 }

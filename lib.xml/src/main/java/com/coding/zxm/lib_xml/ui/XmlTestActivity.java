@@ -1,6 +1,7 @@
 package com.coding.zxm.lib_xml.ui;
 
 import android.Manifest;
+import android.content.Intent;
 import android.content.res.AssetManager;
 import android.os.Environment;
 import android.support.annotation.NonNull;
@@ -13,6 +14,7 @@ import android.widget.TextView;
 import com.coding.zxm.lib_xml.R;
 import com.coding.zxm.lib_xml.model.QuestionEntity;
 import com.coding.zxm.libcore.ui.BaseActivity;
+import com.coding.zxm.libutil.DisplayUtil;
 import com.zxm.utils.core.permission.PermissionChecker;
 
 import org.xmlpull.v1.XmlPullParser;
@@ -44,6 +46,14 @@ public class XmlTestActivity extends BaseActivity implements View.OnClickListene
 
     @Override
     protected void initParamsAndValues() {
+        Intent intent = getIntent();
+        if (intent != null) {
+            final String label = intent.getStringExtra(DisplayUtil.PARAMS_LABEL);
+            if (!TextUtils.isEmpty(label)) {
+                setTitle(label);
+            }
+        }
+
         if (!PermissionChecker.checkPersmission(mContext, Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
             PermissionChecker.requestPermissions(this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 1001);
         }
