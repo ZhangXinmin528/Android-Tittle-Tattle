@@ -1,2 +1,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.coding.zxm.lib_queue" />
+    package="com.coding.zxm.lib_queue">
+
+    <application>
+        <activity
+            android:name=".LinkeBlockingQueueActivity"
+            android:screenOrientation="portrait" />
+
+    </application>
+</manifest>

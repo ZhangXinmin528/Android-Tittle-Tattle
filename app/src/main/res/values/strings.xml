@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Android-Tittle-Tattle</string>
+    <string name="app_name">Android Training</string>
     <string name="all_start">Start</string>
     <string name="all_fixedpool">fixed_pool</string>
     <string name="all_cached_pool">cached_pool</string>

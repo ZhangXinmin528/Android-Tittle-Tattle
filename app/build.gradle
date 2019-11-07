@@ -84,5 +84,7 @@ dependencies {
     implementation project(path: ':lib.xml')
     //列表控件
     implementation project(path: ':recyclerviewhelper')
+    //队列
+    implementation project(path: ':lib.queue')
 
 }

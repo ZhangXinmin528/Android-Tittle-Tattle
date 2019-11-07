@@ -44,7 +44,7 @@ dependencies {
 
     implementation "com.android.support:appcompat-v7:$rootProject.supportLibraryVersion"
     implementation "com.android.support.constraint:constraint-layout:$rootProject.constraintLayoutVersion"
+    implementation project(path: ':lib.util')
 
-    implementation "com.zxm.utils:lib.coreutils:$rootProject.utilVersion"
 
 }
