@@ -7,6 +7,7 @@ import android.os.Parcelable;
  * Copyright (c) 2019 . All rights reserved.
  */
 public abstract class AbsTask implements Parcelable {
+
     /**
      * unique identification
      */

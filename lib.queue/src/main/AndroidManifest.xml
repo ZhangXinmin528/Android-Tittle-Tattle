@@ -6,5 +6,6 @@
             android:name=".LinkeBlockingQueueActivity"
             android:screenOrientation="portrait" />
 
+        <service android:name=".polling.TaskService" />
     </application>
 </manifest>

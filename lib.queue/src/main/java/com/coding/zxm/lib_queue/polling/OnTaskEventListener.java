@@ -16,5 +16,12 @@ public interface OnTaskEventListener<T extends AbsTask> {
      * @param t     a new task
      * @param state the state of wheather the task insert into the queue
      */
-    void onTaskAddedState(@NonNull T t, boolean state);
+    void onTaskAdded(@NonNull T t, boolean state);
+
+    /**
+     * Method called when a task was polled from the task queue.
+     *
+     * @param t
+     */
+    void onTaskObtain(@NonNull T t);
 }
