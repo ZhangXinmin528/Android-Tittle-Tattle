@@ -30,6 +30,8 @@ public final class TaskLooper<T extends AbsTask> implements TaskPollingSender {
     public static final DateFormat DATE_FORMAT =
             new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS", Locale.CHINA);
 
+    public static final long TEN_MSEC = 10 * 1000;
+
     public static final long HALF_MINUTE = 30 * 1000;
 
     public static final long ONE_MINUTE = 60 * 1000;
@@ -50,6 +52,8 @@ public final class TaskLooper<T extends AbsTask> implements TaskPollingSender {
 
     private boolean isPolling;
 
+    private boolean isReceiverRegistered;
+
     public TaskLooper(@NonNull TaskService<T> taskService) {
         this(taskService, ONE_MINUTE);
     }
@@ -60,14 +64,17 @@ public final class TaskLooper<T extends AbsTask> implements TaskPollingSender {
     }
 
     @Override
-    public void start() {
-        TaskDebuger.i(TAG, "start()~");
+    public void onStart() {
+        TaskDebuger.d(TAG, "onStart()~");
 
         if (receiver == null) {
             receiver = new TaskPollingReceiver();
         }
 
-        taskService.registerReceiver(receiver, new IntentFilter(TaskEvent.ACTION_POLLING));
+        if (!isReceiverRegistered) {
+            taskService.registerReceiver(receiver, new IntentFilter(TaskEvent.ACTION_POLLING));
+            isReceiverRegistered = true;
+        }
 
         if (pendingIntent == null)
             pendingIntent = PendingIntent.getBroadcast(taskService, 0,
@@ -75,28 +82,28 @@ public final class TaskLooper<T extends AbsTask> implements TaskPollingSender {
 
         isPolling = true;
 
-        schedule(keepAlive / 2);
+        schedule(TEN_MSEC);
 
     }
 
     @Override
-    public void resume() {
+    public void onResume() {
         if (!isPolling) {
-            schedule(keepAlive);
+            schedule(TEN_MSEC);
             isPolling = true;
         }
     }
 
     @Override
-    public void pause() {
+    public void onPause() {
         if (isPolling) {
             isPolling = false;
         }
     }
 
     @Override
-    public void stop() {
-        TaskDebuger.i(TAG, "stop()~");
+    public void onStop() {
+        TaskDebuger.d(TAG, "onStop()~");
 
         if (isPolling) {
             if (pendingIntent != null) {
@@ -112,6 +119,7 @@ public final class TaskLooper<T extends AbsTask> implements TaskPollingSender {
 
             if (taskService != null && receiver != null) {
                 taskService.unregisterReceiver(receiver);
+                isReceiverRegistered = false;
             }
         }
     }
@@ -120,7 +128,7 @@ public final class TaskLooper<T extends AbsTask> implements TaskPollingSender {
     public void schedule(long delayMillseconds) {
         final long nextAlarmMillseconds = System.currentTimeMillis() + delayMillseconds;
 
-        TaskDebuger.i(TAG, "schedule next alerm at : " + TimeUtil.getNowString(DATE_FORMAT));
+        TaskDebuger.d(TAG, "schedule() next alerm at : " + TimeUtil.getNowString(DATE_FORMAT));
 
         AlarmManager alarmManager = (AlarmManager) taskService
                 .getSystemService(Service.ALARM_SERVICE);
@@ -129,16 +137,16 @@ public final class TaskLooper<T extends AbsTask> implements TaskPollingSender {
             if (Build.VERSION.SDK_INT >= 23) {
                 // In SDK 23 and above, dosing will prevent setExact, setExactAndAllowWhileIdle will force
                 // the device to run this task whilst dosing.
-                TaskDebuger.i(TAG, "Alarm scheule using setExactAndAllowWhileIdle, next : " + delayMillseconds);
+                TaskDebuger.d(TAG, "Alarm scheule using setExactAndAllowWhileIdle, next : " + delayMillseconds);
                 alarmManager.setExactAndAllowWhileIdle(AlarmManager.RTC_WAKEUP, nextAlarmMillseconds,
                         pendingIntent);
             } else if (Build.VERSION.SDK_INT >= 19) {
-                TaskDebuger.i(TAG, "Alarm scheule using setExact, next : "
+                TaskDebuger.d(TAG, "Alarm scheule using setExact, next : "
                         + nextAlarmMillseconds);
                 alarmManager.setExact(AlarmManager.RTC_WAKEUP, delayMillseconds,
                         pendingIntent);
             } else {
-                TaskDebuger.i(TAG, "Alarm scheule using set, next : "
+                TaskDebuger.d(TAG, "Alarm scheule using set, next : "
                         + nextAlarmMillseconds);
                 alarmManager.set(AlarmManager.RTC_WAKEUP, delayMillseconds,
                         pendingIntent);
@@ -163,6 +171,10 @@ public final class TaskLooper<T extends AbsTask> implements TaskPollingSender {
         return isPolling;
     }
 
+    public boolean isReceiverRegistered() {
+        return isReceiverRegistered;
+    }
+
     private class TaskPollingReceiver extends BroadcastReceiver {
 
         @Override
@@ -170,9 +182,8 @@ public final class TaskLooper<T extends AbsTask> implements TaskPollingSender {
             if (intent != null) {
                 final String action = intent.getAction();
                 if (!TextUtils.isEmpty(action)) {
-                    TaskDebuger.i(TAG,
+                    TaskDebuger.d(TAG,
                             "Sending Ping at : " + TimeUtil.getNowString(DATE_FORMAT));
-
 
                     //进行下次定时任务
                     if (isPolling) {

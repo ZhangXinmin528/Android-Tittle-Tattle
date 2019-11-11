@@ -9,22 +9,22 @@ public interface TaskPollingSender {
     /**
      * Start the polling task.
      */
-    void start();
+    void onStart();
 
     /**
      * Resume the polling task.
      */
-    void resume();
+    void onResume();
 
     /**
      * Pause the polling task.
      */
-    void pause();
+    void onPause();
 
     /**
      * Stop the polling task.
      */
-    void stop();
+    void onStop();
 
     /**
      * Schedule the next task in a certain delay mill seconds.

@@ -96,7 +96,26 @@ public final class TaskSchduler<T extends AbsTask> extends BroadcastReceiver {
     }
 
     /**
-     * Set a new TaskLooper and start it.
+     * Get a task from task queue.
+     * <p>
+     * Once using this method,if the queue is not empty,a task which obtained from the queue will
+     * delivery from {@link OnTaskEventListener#onTaskObtain(AbsTask)}.
+     * </p>
+     */
+    public void getTask() {
+        if (taskService == null) {
+            throw new NullPointerException("TaskService is null~");
+        }
+
+        if (!taskService.initialize()) {
+            throw new IllegalStateException("TaskService has not initialized~");
+        }
+
+        taskService.getTask();
+    }
+
+    /**
+     * Set a new TaskLooper and onStart it.
      *
      * @param looper
      */

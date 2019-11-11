@@ -47,11 +47,6 @@ public class TaskService<T extends AbsTask> extends Service {
         if (taskQueue == null) {
             taskQueue = new LinkedBlockingQueue<>();
         }
-
-        if (taskLooper == null) {
-            taskLooper = new TaskLooper<>(this);
-        }
-
     }
 
     public boolean initialize() {
@@ -74,18 +69,17 @@ public class TaskService<T extends AbsTask> extends Service {
     @Override
     public boolean onUnbind(Intent intent) {
         close();
-
         return super.onUnbind(intent);
     }
 
     /**
-     * Set a new TaskLooper and start it.
+     * Set a new TaskLooper and onStart it.
      *
      * @param looper
      */
     public void setTaskLooper(TaskLooper<T> looper) {
         this.taskLooper = looper;
-        taskLooper.start();
+        taskLooper.onStart();
     }
 
     /**
@@ -93,7 +87,7 @@ public class TaskService<T extends AbsTask> extends Service {
      */
     public void startLooper() {
         if (taskLooper != null) {
-            taskLooper.start();
+            taskLooper.onStart();
         }
     }
 
@@ -114,7 +108,7 @@ public class TaskService<T extends AbsTask> extends Service {
     public void pauseLooper() {
         if (taskLooper != null) {
             if (taskLooper.isPolling()) {
-                taskLooper.pause();
+                taskLooper.onPause();
             }
         }
     }
@@ -125,7 +119,7 @@ public class TaskService<T extends AbsTask> extends Service {
     public void resumeLooper() {
         if (taskLooper != null) {
             if (!taskLooper.isPolling()) {
-                taskLooper.resume();
+                taskLooper.onResume();
             }
         }
     }
@@ -135,7 +129,7 @@ public class TaskService<T extends AbsTask> extends Service {
      */
     public void stopLooper() {
         if (taskLooper != null) {
-            taskLooper.stop();
+            taskLooper.onStop();
         }
     }
 
@@ -151,7 +145,11 @@ public class TaskService<T extends AbsTask> extends Service {
     }
 
     /**
-     * Get a task from the queue head element.
+     * Get a task from task queue.
+     * <p>
+     * Once using this method,if the queue is not empty,a task which obtained from the queue will
+     * delivery from {@link OnTaskEventListener#onTaskObtain(AbsTask)}.
+     * </p>
      */
     public void getTask() {
         executor.submit(new TaskConsume<>(taskQueue));
@@ -161,9 +159,16 @@ public class TaskService<T extends AbsTask> extends Service {
         taskQueue.clear();
     }
 
+    /**
+     * Close task service.
+     * <p>
+     * Note:This method will onStop task loop and {@link ExecutorService#shutdown()}will trigger soon.
+     * At last all tasks from queue will clear.
+     * </p>
+     */
     private void close() {
         if (taskLooper != null) {
-            taskLooper.stop();
+            taskLooper.onStop();
             taskLooper = null;
         }
 
@@ -190,6 +195,7 @@ public class TaskService<T extends AbsTask> extends Service {
         @Override
         public void run() {
             final boolean state = addTask(t);
+            TaskDebuger.d(TAG, "Add a new task state : " + state);
             reportInsertState(state, t);
         }
 
@@ -236,9 +242,9 @@ public class TaskService<T extends AbsTask> extends Service {
             final T t = consume();
             if (t != null) {
                 reportPollEvent(t);
-                TaskDebuger.i(TAG, "poll a task : " + t.toString());
+                TaskDebuger.d(TAG, "Get a task from queue : " + t.toString());
             } else {
-                TaskDebuger.e(TAG, "Task queue is empty~");
+                TaskDebuger.e(TAG, "Get a task failed,because the queue is empty~");
             }
         }
 
