@@ -1,4 +1,4 @@
-include ':app'
+include ':app', ':lib.stacking'
 include ':lib.core'
 include ':lib.rxjava1'
 include ':lib.net'

@@ -87,4 +87,6 @@ dependencies {
     //队列
     implementation project(path: ':lib.queue')
 
+    implementation project(path: ':lib.stacking')
+
 }

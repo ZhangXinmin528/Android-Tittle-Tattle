@@ -29,6 +29,7 @@ import com.coding.zxm.librxjava1.ui.TransferingOperatorActivity;
 import com.coding.zxm.librxjava1.ui.UtilityOperatorActivity;
 import com.coding.zxm.libutil.DisplayUtil;
 import com.coding.zxm.video.VideoNavigationActivity;
+import com.zxm.coding.lib_stacking.ui.StackingActivity;
 
 /**
  * Created by ZhangXinmin on 2019/1/30.
@@ -119,6 +120,12 @@ public final class SortDispatcher {
                 //RecyclerViewHelper
                 case 11:
                     intent.setClass(context, RvActivity.class);
+                    intent.putExtra(DisplayUtil.PARAMS_LABEL, label);
+                    context.startActivity(intent);
+                    break;
+                //卡片折叠效果
+                case 12:
+                    intent.setClass(context, StackingActivity.class);
                     intent.putExtra(DisplayUtil.PARAMS_LABEL, label);
                     context.startActivity(intent);
                     break;

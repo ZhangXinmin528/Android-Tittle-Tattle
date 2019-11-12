@@ -1,6 +1,7 @@
-package com.coding.zxm.libnet.service;
+package com.zxm.coding.lib_stacking.service;
 
-import com.coding.zxm.libnet.model.DoubanMovie;
+
+import com.zxm.coding.lib_stacking.model.DoubanMovie;
 
 import io.reactivex.Observable;
 import retrofit2.Call;
