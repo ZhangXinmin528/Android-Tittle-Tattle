@@ -8,9 +8,6 @@ android {
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
         versionName "1.0.0"
-
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-        consumerProguardFiles 'consumer-rules.pro'
     }
 
     buildTypes {
@@ -25,12 +22,12 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
-    implementation "com.android.support:appcompat-v7:$rootProject.supportLibraryVersion"
-
     implementation project(path: ':lib.core')
 
     implementation project(':lib.image')
+
     implementation project(':lib.util')
+
     implementation project(':lib.webview')
 
     //网络请求
@@ -47,4 +44,5 @@ dependencies {
     //adapter-rxjava2
     implementation "com.squareup.retrofit2:adapter-rxjava2:$rootProject.retrofitVersion"
 
+    implementation 'com.makeramen:roundedimageview:2.3.0'
 }

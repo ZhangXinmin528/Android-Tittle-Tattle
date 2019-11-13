@@ -123,7 +123,7 @@ public final class SortDispatcher {
                     intent.putExtra(DisplayUtil.PARAMS_LABEL, label);
                     context.startActivity(intent);
                     break;
-                //卡片折叠效果
+                //卡片堆叠效果
                 case 12:
                     intent.setClass(context, StackingActivity.class);
                     intent.putExtra(DisplayUtil.PARAMS_LABEL, label);

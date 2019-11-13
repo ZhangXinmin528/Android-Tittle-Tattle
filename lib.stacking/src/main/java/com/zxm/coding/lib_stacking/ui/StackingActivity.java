@@ -1,13 +1,18 @@
 package com.zxm.coding.lib_stacking.ui;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.TextUtils;
 
 import com.coding.zxm.libcore.Constants;
 import com.coding.zxm.libcore.ui.BaseActivity;
+import com.coding.zxm.libutil.DisplayUtil;
+import com.makeramen.roundedimageview.RoundedImageView;
 import com.zxm.coding.lib_stacking.R;
+import com.zxm.coding.lib_stacking.StackingLayoutManager;
 import com.zxm.coding.lib_stacking.adapter.StackingAdapter;
 import com.zxm.coding.lib_stacking.model.DoubanMovie;
 import com.zxm.coding.lib_stacking.model.MovieEntity;
@@ -44,7 +49,14 @@ public class StackingActivity extends BaseActivity {
     protected void initParamsAndValues() {
         mDataList = new ArrayList<>();
 
-        setTitle("卡片折叠效果");
+
+        final Intent intent = getIntent();
+        if (intent != null) {
+            final String label = intent.getStringExtra(DisplayUtil.PARAMS_LABEL);
+            if (!TextUtils.isEmpty(label)) {
+                setTitle(label);
+            }
+        }
 
         mAdapter = new StackingAdapter(mDataList);
 
@@ -53,8 +65,9 @@ public class StackingActivity extends BaseActivity {
     @Override
     protected void initViews() {
         mRecyclerView = findViewById(R.id.rv_stacking);
-        mRecyclerView.addItemDecoration(new DividerItemDecoration(mContext, DividerItemDecoration.VERTICAL));
-        mRecyclerView.setLayoutManager(new LinearLayoutManager(mContext));
+//        mRecyclerView.addItemDecoration(new DividerItemDecoration(mContext, DividerItemDecoration.VERTICAL));
+//        mRecyclerView.setLayoutManager(new LinearLayoutManager(mContext));
+        mRecyclerView.setLayoutManager(new StackingLayoutManager());
         mRecyclerView.setAdapter(mAdapter);
 
         getNewMovies();

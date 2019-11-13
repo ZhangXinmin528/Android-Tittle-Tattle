@@ -14,7 +14,7 @@
         <item>Loading</item>
         <item>Xml解析</item>
         <item>RecyclerViewHelper</item>
-        <item>卡片折叠效果</item>
+        <item>卡片堆叠效果</item>
     </string-array>
 
     <string-array name="thread_sort_arrays">
