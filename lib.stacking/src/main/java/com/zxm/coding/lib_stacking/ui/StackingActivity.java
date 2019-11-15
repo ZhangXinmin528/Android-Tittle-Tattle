@@ -2,15 +2,12 @@ package com.zxm.coding.lib_stacking.ui;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
-import android.support.v7.widget.DividerItemDecoration;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
 
 import com.coding.zxm.libcore.Constants;
 import com.coding.zxm.libcore.ui.BaseActivity;
 import com.coding.zxm.libutil.DisplayUtil;
-import com.makeramen.roundedimageview.RoundedImageView;
 import com.zxm.coding.lib_stacking.R;
 import com.zxm.coding.lib_stacking.StackingLayoutManager;
 import com.zxm.coding.lib_stacking.adapter.StackingAdapter;
@@ -39,6 +36,7 @@ public class StackingActivity extends BaseActivity {
     private RecyclerView mRecyclerView;
     private List<MovieEntity> mDataList;
     private StackingAdapter mAdapter;
+    private StackingLayoutManager mLayoutManager;
 
     @Override
     protected Object setLayout() {
@@ -58,8 +56,8 @@ public class StackingActivity extends BaseActivity {
             }
         }
 
+        mLayoutManager = new StackingLayoutManager(mContext);
         mAdapter = new StackingAdapter(mDataList);
-
     }
 
     @Override
@@ -67,7 +65,7 @@ public class StackingActivity extends BaseActivity {
         mRecyclerView = findViewById(R.id.rv_stacking);
 //        mRecyclerView.addItemDecoration(new DividerItemDecoration(mContext, DividerItemDecoration.VERTICAL));
 //        mRecyclerView.setLayoutManager(new LinearLayoutManager(mContext));
-        mRecyclerView.setLayoutManager(new StackingLayoutManager());
+        mRecyclerView.setLayoutManager(mLayoutManager);
         mRecyclerView.setAdapter(mAdapter);
 
         getNewMovies();
