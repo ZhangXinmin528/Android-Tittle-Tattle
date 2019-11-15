@@ -6,7 +6,6 @@ import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.helper.ItemTouchHelper;
 import android.util.Log;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
@@ -18,22 +17,19 @@ import android.widget.Toast;
  */
 public class StackingLayoutManager extends RecyclerView.LayoutManager {
 
+    public static final int DEFAULT_TRANSLATE_Y = 14;
+    public static final float DEFAULT_ROTATE_DEGREE = 15f;
     private static final String TAG = "StackingLayoutManager";
-
     private static final int NO_VALUE = -1;
-
     /**
      * Default visiable item count.
      */
     private static final int DEFAULT_VISIABLE_COUNT = 2;
-
     private static final int DEFAULT_PADDING_VALUE = 12;
-
+    private static final float DEFAULT_SCALE = 0.1f;
     private Context mContext;
-
     private RecyclerView mRecyclerView;
     private ItemTouchHelper mItemTouchHelper;
-
     private ItemTouchHelper.Callback mCallback = new ItemTouchHelper.Callback() {
         @Override
         public int getMovementFlags(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder) {
@@ -81,27 +77,31 @@ public class StackingLayoutManager extends RecyclerView.LayoutManager {
 
             super.onChildDraw(c, recyclerView, viewHolder, dX, dY, actionState, isCurrentlyActive);
 
+            View itemView = viewHolder.itemView;
             if (actionState == ItemTouchHelper.ACTION_STATE_SWIPE) {
-                final int position = recyclerView.getChildLayoutPosition(viewHolder.itemView);
-                final float swipeThreshold = recyclerView.getWidth() * getSwipeThreshold(viewHolder);
-                float ratio = dX / swipeThreshold;
-
+                float ratio = dX / (recyclerView.getWidth() * getSwipeThreshold(viewHolder));
                 if (ratio > 1) {
                     ratio = 1;
                 } else if (ratio < -1) {
                     ratio = -1;
                 }
-                viewHolder.itemView.setRotation(ratio * 15);
-
-                final int childCount = recyclerView.getChildCount();
-
-                for (int i = 1; i < childCount-1; i++) {
-                    final View childView = recyclerView.getChildAt(i);
-                    final int index = childCount - position - 1;
-                    if (childView != null) {
-                        childView.setScaleX(1 - index * 0.1f + Math.abs(ratio) * 0.1f);
-                        childView.setScaleY(1 - index * 0.1f + Math.abs(ratio) * 0.1f);
-                        childView.setTranslationY(index - Math.abs(ratio) * childView.getMeasuredHeight() / 14);
+                itemView.setRotation(ratio * DEFAULT_ROTATE_DEGREE);
+                int childCount = recyclerView.getChildCount();
+                if (childCount > DEFAULT_VISIABLE_COUNT) {
+                    for (int position = 1; position < childCount - 1; position++) {
+                        int index = childCount - position - 1;
+                        View view = recyclerView.getChildAt(position);
+                        view.setScaleX(1 - index * DEFAULT_SCALE + Math.abs(ratio) * DEFAULT_SCALE);
+                        view.setScaleY(1 - index * DEFAULT_SCALE + Math.abs(ratio) * DEFAULT_SCALE);
+                        view.setTranslationY((index - Math.abs(ratio)) * itemView.getMeasuredHeight() / DEFAULT_TRANSLATE_Y);
+                    }
+                } else {
+                    for (int position = 0; position < childCount - 1; position++) {
+                        int index = childCount - position - 1;
+                        View view = recyclerView.getChildAt(position);
+                        view.setScaleX(1 - index * DEFAULT_SCALE + Math.abs(ratio) * DEFAULT_SCALE);
+                        view.setScaleY(1 - index * DEFAULT_SCALE + Math.abs(ratio) * DEFAULT_SCALE);
+                        view.setTranslationY((index - Math.abs(ratio)) * itemView.getMeasuredHeight() / DEFAULT_TRANSLATE_Y);
                     }
                 }
             }
@@ -142,73 +142,58 @@ public class StackingLayoutManager extends RecyclerView.LayoutManager {
 
     @Override
     public void onLayoutChildren(RecyclerView.Recycler recycler, RecyclerView.State state) {
-        Log.d(TAG, "onLayoutChildren()..is pre layout:" + state.isPreLayout());
 
         final int itemCount = getItemCount();
+
+        Log.d(TAG, "onLayoutChildren()..is pre layout:" + state.isPreLayout());
+
         //confirm adapter has items and RecyclerView has prepares to layout
         if (itemCount == 0 || state.isPreLayout())
             return;
         //Temporarily detach and scrap all currently attached child views.
         detachAndScrapAttachedViews(recycler);
 
-        final int size = itemCount <= DEFAULT_VISIABLE_COUNT ?
-                itemCount - 1 : DEFAULT_VISIABLE_COUNT;
+        if (itemCount > DEFAULT_VISIABLE_COUNT) {
+            for (int position = DEFAULT_VISIABLE_COUNT; position >= 0; position--) {
+                final View view = recycler.getViewForPosition(position);
+                addView(view);
+                measureChildWithMargins(view, 0, 0);
+                int widthSpace = getWidth() - getDecoratedMeasuredWidth(view);
+                int heightSpace = getHeight() - getDecoratedMeasuredHeight(view);
 
-        for (int i = size; i >= 0; i--) {
-            final View childView = recycler.getViewForPosition(i);
-            //add view to the RecyclerView
-            addView(childView);
-            measureChildWithMargins(childView, 0, 0);
+                layoutDecoratedWithMargins(view, widthSpace / 2, heightSpace / 5,
+                        widthSpace / 2 + getDecoratedMeasuredWidth(view),
+                        heightSpace / 5 + getDecoratedMeasuredHeight(view));
 
-            layoutChildView(childView, i);
-        }
-
-
-    }
-
-    /**
-     * Lay out all relevant child views from the given adapter.
-     *
-     * @param childView child view
-     * @param position
-     */
-    private void layoutChildView(@NonNull View childView, final int position) {
-        if (childView == null) {
-            return;
-        }
-
-        final int parentWidth = getWidth();
-        final int parentHeight = getHeight();
-
-        final int childWidth = getDecoratedMeasuredWidth(childView);
-        final int childHeight = getDecoratedMeasuredHeight(childView);
-
-        final int left = (parentWidth - childWidth) / 2;
-        final int top = (parentHeight - childHeight) / 2;
-        final int right = left + childWidth;
-        final int bottom = top + childHeight;
-
-        layoutDecoratedWithMargins(childView, left, top, right, bottom);
-
-        childView.setScaleX(1 - position * 0.1f);
-        childView.setScaleY(1 - position * 0.1f);
-        childView.setTranslationY(position * (parentHeight - childHeight) / 9);
-
-        childView.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                if (mRecyclerView != null) {
-                    final RecyclerView.ViewHolder viewHolder = mRecyclerView.getChildViewHolder(v);
-                    if (event.getAction() == MotionEvent.ACTION_DOWN) {
-                        if (mItemTouchHelper != null) {
-                            mItemTouchHelper.startSwipe(viewHolder);
-                        }
-                    }
+                if (position == DEFAULT_VISIABLE_COUNT) {
+                    view.setScaleX(1 - (position - 1) * DEFAULT_SCALE);
+                    view.setScaleY(1 - (position - 1) * DEFAULT_SCALE);
+                    view.setTranslationY((position - 1) * view.getMeasuredHeight() / DEFAULT_TRANSLATE_Y);
+                } else if (position > 0) {
+                    view.setScaleX(1 - position * DEFAULT_SCALE);
+                    view.setScaleY(1 - position * DEFAULT_SCALE);
+                    view.setTranslationY(position * view.getMeasuredHeight() / DEFAULT_TRANSLATE_Y);
                 }
-                return false;
             }
-        });
-    }
+        } else {
+            for (int position = itemCount - 1; position >= 0; position--) {
+                final View view = recycler.getViewForPosition(position);
+                addView(view);
+                measureChildWithMargins(view, 0, 0);
+                int widthSpace = getWidth() - getDecoratedMeasuredWidth(view);
+                int heightSpace = getHeight() - getDecoratedMeasuredHeight(view);
+                layoutDecoratedWithMargins(view, widthSpace / 2, heightSpace / 5,
+                        widthSpace / 2 + getDecoratedMeasuredWidth(view),
+                        heightSpace / 5 + getDecoratedMeasuredHeight(view));
 
+                if (position > 0) {
+                    view.setScaleX(1 - position * DEFAULT_SCALE);
+                    view.setScaleY(1 - position * DEFAULT_SCALE);
+                    view.setTranslationY(position * view.getMeasuredHeight() / DEFAULT_TRANSLATE_Y);
+                }
+            }
+        }
+
+    }
 
 }
