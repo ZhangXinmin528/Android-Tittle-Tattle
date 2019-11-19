@@ -4,7 +4,7 @@
 [![API](https://img.shields.io/badge/API-19%2B-brightgreen.svg?style=flat)](https://android-arsenal.com/api?level=19)
 
 <p align="center">
-  <img alt="logo" src="https://github.com/ZhangXinmin528/AndroidUtils/blob/master/app/src/main/assets/ic_launcher.png"/>
+  <img alt="logo" src="https://github.com/ZhangXinmin528/Android-Training/blob/master/app/src/main/assets/ic_launcher.png"/>
 </p>
 
 Introduction
@@ -36,6 +36,6 @@ License
 
 The End
 ---
-If you are interested in AndroidUtils, don't forget to STAR [AndroidUtils](https://github.com/ZhangXinmin528/Android-Training).
+If you are interested in AndroidUtils, don't forget to STAR [Android Training](https://github.com/ZhangXinmin528/Android-Training).
 
 Thank you for reading ~^o^~
