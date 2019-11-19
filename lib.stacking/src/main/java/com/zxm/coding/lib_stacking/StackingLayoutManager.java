@@ -17,18 +17,19 @@ import android.widget.Toast;
  */
 public class StackingLayoutManager extends RecyclerView.LayoutManager {
 
-    public static final int DEFAULT_TRANSLATE_Y = 14;
-    public static final float DEFAULT_ROTATE_DEGREE = 15f;
+    private static final int DEFAULT_TRANSLATE_Y = 14;
+    private static final float DEFAULT_ROTATE_DEGREE = 15f;
+
     private static final String TAG = "StackingLayoutManager";
     private static final int NO_VALUE = -1;
+
     /**
      * Default visiable item count.
      */
-    private static final int DEFAULT_VISIABLE_COUNT = 2;
+    private static final int DEFAULT_VISIABLE_COUNT = 6;
     private static final int DEFAULT_PADDING_VALUE = 12;
     private static final float DEFAULT_SCALE = 0.1f;
     private Context mContext;
-    private RecyclerView mRecyclerView;
     private ItemTouchHelper mItemTouchHelper;
     private ItemTouchHelper.Callback mCallback = new ItemTouchHelper.Callback() {
         @Override
@@ -136,7 +137,6 @@ public class StackingLayoutManager extends RecyclerView.LayoutManager {
         super.onAttachedToWindow(view);
         if (view != null) {
             mItemTouchHelper.attachToRecyclerView(view);
-            mRecyclerView = view;
         }
     }
 
