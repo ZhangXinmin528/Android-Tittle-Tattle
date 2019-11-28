@@ -8,8 +8,11 @@ import android.view.View;
 import com.coding.zxm.android_tittle_tattle.R;
 import com.coding.zxm.android_tittle_tattle.service.latch.Attendees;
 import com.coding.zxm.android_tittle_tattle.service.latch.VideoController;
-import com.coding.zxm.libutil.DisplayUtil;
 import com.coding.zxm.libcore.ui.BaseActivity;
+import com.coding.zxm.libutil.DisplayUtil;
+
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 /**
  * Created by ZhangXinmin on 2019/2/14.
@@ -17,6 +20,9 @@ import com.coding.zxm.libcore.ui.BaseActivity;
  * 多线程并发等待
  */
 public class CountDownLatchActivity extends BaseActivity {
+
+    private ExecutorService mControllerPool;
+    private ExecutorService mAttendeePool;
 
     @Override
     protected Object setLayout() {
@@ -35,6 +41,9 @@ public class CountDownLatchActivity extends BaseActivity {
                 }
             }
         }
+
+        mControllerPool = Executors.newFixedThreadPool(1);
+        mAttendeePool = Executors.newFixedThreadPool(10);
     }
 
     @Override
@@ -45,10 +54,12 @@ public class CountDownLatchActivity extends BaseActivity {
                 final int size = 10;
 
                 VideoController controller = new VideoController(size);
-                new Thread(controller).start();
+//                mControllerPool.execute(controller);
+                mControllerPool.submit(controller);
 
                 for (int i = 0; i < size; i++) {
-                    new Thread(new Attendees("Attendees-" + i, controller)).start();
+//                    mAttendeePool.execute(new Attendees("Attendees-" + i, controller));
+                    mAttendeePool.submit(new Attendees("Attendees-" + i, controller));
                 }
             }
         });
