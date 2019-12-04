@@ -1,40 +1,112 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#ffffff"
     android:orientation="vertical">
 
-    <android.support.v7.widget.LinearLayoutCompat
-        android:layout_width="wrap_content"
+    <com.google.android.flexbox.FlexboxLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="20dp"
-        android:orientation="horizontal">
+        android:background="#CC000000"
+        android:padding="12dp"
+        app:alignContent="stretch"
+        app:alignItems="stretch"
+        app:flexWrap="wrap">
 
         <Button
             android:id="@+id/btn_do_get"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
             android:text="@string/all_get" />
 
         <Button
             android:id="@+id/btn_do_post"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="12dp"
-            android:layout_toEndOf="@+id/btn_do_get"
             android:text="@string/all_post" />
 
         <Button
             android:id="@+id/btn_accessing_headers"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="12dp"
             android:text="headers"
             tools:ignore="HardcodedText" />
-    </android.support.v7.widget.LinearLayoutCompat>
+
+
+        <Button
+            android:id="@+id/btn_post_form"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="form"
+            tools:ignore="HardcodedText" />
+
+        <Button
+            android:id="@+id/btn_multipart_request"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="multipart_request"
+            tools:ignore="HardcodedText" />
+
+        <Button
+            android:id="@+id/btn_response_caching"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="response_caching"
+            tools:ignore="HardcodedText" />
+
+        <Button
+            android:id="@+id/btn_pre_call"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/pre_call" />
+
+        <Button
+            android:id="@+id/btn_authorization"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="authorization"
+            tools:ignore="HardcodedText" />
+
+        <Button
+            android:id="@+id/btn_rewriting_request"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="rewriting_request"
+            tools:ignore="HardcodedText" />
+
+        <Button
+            android:id="@+id/btn_customizing_certificates"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="customizing_certificates"
+            tools:ignore="HardcodedText" />
+
+    </com.google.android.flexbox.FlexboxLayout>
+
+    <com.google.android.flexbox.FlexboxLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="1dp"
+        android:background="#CC000000">
+
+        <Button
+            android:id="@+id/btn_log_interceptor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="log_interceptor"
+            tools:ignore="HardcodedText" />
+
+        <Button
+            android:id="@+id/btn_network_interceptor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="network_interceptor"
+            tools:ignore="HardcodedText" />
+
+    </com.google.android.flexbox.FlexboxLayout>
 
     <android.support.v4.widget.NestedScrollView
         android:layout_width="match_parent"

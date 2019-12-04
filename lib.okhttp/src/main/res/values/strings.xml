@@ -2,4 +2,5 @@
     <string name="app_name">lib_okhttp</string>
     <string name="all_get">get</string>
     <string name="all_post">post</string>
+    <string name="pre_call">pre_call</string>
 </resources>
