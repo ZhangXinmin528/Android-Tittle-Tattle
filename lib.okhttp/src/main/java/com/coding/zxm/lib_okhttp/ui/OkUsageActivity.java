@@ -12,6 +12,7 @@ import com.coding.zxm.lib_okhttp.interceptor.GzipRequestInterceptor;
 import com.coding.zxm.lib_okhttp.interceptor.LoggingInterceptor;
 import com.coding.zxm.libcore.ui.BaseActivity;
 import com.coding.zxm.libutil.DisplayUtil;
+import com.itkacher.okhttpprofiler.OkHttpProfilerInterceptor;
 
 import java.io.File;
 import java.io.IOException;
@@ -586,6 +587,7 @@ public class OkUsageActivity extends BaseActivity implements View.OnClickListene
     private void rewritingRequest() {
         final OkHttpClient client = new OkHttpClient.Builder()
                 .addInterceptor(new GzipRequestInterceptor())
+                .addInterceptor(new OkHttpProfilerInterceptor())
                 .build();
 
         final Request request = new Request.Builder()
