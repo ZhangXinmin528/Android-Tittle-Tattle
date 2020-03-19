@@ -2,8 +2,8 @@
 <resources>
 
     <string-array name="home_sort_arrays">
-        <item>线程相关</item>
-        <item>数据库相关</item>
+        <item>线程</item>
+        <item>数据库</item>
         <item>RxJava 1.x</item>
         <item>Retrofit常用网络请求</item>
         <item>对象池</item>
@@ -15,6 +15,8 @@
         <item>Xml解析</item>
         <item>RecyclerViewHelper</item>
         <item>卡片堆叠效果</item>
+        <item>LeakCanary </item>
+        <item>爬虫</item>
     </string-array>
 
     <string-array name="thread_sort_arrays">

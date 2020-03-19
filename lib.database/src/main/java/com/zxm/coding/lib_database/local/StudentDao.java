@@ -1,4 +1,4 @@
-package com.coding.zxm.android_tittle_tattle.sql.local;
+package com.zxm.coding.lib_database.local;
 
 import android.content.ContentValues;
 import android.database.Cursor;
@@ -6,7 +6,8 @@ import android.database.sqlite.SQLiteDatabase;
 import android.support.annotation.NonNull;
 import android.text.TextUtils;
 
-import com.coding.zxm.android_tittle_tattle.sql.local.model.Student;
+
+import com.zxm.coding.lib_database.local.model.Student;
 
 import java.util.ArrayList;
 import java.util.List;

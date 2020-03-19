@@ -1,11 +1,10 @@
-package com.coding.zxm.android_tittle_tattle.adapter.vh;
+package com.zxm.coding.lib_database;
 
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.TextView;
 
-import com.coding.zxm.android_tittle_tattle.R;
 
 /**
  * Created by ZhangXinmin on 2019/2/15.

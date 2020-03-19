@@ -4,11 +4,11 @@ buildscript {
     repositories {
         google()
         jcenter()
-        
+
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.5.2'
-        
+        classpath 'com.android.tools.build:gradle:3.6.1'
+
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
     }
@@ -18,7 +18,7 @@ allprojects {
     repositories {
         google()
         jcenter()
-        
+
     }
 }
 
@@ -41,11 +41,14 @@ ext {
     utilVersion = '1.0.4'
 
     //RxJava1
-    rxandroid1Version ='1.2.1'
+    rxandroid1Version = '1.2.1'
     rxjava1Version = '1.2.9'
 
     //retrofit
-    retrofitVersion = '2.5.0'
+    retrofitVersion = '2.6.2'
+
+    //okHttp
+    okhttpVersion = '3.14.4'
 
     //gson
     gsonVersion = '2.8.5'
@@ -69,9 +72,13 @@ ext {
     //multidex
     multidexVersion = '1.0.3'
 
+    //flexbox
+    flexboxVersion = '1.0.0'
+
     smartrefreshVersion = '1.0.5.1'
     lottieVersion = '2.5.0-beta3'
     okgoVersion = '3.0.4'
+
     fastjsonVersion = '1.2.46'
     eventbusVersion = '3.1.1'
     crashreportVersion = '2.6.6.1'

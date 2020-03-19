@@ -16,7 +16,7 @@
         tools:ignore="GoogleAppIndexingWarning">
         <activity
             android:name=".ui.HomeActivity"
-            android:screenOrientation="portrait">
+            android:screenOrientation="nosensor">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -28,13 +28,13 @@
         <activity
             android:name=".ui.thread.ThreadActivity"
             android:launchMode="singleTask"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="nosensor" />
 
         <!--IntentService-->
         <activity
             android:name=".ui.thread.IntentServiceActivity"
             android:launchMode="singleTask"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="nosensor" />
 
         <service android:name=".service.ProgressService" />
 
@@ -42,41 +42,37 @@
         <activity
             android:name=".ui.thread.ThreadPoolActivity"
             android:launchMode="singleTask"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="nosensor" />
 
         <!--CountDownLatch-->
         <activity
             android:name=".ui.thread.CountDownLatchActivity"
             android:launchMode="singleTask"
-            android:screenOrientation="portrait" />
-
-        <!--原生数据库-->
-        <activity
-            android:name=".ui.sql.OriginalSqlActivity"
-            android:launchMode="singleTask"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="nosensor" />
 
         <!--RxJava1-->
         <activity
             android:name=".ui.rxjava.RxJava1Activity"
             android:launchMode="singleTask"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="nosensor" />
 
         <!--对象池-->
         <activity
             android:name="com.coding.zxm.lib_pool.ui.ObjectPoolActivity"
             android:launchMode="singleTask"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="nosensor" />
 
         <!--loading-->
-        <activity android:name=".ui.loading.LoadingActivity"
+        <activity
+            android:name=".ui.loading.LoadingActivity"
             android:launchMode="singleTask"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="nosensor" />
 
         <!--演示RecyclerView-->
-        <activity android:name=".ui.rv.RvActivity"
+        <activity
+            android:name=".ui.rv.RvActivity"
             android:launchMode="singleTask"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="nosensor" />
 
     </application>
 

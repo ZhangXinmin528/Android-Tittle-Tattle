@@ -13,6 +13,5 @@
     <string name="all_update">Update</string>
     <string name="all_query">Query</string>
     <string name="all_count">Count</string>
-    <string name="all_data_count">共计：%1$d条</string>
 
 </resources>

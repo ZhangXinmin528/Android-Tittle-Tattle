@@ -27,9 +27,11 @@ dependencies {
     implementation project(':lib.core')
     implementation project(':lib.image')
     implementation project(':lib.util')
+
     //网络请求
     //retrofit
     implementation "com.squareup.retrofit2:retrofit:$rootProject.retrofitVersion"
+
     //gson
     implementation "com.google.code.gson:gson:$rootProject.gsonVersion"
     //converter-gson

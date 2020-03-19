@@ -1,4 +1,4 @@
-package com.coding.zxm.android_tittle_tattle.adapter;
+package com.zxm.coding.lib_database;
 
 import android.annotation.SuppressLint;
 import android.support.annotation.IntRange;
@@ -8,10 +8,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.coding.zxm.android_tittle_tattle.R;
-import com.coding.zxm.android_tittle_tattle.adapter.vh.SqlViewHolder;
-import com.coding.zxm.android_tittle_tattle.sql.local.model.Student;
 import com.coding.zxm.libcore.listender.OnItemClickListener;
+import com.zxm.coding.lib_database.local.model.Student;
 
 import java.util.List;
 
@@ -37,7 +35,7 @@ public class SqlExampleAdapter extends RecyclerView.Adapter<SqlViewHolder> {
 
     @SuppressLint("SetTextI18n")
     @Override
-    public void onBindViewHolder(@NonNull SqlViewHolder helper, int position) {
+    public void onBindViewHolder(@NonNull final SqlViewHolder helper, final int position) {
         helper.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

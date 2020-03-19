@@ -1,10 +1,9 @@
-package com.coding.zxm.android_tittle_tattle.ui.sql;
+package com.zxm.coding.lib_database;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.design.widget.TextInputEditText;
-import android.support.v7.app.ActionBar;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -12,15 +11,13 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.TextView;
 
-import com.coding.zxm.android_tittle_tattle.R;
-import com.coding.zxm.android_tittle_tattle.adapter.SqlExampleAdapter;
-import com.coding.zxm.android_tittle_tattle.sql.local.Constats;
-import com.coding.zxm.android_tittle_tattle.sql.local.OriginalSqlManager;
-import com.coding.zxm.android_tittle_tattle.sql.local.StudentDao;
-import com.coding.zxm.android_tittle_tattle.sql.local.model.Student;
-import com.coding.zxm.libutil.DisplayUtil;
 import com.coding.zxm.libcore.listender.OnItemClickListener;
 import com.coding.zxm.libcore.ui.BaseActivity;
+import com.coding.zxm.libutil.DisplayUtil;
+import com.zxm.coding.lib_database.local.Constats;
+import com.zxm.coding.lib_database.local.OriginalSqlManager;
+import com.zxm.coding.lib_database.local.StudentDao;
+import com.zxm.coding.lib_database.local.model.Student;
 import com.zxm.utils.core.log.MLogger;
 
 import java.util.ArrayList;
@@ -31,7 +28,8 @@ import java.util.List;
  * Copyright (c) 2018 . All rights reserved.
  * 数据库的增删改查；
  */
-public class OriginalSqlActivity extends BaseActivity implements View.OnClickListener, OnItemClickListener {
+public class OriginalSqlActivity extends BaseActivity
+        implements View.OnClickListener, OnItemClickListener {
 
     //文本输入
     private TextInputEditText mIdEt;
@@ -97,22 +95,17 @@ public class OriginalSqlActivity extends BaseActivity implements View.OnClickLis
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.btn_sql_add:
-                insertData();
-                break;
-            case R.id.btn_sql_delete:
-                deleteElement();
-                break;
-            case R.id.btn_sql_update:
-                updateElement();
-                break;
-            case R.id.btn_sql_query:
-                queryAndUpdate();
-                break;
-            case R.id.btn_sql_count:
-                updateDataCount();
-                break;
+        final int viewId = v.getId();
+        if (viewId == R.id.btn_sql_add) {
+            insertData();
+        } else if (viewId == R.id.btn_sql_delete) {
+            deleteElement();
+        } else if (viewId == R.id.btn_sql_update) {
+            updateElement();
+        } else if (viewId == R.id.btn_sql_query) {
+            queryAndUpdate();
+        } else if (viewId == R.id.btn_sql_count) {
+            updateDataCount();
         }
     }
 

@@ -1,4 +1,4 @@
-package com.coding.zxm.android_tittle_tattle.sql.local.model;
+package com.zxm.coding.lib_database.local.model;
 
 import java.io.Serializable;
 

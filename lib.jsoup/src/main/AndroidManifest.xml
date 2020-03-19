@@ -1,0 +1,11 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.zxm.coding.lib_jsoup">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application>
+        <activity
+            android:name=".YiCaiNewsActivity"
+            android:screenOrientation="nosensor" />
+    </application>
+</manifest>

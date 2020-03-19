@@ -1,4 +1,4 @@
-package com.coding.zxm.android_tittle_tattle.sql.local;
+package com.zxm.coding.lib_database.local;
 
 import android.content.Context;
 

@@ -9,7 +9,6 @@ import android.text.TextUtils;
 import com.coding.zxm.android_tittle_tattle.ui.loading.LoadingActivity;
 import com.coding.zxm.android_tittle_tattle.ui.rv.RvActivity;
 import com.coding.zxm.android_tittle_tattle.ui.rxjava.RxJava1Activity;
-import com.coding.zxm.android_tittle_tattle.ui.sql.OriginalSqlActivity;
 import com.coding.zxm.android_tittle_tattle.ui.thread.CountDownLatchActivity;
 import com.coding.zxm.android_tittle_tattle.ui.thread.IntentServiceActivity;
 import com.coding.zxm.android_tittle_tattle.ui.thread.ThreadActivity;
@@ -29,6 +28,8 @@ import com.coding.zxm.librxjava1.ui.TransferingOperatorActivity;
 import com.coding.zxm.librxjava1.ui.UtilityOperatorActivity;
 import com.coding.zxm.libutil.DisplayUtil;
 import com.coding.zxm.video.VideoNavigationActivity;
+import com.zxm.coding.lib_database.OriginalSqlActivity;
+import com.zxm.coding.lib_jsoup.YiCaiNewsActivity;
 import com.zxm.coding.lib_stacking.ui.StackingActivity;
 
 /**
@@ -126,6 +127,18 @@ public final class SortDispatcher {
                 //卡片堆叠效果
                 case 12:
                     intent.setClass(context, StackingActivity.class);
+                    intent.putExtra(DisplayUtil.PARAMS_LABEL, label);
+                    context.startActivity(intent);
+                    break;
+                //LeakCanary
+                case 13:
+                    /*intent.setClass(context, StackingActivity.class);
+                    intent.putExtra(DisplayUtil.PARAMS_LABEL, label);
+                    context.startActivity(intent);*/
+                    break;
+                //爬虫
+                case 14:
+                    intent.setClass(context, YiCaiNewsActivity.class);
                     intent.putExtra(DisplayUtil.PARAMS_LABEL, label);
                     context.startActivity(intent);
                     break;
