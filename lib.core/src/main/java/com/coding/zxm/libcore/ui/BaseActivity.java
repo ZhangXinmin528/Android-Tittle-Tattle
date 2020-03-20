@@ -7,9 +7,12 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
 import android.view.MenuItem;
 import android.view.View;
+
+import com.coding.zxm.libcore.R;
 
 /**
  * Created by ZhangXinmin on 2017/9/17.
@@ -65,19 +68,27 @@ public abstract class BaseActivity extends AppCompatActivity {
     protected abstract void initViews();
 
     protected ActionBar initToolbar() {
-        final ActionBar actionBar = getSupportActionBar();
+        final Toolbar toolbar = findViewById(R.id.toolbar_training);
+        setSupportActionBar(toolbar);
+        ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
-            actionBar.setHomeButtonEnabled(true);
             actionBar.setDisplayHomeAsUpEnabled(true);
         }
         return actionBar;
     }
 
     protected void setTitle(@NonNull String title) {
+        setTitle(title, null);
+    }
+
+    protected void setTitle(@NonNull String title, @NonNull String subTitle) {
         final ActionBar actionBar = initToolbar();
         if (actionBar != null) {
             if (!TextUtils.isEmpty(title)) {
                 actionBar.setTitle(title);
+            }
+            if (!TextUtils.isEmpty(subTitle)) {
+                actionBar.setSubtitle(subTitle);
             }
         }
     }

@@ -27,4 +27,5 @@ dependencies {
     api "com.android.support:recyclerview-v7:$rootProject.supportLibraryVersion"
     api "com.android.support.constraint:constraint-layout:$rootProject.constraintLayoutVersion"
 
+    api "com.github.CymChad:BaseRecyclerViewAdapterHelper:$rootProject.ext.recyclerAdapterVersion"
 }

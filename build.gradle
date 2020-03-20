@@ -19,6 +19,8 @@ allprojects {
         google()
         jcenter()
 
+        maven { url "https://jitpack.io" }
+
     }
 }
 
@@ -76,6 +78,7 @@ ext {
     flexboxVersion = '1.0.0'
 
     smartrefreshVersion = '1.0.5.1'
+    recyclerAdapterVersion = "2.9.40"
     lottieVersion = '2.5.0-beta3'
     okgoVersion = '3.0.4'
 

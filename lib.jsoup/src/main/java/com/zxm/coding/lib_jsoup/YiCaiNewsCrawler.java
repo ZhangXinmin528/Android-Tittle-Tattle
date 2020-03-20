@@ -11,8 +11,13 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+
+import static com.zxm.coding.lib_jsoup.model.YiCaiEntity.TYPE_IMAGE_TEXT;
+import static com.zxm.coding.lib_jsoup.model.YiCaiEntity.TYPE_TEXT;
 
 /**
  * Created by ZhangXinmin on 2020/3/19.
@@ -34,7 +39,14 @@ public final class YiCaiNewsCrawler {
         return YiCaiHolder.INSTANCE;
     }
 
-    public void getYiCaiNews(@YiCaiNewsCategory final String category) {
+    /**
+     * 获取
+     * @param category
+     * @return
+     */
+    public List<YiCaiEntity> getYiCaiNews(@YiCaiNewsCategory final String category) {
+
+        final List<YiCaiEntity> dataList = new ArrayList<>();
 
         if (!TextUtils.isEmpty(category)) {
             mCrawlerPools.execute(new Runnable() {
@@ -48,37 +60,78 @@ public final class YiCaiNewsCrawler {
 
                         for (Element itemEle : news) {
                             final YiCaiEntity entity = new YiCaiEntity();
-
+                            entity.setCategory(category);
+                            //链接
                             final String linkfy = itemEle.attr("href");
-                            entity.setLinkfy(linkfy);
+                            entity.setLinkfy(YiCaiConstant.BASE_URL + linkfy);
 
-                            if (itemEle.hasClass("m-list m-list-1 f-cb")) {//图文混合
-                                final Elements fcbEle = itemEle.select("m-list m-list-1 f-cb");
-                                if (fcbEle != null && !fcbEle.isEmpty()) {
-                                    final Elements zoomInEle = fcbEle.select("lef f-fl m-zoomin");
-                                    final Element imageEle = zoomInEle.first();
-                                    if (imageEle != null) {
-                                        //图片地址
-                                        final String thumbnailUrl = imageEle.attr("src");
-                                        entity.setThumbnailUrl(thumbnailUrl);
+                            final Element mListEle = itemEle.selectFirst("div.m-list");
+                            if (mListEle != null) {
+                                final int size = mListEle.childNodeSize();
+                                Element textEle = null;
+                                Element titleEle = null;
+                                Element contentEle = null;
+                                Element authorEle = null;
+                                Element imgEle = null;
+                                switch (size) {
+                                    case 2://文字
+                                        textEle = mListEle.getElementsByTag("div").first();
 
-                                        final Element textEle = fcbEle.last();
-                                        if (textEle != null) {
-                                            final Elements TitleEle = textEle.getElementsByTag("h2");
-                                            final String title = TitleEle.text();
-                                            entity.setTitle(title);
-                                            final Elements contentEle = textEle.getElementsByTag("p");
-                                            final String content = contentEle.text();
-                                            entity.setBriefNews(content);
-                                            entity.setType(YiCaiEntity.TYPE_IMAGE_TEXT);
+                                        titleEle = textEle.getElementsByTag("h2").first();
+                                        contentEle = textEle.getElementsByTag("p").first();
+                                        authorEle = textEle.getElementsByClass("author").first();
 
-                                        }
-                                    }
+                                        entity.setType(TYPE_TEXT);
+                                        entity.setTitle(titleEle.text());
+                                        entity.setBriefNews(contentEle.text());
+                                        entity.setTimeStamp(authorEle.text());
+                                        MLogger.d(TAG, "文字..item ： " + entity.toString());
+                                        break;
+                                    case 4://图文混排：
+                                        imgEle = mListEle.selectFirst("div.lef")
+                                                .getElementsByTag("img").first();
+
+                                        textEle = mListEle.selectFirst("div.lef").nextElementSibling();
+
+                                        titleEle = textEle.getElementsByTag("h2").first();
+                                        contentEle = textEle.getElementsByTag("p").first();
+                                        authorEle = textEle.getElementsByClass("author").first();
+
+                                        entity.setType(TYPE_IMAGE_TEXT);
+                                        entity.setTitle(titleEle.text());
+                                        entity.setBriefNews(contentEle.text());
+                                        entity.setTimeStamp(authorEle.text());
+                                        entity.setThumbnailUrl("https:" + imgEle.attr("src"));
+
+                                        MLogger.d(TAG, "图文混排..item ： " + entity.toString());
+                                        break;
+                                    case 6://带标签图文混排：
+                                        final Element tagEle = mListEle.selectFirst("div.titletips");
+
+                                        imgEle = mListEle.selectFirst("div.lef")
+                                                .getElementsByTag("img").first();
+
+                                        textEle = mListEle.selectFirst("div.lef").nextElementSibling();
+
+                                        titleEle = textEle.getElementsByTag("h2").first();
+                                        contentEle = textEle.getElementsByTag("p").first();
+                                        authorEle = textEle.getElementsByClass("author").first();
+
+                                        entity.setType(TYPE_IMAGE_TEXT);
+                                        entity.setTag(tagEle.text());
+                                        entity.setTitle(titleEle.text());
+                                        entity.setBriefNews(contentEle.text());
+                                        entity.setTimeStamp(authorEle.text());
+                                        entity.setThumbnailUrl("https:" + imgEle.attr("src"));
+
+                                        MLogger.d(TAG, "带标签图文混排..item ： " + entity.toString());
+                                        break;
                                 }
-                            } else if (itemEle.hasClass("")) {//文字资讯
 
                             }
-                            MLogger.d(TAG, "id : " + itemEle.id() + "..detial : " + entity.toString());
+                            dataList.add(entity);
+
+
                         }
                     } catch (IOException e) {
                         e.printStackTrace();
@@ -86,7 +139,7 @@ public final class YiCaiNewsCrawler {
                 }
             });
         }
-
+        return dataList;
 
     }
 

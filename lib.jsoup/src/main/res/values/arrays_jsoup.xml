@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="arrays_yicai_news">
+        <item>A股</item>
+        <item>金融</item>
+        <item>海外市场</item>
+        <item>全球</item>
+        <item>科技</item>
+        <item>资讯</item>
+    </string-array>
+
+</resources>

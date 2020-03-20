@@ -3,8 +3,6 @@ package com.zxm.coding.lib_jsoup.model;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-import com.zxm.coding.lib_jsoup.YiCaiNewsCategory;
-
 /**
  * Created by ZhangXinmin on 2020/3/19.
  * Copyright (c) 2020 . All rights reserved.
@@ -14,6 +12,7 @@ public class YiCaiEntity implements Parcelable {
 
     public static final int TYPE_IMAGE_TEXT = 0;
     public static final int TYPE_TEXT = 1;
+    public static final int TYPE_IMAGE_TAG = 2;
 
     public static final Creator<YiCaiEntity> CREATOR = new Creator<YiCaiEntity>() {
         @Override
@@ -30,7 +29,7 @@ public class YiCaiEntity implements Parcelable {
     //资讯类型
     private int type;
     //新闻类别
-    private YiCaiNewsCategory category;
+    private String category;
     //标题
     private String title;
     //简讯
@@ -41,17 +40,21 @@ public class YiCaiEntity implements Parcelable {
     private String linkfy;
     //发布时间
     private String timeStamp;
+    //新闻标签
+    private String tag;
 
     public YiCaiEntity() {
     }
 
     protected YiCaiEntity(Parcel in) {
         type = in.readInt();
+        category = in.readString();
         title = in.readString();
         briefNews = in.readString();
         thumbnailUrl = in.readString();
         linkfy = in.readString();
         timeStamp = in.readString();
+        tag = in.readString();
     }
 
     @Override
@@ -62,18 +65,20 @@ public class YiCaiEntity implements Parcelable {
     @Override
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeInt(type);
+        dest.writeString(category);
         dest.writeString(title);
         dest.writeString(briefNews);
         dest.writeString(thumbnailUrl);
         dest.writeString(linkfy);
         dest.writeString(timeStamp);
+        dest.writeString(tag);
     }
 
-    public YiCaiNewsCategory getCategory() {
+    public String getCategory() {
         return category;
     }
 
-    public void setCategory(YiCaiNewsCategory category) {
+    public void setCategory(String category) {
         this.category = category;
     }
 
@@ -121,6 +126,14 @@ public class YiCaiEntity implements Parcelable {
         return -1;
     }
 
+    public String getTag() {
+        return tag;
+    }
+
+    public void setTag(String tag) {
+        this.tag = tag;
+    }
+
     public void setType(int type) {
         this.type = type;
     }
@@ -129,12 +142,13 @@ public class YiCaiEntity implements Parcelable {
     public String toString() {
         return "YiCaiEntity{" +
                 "type=" + type +
-                ", category=" + category +
+                ", category='" + category + '\'' +
                 ", title='" + title + '\'' +
                 ", briefNews='" + briefNews + '\'' +
                 ", thumbnailUrl='" + thumbnailUrl + '\'' +
                 ", linkfy='" + linkfy + '\'' +
                 ", timeStamp='" + timeStamp + '\'' +
+                ", tag='" + tag + '\'' +
                 '}';
     }
 }
