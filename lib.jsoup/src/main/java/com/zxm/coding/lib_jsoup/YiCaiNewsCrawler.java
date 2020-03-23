@@ -3,7 +3,6 @@ package com.zxm.coding.lib_jsoup;
 import android.text.TextUtils;
 
 import com.zxm.coding.lib_jsoup.model.YiCaiEntity;
-import com.zxm.utils.core.log.MLogger;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -29,7 +28,7 @@ import static com.zxm.coding.lib_jsoup.model.YiCaiEntity.TYPE_TEXT;
  */
 public final class YiCaiNewsCrawler {
     private static final String TAG = "YiCaiNewsCrawler";
-    private static final int DEFAULT_SIZE = 10;
+    private static final int DEFAULT_SIZE = 5;
 
     //抓取线程池
     private ExecutorService mCrawlerPools;
@@ -89,7 +88,7 @@ public final class YiCaiNewsCrawler {
                                         entity.setTitle(titleEle.text());
                                         entity.setBriefNews(contentEle.text());
                                         entity.setTimeStamp(authorEle.text());
-                                        MLogger.d(TAG, "文字..item ： " + entity.toString());
+//                                        MLogger.d(TAG, "文字..item ： " + entity.toString());
                                         break;
                                     case 4://图文混排：
                                         imgEle = mListEle.selectFirst("div.lef")
@@ -99,7 +98,8 @@ public final class YiCaiNewsCrawler {
 
                                         titleEle = textEle.getElementsByTag("h2").first();
                                         contentEle = textEle.getElementsByTag("p").first();
-                                        authorEle = textEle.getElementsByClass("author").first();
+                                        authorEle = textEle.getElementsByClass("author").first()
+                                                .getElementsByTag("span").first();
 
                                         entity.setType(TYPE_IMAGE_TEXT);
                                         entity.setTitle(titleEle.text());
@@ -107,7 +107,7 @@ public final class YiCaiNewsCrawler {
                                         entity.setTimeStamp(authorEle.text());
                                         entity.setThumbnailUrl("https:" + imgEle.attr("src"));
 
-                                        MLogger.d(TAG, "图文混排..item ： " + entity.toString());
+//                                        MLogger.d(TAG, "图文混排..item ： " + entity.toString());
                                         break;
                                     case 6://带标签图文混排：
                                         final Element tagEle = mListEle.selectFirst("div.titletips");
@@ -119,7 +119,8 @@ public final class YiCaiNewsCrawler {
 
                                         titleEle = textEle.getElementsByTag("h2").first();
                                         contentEle = textEle.getElementsByTag("p").first();
-                                        authorEle = textEle.getElementsByClass("author").first();
+                                        authorEle = textEle.getElementsByClass("author").first()
+                                                .getElementsByTag("span").first();
 
                                         entity.setType(TYPE_IMAGE_TAG);
                                         entity.setTag(tagEle.text());
@@ -127,7 +128,7 @@ public final class YiCaiNewsCrawler {
                                         entity.setBriefNews(contentEle.text());
                                         entity.setTimeStamp(authorEle.text());
                                         entity.setThumbnailUrl("https:" + imgEle.attr("src"));
-                                        MLogger.d(TAG, "带标签图文混排..item ： " + entity.toString());
+//                                        MLogger.d(TAG, "带标签图文混排..item ： " + entity.toString());
                                         break;
                                 }
 

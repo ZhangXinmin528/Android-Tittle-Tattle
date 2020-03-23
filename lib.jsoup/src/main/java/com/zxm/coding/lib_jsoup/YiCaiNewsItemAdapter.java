@@ -23,8 +23,8 @@ public class YiCaiNewsItemAdapter extends BaseMultiItemQuickAdapter<YiCaiEntity,
      */
     public YiCaiNewsItemAdapter(List<YiCaiEntity> data) {
         super(data);
-        addItemType(YiCaiEntity.TYPE_IMAGE_TEXT, R.layout.layout_yicai_news_img_item);
         addItemType(YiCaiEntity.TYPE_TEXT, R.layout.layout_yicai_news_text_item);
+        addItemType(YiCaiEntity.TYPE_IMAGE_TEXT, R.layout.layout_yicai_news_img_item);
         addItemType(YiCaiEntity.TYPE_IMAGE_TAG, R.layout.layout_yicai_news_tag_item);
     }
 
