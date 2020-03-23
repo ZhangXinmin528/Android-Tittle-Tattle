@@ -34,7 +34,7 @@ public class YiCaiNewsActivity extends BaseActivity {
         if (intent != null) {
             final String label = intent.getStringExtra(DisplayUtil.PARAMS_LABEL);
             if (!TextUtils.isEmpty(label)) {
-                setTitle(label, "数据来源：第一财经");
+                setTitle(label, "数据来源：第一财经", R.id.toolbar_yicai);
             }
         }
 
@@ -45,7 +45,6 @@ public class YiCaiNewsActivity extends BaseActivity {
 
         mTabAdapter = new YiCaiTabAdapter(getSupportFragmentManager(), mTabList);
 
-        YiCaiNewsCrawler.getInstance().getYiCaiNews(YiCaiConstant.YICAI_NEWS_GUSHI);
     }
 
     @Override
@@ -53,7 +52,7 @@ public class YiCaiNewsActivity extends BaseActivity {
 
         final ViewPager viewPager = findViewById(R.id.viewpager_yicai);
         viewPager.setAdapter(mTabAdapter);
-        viewPager.setOffscreenPageLimit(2);
+        viewPager.setOffscreenPageLimit(0);
         mTabLayout = findViewById(R.id.tablayout_yicai);
         mTabLayout.setupWithViewPager(viewPager);
     }

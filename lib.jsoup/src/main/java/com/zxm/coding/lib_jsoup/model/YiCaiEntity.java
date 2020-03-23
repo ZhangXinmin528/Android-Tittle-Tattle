@@ -3,12 +3,14 @@ package com.zxm.coding.lib_jsoup.model;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import com.chad.library.adapter.base.entity.MultiItemEntity;
+
 /**
  * Created by ZhangXinmin on 2020/3/19.
  * Copyright (c) 2020 . All rights reserved.
  * 第一财经新闻资讯实体类
  */
-public class YiCaiEntity implements Parcelable {
+public class YiCaiEntity implements MultiItemEntity,Parcelable {
 
     public static final int TYPE_IMAGE_TEXT = 0;
     public static final int TYPE_TEXT = 1;
@@ -122,10 +124,6 @@ public class YiCaiEntity implements Parcelable {
         this.timeStamp = timeStamp;
     }
 
-    public int getType() {
-        return -1;
-    }
-
     public String getTag() {
         return tag;
     }
@@ -150,5 +148,10 @@ public class YiCaiEntity implements Parcelable {
                 ", timeStamp='" + timeStamp + '\'' +
                 ", tag='" + tag + '\'' +
                 '}';
+    }
+
+    @Override
+    public int getItemType() {
+        return type;
     }
 }

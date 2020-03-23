@@ -30,4 +30,5 @@ dependencies {
     implementation project(path: ':lib.util')
 
     implementation 'org.jsoup:jsoup:1.12.1'
+    implementation project(path: ':lib.image')
 }

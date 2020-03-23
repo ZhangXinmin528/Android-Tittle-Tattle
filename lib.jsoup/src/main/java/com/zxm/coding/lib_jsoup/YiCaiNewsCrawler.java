@@ -13,9 +13,12 @@ import org.jsoup.select.Elements;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
 
+import static com.zxm.coding.lib_jsoup.model.YiCaiEntity.TYPE_IMAGE_TAG;
 import static com.zxm.coding.lib_jsoup.model.YiCaiEntity.TYPE_IMAGE_TEXT;
 import static com.zxm.coding.lib_jsoup.model.YiCaiEntity.TYPE_TEXT;
 
@@ -41,6 +44,7 @@ public final class YiCaiNewsCrawler {
 
     /**
      * 获取
+     *
      * @param category
      * @return
      */
@@ -49,7 +53,7 @@ public final class YiCaiNewsCrawler {
         final List<YiCaiEntity> dataList = new ArrayList<>();
 
         if (!TextUtils.isEmpty(category)) {
-            mCrawlerPools.execute(new Runnable() {
+            Future<List<YiCaiEntity>> future = mCrawlerPools.submit(new Runnable() {
                 @Override
                 public void run() {
                     try {
@@ -117,27 +121,32 @@ public final class YiCaiNewsCrawler {
                                         contentEle = textEle.getElementsByTag("p").first();
                                         authorEle = textEle.getElementsByClass("author").first();
 
-                                        entity.setType(TYPE_IMAGE_TEXT);
+                                        entity.setType(TYPE_IMAGE_TAG);
                                         entity.setTag(tagEle.text());
                                         entity.setTitle(titleEle.text());
                                         entity.setBriefNews(contentEle.text());
                                         entity.setTimeStamp(authorEle.text());
                                         entity.setThumbnailUrl("https:" + imgEle.attr("src"));
-
                                         MLogger.d(TAG, "带标签图文混排..item ： " + entity.toString());
                                         break;
                                 }
 
                             }
                             dataList.add(entity);
-
-
                         }
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
                 }
-            });
+            }, dataList);
+
+            try {
+                dataList.addAll(future.get());
+            } catch (ExecutionException e) {
+                e.printStackTrace();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
         }
         return dataList;
 

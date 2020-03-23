@@ -8,11 +8,12 @@
     <dimen name="dp_12">12dp</dimen>
 
 
+    <dimen name="sp_12">12sp</dimen>
     <dimen name="sp_16">16sp</dimen>
     <dimen name="sp_18">18sp</dimen>
     <dimen name="sp_20">20sp</dimen>
 
-    <dimen name="sp_title">@dimen/sp_18</dimen>
+    <dimen name="sp_title">@dimen/sp_16</dimen>
     <dimen name="sp_content">14sp</dimen>
     <dimen name="sp_tag">@dimen/sp_12</dimen>
 </resources>

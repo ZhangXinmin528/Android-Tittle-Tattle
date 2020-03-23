@@ -23,29 +23,23 @@ public class YiCaiTabAdapter extends FragmentPagerAdapter {
 
     @Override
     public Fragment getItem(int position) {
-        if (mDataList != null) {
-            switch (position) {
-                case 0://A股
-
-                    break;
-                case 1://金融
-
-                    break;
-                case 2://海外市场
-
-                    break;
-                case 3://全球
-
-                    break;
-                case 4://科技
-
-                    break;
-                case 5://资讯
-
-                    break;
-            }
+        switch (position) {
+            case 0://A股
+                return YiCaiNewsItemFragment.newInstance(YiCaiConstant.YICAI_NEWS_GUSHI);
+            case 1://金融
+                return YiCaiNewsItemFragment.newInstance(YiCaiConstant.YICAI_NEWS_JINRONG);
+            case 2://海外市场
+                return YiCaiNewsItemFragment.newInstance(YiCaiConstant.YICAI_NEWS_HAIWAISHICHANG);
+            case 3://全球
+                return YiCaiNewsItemFragment.newInstance(YiCaiConstant.YICAI_NEWS_QUANQIU);
+            case 4://科技
+                return YiCaiNewsItemFragment.newInstance(YiCaiConstant.YICAI_NEWS_KEJI);
+            case 5://资讯
+                return YiCaiNewsItemFragment.newInstance(YiCaiConstant.YICAI_NEWS_ZIXUN);
+            default:
+                return new Fragment();
         }
-        return null;
+
     }
 
     @Override
