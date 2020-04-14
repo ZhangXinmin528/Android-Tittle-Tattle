@@ -2,6 +2,7 @@
 <resources>
 
     <string-array name="home_sort_arrays">
+        <item>启动模式-任务栈</item>
         <item>线程</item>
         <item>数据库</item>
         <item>RxJava 1.x</item>

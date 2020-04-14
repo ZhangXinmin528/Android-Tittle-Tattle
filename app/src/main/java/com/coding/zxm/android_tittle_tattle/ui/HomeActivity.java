@@ -1,9 +1,12 @@
 package com.coding.zxm.android_tittle_tattle.ui;
 
+import android.content.Intent;
 import android.support.annotation.NonNull;
+import android.support.v7.app.ActionBar;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
 import android.view.View;
 
@@ -12,7 +15,6 @@ import com.coding.zxm.android_tittle_tattle.adapter.SortAdapter;
 import com.coding.zxm.android_tittle_tattle.util.SortDispatcher;
 import com.coding.zxm.libcore.listender.OnItemClickListener;
 import com.coding.zxm.libcore.ui.BaseActivity;
-import com.zxm.utils.core.screen.ScreenUtil;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -26,11 +28,20 @@ public class HomeActivity extends BaseActivity implements OnItemClickListener {
 
     @Override
     protected Object setLayout() {
-        return R.layout.activity_sort_list;
+        return R.layout.activity_home;
     }
 
     @Override
     protected void initParamsAndValues() {
+
+        final Toolbar toolbar = findViewById(R.id.toolbar_home);
+        setSupportActionBar(toolbar);
+        ActionBar actionBar = getSupportActionBar();
+        if (actionBar != null) {
+            actionBar.setDisplayHomeAsUpEnabled(false);
+            actionBar.setTitle(getString(R.string.app_name));
+        }
+
         mDataList = new ArrayList<>();
         final String[] sorts = mResources.getStringArray(R.array.home_sort_arrays);
         mDataList.addAll(Arrays.asList(sorts));
@@ -46,7 +57,7 @@ public class HomeActivity extends BaseActivity implements OnItemClickListener {
         mRecyclerView.setAdapter(mAdapter);
 
         mAdapter.setOnItmeClickListener(this);
-        
+
     }
 
     @Override

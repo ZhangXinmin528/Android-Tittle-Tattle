@@ -74,6 +74,19 @@
             android:launchMode="singleTask"
             android:screenOrientation="nosensor" />
 
+        <!--任务栈验证-->
+        <activity
+            android:name=".ui.lunchmode.LunchModeActivity"
+            android:allowTaskReparenting="false"
+            android:launchMode="singleTask"
+            android:screenOrientation="nosensor"
+            android:taskAffinity="com.coding.zxm.lunchmode.test" />
+        <activity
+            android:name=".ui.lunchmode.LunchBridgeActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="nosensor"
+            android:taskAffinity="com.coding.zxm.lunchmode.test" />
+
     </application>
 
 </manifest>

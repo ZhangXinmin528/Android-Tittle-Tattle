@@ -2,7 +2,6 @@ package com.coding.zxm.android_tittle_tattle.ui.rxjava;
 
 import android.content.Intent;
 import android.support.annotation.NonNull;
-import android.support.v7.app.ActionBar;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -31,7 +30,7 @@ public class RxJava1Activity extends BaseActivity implements OnItemClickListener
     private List<String> mDataList;
     @Override
     protected Object setLayout() {
-        return R.layout.activity_sort_list;
+        return R.layout.activity_home;
     }
 
     @Override

@@ -7,6 +7,7 @@ import android.support.annotation.NonNull;
 import android.text.TextUtils;
 
 import com.coding.zxm.android_tittle_tattle.ui.loading.LoadingActivity;
+import com.coding.zxm.android_tittle_tattle.ui.lunchmode.LunchModeActivity;
 import com.coding.zxm.android_tittle_tattle.ui.rv.RvActivity;
 import com.coding.zxm.android_tittle_tattle.ui.rxjava.RxJava1Activity;
 import com.coding.zxm.android_tittle_tattle.ui.thread.CountDownLatchActivity;
@@ -52,92 +53,98 @@ public final class SortDispatcher {
         Intent intent = new Intent();
         if (!TextUtils.isEmpty(label)) {
             switch (position) {
-                //线程
+                //任务栈
                 case 0:
+                    intent.setClass(context, LunchModeActivity.class);
+                    intent.putExtra(DisplayUtil.PARAMS_LABEL, label);
+                    context.startActivity(intent);
+                    break;
+                //线程
+                case 1:
                     intent.setClass(context, ThreadActivity.class);
                     intent.putExtra(DisplayUtil.PARAMS_LABEL, label);
                     context.startActivity(intent);
                     break;
                 //数据库
-                case 1:
+                case 2:
                     intent.setClass(context, OriginalSqlActivity.class);
                     intent.putExtra(DisplayUtil.PARAMS_LABEL, label);
                     context.startActivity(intent);
                     break;
                 //RxJava 1.x
-                case 2:
+                case 3:
                     intent.setClass(context, RxJava1Activity.class);
                     intent.putExtra(DisplayUtil.PARAMS_LABEL, label);
                     context.startActivity(intent);
                     break;
                 //Retrofit
-                case 3:
+                case 4:
                     intent.setClass(context, MovieActivity.class);
                     intent.putExtra(DisplayUtil.PARAMS_LABEL, label);
                     context.startActivity(intent);
                     break;
                 //对象池
-                case 4:
+                case 5:
                     intent.setClass(context, ObjectPoolActivity.class);
                     intent.putExtra(DisplayUtil.PARAMS_LABEL, label);
                     context.startActivity(intent);
                     break;
                 //消息轮询
-                case 5:
+                case 6:
                     intent.setClass(context, PollingActivity.class);
                     intent.putExtra(DisplayUtil.PARAMS_LABEL, label);
                     context.startActivity(intent);
                     break;
                 //OkHttp
-                case 6:
+                case 7:
                     intent.setClass(context, OkUsageActivity.class);
                     intent.putExtra(DisplayUtil.PARAMS_LABEL, label);
                     context.startActivity(intent);
                     break;
                 //Queue
-                case 7:
+                case 8:
                     intent.setClass(context, LinkeBlockingQueueActivity.class);
                     intent.putExtra(DisplayUtil.PARAMS_LABEL, label);
                     context.startActivity(intent);
                     break;
                 //视频播放
-                case 8:
+                case 9:
                     intent.setClass(context, VideoNavigationActivity.class);
                     intent.putExtra(DisplayUtil.PARAMS_LABEL, label);
                     context.startActivity(intent);
                     break;
                 //Loading
-                case 9:
+                case 10:
                     intent.setClass(context, LoadingActivity.class);
                     intent.putExtra(DisplayUtil.PARAMS_LABEL, label);
                     context.startActivity(intent);
                     break;
                 //xml解析
-                case 10:
+                case 11:
                     intent.setClass(context, XmlTestActivity.class);
                     intent.putExtra(DisplayUtil.PARAMS_LABEL, label);
                     context.startActivity(intent);
                     break;
                 //RecyclerViewHelper
-                case 11:
+                case 12:
                     intent.setClass(context, RvActivity.class);
                     intent.putExtra(DisplayUtil.PARAMS_LABEL, label);
                     context.startActivity(intent);
                     break;
                 //卡片堆叠效果
-                case 12:
+                case 13:
                     intent.setClass(context, StackingActivity.class);
                     intent.putExtra(DisplayUtil.PARAMS_LABEL, label);
                     context.startActivity(intent);
                     break;
                 //LeakCanary
-                case 13:
+                case 14:
                     /*intent.setClass(context, StackingActivity.class);
                     intent.putExtra(DisplayUtil.PARAMS_LABEL, label);
                     context.startActivity(intent);*/
                     break;
                 //爬虫
-                case 14:
+                case 15:
                     intent.setClass(context, YiCaiNewsActivity.class);
                     intent.putExtra(DisplayUtil.PARAMS_LABEL, label);
                     context.startActivity(intent);

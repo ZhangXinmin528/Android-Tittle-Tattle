@@ -30,7 +30,7 @@ public class ThreadActivity extends BaseActivity implements OnItemClickListener 
 
     @Override
     protected Object setLayout() {
-        return R.layout.activity_sort_list;
+        return R.layout.activity_home;
     }
 
     @Override
