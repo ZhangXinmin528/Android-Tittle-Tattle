@@ -77,15 +77,15 @@
         <!--任务栈验证-->
         <activity
             android:name=".ui.lunchmode.LunchModeActivity"
-            android:allowTaskReparenting="false"
+            android:allowTaskReparenting="true"
             android:launchMode="singleTask"
             android:screenOrientation="nosensor"
-            android:taskAffinity="com.coding.zxm.lunchmode.test" />
+            android:taskAffinity="com.coding.zxm.lunchmode.test1" />
+        <!---->
         <activity
             android:name=".ui.lunchmode.LunchBridgeActivity"
-            android:launchMode="singleTask"
-            android:screenOrientation="nosensor"
-            android:taskAffinity="com.coding.zxm.lunchmode.test" />
+            android:launchMode="singleTop"
+            android:screenOrientation="nosensor" />
 
     </application>
 
