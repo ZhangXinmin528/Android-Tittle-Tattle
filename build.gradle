@@ -50,7 +50,7 @@ ext {
     retrofitVersion = '2.6.2'
 
     //okHttp
-    okhttpVersion = '3.14.4'
+    okhttpVersion = '3.14.7'
 
     //gson
     gsonVersion = '2.8.5'
