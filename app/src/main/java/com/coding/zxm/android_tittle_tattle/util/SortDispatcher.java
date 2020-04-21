@@ -31,6 +31,7 @@ import com.coding.zxm.libutil.DisplayUtil;
 import com.coding.zxm.video.VideoNavigationActivity;
 import com.zxm.coding.lib_database.OriginalSqlActivity;
 import com.zxm.coding.lib_jsoup.YiCaiNewsActivity;
+import com.zxm.coding.lib_list.ui.ListExampleActivity;
 import com.zxm.coding.lib_stacking.ui.StackingActivity;
 
 /**
@@ -146,6 +147,11 @@ public final class SortDispatcher {
                 //爬虫
                 case 15:
                     intent.setClass(context, YiCaiNewsActivity.class);
+                    intent.putExtra(DisplayUtil.PARAMS_LABEL, label);
+                    context.startActivity(intent);
+                    break;
+                case 16:
+                    intent.setClass(context, ListExampleActivity.class);
                     intent.putExtra(DisplayUtil.PARAMS_LABEL, label);
                     context.startActivity(intent);
                     break;

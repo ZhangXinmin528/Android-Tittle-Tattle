@@ -54,6 +54,7 @@ public class LunchBridgeActivity extends BaseActivity {
     @Override
     protected void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
-        MLogger.d(TAG, "onNewIntent()..time : " + System.currentTimeMillis());
+        MLogger.d(TAG, "onNewIntent()..taskId : " + getTaskId()
+                + "..time : " + System.currentTimeMillis());
     }
 }

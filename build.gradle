@@ -78,12 +78,18 @@ ext {
     flexboxVersion = '1.0.0'
 
     smartrefreshVersion = '1.0.5.1'
+
     recyclerAdapterVersion = "2.9.40"
+
     lottieVersion = '2.5.0-beta3'
+
     okgoVersion = '3.0.4'
 
     fastjsonVersion = '1.2.46'
+
     eventbusVersion = '3.1.1'
+
     crashreportVersion = '2.6.6.1'
+
     nativecrashreportVersion = '3.3.1'
 }

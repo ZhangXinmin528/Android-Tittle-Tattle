@@ -18,6 +18,7 @@
         <item>卡片堆叠效果</item>
         <item>LeakCanary </item>
         <item>爬虫</item>
+        <item>列表效果</item>
     </string-array>
 
     <string-array name="thread_sort_arrays">

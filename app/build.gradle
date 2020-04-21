@@ -83,11 +83,13 @@ dependencies {
     implementation project(path: ':recyclerviewhelper')
     //队列
     implementation project(path: ':lib.queue')
-
+    //卡片堆叠
     implementation project(path: ':lib.stacking')
     //数据库
     implementation project(path: ':lib.database')
     //爬虫
     implementation project(path: ':lib.jsoup')
+    //列表效果演示
+    implementation project(path: ':lib.list')
 
 }

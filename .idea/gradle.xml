@@ -16,6 +16,7 @@
             <option value="$PROJECT_DIR$/lib.database" />
             <option value="$PROJECT_DIR$/lib.image" />
             <option value="$PROJECT_DIR$/lib.jsoup" />
+            <option value="$PROJECT_DIR$/lib.list" />
             <option value="$PROJECT_DIR$/lib.loading" />
             <option value="$PROJECT_DIR$/lib.net" />
             <option value="$PROJECT_DIR$/lib.okhttp" />
