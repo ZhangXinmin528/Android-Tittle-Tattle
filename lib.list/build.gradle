@@ -43,6 +43,8 @@ dependencies {
     implementation 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.40'
 
     implementation project(path: ':lib.core')
+
     implementation project(path: ':lib.image')
+
     implementation project(path: ':lib.util')
 }
