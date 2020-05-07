@@ -1,6 +1,4 @@
-package com.coding.zxm.android_tittle_tattle.algorithm.linkedlist;
-
-import android.support.annotation.NonNull;
+package com.zxm.coding.lib.algorithm.tag.linkedlist;
 
 /**
  * Created by ZhangXinmin on 2020/4/26.
@@ -14,7 +12,7 @@ public final class SingleLinkedList<T> {
         size = 0;
     }
 
-    public boolean add(@NonNull T t) {
+    public boolean add(T t) {
         final ListNode node = new ListNode(t);
         if (first == null) {
             first = node;
@@ -73,14 +71,5 @@ public final class SingleLinkedList<T> {
         return size;
     }
 
-    public class ListNode {
-        public T t;
-       public ListNode next;
-
-        ListNode(T t) {
-            this.t = t;
-        }
-
-    }
 
 }
