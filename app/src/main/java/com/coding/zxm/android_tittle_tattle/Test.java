@@ -1,6 +1,12 @@
 package com.coding.zxm.android_tittle_tattle;
 
+import android.util.ArraySet;
+
 import com.coding.zxm.android_tittle_tattle.algorithm.linkedlist.SingleLinkedList;
+
+import java.util.HashSet;
+import java.util.LinkedHashSet;
+import java.util.Set;
 
 /**
  * Created by ZhangXinmin on 2020/4/26.
@@ -8,25 +14,22 @@ import com.coding.zxm.android_tittle_tattle.algorithm.linkedlist.SingleLinkedLis
  */
 public class Test {
     public static void main(String[] args) {
-
-        SingleLinkedList<Integer> list = new SingleLinkedList<>();
-        for (int i = 1; i < 6; i++) {
-            list.add(i);
-        }
-
-        System.out.println("last : " + list.getLast().t);
-        System.out.println("last : " + reverseList(list.getFirst()).t);
-
+        final String data = "ADABEFFFDCBGH发货价啦AFG";
+        System.out.println(dup(data));
     }
 
-    public static SingleLinkedList.ListNode reverseList(SingleLinkedList.ListNode head) {
-//        SingleLinkedList.ListNode pre = null;
-//        SingleLinkedList.ListNode temp= null;
-        SingleLinkedList.ListNode curr = head;
-        while (curr.next != null) {
-            curr = curr.next;
+    public static String dup(String s) {
+
+        final int lengh = s.length();
+        final char[] data = s.toCharArray();
+        Set<String> set = new LinkedHashSet<>();
+
+        for (int i = 0; i < lengh; i++) {
+            final char c = data[i];
+            set.add(c+"");
         }
-        return curr;
+        return set.toString();
     }
+
 
 }
