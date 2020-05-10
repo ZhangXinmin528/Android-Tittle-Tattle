@@ -36,6 +36,7 @@ public class BaseApplication extends Application {
             // You should not onStart your app in this process.
             return;
         }
+        LeakCanary.enableDisplayLeakActivity(this);
         LeakCanary.install(this);
     }
 }
