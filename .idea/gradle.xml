@@ -28,6 +28,7 @@
             <option value="$PROJECT_DIR$/lib.stacking" />
             <option value="$PROJECT_DIR$/lib.util" />
             <option value="$PROJECT_DIR$/lib.video" />
+            <option value="$PROJECT_DIR$/lib.view" />
             <option value="$PROJECT_DIR$/lib.webview" />
             <option value="$PROJECT_DIR$/lib.xml" />
             <option value="$PROJECT_DIR$/recyclerviewhelper" />
