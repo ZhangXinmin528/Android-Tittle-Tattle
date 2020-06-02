@@ -42,7 +42,6 @@ public class YiCaiNewsActivity extends BaseActivity {
         if (arr != null) {
             mTabList = new ArrayList<>(Arrays.asList(arr));
         }
-
         mTabAdapter = new YiCaiTabAdapter(getSupportFragmentManager(), mTabList);
 
     }
