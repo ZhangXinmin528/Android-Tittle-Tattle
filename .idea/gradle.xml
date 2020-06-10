@@ -19,6 +19,7 @@
             <option value="$PROJECT_DIR$/lib.jsoup" />
             <option value="$PROJECT_DIR$/lib.list" />
             <option value="$PROJECT_DIR$/lib.loading" />
+            <option value="$PROJECT_DIR$/lib.matrix" />
             <option value="$PROJECT_DIR$/lib.net" />
             <option value="$PROJECT_DIR$/lib.okhttp" />
             <option value="$PROJECT_DIR$/lib.polling" />

@@ -5,6 +5,11 @@ import android.support.multidex.MultiDex;
 
 import com.coding.zxm.android_tittle_tattle.BuildConfig;
 import com.squareup.leakcanary.LeakCanary;
+import com.tencent.matrix.Matrix;
+import com.tencent.matrix.trace.TracePlugin;
+import com.tencent.matrix.trace.config.TraceConfig;
+import com.zxm.coding.libmatrix.plugin.TrainingDynamicConfigImpl;
+import com.zxm.coding.libmatrix.plugin.TrainingPluginListener;
 import com.zxm.utils.core.log.MLogger;
 
 /**
@@ -21,6 +26,8 @@ public class BaseApplication extends Application {
         initLeakCanary();
 
         initLogger();
+
+        initMatrix();
     }
 
     private void initLogger() {
@@ -38,5 +45,29 @@ public class BaseApplication extends Application {
         }
         LeakCanary.enableDisplayLeakActivity(this);
         LeakCanary.install(this);
+    }
+
+    private void initMatrix() {
+        Matrix.Builder builder = new Matrix.Builder(this);
+        builder.patchListener(new TrainingPluginListener(this));
+
+        //trace
+        TraceConfig traceConfig = new TraceConfig.Builder()
+                .dynamicConfig(new TrainingDynamicConfigImpl())
+                .enableFPS(true)
+                .enableEvilMethodTrace(true)
+                .enableAnrTrace(true)
+                .enableStartup(true)
+                .splashActivities("com.coding.zxm.android_tittle_tattle.ui.HomeActivity;")
+                .isDebug(true)
+                .isDevEnv(false)
+                .build();
+
+        TracePlugin tracePlugin = (new TracePlugin(traceConfig));
+        builder.plugin(tracePlugin);
+        Matrix.init(builder.build());
+
+        //start only startup tracer, close other tracer.
+        tracePlugin.start();
     }
 }
