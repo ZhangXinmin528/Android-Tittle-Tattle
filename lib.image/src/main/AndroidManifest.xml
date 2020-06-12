@@ -7,4 +7,11 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <!--缓存图片-->
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <application>
+        <activity
+            android:name=".BitmapActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="nosensor" />
+    </application>
 </manifest>

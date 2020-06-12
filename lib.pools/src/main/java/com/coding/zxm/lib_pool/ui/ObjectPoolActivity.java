@@ -34,7 +34,7 @@ public class ObjectPoolActivity extends BaseActivity implements View.OnClickList
         if (intent != null) {
             final String label = intent.getStringExtra(DisplayUtil.PARAMS_LABEL);
             if (!TextUtils.isEmpty(label)) {
-                setTitle(label);
+                setTitle(label,R.id.toolbar_pool);
             }
         }
 

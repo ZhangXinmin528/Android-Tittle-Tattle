@@ -2,13 +2,13 @@ package com.coding.zxm.android_tittle_tattle.util;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.support.annotation.IntRange;
 import android.support.annotation.NonNull;
 import android.text.TextUtils;
 
 import com.coding.zxm.android_tittle_tattle.ui.loading.LoadingActivity;
 import com.coding.zxm.android_tittle_tattle.ui.lunchmode.LunchModeActivity;
-import com.coding.zxm.android_tittle_tattle.ui.rv.RvActivity;
 import com.coding.zxm.android_tittle_tattle.ui.rxjava.RxJava1Activity;
 import com.coding.zxm.android_tittle_tattle.ui.thread.CountDownLatchActivity;
 import com.coding.zxm.android_tittle_tattle.ui.thread.IntentServiceActivity;
@@ -19,6 +19,7 @@ import com.coding.zxm.lib_polling.ui.PollingActivity;
 import com.coding.zxm.lib_pool.ui.ObjectPoolActivity;
 import com.coding.zxm.lib_queue.LinkeBlockingQueueActivity;
 import com.coding.zxm.lib_xml.ui.XmlTestActivity;
+import com.coding.zxm.libimage.BitmapActivity;
 import com.coding.zxm.libnet.ui.MovieActivity;
 import com.coding.zxm.librxjava1.ui.CombiningOperatorActivity;
 import com.coding.zxm.librxjava1.ui.CreatingOperatorActivity;
@@ -128,9 +129,9 @@ public final class SortDispatcher {
                     break;
                 //RecyclerViewHelper
                 case 12:
-                    intent.setClass(context, RvActivity.class);
-                    intent.putExtra(DisplayUtil.PARAMS_LABEL, label);
-                    context.startActivity(intent);
+//                    intent.setClass(context, RvActivity.class);
+//                    intent.putExtra(DisplayUtil.PARAMS_LABEL, label);
+//                    context.startActivity(intent);
                     break;
                 //卡片堆叠效果
                 case 13:
@@ -150,8 +151,15 @@ public final class SortDispatcher {
                     intent.putExtra(DisplayUtil.PARAMS_LABEL, label);
                     context.startActivity(intent);
                     break;
+                //列表效果
                 case 16:
                     intent.setClass(context, ListExampleActivity.class);
+                    intent.putExtra(DisplayUtil.PARAMS_LABEL, label);
+                    context.startActivity(intent);
+                    break;
+                //Bitmap
+                case 17:
+                    intent.setClass(context, BitmapActivity.class);
                     intent.putExtra(DisplayUtil.PARAMS_LABEL, label);
                     context.startActivity(intent);
                     break;

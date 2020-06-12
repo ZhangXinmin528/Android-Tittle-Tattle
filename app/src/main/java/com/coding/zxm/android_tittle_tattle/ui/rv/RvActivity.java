@@ -1,14 +1,12 @@
 package com.coding.zxm.android_tittle_tattle.ui.rv;
 
 import android.content.Intent;
-import android.support.v7.app.ActionBar;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
-import android.widget.ListView;
 import android.widget.Toast;
 
 import com.coding.zxm.android_tittle_tattle.R;
@@ -18,7 +16,6 @@ import com.coding.zxm.libutil.DisplayUtil;
 import com.coding.zxm.recyclerviewhelper.AbsRecyclerAdapter;
 import com.coding.zxm.recyclerviewhelper.listener.OnItemChildClickListener;
 import com.coding.zxm.recyclerviewhelper.listener.OnItemClickListener;
-import com.zxm.utils.core.log.MLogger;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -48,7 +45,7 @@ public class RvActivity extends BaseActivity implements
         if (intent != null) {
             final String label = intent.getStringExtra(DisplayUtil.PARAMS_LABEL);
             if (!TextUtils.isEmpty(label)) {
-                setTitle(label);
+                setTitle(label, R.id.toolbar_rv);
             }
         }
 

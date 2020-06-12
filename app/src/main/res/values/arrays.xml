@@ -19,6 +19,7 @@
         <item>LeakCanary </item>
         <item>爬虫</item>
         <item>列表效果</item>
+        <item>Bitmap</item>
     </string-array>
 
     <string-array name="thread_sort_arrays">

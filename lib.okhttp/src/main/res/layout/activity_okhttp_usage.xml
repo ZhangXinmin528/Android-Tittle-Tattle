@@ -7,6 +7,10 @@
     android:background="#ffffff"
     android:orientation="vertical">
 
+    <include
+        android:id="@+id/toolbar_okhttp"
+        layout="@layout/layout_toolbar" />
+
     <com.google.android.flexbox.FlexboxLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

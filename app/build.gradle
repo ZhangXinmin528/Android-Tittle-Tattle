@@ -92,6 +92,7 @@ dependencies {
     //列表效果演示
     implementation project(path: ':lib.list')
     implementation project(path: ':lib.matrix')
+    implementation project(path: ':lib.image')
 
 }
 

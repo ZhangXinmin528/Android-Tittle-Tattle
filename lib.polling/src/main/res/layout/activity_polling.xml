@@ -5,6 +5,10 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
+    <include
+        android:id="@+id/toolbar_pooling"
+        layout="@layout/layout_toolbar" />
+
     <Button
         android:id="@+id/btn_start"
         android:layout_width="wrap_content"

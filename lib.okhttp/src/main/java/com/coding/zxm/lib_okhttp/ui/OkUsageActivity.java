@@ -72,7 +72,7 @@ public class OkUsageActivity extends BaseActivity implements View.OnClickListene
         if (intent != null) {
             final String label = intent.getStringExtra(DisplayUtil.PARAMS_LABEL);
             if (!TextUtils.isEmpty(label)) {
-                setTitle(label);
+                setTitle(label, R.id.toolbar_okhttp);
             }
         }
 

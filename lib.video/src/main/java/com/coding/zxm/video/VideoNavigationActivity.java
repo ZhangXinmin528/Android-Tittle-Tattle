@@ -1,10 +1,7 @@
 package com.coding.zxm.video;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.view.View;
 
@@ -35,7 +32,7 @@ public class VideoNavigationActivity extends BaseActivity implements View.OnClic
         if (intent != null) {
             final String label = intent.getStringExtra(DisplayUtil.PARAMS_LABEL);
             if (!TextUtils.isEmpty(label)) {
-                setTitle(label);
+                setTitle(label, R.id.toolbar_video);
             }
         }
     }
