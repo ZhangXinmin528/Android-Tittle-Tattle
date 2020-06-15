@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 
@@ -17,7 +18,35 @@ import com.coding.zxm.libutil.DisplayUtil;
  */
 public class BitmapActivity extends BaseActivity {
 
+    private int[] resIds = {R.drawable.icon_doman0, R.drawable.icon_doman1};
     private ImageView mShowIv;
+    private Bitmap reuseBitmap;
+    private int resIndex;
+
+    public static boolean canUseForInBitmap(Bitmap candidate, BitmapFactory.Options targetOptions) {
+        int width = targetOptions.outWidth / Math.max(targetOptions.inSampleSize, 1);
+        int height = targetOptions.outHeight / Math.max(targetOptions.inSampleSize, 1);
+        int byteCount = width * height * getBytesPerPixel(candidate.getConfig());
+
+        return byteCount <= candidate.getAllocationByteCount();
+    }
+
+    private static int getBytesPerPixel(Bitmap.Config config) {
+        int bytesPerPixel;
+        switch (config) {
+            case ALPHA_8:
+                bytesPerPixel = 1;
+                break;
+            case RGB_565:
+            case ARGB_4444:
+                bytesPerPixel = 2;
+                break;
+            default:
+                bytesPerPixel = 4;
+                break;
+        }
+        return bytesPerPixel;
+    }
 
     @Override
     protected Object setLayout() {
@@ -34,21 +63,37 @@ public class BitmapActivity extends BaseActivity {
             }
         }
 
-        mShowIv = findViewById(R.id.iv_show_bitmap);
-        final Bitmap bitmap0 = BitmapFactory.decodeResource(getResources(), R.drawable.icon_doman0);
-        mShowIv.setImageBitmap(bitmap0);
-
-        findViewById(R.id.btn_switch).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-            }
-        });
-
     }
 
     @Override
     protected void initViews() {
 
+        mShowIv = findViewById(R.id.iv_show_bitmap);
+        final BitmapFactory.Options options = new BitmapFactory.Options();
+        options.inMutable = true;
+        reuseBitmap = BitmapFactory.decodeResource(getResources(), resIds[0], options);
+
+        findViewById(R.id.btn_switch).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                shitchBitmap();
+            }
+        });
+
+    }
+
+    private void shitchBitmap() {
+        mShowIv.setImageBitmap(getBitmap());
+    }
+
+    private Bitmap getBitmap() {
+        final BitmapFactory.Options options = new BitmapFactory.Options();
+        options.inJustDecodeBounds = true;
+        if (canUseForInBitmap(reuseBitmap, options)) {
+            options.inMutable = true;
+            options.inBitmap = reuseBitmap;
+        }
+        options.inJustDecodeBounds = false;
+        return BitmapFactory.decodeResource(getResources(), resIds[resIndex++ % 2], options);
     }
 }
