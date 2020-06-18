@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 
@@ -71,6 +70,7 @@ public class BitmapActivity extends BaseActivity {
         mShowIv = findViewById(R.id.iv_show_bitmap);
         final BitmapFactory.Options options = new BitmapFactory.Options();
         options.inMutable = true;
+
         reuseBitmap = BitmapFactory.decodeResource(getResources(), resIds[0], options);
 
         findViewById(R.id.btn_switch).setOnClickListener(new View.OnClickListener() {
