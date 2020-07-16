@@ -1,0 +1,49 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    buildToolsVersion rootProject.ext.buildToolsVersion
+    defaultConfig {
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: "libs", include: ["*.jar"])
+    implementation "com.android.support:appcompat-v7:$rootProject.supportLibraryVersion"
+    // appcompat-v7 is required
+    implementation 'me.yokeyword:fragmentation:1.3.8'
+
+    // If you don't want to extends SupportActivity/Fragment and would like to customize your own support, just rely on fragmentation-core
+    // compile 'me.yokeyword:fragmentation-core:1.3.8'
+
+    // To get SwipeBack feature, rely on both fragmentation & fragmentation-swipeback
+    implementation 'me.yokeyword:fragmentation:1.3.8'
+    // Swipeback is based on fragmentation. Refer to SwipeBackActivity/Fragment for your Customized SupportActivity/Fragment
+    implementation 'me.yokeyword:fragmentation-swipeback:1.3.8'
+
+    // To simplify the communication between Fragments.
+    implementation 'me.yokeyword:eventbus-activity-scope:1.1.0'
+    // Your EventBus's version
+    implementation 'org.greenrobot:eventbus:3.1.1'
+
+    //工具
+    implementation project(':lib.util')
+
+    //核心
+    implementation project(':lib.core')
+    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
+}

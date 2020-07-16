@@ -52,6 +52,7 @@ dependencies {
     implementation "com.android.support:appcompat-v7:$rootProject.supportLibraryVersion"
     implementation "com.android.support.constraint:constraint-layout:$rootProject.constraintLayoutVersion"
 
+
     debugImplementation "com.squareup.leakcanary:leakcanary-android:$rootProject.leakcanaryVersion"
     releaseImplementation "com.squareup.leakcanary:leakcanary-android-no-op:$rootProject.leakcanaryVersion"
     // Optional, if you use support library fragments:
@@ -94,6 +95,7 @@ dependencies {
     implementation project(path: ':lib.matrix')
     implementation project(path: ':lib.image')
 
+    implementation project(path: ':lib.fragment')
 }
 
 apply plugin: 'com.tencent.matrix-plugin'
