@@ -31,7 +31,7 @@ public class SortAdapter extends RecyclerView.Adapter<SortViewHolder> {
     @Override
     public SortViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         final View view = LayoutInflater.from(viewGroup.getContext())
-                .inflate(R.layout.layout_rx_list_item, viewGroup, false);
+                .inflate(R.layout.layout_home_list_item, viewGroup, false);
         return new SortViewHolder(view);
     }
 

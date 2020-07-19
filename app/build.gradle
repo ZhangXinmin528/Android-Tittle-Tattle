@@ -76,13 +76,15 @@ dependencies {
     implementation project(':lib.core')
     //工具
     implementation project(':lib.util')
+    //数据库
+    implementation project(path: ':lib.database')
     //RxJava1
     implementation project(':lib.rxjava1')
     //网络
     implementation project(':lib.net')
-
     //池技术
     implementation project(path: ':lib.pools')
+
     //轮询
     implementation project(path: ':lib.polling')
     //网络请求
@@ -97,8 +99,6 @@ dependencies {
     implementation project(path: ':lib.queue')
     //卡片堆叠
     implementation project(path: ':lib.stacking')
-    //数据库
-    implementation project(path: ':lib.database')
     //爬虫
     implementation project(path: ':lib.jsoup')
     //列表效果演示

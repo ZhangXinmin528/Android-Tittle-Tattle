@@ -12,4 +12,8 @@ public final class RoutePath {
     public static final String ROUTE_NET_MOVIE = "/net/movie";
 
     public static final String ROUTE_POOL_OBJECT = "/pool/object";
+
+    public static final String ROUTE_POOLING_EXAMPLE = "/pooling/example";
+
+
 }
