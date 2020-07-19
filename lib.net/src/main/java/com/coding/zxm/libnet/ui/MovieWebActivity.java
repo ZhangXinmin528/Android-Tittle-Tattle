@@ -2,9 +2,9 @@ package com.coding.zxm.libnet.ui;
 
 import android.content.Intent;
 
+import com.coding.zxm.lib_webview.fragment.X5WebViewFragment;
 import com.coding.zxm.libcore.ui.BaseActivity;
 import com.coding.zxm.libnet.R;
-import com.coding.zxm.lib_webview.fragment.X5WebViewFragment;
 
 /**
  * Created by ZhangXinmin on 2019/2/25.

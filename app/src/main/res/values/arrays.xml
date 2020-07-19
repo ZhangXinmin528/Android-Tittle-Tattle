@@ -19,6 +19,7 @@
         <item>LeakCanary </item>
         <item>爬虫</item>
         <item>列表效果</item>
+        <item>Bitmap</item>
     </string-array>
 
     <string-array name="thread_sort_arrays">
@@ -27,13 +28,4 @@
         <item>CountdownLatch</item>
     </string-array>
 
-    <string-array name="rxjava1_sort_arrays">
-        <item>初识RxJava Version 1.x</item>
-        <item>RxJava Version 1.x的创建操作符</item>
-        <item>RxJava Version 1.x的转换操作符</item>
-        <item>RxJava Version 1.x的过滤操作符</item>
-        <item>RxJava Version 1.x的组合操作符</item>
-        <item>RxJava Version 1.x的错误操作符</item>
-        <item>RxJava Version 1.x的辅助性操作符</item>
-    </string-array>
 </resources>

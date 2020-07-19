@@ -1,13 +1,15 @@
 package com.coding.zxm.android_tittle_tattle.ui.thread;
 
 import android.content.Intent;
-import android.support.annotation.NonNull;
-import android.support.v7.widget.DividerItemDecoration;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
 import android.view.View;
 
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.DividerItemDecoration;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.alibaba.android.arouter.facade.annotation.Route;
 import com.coding.zxm.android_tittle_tattle.R;
 import com.coding.zxm.android_tittle_tattle.adapter.SortAdapter;
 import com.coding.zxm.android_tittle_tattle.util.SortDispatcher;
@@ -42,11 +44,11 @@ public class ThreadActivity extends BaseActivity implements OnItemClickListener 
 
         mAdapter = new SortAdapter(mDataList);
 
-        Intent intent = getIntent();
+        final Intent intent = getIntent();
         if (intent != null) {
-            final String label = intent.getStringExtra(DisplayUtil.PARAMS_LABEL);
-            if (!TextUtils.isEmpty(label)) {
-                setTitle(label);
+            final String title = intent.getStringExtra(DisplayUtil.PARAMS_LABEL);
+            if (!TextUtils.isEmpty(title)) {
+                setTitle(title, R.id.toolbar_home);
             }
         }
     }

@@ -1,13 +1,13 @@
 package com.coding.zxm.librxjava1.ui;
 
 import android.content.Intent;
-import android.support.v7.app.ActionBar;
 import android.text.TextUtils;
+
+import androidx.appcompat.app.ActionBar;
 
 import com.coding.zxm.libcore.ui.BaseActivity;
 import com.coding.zxm.librxjava1.R;
 import com.zxm.utils.core.log.MLogger;
-
 
 import rx.Observable;
 import rx.Subscriber;
@@ -68,17 +68,17 @@ public class RxJavaABCActivity extends BaseActivity {
         Subscriber<String> subscriber = new Subscriber<String>() {
             @Override
             public void onCompleted() {
-                MLogger.i(TAG,"onCompleted");
+                MLogger.i(TAG, "onCompleted");
             }
 
             @Override
             public void onError(Throwable e) {
-                MLogger.e(TAG,"onError");
+                MLogger.e(TAG, "onError");
             }
 
             @Override
             public void onNext(String s) {
-                MLogger.i(TAG,"onNext..结果：" + s);
+                MLogger.i(TAG, "onNext..结果：" + s);
             }
         };
 
@@ -94,7 +94,7 @@ public class RxJavaABCActivity extends BaseActivity {
                 .subscribe(new Action1<String>() {
                     @Override
                     public void call(String s) {
-                        MLogger.i(TAG,"call..结果：" + s);
+                        MLogger.i(TAG, "call..结果：" + s);
                     }
                 });
     }

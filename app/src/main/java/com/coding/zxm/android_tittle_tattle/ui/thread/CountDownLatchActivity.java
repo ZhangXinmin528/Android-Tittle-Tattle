@@ -1,7 +1,6 @@
 package com.coding.zxm.android_tittle_tattle.ui.thread;
 
 import android.content.Intent;
-import android.support.v7.app.ActionBar;
 import android.text.TextUtils;
 import android.view.View;
 
@@ -31,14 +30,11 @@ public class CountDownLatchActivity extends BaseActivity {
 
     @Override
     protected void initParamsAndValues() {
-        Intent intent = getIntent();
+        final Intent intent = getIntent();
         if (intent != null) {
-            final String label = intent.getStringExtra(DisplayUtil.PARAMS_LABEL);
-            if (!TextUtils.isEmpty(label)) {
-                ActionBar actionBar = getSupportActionBar();
-                if (actionBar != null) {
-                    actionBar.setTitle(label);
-                }
+            final String title = intent.getStringExtra(DisplayUtil.PARAMS_LABEL);
+            if (!TextUtils.isEmpty(title)) {
+                setTitle(title, R.id.toolbar_latch);
             }
         }
 

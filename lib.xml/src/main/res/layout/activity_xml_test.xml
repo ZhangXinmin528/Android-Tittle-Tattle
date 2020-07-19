@@ -7,7 +7,7 @@
     android:orientation="vertical">
 
 
-    <android.support.v7.widget.LinearLayoutCompat
+    <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
@@ -28,14 +28,14 @@
             android:layout_marginStart="16dp"
             android:text="obtain"
             tools:ignore="HardcodedText" />
-    </android.support.v7.widget.LinearLayoutCompat>
+    </androidx.appcompat.widget.LinearLayoutCompat>
 
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@android:color/white"
-        android:layout_marginTop="2dp">
+        android:layout_marginTop="2dp"
+        android:background="@android:color/white">
 
         <TextView
             android:id="@+id/tv_result"

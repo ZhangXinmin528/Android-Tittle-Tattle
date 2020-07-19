@@ -23,9 +23,9 @@ android {
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
-    api "com.android.support:appcompat-v7:$rootProject.supportLibraryVersion"
-    api "com.android.support:recyclerview-v7:$rootProject.supportLibraryVersion"
-    api "com.android.support.constraint:constraint-layout:$rootProject.constraintLayoutVersion"
+    api "androidx.appcompat:appcompat:$rootProject.appcompatVersion"
+    api "androidx.recyclerview:recyclerview:$rootProject.recyclerviewVersion"
+    api "androidx.constraintlayout:constraintlayout:$rootProject.constraintLayoutVersion"
 
     api "com.github.CymChad:BaseRecyclerViewAdapterHelper:$rootProject.ext.recyclerAdapterVersion"
 }

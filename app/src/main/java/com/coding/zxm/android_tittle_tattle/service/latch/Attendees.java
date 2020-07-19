@@ -5,8 +5,8 @@ package com.coding.zxm.android_tittle_tattle.service.latch;
  * Copyright (c) 2018 . All rights reserved.
  */
 public class Attendees implements Runnable {
-    private String name;
     private final VideoController controller;
+    private String name;
 
     public Attendees(String name, VideoController controller) {
         // TODO Auto-generated constructor stub

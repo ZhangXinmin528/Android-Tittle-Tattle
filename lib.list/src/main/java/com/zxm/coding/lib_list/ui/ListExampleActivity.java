@@ -1,10 +1,11 @@
 package com.zxm.coding.lib_list.ui;
 
 import android.content.Intent;
-import android.support.v7.widget.DividerItemDecoration;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
+
+import androidx.recyclerview.widget.DividerItemDecoration;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.coding.zxm.libcore.ui.BaseActivity;
 import com.coding.zxm.libutil.DisplayUtil;

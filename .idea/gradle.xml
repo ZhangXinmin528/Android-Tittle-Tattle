@@ -12,13 +12,13 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
-            <option value="$PROJECT_DIR$/lib.algorithm" />
             <option value="$PROJECT_DIR$/lib.core" />
             <option value="$PROJECT_DIR$/lib.database" />
+            <option value="$PROJECT_DIR$/lib.fragment" />
             <option value="$PROJECT_DIR$/lib.image" />
             <option value="$PROJECT_DIR$/lib.jsoup" />
             <option value="$PROJECT_DIR$/lib.list" />
-            <option value="$PROJECT_DIR$/lib.loading" />
+            <option value="$PROJECT_DIR$/lib.matrix" />
             <option value="$PROJECT_DIR$/lib.net" />
             <option value="$PROJECT_DIR$/lib.okhttp" />
             <option value="$PROJECT_DIR$/lib.polling" />

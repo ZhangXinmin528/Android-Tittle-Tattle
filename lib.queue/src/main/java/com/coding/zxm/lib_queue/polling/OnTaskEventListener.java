@@ -1,6 +1,6 @@
 package com.coding.zxm.lib_queue.polling;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 import com.coding.zxm.lib_queue.polling.model.AbsTask;
 

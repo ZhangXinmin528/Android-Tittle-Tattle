@@ -7,8 +7,9 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.ServiceConnection;
 import android.os.IBinder;
-import android.support.annotation.NonNull;
 import android.text.TextUtils;
+
+import androidx.annotation.NonNull;
 
 import com.coding.zxm.lib_queue.polling.loop.TaskLooper;
 import com.coding.zxm.lib_queue.polling.model.AbsTask;

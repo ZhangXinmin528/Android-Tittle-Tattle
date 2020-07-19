@@ -3,9 +3,9 @@ package com.zxm.coding.lib_database.local;
 import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.support.annotation.NonNull;
 import android.text.TextUtils;
 
+import androidx.annotation.NonNull;
 
 import com.zxm.coding.lib_database.local.model.Student;
 
@@ -67,9 +67,9 @@ public final class StudentDao {
      * Convenience method for deleting rows in the database.
      *
      * @param whereClause
-     * @param whereArgs You may include ?s in the where clause, which will be replaced by the
-     *                  values from whereArgs. The values
-     *                  will be bound as Strings.
+     * @param whereArgs   You may include ?s in the where clause, which will be replaced by the
+     *                    values from whereArgs. The values
+     *                    will be bound as Strings.
      * @return the number of rows affected if a whereClause is passed in, 0
      * otherwise. To remove all rows and get a count pass "1" as the
      * whereClause.

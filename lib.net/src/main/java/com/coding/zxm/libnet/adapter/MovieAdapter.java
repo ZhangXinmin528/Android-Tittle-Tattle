@@ -2,8 +2,6 @@ package com.coding.zxm.libnet.adapter;
 
 import android.content.Context;
 import android.graphics.Color;
-import android.support.annotation.NonNull;
-import android.support.v7.widget.RecyclerView;
 import android.text.SpannableStringBuilder;
 import android.text.TextPaint;
 import android.text.style.ClickableSpan;
@@ -12,6 +10,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.coding.zxm.libcore.listender.OnItemClickListener;
 import com.coding.zxm.libimage.model.GlideApp;
@@ -23,8 +24,6 @@ import com.zxm.utils.core.text.ClickableMovementMethod;
 import com.zxm.utils.core.text.SpanUtils;
 
 import java.util.List;
-
-import static com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions.withCrossFade;
 
 /**
  * Created by ZhangXinmin on 2019/2/22.

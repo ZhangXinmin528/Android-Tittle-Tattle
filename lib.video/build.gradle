@@ -23,7 +23,7 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
-    implementation ('com.shuyu:GSYVideoPlayer:6.0.3'){
+    implementation('com.shuyu:GSYVideoPlayer:6.0.3') {
         exclude group: 'com.android.support'
     }
 
@@ -33,6 +33,7 @@ dependencies {
     implementation("com.github.hotchemi:permissionsdispatcher:$rootProject.permissionsDispatcher") {
         exclude module: "support-v13"
     }
+
     annotationProcessor "com.github.hotchemi:permissionsdispatcher-processor:$rootProject.permissionsDispatcher"
     implementation project(path: ':lib.util')
 

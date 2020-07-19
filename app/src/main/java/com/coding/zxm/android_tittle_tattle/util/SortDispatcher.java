@@ -2,14 +2,14 @@ package com.coding.zxm.android_tittle_tattle.util;
 
 import android.content.Context;
 import android.content.Intent;
-import android.support.annotation.IntRange;
-import android.support.annotation.NonNull;
 import android.text.TextUtils;
 
+import androidx.annotation.IntRange;
+import androidx.annotation.NonNull;
+
+import com.alibaba.android.arouter.launcher.ARouter;
 import com.coding.zxm.android_tittle_tattle.ui.loading.LoadingActivity;
 import com.coding.zxm.android_tittle_tattle.ui.lunchmode.LunchModeActivity;
-import com.coding.zxm.android_tittle_tattle.ui.rv.RvActivity;
-import com.coding.zxm.android_tittle_tattle.ui.rxjava.RxJava1Activity;
 import com.coding.zxm.android_tittle_tattle.ui.thread.CountDownLatchActivity;
 import com.coding.zxm.android_tittle_tattle.ui.thread.IntentServiceActivity;
 import com.coding.zxm.android_tittle_tattle.ui.thread.ThreadActivity;
@@ -19,17 +19,10 @@ import com.coding.zxm.lib_polling.ui.PollingActivity;
 import com.coding.zxm.lib_pool.ui.ObjectPoolActivity;
 import com.coding.zxm.lib_queue.LinkeBlockingQueueActivity;
 import com.coding.zxm.lib_xml.ui.XmlTestActivity;
-import com.coding.zxm.libnet.ui.MovieActivity;
-import com.coding.zxm.librxjava1.ui.CombiningOperatorActivity;
-import com.coding.zxm.librxjava1.ui.CreatingOperatorActivity;
-import com.coding.zxm.librxjava1.ui.ErrorHandlingOperatorActivity;
-import com.coding.zxm.librxjava1.ui.FilteringOperatorActivity;
-import com.coding.zxm.librxjava1.ui.RxJavaABCActivity;
-import com.coding.zxm.librxjava1.ui.TransferingOperatorActivity;
-import com.coding.zxm.librxjava1.ui.UtilityOperatorActivity;
+import com.coding.zxm.libcore.route.RoutePath;
+import com.coding.zxm.libimage.BitmapActivity;
 import com.coding.zxm.libutil.DisplayUtil;
 import com.coding.zxm.video.VideoNavigationActivity;
-import com.zxm.coding.lib_database.OriginalSqlActivity;
 import com.zxm.coding.lib_jsoup.YiCaiNewsActivity;
 import com.zxm.coding.lib_list.ui.ListExampleActivity;
 import com.zxm.coding.lib_stacking.ui.StackingActivity;
@@ -68,27 +61,32 @@ public final class SortDispatcher {
                     break;
                 //数据库
                 case 2:
-                    intent.setClass(context, OriginalSqlActivity.class);
-                    intent.putExtra(DisplayUtil.PARAMS_LABEL, label);
-                    context.startActivity(intent);
+                    ARouter.getInstance()
+                            .build(RoutePath.ROUTE_ORIGINAL_SQL)
+                            .withString(DisplayUtil.PARAMS_LABEL, label)
+                            .navigation();
                     break;
                 //RxJava 1.x
                 case 3:
-                    intent.setClass(context, RxJava1Activity.class);
-                    intent.putExtra(DisplayUtil.PARAMS_LABEL, label);
-                    context.startActivity(intent);
+                    ARouter.getInstance()
+                            .build("/database/rxjava1")
+                            .withString(DisplayUtil.PARAMS_LABEL, label)
+                            .navigation();
                     break;
                 //Retrofit
                 case 4:
-                    intent.setClass(context, MovieActivity.class);
-                    intent.putExtra(DisplayUtil.PARAMS_LABEL, label);
-                    context.startActivity(intent);
+                    ARouter.getInstance()
+                            .build("/database/movie")
+                            .withString(DisplayUtil.PARAMS_LABEL, label)
+                            .navigation();
                     break;
                 //对象池
                 case 5:
+                    ARouter.getInstance()
+                            .build("/database/objectpool")
+                            .withString(DisplayUtil.PARAMS_LABEL, label)
+                            .navigation();
                     intent.setClass(context, ObjectPoolActivity.class);
-                    intent.putExtra(DisplayUtil.PARAMS_LABEL, label);
-                    context.startActivity(intent);
                     break;
                 //消息轮询
                 case 6:
@@ -128,9 +126,9 @@ public final class SortDispatcher {
                     break;
                 //RecyclerViewHelper
                 case 12:
-                    intent.setClass(context, RvActivity.class);
-                    intent.putExtra(DisplayUtil.PARAMS_LABEL, label);
-                    context.startActivity(intent);
+//                    intent.setClass(context, RvActivity.class);
+//                    intent.putExtra(DisplayUtil.PARAMS_LABEL, label);
+//                    context.startActivity(intent);
                     break;
                 //卡片堆叠效果
                 case 13:
@@ -150,8 +148,15 @@ public final class SortDispatcher {
                     intent.putExtra(DisplayUtil.PARAMS_LABEL, label);
                     context.startActivity(intent);
                     break;
+                //列表效果
                 case 16:
                     intent.setClass(context, ListExampleActivity.class);
+                    intent.putExtra(DisplayUtil.PARAMS_LABEL, label);
+                    context.startActivity(intent);
+                    break;
+                //Bitmap
+                case 17:
+                    intent.setClass(context, BitmapActivity.class);
                     intent.putExtra(DisplayUtil.PARAMS_LABEL, label);
                     context.startActivity(intent);
                     break;
@@ -191,47 +196,4 @@ public final class SortDispatcher {
         }
     }
 
-    public static void dispatchRxJavaEvent(@NonNull Context context, @IntRange(from = 0) int position,
-                                           @NonNull String label) {
-        Intent intent = new Intent();
-        if (!TextUtils.isEmpty(label)) {
-            switch (position) {
-                case 0:
-                    intent.setClass(context, RxJavaABCActivity.class);
-                    intent.putExtra(DisplayUtil.PARAMS_LABEL, label);
-                    context.startActivity(intent);
-                    break;
-                case 1:
-                    intent.setClass(context, CreatingOperatorActivity.class);
-                    intent.putExtra(DisplayUtil.PARAMS_LABEL, label);
-                    context.startActivity(intent);
-                    break;
-                case 2:
-                    intent.setClass(context, TransferingOperatorActivity.class);
-                    intent.putExtra(DisplayUtil.PARAMS_LABEL, label);
-                    context.startActivity(intent);
-                    break;
-                case 3:
-                    intent.setClass(context, FilteringOperatorActivity.class);
-                    intent.putExtra(DisplayUtil.PARAMS_LABEL, label);
-                    context.startActivity(intent);
-                    break;
-                case 4:
-                    intent.setClass(context, CombiningOperatorActivity.class);
-                    intent.putExtra(DisplayUtil.PARAMS_LABEL, label);
-                    context.startActivity(intent);
-                    break;
-                case 5:
-                    intent.setClass(context, ErrorHandlingOperatorActivity.class);
-                    intent.putExtra(DisplayUtil.PARAMS_LABEL, label);
-                    context.startActivity(intent);
-                    break;
-                case 6:
-                    intent.setClass(context, UtilityOperatorActivity.class);
-                    intent.putExtra(DisplayUtil.PARAMS_LABEL, label);
-                    context.startActivity(intent);
-                    break;
-            }
-        }
-    }
 }

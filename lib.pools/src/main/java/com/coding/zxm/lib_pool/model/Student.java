@@ -9,18 +9,6 @@ import android.os.Parcelable;
  */
 public class Student implements Parcelable {
 
-    private int id;
-    private String name;
-
-    public Student() {
-
-    }
-
-    protected Student(Parcel in) {
-        id = in.readInt();
-        name = in.readString();
-    }
-
     public static final Creator<Student> CREATOR = new Creator<Student>() {
         @Override
         public Student createFromParcel(Parcel in) {
@@ -32,6 +20,17 @@ public class Student implements Parcelable {
             return new Student[size];
         }
     };
+    private int id;
+    private String name;
+
+    public Student() {
+
+    }
+
+    protected Student(Parcel in) {
+        id = in.readInt();
+        name = in.readString();
+    }
 
     public int getId() {
         return id;

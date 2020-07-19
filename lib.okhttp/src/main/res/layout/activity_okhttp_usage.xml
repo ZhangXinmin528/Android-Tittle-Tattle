@@ -7,6 +7,10 @@
     android:background="#ffffff"
     android:orientation="vertical">
 
+    <include
+        android:id="@+id/toolbar_okhttp"
+        layout="@layout/layout_toolbar" />
+
     <com.google.android.flexbox.FlexboxLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -108,7 +112,7 @@
 
     </com.google.android.flexbox.FlexboxLayout>
 
-    <android.support.v4.widget.NestedScrollView
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1">
@@ -119,6 +123,6 @@
             android:layout_height="wrap_content"
             android:padding="12dp" />
 
-    </android.support.v4.widget.NestedScrollView>
+    </androidx.core.widget.NestedScrollView>
 
 </LinearLayout>

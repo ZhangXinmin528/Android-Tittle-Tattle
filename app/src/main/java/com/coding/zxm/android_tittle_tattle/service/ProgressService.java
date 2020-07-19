@@ -2,8 +2,9 @@ package com.coding.zxm.android_tittle_tattle.service;
 
 import android.app.IntentService;
 import android.content.Intent;
-import android.support.annotation.IntRange;
-import android.support.annotation.Nullable;
+
+import androidx.annotation.IntRange;
+import androidx.annotation.Nullable;
 
 import com.zxm.utils.core.log.MLogger;
 

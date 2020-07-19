@@ -1,6 +1,5 @@
 package com.coding.zxm.recyclerviewhelper.listener;
 
-import android.view.PointerIcon;
 import android.view.View;
 
 import com.coding.zxm.recyclerviewhelper.AbsRecyclerAdapter;

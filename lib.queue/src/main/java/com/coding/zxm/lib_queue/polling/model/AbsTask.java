@@ -18,5 +18,5 @@ public abstract class AbsTask implements Parcelable {
      *
      * @return
      */
-   protected abstract String getKey();
+    protected abstract String getKey();
 }

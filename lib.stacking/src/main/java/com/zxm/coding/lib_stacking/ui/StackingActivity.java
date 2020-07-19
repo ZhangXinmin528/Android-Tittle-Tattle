@@ -2,8 +2,9 @@ package com.zxm.coding.lib_stacking.ui;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
-import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
+
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.coding.zxm.libcore.Constants;
 import com.coding.zxm.libcore.ui.BaseActivity;
@@ -52,7 +53,7 @@ public class StackingActivity extends BaseActivity {
         if (intent != null) {
             final String label = intent.getStringExtra(DisplayUtil.PARAMS_LABEL);
             if (!TextUtils.isEmpty(label)) {
-                setTitle(label);
+                setTitle(label, R.id.toolbar_stacking);
             }
         }
 

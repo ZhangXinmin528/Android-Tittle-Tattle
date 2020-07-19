@@ -3,12 +3,13 @@ package com.coding.zxm.lib_webview.x5;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.graphics.drawable.Drawable;
-import android.support.v7.app.AlertDialog;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.widget.AbsoluteLayout;
 import android.widget.FrameLayout;
 import android.widget.ProgressBar;
+
+import androidx.appcompat.app.AlertDialog;
 
 import com.coding.zxm.lib_webview.R;
 import com.tencent.smtt.export.external.interfaces.JsResult;
@@ -29,6 +30,72 @@ public class X5WebView extends WebView {
     private ProgressBar progressbar;  //进度条
 
     private WebViewListener webViewListener;
+    //处理各种事件
+    private WebViewClient webViewClient = new WebViewClient() {
+
+        @Override
+        public boolean shouldOverrideUrlLoading(WebView webView, String s) {
+            webView.loadUrl(s);//当前页面打开
+            return true;
+        }
+
+        //页面加载完成时的操作
+        @Override
+        public void onPageFinished(WebView webView, String s) {
+            super.onPageFinished(webView, s);
+            if (webViewListener != null) {
+                webViewListener.onPageFinish(webView);
+            }
+        }
+
+        //webview报告错误信息
+        @Override
+        public void onReceivedError(WebView webView, int errorCode, String description, String failingUrl) {
+            Log.e(TAG, "onReceivedError:" + errorCode + description + failingUrl);
+        }
+
+        //webview 处理http信息
+        @Override
+        public void onReceivedSslError(WebView webView, SslErrorHandler sslErrorHandler, SslError sslError) {
+            sslErrorHandler.proceed();
+        }
+
+    };
+    private WebChromeClient webChromeClient = new WebChromeClient() {
+        @Override
+        public void onProgressChanged(WebView webView, int progress) {
+            if (progress == 100) {
+                progressbar.setVisibility(GONE);
+            } else {
+                if (!progressbar.isShown())
+                    progressbar.setVisibility(VISIBLE);
+                progressbar.setProgress(progress);
+            }
+
+            if (webViewListener != null) {
+                webViewListener.onProgressChange(webView, progress);
+            }
+            super.onProgressChanged(webView, progress);
+        }
+
+        @Override
+        public boolean onJsAlert(WebView webView, String url, String message, JsResult jsResult) {
+
+            AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+            builder.setTitle(getContext().getString(R.string.app_name));
+            builder.setMessage(message);
+            builder.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    dialog.dismiss();
+                }
+            });
+            builder.setCancelable(false);
+            builder.create().show();
+            return true;
+        }
+
+    };
 
     public X5WebView(Context context) {
         this(context, null, 0);
@@ -93,74 +160,6 @@ public class X5WebView extends WebView {
     public void setWebViewListener(WebViewListener webViewListener) {
         this.webViewListener = webViewListener;
     }
-
-    //处理各种事件
-    private WebViewClient webViewClient = new WebViewClient() {
-
-        @Override
-        public boolean shouldOverrideUrlLoading(WebView webView, String s) {
-            webView.loadUrl(s);//当前页面打开
-            return true;
-        }
-
-        //页面加载完成时的操作
-        @Override
-        public void onPageFinished(WebView webView, String s) {
-            super.onPageFinished(webView, s);
-            if (webViewListener != null) {
-                webViewListener.onPageFinish(webView);
-            }
-        }
-
-        //webview报告错误信息
-        @Override
-        public void onReceivedError(WebView webView, int errorCode, String description, String failingUrl) {
-            Log.e(TAG, "onReceivedError:" + errorCode + description + failingUrl);
-        }
-
-        //webview 处理http信息
-        @Override
-        public void onReceivedSslError(WebView webView, SslErrorHandler sslErrorHandler, SslError sslError) {
-            sslErrorHandler.proceed();
-        }
-
-    };
-
-    private WebChromeClient webChromeClient = new WebChromeClient() {
-        @Override
-        public void onProgressChanged(WebView webView, int progress) {
-            if (progress == 100) {
-                progressbar.setVisibility(GONE);
-            } else {
-                if (!progressbar.isShown())
-                    progressbar.setVisibility(VISIBLE);
-                progressbar.setProgress(progress);
-            }
-
-            if (webViewListener != null) {
-                webViewListener.onProgressChange(webView, progress);
-            }
-            super.onProgressChanged(webView, progress);
-        }
-
-        @Override
-        public boolean onJsAlert(WebView webView, String url, String message, JsResult jsResult) {
-
-            AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
-            builder.setTitle(getContext().getString(R.string.app_name));
-            builder.setMessage(message);
-            builder.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialog, int which) {
-                    dialog.dismiss();
-                }
-            });
-            builder.setCancelable(false);
-            builder.create().show();
-            return true;
-        }
-
-    };
 
     //回调接口
     public interface WebViewListener {

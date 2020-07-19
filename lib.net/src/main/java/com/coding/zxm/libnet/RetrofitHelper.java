@@ -10,7 +10,6 @@ import retrofit2.Retrofit;
 public final class RetrofitHelper {
 
 
-
     public static RetrofitHelper getInstance() {
         return Holder.INSTANCE;
     }
@@ -19,12 +18,12 @@ public final class RetrofitHelper {
         private static RetrofitHelper INSTANCE = new RetrofitHelper();
     }
 
-    public static class Builder{
+    public static class Builder {
         private Retrofit retrofit;
         private OkHttpClient okHttpClient;
     }
 
-    public static class RetrofitBuildeController{
+    public static class RetrofitBuildeController {
 
     }
 }

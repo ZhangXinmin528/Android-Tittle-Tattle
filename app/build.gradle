@@ -11,7 +11,14 @@ android {
         versionName "1.0.0"
 
         multiDexEnabled true
+
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [AROUTER_MODULE_NAME: project.getName(), AROUTER_GENERATE_DOC: "enable"]
+            }
+        }
     }
+
     buildTypes {
         release {
             minifyEnabled false
@@ -47,18 +54,22 @@ android {
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
 
-    implementation "com.android.support:design:$rootProject.supportLibraryVersion"
-    implementation "com.android.support:cardview-v7:$rootProject.supportLibraryVersion"
-    implementation "com.android.support:appcompat-v7:$rootProject.supportLibraryVersion"
-    implementation "com.android.support.constraint:constraint-layout:$rootProject.constraintLayoutVersion"
+    implementation "com.google.android.material:material:$rootProject.appcompatVersion"
+    implementation "androidx.cardview:cardview:$rootProject.cardviewVersion"
+    implementation "androidx.appcompat:appcompat:$rootProject.appcompatVersion"
+    implementation "androidx.constraintlayout:constraintlayout:$rootProject.constraintLayoutVersion"
 
     debugImplementation "com.squareup.leakcanary:leakcanary-android:$rootProject.leakcanaryVersion"
     releaseImplementation "com.squareup.leakcanary:leakcanary-android-no-op:$rootProject.leakcanaryVersion"
     // Optional, if you use support library fragments:
 //    debugImplementation "com.squareup.leakcanary:leakcanary-support-fragment:$rootProject.leakcanaryVersion"
 
+    //ARouter
+    implementation 'com.alibaba:arouter-api:1.5.0'
+    annotationProcessor 'com.alibaba:arouter-compiler:1.2.2'
+
     //分包
-    implementation "com.android.support:multidex:$rootProject.multidexVersion"
+    implementation 'androidx.multidex:multidex:2.0.1'
 
     //核心
     implementation project(':lib.core')
@@ -91,5 +102,20 @@ dependencies {
     implementation project(path: ':lib.jsoup')
     //列表效果演示
     implementation project(path: ':lib.list')
+    //性能监控
+    implementation project(path: ':lib.matrix')
 
+    implementation project(path: ':lib.image')
+
+    implementation project(path: ':lib.fragment')
+}
+
+//性能监控
+apply plugin: 'com.tencent.matrix-plugin'
+matrix {
+    trace {
+        enable = true    //if you don't want to use trace canary, set false
+        baseMethodMapFile = "${project.buildDir}/matrix_output/Debug.methodmap"
+        blackListFile = "${project.projectDir}/matrixTrace/blackMethodList.txt"
+    }
 }

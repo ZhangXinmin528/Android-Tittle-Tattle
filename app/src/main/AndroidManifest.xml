@@ -52,7 +52,7 @@
 
         <!--RxJava1-->
         <activity
-            android:name=".ui.rxjava.RxJava1Activity"
+            android:name="com.coding.zxm.librxjava1.ui.RxJava1Activity"
             android:launchMode="singleTask"
             android:screenOrientation="nosensor" />
 
