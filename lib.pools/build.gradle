@@ -9,6 +9,11 @@ android {
         versionCode 1
         versionName "1.0.0"
 
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [AROUTER_MODULE_NAME: project.getName(), AROUTER_GENERATE_DOC: "enable"]
+            }
+        }
     }
 
     buildTypes {
@@ -25,4 +30,8 @@ dependencies {
 
     implementation project(path: ':lib.core')
     implementation project(':lib.util')
+
+    //ARouter
+    implementation 'com.alibaba:arouter-api:1.5.0'
+    annotationProcessor 'com.alibaba:arouter-compiler:1.2.2'
 }

@@ -69,24 +69,23 @@ public final class SortDispatcher {
                 //RxJava 1.x
                 case 3:
                     ARouter.getInstance()
-                            .build("/database/rxjava1")
+                            .build(RoutePath.ROUTE_RXJAVA_ONE)
                             .withString(DisplayUtil.PARAMS_LABEL, label)
                             .navigation();
                     break;
                 //Retrofit
                 case 4:
                     ARouter.getInstance()
-                            .build("/database/movie")
+                            .build(RoutePath.ROUTE_NET_MOVIE)
                             .withString(DisplayUtil.PARAMS_LABEL, label)
                             .navigation();
                     break;
                 //对象池
                 case 5:
                     ARouter.getInstance()
-                            .build("/database/objectpool")
+                            .build(RoutePath.ROUTE_POOL_OBJECT)
                             .withString(DisplayUtil.PARAMS_LABEL, label)
                             .navigation();
-                    intent.setClass(context, ObjectPoolActivity.class);
                     break;
                 //消息轮询
                 case 6:

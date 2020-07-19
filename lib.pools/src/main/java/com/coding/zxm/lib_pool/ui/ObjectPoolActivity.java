@@ -5,10 +5,12 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 
+import com.alibaba.android.arouter.facade.annotation.Route;
 import com.coding.zxm.lib_pool.R;
 import com.coding.zxm.lib_pool.model.Student;
 import com.coding.zxm.lib_pool.model.StudentFactory;
 import com.coding.zxm.lib_pool.pool.SynchronizedPool;
+import com.coding.zxm.libcore.route.RoutePath;
 import com.coding.zxm.libcore.ui.BaseActivity;
 import com.coding.zxm.libutil.DisplayUtil;
 
@@ -16,6 +18,7 @@ import com.coding.zxm.libutil.DisplayUtil;
  * Created by ZhangXinmin on 2019/5/15.
  * Copyright (c) 2018 . All rights reserved.
  */
+@Route(path = RoutePath.ROUTE_POOL_OBJECT)
 public class ObjectPoolActivity extends BaseActivity implements View.OnClickListener {
 
     private static final String TAG = ObjectPoolActivity.class.getSimpleName();

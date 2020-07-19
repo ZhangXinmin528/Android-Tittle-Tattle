@@ -9,6 +9,8 @@ buildscript {
     dependencies {
         classpath 'com.android.tools.build:gradle:3.6.3'
 
+        classpath "com.alibaba:arouter-register:1.0.2"
+
         classpath("com.tencent.matrix:matrix-gradle-plugin:${MATRIX_VERSION}") { changing = true }
     }
 }
@@ -79,7 +81,7 @@ ext {
     //flexbox
     flexboxVersion = '1.0.0'
 
-    smartrefreshVersion = '1.0.5.1'
+    smartrefreshVersion = '1.1.0'
 
     recyclerAdapterVersion = "3.0.4"
 

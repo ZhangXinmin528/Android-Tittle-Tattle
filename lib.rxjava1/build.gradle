@@ -9,6 +9,12 @@ android {
         versionCode 1
         versionName "1.0.0"
 
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [AROUTER_MODULE_NAME: project.getName(), AROUTER_GENERATE_DOC: "enable"]
+            }
+        }
+
     }
 
     buildTypes {
@@ -27,6 +33,10 @@ dependencies {
     // Because RxAndroid releases are few and far between, it is recommended you also
     // explicitly depend on RxJava's latest version for bug fixes and new features.
     implementation "io.reactivex:rxjava:$rootProject.rxjava1Version"
+
+    //ARouter
+    implementation 'com.alibaba:arouter-api:1.5.0'
+    annotationProcessor 'com.alibaba:arouter-compiler:1.2.2'
 
     implementation project(':lib.core')
     implementation project(':lib.util')

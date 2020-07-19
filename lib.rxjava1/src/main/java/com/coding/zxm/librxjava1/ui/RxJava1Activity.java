@@ -11,7 +11,9 @@ import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.alibaba.android.arouter.facade.annotation.Route;
 import com.coding.zxm.libcore.listender.OnItemClickListener;
+import com.coding.zxm.libcore.route.RoutePath;
 import com.coding.zxm.libcore.ui.BaseActivity;
 import com.coding.zxm.librxjava1.R;
 import com.coding.zxm.librxjava1.ui.adapter.RxAdapter;
@@ -26,6 +28,7 @@ import java.util.List;
  * Copyright (c) 2018 . All rights reserved.
  * RxJava1
  */
+@Route(path = RoutePath.ROUTE_RXJAVA_ONE)
 public class RxJava1Activity extends BaseActivity implements OnItemClickListener {
     private RecyclerView mRecyclerView;
     private RxAdapter mAdapter;

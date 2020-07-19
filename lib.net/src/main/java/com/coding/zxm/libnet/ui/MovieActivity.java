@@ -10,9 +10,11 @@ import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.alibaba.android.arouter.facade.annotation.Route;
 import com.coding.zxm.lib_webview.fragment.X5WebViewFragment;
 import com.coding.zxm.libcore.Constants;
 import com.coding.zxm.libcore.listender.OnItemClickListener;
+import com.coding.zxm.libcore.route.RoutePath;
 import com.coding.zxm.libcore.ui.BaseActivity;
 import com.coding.zxm.libnet.R;
 import com.coding.zxm.libnet.adapter.MovieAdapter;
@@ -39,6 +41,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
  * Created by ZhangXinmin on 2019/2/22.
  * Copyright (c) 2018 . All rights reserved.
  */
+@Route(path = RoutePath.ROUTE_NET_MOVIE)
 public class MovieActivity extends BaseActivity implements OnItemClickListener {
 
     private RecyclerView mRecyclerView;
