@@ -1,8 +1,9 @@
 package com.coding.zxm.librxjava1.ui;
 
 import android.content.Intent;
-import android.support.v7.app.ActionBar;
 import android.text.TextUtils;
+
+import androidx.appcompat.app.ActionBar;
 
 import com.coding.zxm.libcore.ui.BaseActivity;
 import com.coding.zxm.librxjava1.R;
@@ -90,24 +91,24 @@ public class UtilityOperatorActivity extends BaseActivity {
         Observable<Long> observable =
                 Observable.interval(1, TimeUnit.SECONDS)
                         .take(5);
-        MLogger.i(TAG,"operatorDelay..create observable");
+        MLogger.i(TAG, "operatorDelay..create observable");
         //delay
         observable
                 .delay(3, TimeUnit.SECONDS)
                 .subscribe(new Subscriber<Long>() {
                     @Override
                     public void onCompleted() {
-                        MLogger.i(TAG,"operatorDelay..delay..onCompleted");
+                        MLogger.i(TAG, "operatorDelay..delay..onCompleted");
                     }
 
                     @Override
                     public void onError(Throwable e) {
-                        MLogger.i(TAG,"operatorDelay..delay..onError:" + e.getMessage());
+                        MLogger.i(TAG, "operatorDelay..delay..onError:" + e.getMessage());
                     }
 
                     @Override
                     public void onNext(Long aLong) {
-                        MLogger.i(TAG,"operatorDelay..delay..onNext:" + aLong);
+                        MLogger.i(TAG, "operatorDelay..delay..onNext:" + aLong);
                     }
                 });
 
@@ -116,17 +117,17 @@ public class UtilityOperatorActivity extends BaseActivity {
                 .subscribe(new Subscriber<Long>() {
                     @Override
                     public void onCompleted() {
-                        MLogger.i(TAG,"operatorDelay..delaySubscription..onCompleted");
+                        MLogger.i(TAG, "operatorDelay..delaySubscription..onCompleted");
                     }
 
                     @Override
                     public void onError(Throwable e) {
-                        MLogger.i(TAG,"operatorDelay..delaySubscription..onError:" + e.getMessage());
+                        MLogger.i(TAG, "operatorDelay..delaySubscription..onError:" + e.getMessage());
                     }
 
                     @Override
                     public void onNext(Long aLong) {
-                        MLogger.i(TAG,"operatorDelay..delaySubscription..onNext:" + aLong);
+                        MLogger.i(TAG, "operatorDelay..delaySubscription..onNext:" + aLong);
                     }
                 });
     }
@@ -141,37 +142,37 @@ public class UtilityOperatorActivity extends BaseActivity {
                 .doOnEach(new Action1<Notification<? super Integer>>() {
                     @Override
                     public void call(Notification<? super Integer> notification) {
-                        MLogger.i(TAG,"operatorDo..doOnEach:" + notification.getValue());
+                        MLogger.i(TAG, "operatorDo..doOnEach:" + notification.getValue());
                     }
                 })
                 //执行OnError时会调用该方法
                 .doOnError(new Action1<Throwable>() {
                     @Override
                     public void call(Throwable throwable) {
-                        MLogger.i(TAG,"operatorDo..doOnError:" + throwable.getMessage());
+                        MLogger.i(TAG, "operatorDo..doOnError:" + throwable.getMessage());
                     }
                 })
                 //终止时会调用
                 .doOnTerminate(new Action0() {
                     @Override
                     public void call() {
-                        MLogger.i(TAG,"operatorDo..doOnTerminate");
+                        MLogger.i(TAG, "operatorDo..doOnTerminate");
                     }
                 })
                 .subscribe(new Subscriber<Integer>() {
                     @Override
                     public void onCompleted() {
-                        MLogger.i(TAG,"operatorDo..onCompleted");
+                        MLogger.i(TAG, "operatorDo..onCompleted");
                     }
 
                     @Override
                     public void onError(Throwable e) {
-                        MLogger.i(TAG,"operatorDo..onError:" + e.getMessage());
+                        MLogger.i(TAG, "operatorDo..onError:" + e.getMessage());
                     }
 
                     @Override
                     public void onNext(Integer integer) {
-                        MLogger.i(TAG,"operatorDo..onNext:" + integer);
+                        MLogger.i(TAG, "operatorDo..onNext:" + integer);
                     }
                 });
     }
@@ -187,7 +188,7 @@ public class UtilityOperatorActivity extends BaseActivity {
                 .subscribe(new Action1<Notification<String>>() {
                     @Override
                     public void call(Notification<String> stringNotification) {
-                        MLogger.i(TAG,"operatorMaterialize..materialize..call:[Kind:"
+                        MLogger.i(TAG, "operatorMaterialize..materialize..call:[Kind:"
                                 + stringNotification.getKind() + "..Value:"
                                 + stringNotification.getValue() + "]");
                     }
@@ -205,7 +206,7 @@ public class UtilityOperatorActivity extends BaseActivity {
                 .map(new Func1<String, String>() {
                     @Override
                     public String call(String s) {
-                        MLogger.i(TAG,"operatorSubscribeOn..map..Thread:" + Thread.currentThread().getId());
+                        MLogger.i(TAG, "operatorSubscribeOn..map..Thread:" + Thread.currentThread().getId());
                         return s + "..Developer";
                     }
                 })
@@ -213,8 +214,8 @@ public class UtilityOperatorActivity extends BaseActivity {
                 .subscribe(new Action1<String>() {
                     @Override
                     public void call(String s) {
-                        MLogger.i(TAG,"operatorSubscribeOn..Thread:" + Thread.currentThread().getId());
-                        MLogger.i(TAG,"operatorSubscribeOn..call:" + s);
+                        MLogger.i(TAG, "operatorSubscribeOn..Thread:" + Thread.currentThread().getId());
+                        MLogger.i(TAG, "operatorSubscribeOn..call:" + s);
                     }
                 });
     }
@@ -243,17 +244,17 @@ public class UtilityOperatorActivity extends BaseActivity {
                 .subscribe(new Subscriber<TimeInterval<Integer>>() {
                     @Override
                     public void onCompleted() {
-                        MLogger.i(TAG,"operatorTimeInterval..onCompleted");
+                        MLogger.i(TAG, "operatorTimeInterval..onCompleted");
                     }
 
                     @Override
                     public void onError(Throwable e) {
-                        MLogger.i(TAG,"operatorTimeInterval..onError:" + e.getMessage());
+                        MLogger.i(TAG, "operatorTimeInterval..onError:" + e.getMessage());
                     }
 
                     @Override
                     public void onNext(TimeInterval<Integer> integerTimeInterval) {
-                        MLogger.i(TAG,"operatorTimeInterval..onNext:[Value:" + integerTimeInterval.getValue()
+                        MLogger.i(TAG, "operatorTimeInterval..onNext:[Value:" + integerTimeInterval.getValue()
                                 + "..IntervalInMilliseconds:"
                                 + integerTimeInterval.getIntervalInMilliseconds() + "]");
                     }
@@ -283,17 +284,17 @@ public class UtilityOperatorActivity extends BaseActivity {
                 .subscribe(new Subscriber<Integer>() {
                     @Override
                     public void onCompleted() {
-                        MLogger.i(TAG,"operatorTimeout..onCompleted");
+                        MLogger.i(TAG, "operatorTimeout..onCompleted");
                     }
 
                     @Override
                     public void onError(Throwable e) {
-                        MLogger.i(TAG,"operatorTimeout..onError:" + e.getMessage());
+                        MLogger.i(TAG, "operatorTimeout..onError:" + e.getMessage());
                     }
 
                     @Override
                     public void onNext(Integer integer) {
-                        MLogger.i(TAG,"operatorTimeout..onNext:" + integer);
+                        MLogger.i(TAG, "operatorTimeout..onNext:" + integer);
                     }
                 });
     }
@@ -308,17 +309,17 @@ public class UtilityOperatorActivity extends BaseActivity {
                 .subscribe(new Subscriber<Timestamped<Integer>>() {
                     @Override
                     public void onCompleted() {
-                        MLogger.i(TAG,"operatorTimestamp..onCompleted");
+                        MLogger.i(TAG, "operatorTimestamp..onCompleted");
                     }
 
                     @Override
                     public void onError(Throwable e) {
-                        MLogger.i(TAG,"operatorTimestamp..onError:" + e.getMessage());
+                        MLogger.i(TAG, "operatorTimestamp..onError:" + e.getMessage());
                     }
 
                     @Override
                     public void onNext(Timestamped<Integer> integerTimestamped) {
-                        MLogger.i(TAG,"operatorTimestamp..onNext:[Value:" + integerTimestamped.getValue() +
+                        MLogger.i(TAG, "operatorTimestamp..onNext:[Value:" + integerTimestamped.getValue() +
                                 "..TimestampMillis:" + integerTimestamped.getTimestampMillis() + "]");
                     }
                 });
@@ -337,20 +338,20 @@ public class UtilityOperatorActivity extends BaseActivity {
                        }, new Func1<Integer, Observable<String>>() {
                            @Override
                            public Observable<String> call(Integer integer) {
-                               MLogger.i(TAG,"operatorUsing..创建资源");
+                               MLogger.i(TAG, "operatorUsing..创建资源");
                                return Observable.just("数字内容：" + integer);
                            }
                        }, new Action1<Integer>() {
                            @Override
                            public void call(Integer integer) {
-                               MLogger.i(TAG,"operatorUsing..释放资源");
+                               MLogger.i(TAG, "operatorUsing..释放资源");
                            }
                        }
                 )
                 .subscribe(new Action1<String>() {
                     @Override
                     public void call(String s) {
-                        MLogger.i(TAG,"operatorUsing..call:" + s);
+                        MLogger.i(TAG, "operatorUsing..call:" + s);
                     }
                 });
     }
@@ -365,7 +366,7 @@ public class UtilityOperatorActivity extends BaseActivity {
                 .subscribe(new Action1<List<String>>() {
                     @Override
                     public void call(List<String> strings) {
-                        MLogger.i(TAG,"operatorTo..call:" + strings);
+                        MLogger.i(TAG, "operatorTo..call:" + strings);
                     }
                 });
     }

@@ -1,7 +1,6 @@
 package com.coding.zxm.lib_queue.model;
 
 import android.os.Parcel;
-import android.os.Parcelable;
 
 import com.coding.zxm.lib_queue.polling.model.AbsTask;
 

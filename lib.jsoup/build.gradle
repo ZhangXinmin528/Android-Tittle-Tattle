@@ -23,7 +23,8 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation "com.android.support:design:$rootProject.supportLibraryVersion"
+    implementation "com.google.android.material:material:$rootProject.appcompatVersion"
+    implementation "androidx.swiperefreshlayout:swiperefreshlayout:$rootProject.swiperefreshlayoutVersion"
 
     implementation project(path: ':lib.core')
 

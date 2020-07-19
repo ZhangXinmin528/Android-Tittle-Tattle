@@ -1,6 +1,5 @@
 package com.example.libfragment;
 
-import com.coding.zxm.libcore.ui.BaseActivity;
 
 import me.yokeyword.fragmentation.SupportActivity;
 

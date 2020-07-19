@@ -10,7 +10,7 @@ import com.chad.library.adapter.base.entity.MultiItemEntity;
  * Copyright (c) 2020 . All rights reserved.
  * 第一财经新闻资讯实体类
  */
-public class YiCaiEntity implements MultiItemEntity,Parcelable {
+public class YiCaiEntity implements MultiItemEntity, Parcelable {
 
     public static final int TYPE_IMAGE_TEXT = 0;
     public static final int TYPE_TEXT = 1;

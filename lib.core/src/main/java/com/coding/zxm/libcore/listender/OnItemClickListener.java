@@ -1,8 +1,9 @@
 package com.coding.zxm.libcore.listender;
 
-import android.support.annotation.NonNull;
-import android.support.v7.widget.RecyclerView;
 import android.view.View;
+
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
 
 /**
  * Created by ZhangXinmin on 2019/1/8.
@@ -13,7 +14,7 @@ public interface OnItemClickListener {
     /**
      * OnItemClick{@link RecyclerView}
      *
-     * @param adapter {@link RecyclerView.Adapter}
+     * @param adapter  {@link RecyclerView.Adapter}
      * @param view     itemview
      * @param position position
      */

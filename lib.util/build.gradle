@@ -24,16 +24,17 @@ android {
     }
 
     android.libraryVariants.all {
-        variant->variant.outputs.all {
-            outputFileName = "lib.util_${defaultConfig.versionName}.aar"
-        }
+        variant ->
+            variant.outputs.all {
+                outputFileName = "lib.util_${defaultConfig.versionName}.aar"
+            }
     }
 
 }
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
-    implementation "com.android.support:support-annotations:$rootProject.supportLibraryVersion"
+    implementation "androidx.annotation:annotation:$rootProject.appcompatVersion"
 
     //noinspection GradleDependency
     api "com.zhangxm.utils:lib.coreutils:$rootProject.utilVersion"

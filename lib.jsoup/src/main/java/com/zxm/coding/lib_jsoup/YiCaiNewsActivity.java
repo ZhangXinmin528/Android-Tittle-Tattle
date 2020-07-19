@@ -1,12 +1,13 @@
 package com.zxm.coding.lib_jsoup;
 
 import android.content.Intent;
-import android.support.design.widget.TabLayout;
-import android.support.v4.view.ViewPager;
 import android.text.TextUtils;
+
+import androidx.viewpager.widget.ViewPager;
 
 import com.coding.zxm.libcore.ui.BaseActivity;
 import com.coding.zxm.libutil.DisplayUtil;
+import com.google.android.material.tabs.TabLayout;
 
 import java.util.ArrayList;
 import java.util.Arrays;

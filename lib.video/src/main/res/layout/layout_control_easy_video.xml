@@ -24,7 +24,7 @@
         android:layout_height="60dp"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
-        android:visibility="gone"
-        android:layout_gravity="center_vertical" />
+        android:layout_gravity="center_vertical"
+        android:visibility="gone" />
 
 </RelativeLayout>

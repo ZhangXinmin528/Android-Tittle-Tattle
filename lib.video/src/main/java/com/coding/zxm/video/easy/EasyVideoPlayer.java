@@ -65,7 +65,7 @@ public class EasyVideoPlayer extends StandardGSYVideoPlayer {
      * @return
      */
     public boolean setUp(List<GSYVideoModel> url, boolean cacheWithPlay, int position) {
-        return setUp(url,cacheWithPlay,position,null,new HashMap<String, String>());
+        return setUp(url, cacheWithPlay, position, null, new HashMap<String, String>());
     }
 
     /**
@@ -79,7 +79,7 @@ public class EasyVideoPlayer extends StandardGSYVideoPlayer {
      */
     public boolean setUp(List<GSYVideoModel> url, boolean cacheWithPlay,
                          int position, File cachePath) {
-        return setUp(url,cacheWithPlay,position,cachePath,new HashMap<String, String>());
+        return setUp(url, cacheWithPlay, position, cachePath, new HashMap<String, String>());
     }
 
     /**

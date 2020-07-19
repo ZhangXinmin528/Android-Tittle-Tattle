@@ -2,8 +2,9 @@ package com.coding.zxm.librxjava1.ui;
 
 
 import android.content.Intent;
-import android.support.v7.app.ActionBar;
 import android.text.TextUtils;
+
+import androidx.appcompat.app.ActionBar;
 
 import com.coding.zxm.libcore.ui.BaseActivity;
 import com.coding.zxm.librxjava1.R;
@@ -92,17 +93,17 @@ public class CreatingOperatorActivity extends BaseActivity {
         }).subscribe(new Subscriber<Integer>() {
             @Override
             public void onCompleted() {
-                MLogger.i(TAG,"operatorCreate..onCompleted");
+                MLogger.i(TAG, "operatorCreate..onCompleted");
             }
 
             @Override
             public void onError(Throwable e) {
-                MLogger.e(TAG,"operatorCreate..onError:" + e.getMessage());
+                MLogger.e(TAG, "operatorCreate..onError:" + e.getMessage());
             }
 
             @Override
             public void onNext(Integer integer) {
-                MLogger.i(TAG,"operatorCreate..onNext:" + integer);
+                MLogger.i(TAG, "operatorCreate..onNext:" + integer);
             }
         });
     }
@@ -116,17 +117,17 @@ public class CreatingOperatorActivity extends BaseActivity {
                 .subscribe(new Subscriber<String>() {
                     @Override
                     public void onCompleted() {
-                        MLogger.i(TAG,"operatorFrom..onCompleted");
+                        MLogger.i(TAG, "operatorFrom..onCompleted");
                     }
 
                     @Override
                     public void onError(Throwable e) {
-                        MLogger.i(TAG,"operatorFrom..onError:" + e.getMessage());
+                        MLogger.i(TAG, "operatorFrom..onError:" + e.getMessage());
                     }
 
                     @Override
                     public void onNext(String s) {
-                        MLogger.i(TAG,"operatorFrom..onNext:" + s);
+                        MLogger.i(TAG, "operatorFrom..onNext:" + s);
                     }
                 });
     }
@@ -139,17 +140,17 @@ public class CreatingOperatorActivity extends BaseActivity {
                 .subscribe(new Subscriber<String>() {
                     @Override
                     public void onCompleted() {
-                        MLogger.i(TAG,"operatorJust..onCompleted");
+                        MLogger.i(TAG, "operatorJust..onCompleted");
                     }
 
                     @Override
                     public void onError(Throwable e) {
-                        MLogger.e(TAG,"operatorJust..onError:" + e.getMessage());
+                        MLogger.e(TAG, "operatorJust..onError:" + e.getMessage());
                     }
 
                     @Override
                     public void onNext(String s) {
-                        MLogger.i(TAG,"operatorJust..onNext:" + s);
+                        MLogger.i(TAG, "operatorJust..onNext:" + s);
                     }
                 });
     }
@@ -166,17 +167,17 @@ public class CreatingOperatorActivity extends BaseActivity {
         }).subscribe(new Subscriber<Integer>() {
             @Override
             public void onCompleted() {
-                MLogger.i(TAG,"operatorDefer..onCompleted");
+                MLogger.i(TAG, "operatorDefer..onCompleted");
             }
 
             @Override
             public void onError(Throwable e) {
-                MLogger.e(TAG,"operatorDefer..onError:" + e.getMessage());
+                MLogger.e(TAG, "operatorDefer..onError:" + e.getMessage());
             }
 
             @Override
             public void onNext(Integer integer) {
-                MLogger.i(TAG,"operatorDefer..onNext:" + integer);
+                MLogger.i(TAG, "operatorDefer..onNext:" + integer);
             }
         });
     }
@@ -189,17 +190,17 @@ public class CreatingOperatorActivity extends BaseActivity {
                 .subscribe(new Subscriber<Long>() {
                     @Override
                     public void onCompleted() {
-                        MLogger.i(TAG,"operatorInterval..onCompleted");
+                        MLogger.i(TAG, "operatorInterval..onCompleted");
                     }
 
                     @Override
                     public void onError(Throwable e) {
-                        MLogger.e(TAG,"operatorInterval..onError:" + e.getMessage());
+                        MLogger.e(TAG, "operatorInterval..onError:" + e.getMessage());
                     }
 
                     @Override
                     public void onNext(Long aLong) {
-                        MLogger.i(TAG,"operatorInterval..onNext:" + aLong);
+                        MLogger.i(TAG, "operatorInterval..onNext:" + aLong);
                     }
                 });
     }
@@ -212,17 +213,17 @@ public class CreatingOperatorActivity extends BaseActivity {
                 .subscribe(new Subscriber<Integer>() {
                     @Override
                     public void onCompleted() {
-                        MLogger.i(TAG,"operatorRange..onCompleted");
+                        MLogger.i(TAG, "operatorRange..onCompleted");
                     }
 
                     @Override
                     public void onError(Throwable e) {
-                        MLogger.e(TAG,"operatorRange..onError:" + e.getMessage());
+                        MLogger.e(TAG, "operatorRange..onError:" + e.getMessage());
                     }
 
                     @Override
                     public void onNext(Integer integer) {
-                        MLogger.i(TAG,"operatorRange..onNext:" + integer);
+                        MLogger.i(TAG, "operatorRange..onNext:" + integer);
                     }
                 });
     }
@@ -236,17 +237,17 @@ public class CreatingOperatorActivity extends BaseActivity {
                 .subscribe(new Subscriber<String>() {
                     @Override
                     public void onCompleted() {
-                        MLogger.i(TAG,"operatorRepeat..onCompleted");
+                        MLogger.i(TAG, "operatorRepeat..onCompleted");
                     }
 
                     @Override
                     public void onError(Throwable e) {
-                        MLogger.e(TAG,"operatorRepeat..onError:" + e.getMessage());
+                        MLogger.e(TAG, "operatorRepeat..onError:" + e.getMessage());
                     }
 
                     @Override
                     public void onNext(String s) {
-                        MLogger.i(TAG,"operatorRepeat..onNext:" + s);
+                        MLogger.i(TAG, "operatorRepeat..onNext:" + s);
                     }
                 });
     }
@@ -259,17 +260,17 @@ public class CreatingOperatorActivity extends BaseActivity {
                 .subscribe(new Subscriber<Long>() {
                     @Override
                     public void onCompleted() {
-                        MLogger.i(TAG,"operatorTimer..onCompleted");
+                        MLogger.i(TAG, "operatorTimer..onCompleted");
                     }
 
                     @Override
                     public void onError(Throwable e) {
-                        MLogger.e(TAG,"operatorTimer..onError:" + e.getMessage());
+                        MLogger.e(TAG, "operatorTimer..onError:" + e.getMessage());
                     }
 
                     @Override
                     public void onNext(Long aLong) {
-                        MLogger.i(TAG,"operatorTimer..onNext:" + aLong);
+                        MLogger.i(TAG, "operatorTimer..onNext:" + aLong);
                     }
                 });
     }

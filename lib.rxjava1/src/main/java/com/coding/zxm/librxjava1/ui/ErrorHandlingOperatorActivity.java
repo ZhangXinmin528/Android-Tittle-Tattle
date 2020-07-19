@@ -1,8 +1,9 @@
 package com.coding.zxm.librxjava1.ui;
 
 import android.content.Intent;
-import android.support.v7.app.ActionBar;
 import android.text.TextUtils;
+
+import androidx.appcompat.app.ActionBar;
 
 import com.coding.zxm.libcore.ui.BaseActivity;
 import com.coding.zxm.librxjava1.R;
@@ -90,17 +91,17 @@ public class ErrorHandlingOperatorActivity extends BaseActivity {
                 .subscribe(new Subscriber<String>() {
                     @Override
                     public void onCompleted() {
-                        MLogger.i(TAG,"operatorOnErrorReturn..onCompleted");
+                        MLogger.i(TAG, "operatorOnErrorReturn..onCompleted");
                     }
 
                     @Override
                     public void onError(Throwable e) {
-                        MLogger.e(TAG,"operatorOnErrorReturn..onError:" + e.getMessage());
+                        MLogger.e(TAG, "operatorOnErrorReturn..onError:" + e.getMessage());
                     }
 
                     @Override
                     public void onNext(String s) {
-                        MLogger.i(TAG,"operatorOnErrorReturn..onNext:" + s);
+                        MLogger.i(TAG, "operatorOnErrorReturn..onNext:" + s);
                     }
                 });
     }
@@ -131,17 +132,17 @@ public class ErrorHandlingOperatorActivity extends BaseActivity {
                 .subscribe(new Subscriber<String>() {
                     @Override
                     public void onCompleted() {
-                        MLogger.i(TAG,"operatoronErrorResumeNext..onCompleted");
+                        MLogger.i(TAG, "operatoronErrorResumeNext..onCompleted");
                     }
 
                     @Override
                     public void onError(Throwable e) {
-                        MLogger.e(TAG,"operatoronErrorResumeNext..onError:" + e.getMessage());
+                        MLogger.e(TAG, "operatoronErrorResumeNext..onError:" + e.getMessage());
                     }
 
                     @Override
                     public void onNext(String s) {
-                        MLogger.i(TAG,"operatoronErrorResumeNext..onNext:" + s);
+                        MLogger.i(TAG, "operatoronErrorResumeNext..onNext:" + s);
                     }
                 });
     }
@@ -168,17 +169,17 @@ public class ErrorHandlingOperatorActivity extends BaseActivity {
                 .subscribe(new Subscriber<String>() {
                     @Override
                     public void onCompleted() {
-                        MLogger.i(TAG,"operatoronExceptionResumeNext..onCompleted");
+                        MLogger.i(TAG, "operatoronExceptionResumeNext..onCompleted");
                     }
 
                     @Override
                     public void onError(Throwable e) {
-                        MLogger.e(TAG,"operatoronExceptionResumeNext..onError:" + e.getMessage());
+                        MLogger.e(TAG, "operatoronExceptionResumeNext..onError:" + e.getMessage());
                     }
 
                     @Override
                     public void onNext(String s) {
-                        MLogger.i(TAG,"operatoronExceptionResumeNext..onNext:" + s);
+                        MLogger.i(TAG, "operatoronExceptionResumeNext..onNext:" + s);
                     }
                 });
     }
@@ -204,17 +205,17 @@ public class ErrorHandlingOperatorActivity extends BaseActivity {
                 .subscribe(new Subscriber<String>() {
                     @Override
                     public void onCompleted() {
-                        MLogger.i(TAG,"operatorRetry..retry(3)..onCompleted");
+                        MLogger.i(TAG, "operatorRetry..retry(3)..onCompleted");
                     }
 
                     @Override
                     public void onError(Throwable e) {
-                        MLogger.e(TAG,"operatorRetry..retry(3)..onError:" + e.getMessage());
+                        MLogger.e(TAG, "operatorRetry..retry(3)..onError:" + e.getMessage());
                     }
 
                     @Override
                     public void onNext(String s) {
-                        MLogger.i(TAG,"operatorRetry..retry(3)..onNext:" + s);
+                        MLogger.i(TAG, "operatorRetry..retry(3)..onNext:" + s);
                     }
                 });
 
@@ -234,7 +235,7 @@ public class ErrorHandlingOperatorActivity extends BaseActivity {
                 .retry(new Func2<Integer, Throwable, Boolean>() {
                     @Override
                     public Boolean call(Integer integer, Throwable throwable) {
-                        MLogger.e(TAG,"第" + integer + "次错误：" + throwable.getMessage());
+                        MLogger.e(TAG, "第" + integer + "次错误：" + throwable.getMessage());
                         if (integer > 2)
                             return false;
                         else
@@ -244,17 +245,17 @@ public class ErrorHandlingOperatorActivity extends BaseActivity {
                 .subscribe(new Subscriber<String>() {
                     @Override
                     public void onCompleted() {
-                        MLogger.i(TAG,"operatorRetry..retry(Func2)..onCompleted");
+                        MLogger.i(TAG, "operatorRetry..retry(Func2)..onCompleted");
                     }
 
                     @Override
                     public void onError(Throwable e) {
-                        MLogger.e(TAG,"operatorRetry..retry(Func2)..onError:" + e.getMessage());
+                        MLogger.e(TAG, "operatorRetry..retry(Func2)..onError:" + e.getMessage());
                     }
 
                     @Override
                     public void onNext(String s) {
-                        MLogger.i(TAG,"operatorRetry..retry(Func2)..onNext:" + s);
+                        MLogger.i(TAG, "operatorRetry..retry(Func2)..onNext:" + s);
                     }
                 });
     }
@@ -269,7 +270,7 @@ public class ErrorHandlingOperatorActivity extends BaseActivity {
                 .create(new Observable.OnSubscribe<Integer>() {
                     @Override
                     public void call(Subscriber<? super Integer> subscriber) {
-                        MLogger.i(TAG,"operatorRetryWhen..create");
+                        MLogger.i(TAG, "operatorRetryWhen..create");
                         subscriber.onError(new RuntimeException("create failed"));
                     }
                 })
@@ -281,7 +282,7 @@ public class ErrorHandlingOperatorActivity extends BaseActivity {
                             @Override
                             public Observable<?> call(Throwable throwable) {
                                 if (count++ < maxCount) {
-                                    MLogger.e(TAG,"尝试第" + count + "次！");
+                                    MLogger.e(TAG, "尝试第" + count + "次！");
                                     return Observable.timer(1000, TimeUnit.MILLISECONDS);
                                 } else {
                                     return Observable.error(throwable);
@@ -293,17 +294,17 @@ public class ErrorHandlingOperatorActivity extends BaseActivity {
                 .subscribe(new Subscriber<Integer>() {
                     @Override
                     public void onCompleted() {
-                        MLogger.i(TAG,"operatorRetryWhen..onCompleted");
+                        MLogger.i(TAG, "operatorRetryWhen..onCompleted");
                     }
 
                     @Override
                     public void onError(Throwable e) {
-                        MLogger.e(TAG,"operatorRetryWhen..onError:" + e);
+                        MLogger.e(TAG, "operatorRetryWhen..onError:" + e);
                     }
 
                     @Override
                     public void onNext(Integer integer) {
-                        MLogger.i(TAG,"operatorRetryWhen..onNext:" + integer);
+                        MLogger.i(TAG, "operatorRetryWhen..onNext:" + integer);
                     }
                 });
     }

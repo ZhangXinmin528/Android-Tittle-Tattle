@@ -2,13 +2,13 @@ package com.coding.zxm.librxjava1.ui;
 
 
 import android.content.Intent;
-import android.support.v7.app.ActionBar;
 import android.text.TextUtils;
+
+import androidx.appcompat.app.ActionBar;
 
 import com.coding.zxm.libcore.ui.BaseActivity;
 import com.coding.zxm.librxjava1.R;
 import com.zxm.utils.core.log.MLogger;
-
 
 import rx.Observable;
 import rx.Subscriber;
@@ -69,17 +69,17 @@ public class CombiningOperatorActivity extends BaseActivity {
                 .subscribe(new Subscriber<String>() {
                     @Override
                     public void onCompleted() {
-                        MLogger.i(TAG,"operatorMerge..onCompleted");
+                        MLogger.i(TAG, "operatorMerge..onCompleted");
                     }
 
                     @Override
                     public void onError(Throwable e) {
-                        MLogger.e(TAG,"operatorMerge..onError");
+                        MLogger.e(TAG, "operatorMerge..onError");
                     }
 
                     @Override
                     public void onNext(String s) {
-                        MLogger.i(TAG,"operatorMerge..onNext:" + s);
+                        MLogger.i(TAG, "operatorMerge..onNext:" + s);
                     }
                 });
 
@@ -107,17 +107,17 @@ public class CombiningOperatorActivity extends BaseActivity {
                 .subscribe(new Subscriber<String>() {
                     @Override
                     public void onCompleted() {
-                        MLogger.i(TAG,"operatorZIP..onCompleted");
+                        MLogger.i(TAG, "operatorZIP..onCompleted");
                     }
 
                     @Override
                     public void onError(Throwable e) {
-                        MLogger.e(TAG,"operatorZIP..onError");
+                        MLogger.e(TAG, "operatorZIP..onError");
                     }
 
                     @Override
                     public void onNext(String s) {
-                        MLogger.i(TAG,"operatorZIP..onNext:" + s);
+                        MLogger.i(TAG, "operatorZIP..onNext:" + s);
                     }
                 });
     }

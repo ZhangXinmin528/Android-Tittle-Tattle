@@ -1,11 +1,11 @@
 package com.coding.zxm.lib_queue;
 
 import android.content.Intent;
-import android.support.annotation.NonNull;
 import android.text.TextUtils;
 import android.view.View;
-import android.widget.StackView;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
 
 import com.coding.zxm.lib_queue.model.PhoneEntity;
 import com.coding.zxm.lib_queue.polling.OnTaskEventListener;
@@ -44,7 +44,7 @@ public class LinkeBlockingQueueActivity extends BaseActivity implements
         if (intent != null) {
             final String label = intent.getStringExtra(DisplayUtil.PARAMS_LABEL);
             if (!TextUtils.isEmpty(label)) {
-                setTitle(label,R.id.toolbar_queue);
+                setTitle(label, R.id.toolbar_queue);
             }
         }
 

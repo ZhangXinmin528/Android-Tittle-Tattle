@@ -1,7 +1,7 @@
 package com.coding.zxm.lib_pool.pool;
 
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 /**
  * Created by ZhangXinmin on 2019/5/8.

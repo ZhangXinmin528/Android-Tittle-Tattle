@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.coding.zxm.android_tittle_tattle">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:name=".app.BaseApplication"
@@ -52,7 +52,7 @@
 
         <!--RxJava1-->
         <activity
-            android:name=".ui.rxjava.RxJava1Activity"
+            android:name="com.coding.zxm.librxjava1.ui.RxJava1Activity"
             android:launchMode="singleTask"
             android:screenOrientation="nosensor" />
 

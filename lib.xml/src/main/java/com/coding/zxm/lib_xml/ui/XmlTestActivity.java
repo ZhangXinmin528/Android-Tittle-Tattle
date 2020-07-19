@@ -4,12 +4,13 @@ import android.Manifest;
 import android.content.Intent;
 import android.content.res.AssetManager;
 import android.os.Environment;
-import android.support.annotation.NonNull;
 import android.text.TextUtils;
 import android.util.Log;
 import android.util.Xml;
 import android.view.View;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
 
 import com.coding.zxm.lib_xml.R;
 import com.coding.zxm.lib_xml.model.QuestionEntity;

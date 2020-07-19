@@ -1,12 +1,13 @@
 package com.zxm.coding.lib_database;
 
 import android.annotation.SuppressLint;
-import android.support.annotation.IntRange;
-import android.support.annotation.NonNull;
-import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import androidx.annotation.IntRange;
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.coding.zxm.libcore.listender.OnItemClickListener;
 import com.zxm.coding.lib_database.local.model.Student;
@@ -46,7 +47,7 @@ public class SqlExampleAdapter extends RecyclerView.Adapter<SqlViewHolder> {
         });
         final Student student = getItem(position);
         if (student != null) {
-            helper.getId().setText(student.getId()+"");
+            helper.getId().setText(student.getId() + "");
             helper.getName().setText(student.getName());
             helper.getProvince().setText(student.getProvince());
         }

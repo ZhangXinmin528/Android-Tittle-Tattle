@@ -4,9 +4,10 @@ import android.content.Intent;
 import android.content.res.AssetManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.support.v7.app.ActionBar;
 import android.text.TextUtils;
 import android.widget.ImageView;
+
+import androidx.appcompat.app.ActionBar;
 
 import com.coding.zxm.libcore.ui.BaseActivity;
 import com.coding.zxm.librxjava1.R;

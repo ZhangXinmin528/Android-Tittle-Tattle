@@ -23,7 +23,11 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation "com.android.support:design:$rootProject.supportLibraryVersion"
+    implementation "com.google.android.material:material:$rootProject.appcompatVersion"
+
+    //ARouter
+    implementation 'com.alibaba:arouter-api:1.5.0'
+    annotationProcessor 'com.alibaba:arouter-compiler:1.2.2'
 
     implementation project(path: ':lib.core')
     implementation project(path: ':lib.util')

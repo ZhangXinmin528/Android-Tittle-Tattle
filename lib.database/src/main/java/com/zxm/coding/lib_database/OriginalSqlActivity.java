@@ -2,18 +2,21 @@ package com.zxm.coding.lib_database;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
-import android.support.annotation.NonNull;
-import android.support.design.widget.TextInputEditText;
-import android.support.v7.widget.DividerItemDecoration;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.DividerItemDecoration;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.alibaba.android.arouter.facade.annotation.Route;
 import com.coding.zxm.libcore.listender.OnItemClickListener;
+import com.coding.zxm.libcore.route.RoutePath;
 import com.coding.zxm.libcore.ui.BaseActivity;
 import com.coding.zxm.libutil.DisplayUtil;
+import com.google.android.material.textfield.TextInputEditText;
 import com.zxm.coding.lib_database.local.Constats;
 import com.zxm.coding.lib_database.local.OriginalSqlManager;
 import com.zxm.coding.lib_database.local.StudentDao;
@@ -28,6 +31,7 @@ import java.util.List;
  * Copyright (c) 2018 . All rights reserved.
  * 数据库的增删改查；
  */
+@Route(path = RoutePath.ROUTE_ORIGINAL_SQL)
 public class OriginalSqlActivity extends BaseActivity
         implements View.OnClickListener, OnItemClickListener {
 

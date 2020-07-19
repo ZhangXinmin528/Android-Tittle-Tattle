@@ -9,7 +9,7 @@ android {
         versionCode 1
         versionName "1.0"
 
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
         consumerProguardFiles 'consumer-rules.pro'
     }
 
@@ -25,11 +25,12 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
-    implementation 'com.android.support:appcompat-v7:28.0.0'
+    implementation "androidx.appcompat:appcompat:$rootProject.appcompatVersion"
 
     api group: "com.tencent.matrix", name: "matrix-android-lib", version: MATRIX_VERSION, changing: true
     implementation group: "com.tencent.matrix", name: "matrix-android-commons", version: MATRIX_VERSION, changing: true
     api group: "com.tencent.matrix", name: "matrix-trace-canary", version: MATRIX_VERSION, changing: true
+
 //    implementation group: "com.tencent.matrix", name: "matrix-resource-canary-android", version: MATRIX_VERSION, changing: true
 //    implementation group: "com.tencent.matrix", name: "matrix-resource-canary-common", version: MATRIX_VERSION, changing: true
 //    implementation group: "com.tencent.matrix", name: "matrix-io-canary", version: MATRIX_VERSION, changing: true

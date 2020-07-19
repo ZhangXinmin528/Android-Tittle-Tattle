@@ -1,15 +1,16 @@
 package com.coding.zxm.recyclerviewhelper;
 
 import android.content.Context;
-import android.support.annotation.IntRange;
-import android.support.annotation.LayoutRes;
-import android.support.annotation.NonNull;
-import android.support.v7.widget.LinearLayoutCompat;
-import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import androidx.annotation.IntRange;
+import androidx.annotation.LayoutRes;
+import androidx.annotation.NonNull;
+import androidx.appcompat.widget.LinearLayoutCompat;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.coding.zxm.recyclerviewhelper.listener.OnItemChildClickListener;
 import com.coding.zxm.recyclerviewhelper.listener.OnItemClickListener;

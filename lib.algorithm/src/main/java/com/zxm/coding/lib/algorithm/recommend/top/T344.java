@@ -23,9 +23,6 @@ package com.zxm.coding.lib.algorithm.recommend.top;
 
 //leetcode submit region begin(Prohibit modification and deletion)
 
-import java.util.Arrays;
-import java.util.List;
-
 /**
  * Created by ZhangXinmin on 2020/6/18.
  * Copyright (c) 2020 . All rights reserved.

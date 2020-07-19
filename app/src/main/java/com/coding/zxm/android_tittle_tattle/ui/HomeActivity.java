@@ -1,20 +1,14 @@
 package com.coding.zxm.android_tittle_tattle.ui;
 
-import android.app.IntentService;
-import android.content.Intent;
-import android.content.IntentSender;
-import android.graphics.Bitmap;
-import android.os.Handler;
-import android.os.HandlerThread;
-import android.os.Looper;
-import android.support.annotation.NonNull;
-import android.support.v7.app.ActionBar;
-import android.support.v7.widget.DividerItemDecoration;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
 import android.view.View;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.widget.Toolbar;
+import androidx.recyclerview.widget.DividerItemDecoration;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.coding.zxm.android_tittle_tattle.R;
 import com.coding.zxm.android_tittle_tattle.adapter.SortAdapter;

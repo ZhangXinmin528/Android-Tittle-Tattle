@@ -16,9 +16,10 @@
 
 package com.zxm.coding.libmatrix.plugin;
 
-/** @author zhoushaotao
-*   Created by zhoushaotao on 2018/10/9.
-*/
+/**
+ * @author zhoushaotao
+ * Created by zhoushaotao on 2018/10/9.
+ */
 
 public enum MatrixEnum {
 
