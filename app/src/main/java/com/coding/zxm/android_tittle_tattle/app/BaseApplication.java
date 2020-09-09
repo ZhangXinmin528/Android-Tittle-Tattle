@@ -1,6 +1,7 @@
 package com.coding.zxm.android_tittle_tattle.app;
 
 import android.app.Application;
+import android.content.Intent;
 
 import androidx.multidex.MultiDex;
 
@@ -8,8 +9,16 @@ import com.alibaba.android.arouter.launcher.ARouter;
 import com.coding.zxm.android_tittle_tattle.BuildConfig;
 import com.squareup.leakcanary.LeakCanary;
 import com.tencent.matrix.Matrix;
+import com.tencent.matrix.iocanary.IOCanaryPlugin;
+import com.tencent.matrix.iocanary.config.IOConfig;
+import com.tencent.matrix.resource.ResourcePlugin;
+import com.tencent.matrix.resource.config.ResourceConfig;
 import com.tencent.matrix.trace.TracePlugin;
 import com.tencent.matrix.trace.config.TraceConfig;
+import com.tencent.matrix.util.MatrixLog;
+import com.tencent.sqlitelint.SQLiteLint;
+import com.tencent.sqlitelint.SQLiteLintPlugin;
+import com.tencent.sqlitelint.config.SQLiteLintConfig;
 import com.zxm.coding.libmatrix.plugin.TrainingDynamicConfigImpl;
 import com.zxm.coding.libmatrix.plugin.TrainingPluginListener;
 import com.zxm.utils.core.log.MLogger;
@@ -63,9 +72,10 @@ public class BaseApplication extends Application {
         Matrix.Builder builder = new Matrix.Builder(this);
         builder.patchListener(new TrainingPluginListener(this));
 
+        final TrainingDynamicConfigImpl dynamicConfig = new TrainingDynamicConfigImpl();
         //trace
         TraceConfig traceConfig = new TraceConfig.Builder()
-                .dynamicConfig(new TrainingDynamicConfigImpl())
+                .dynamicConfig(dynamicConfig)
                 .enableFPS(true)
                 .enableEvilMethodTrace(true)
                 .enableAnrTrace(true)
@@ -74,6 +84,41 @@ public class BaseApplication extends Application {
                 .isDebug(true)
                 .isDevEnv(false)
                 .build();
+
+        if (BuildConfig.DEBUG) {
+
+            //resource
+            Intent intent = new Intent();
+            ResourceConfig.DumpMode mode = ResourceConfig.DumpMode.AUTO_DUMP;
+            MatrixLog.i("MatrixLog", "Dump Activity Leak Mode=%s", mode);
+            intent.setClassName(this.getPackageName(), "com.tencent.mm.ui.matrix.ManualDumpActivity");
+            ResourceConfig resourceConfig = new ResourceConfig.Builder()
+                    .dynamicConfig(dynamicConfig)
+                    .setAutoDumpHprofMode(mode)
+//                .setDetectDebuger(true) //matrix test code
+                    .setNotificationContentIntent(intent)
+                    .build();
+            builder.plugin(new ResourcePlugin(resourceConfig));
+            ResourcePlugin.activityLeakFixer(this);
+
+            //io
+            IOCanaryPlugin ioCanaryPlugin = new IOCanaryPlugin(new IOConfig.Builder()
+                    .dynamicConfig(dynamicConfig)
+                    .build());
+            builder.plugin(ioCanaryPlugin);
+
+
+            // prevent api 19 UnsatisfiedLinkError
+            //sqlite
+            SQLiteLintConfig sqlLiteConfig;
+            try {
+                sqlLiteConfig = new SQLiteLintConfig(SQLiteLint.SqlExecutionCallbackMode.CUSTOM_NOTIFY);
+            } catch (Throwable t) {
+                sqlLiteConfig = new SQLiteLintConfig(SQLiteLint.SqlExecutionCallbackMode.CUSTOM_NOTIFY);
+            }
+            builder.plugin(new SQLiteLintPlugin(sqlLiteConfig));
+
+        }
 
         TracePlugin tracePlugin = (new TracePlugin(traceConfig));
         builder.plugin(tracePlugin);
