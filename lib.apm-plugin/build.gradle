@@ -1,0 +1,40 @@
+apply plugin: 'com.android.library'
+apply from: "apm_plugin.gradle"
+
+android {
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    buildToolsVersion rootProject.ext.buildToolsVersion
+
+    defaultConfig {
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+        versionCode 1
+        versionName "1.0"
+
+
+        // 改参数一般用来调试数据库，数据库生成在sdcard方便调试
+        buildConfigField "boolean", "DB_IN_SDCARD", "false"
+        // SDK的版本号
+        buildConfigField "String", "VERSION", "\"${APMSDK_VERSION}\""
+        // 是否是Debug
+        buildConfigField "boolean", "IS_DEBUG", "${APMSDK_DEBUG}"
+        // SDK的build号
+        // 不同版本间，需要更新build号
+        buildConfigField "String", "BUILD", "\"${APMSDK_BUILD}\""
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: "libs", include: ["*.jar"])
+    implementation "androidx.appcompat:appcompat:$rootProject.appcompatVersion"
+}
