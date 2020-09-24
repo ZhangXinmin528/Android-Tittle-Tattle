@@ -3,6 +3,7 @@ package com.coding.zxm.lib_apm_plugin.api;
 import android.content.Context;
 
 import com.coding.zxm.lib_apm_plugin.Env;
+import com.coding.zxm.lib_apm_plugin.core.Config;
 import com.coding.zxm.lib_apm_plugin.core.Manager;
 import com.coding.zxm.lib_apm_plugin.util.LogX;
 
