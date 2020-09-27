@@ -37,13 +37,6 @@ public class Client {
         LogX.o(TAG_O, SUB_TAG, "attach argus.apm.version(" + Env.getVersionName() + ")");
         Manager.getInstance().setConfig(config);
         Manager.getInstance().init();
-        setNetWorkDebugConfig();
-    }
-
-    private static void setNetWorkDebugConfig() {
-        DebugConfig.DEBUG = DEBUG;
-        DebugConfig.TAG = TAG;
-        DebugConfig.TAG_O = TAG_O;
     }
 
     /**
@@ -62,19 +55,6 @@ public class Client {
         Manager.getInstance().startWork();
     }
 
-    public static void isDebugOpen(boolean isOpen) {
-        AnalyzeManager.getInstance().setShowFloatWin(isOpen, "");
-    }
-
-    /**
-     * 设置Debug模式是否开启，以及debug悬浮窗在哪个进程展示（供开发者使用）
-     *
-     * @param isOpen              是否开启
-     * @param floatwinProcessName 悬浮窗所在进程
-     */
-    public static void isDebugOpen(boolean isOpen, String floatwinProcessName) {
-        AnalyzeManager.getInstance().setShowFloatWin(isOpen, floatwinProcessName);
-    }
 
     /**
      * 判断某个Task是否在工作

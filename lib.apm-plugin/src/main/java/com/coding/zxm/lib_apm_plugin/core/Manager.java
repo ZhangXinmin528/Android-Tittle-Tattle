@@ -31,7 +31,7 @@ public class Manager {
     private boolean mWorkFlag = false; //标志位，APM是否在工作
     private Config mConfig; // 统一管理apm的配置参数：属于固定配置
     private DataCleaner mDataCleaner; // 控制数据清理逻辑
-    private ReceiverManager mReceiverManager;
+    private ReceiverManager mReceiverManager;//广播接收器：开始工作
 
     private Manager() {
     }
@@ -82,7 +82,6 @@ public class Manager {
         if (DEBUG) {
             LogX.d(TAG, SUB_TAG, "是否是主线程: " + (Looper.myLooper() == Looper.getMainLooper()));
         }
-        AnalyzeManager.getInstance().setIsDebugMode(ArgusApmConfigManager.getInstance().getArgusApmConfigData().debug);
         //开始任务
         TaskManager.getInstance().startWorkTasks();
     }

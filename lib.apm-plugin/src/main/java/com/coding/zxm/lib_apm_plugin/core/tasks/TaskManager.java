@@ -5,9 +5,15 @@ import android.text.TextUtils;
 
 import com.coding.zxm.lib_apm_plugin.Env;
 import com.coding.zxm.lib_apm_plugin.api.ApmTask;
-import com.coding.zxm.lib_apm_plugin.cloud.ArgusApmConfigManager;
 import com.coding.zxm.lib_apm_plugin.core.Manager;
-import com.coding.zxm.lib_apm_plugin.core.TaskConfig;
+import com.coding.zxm.lib_apm_plugin.core.job.anr.AnrLoopTask;
+import com.coding.zxm.lib_apm_plugin.core.job.appstart.AppStartTask;
+import com.coding.zxm.lib_apm_plugin.core.job.block.BlockTask;
+import com.coding.zxm.lib_apm_plugin.core.job.fileinfo.FileInfoTask;
+import com.coding.zxm.lib_apm_plugin.core.job.fps.FpsTask;
+import com.coding.zxm.lib_apm_plugin.core.job.memory.MemoryTask;
+import com.coding.zxm.lib_apm_plugin.core.job.processinfo.ProcessInfoTask;
+import com.coding.zxm.lib_apm_plugin.core.job.watchDog.WatchDogTask;
 import com.coding.zxm.lib_apm_plugin.util.LogX;
 
 import java.util.ArrayList;
@@ -129,24 +135,6 @@ public class TaskManager {
             LogX.d(Env.TAG, SUB_TAG, "taskMap is null ");
             return;
         }
-        if (taskMap.get(ApmTask.TASK_ACTIVITY).isCanWork()) {
-            // 云控为TaskConfig.ACTIVITY_TYPE_NONE，则本地开关优先
-            int type = ArgusApmConfigManager.getInstance().getArgusApmConfigData().controlActivity;
-            if (type == TaskConfig.ACTIVITY_TYPE_NONE) {
-                if (Manager.getInstance().getConfig().isEnabled(ApmTask.FLAG_COLLECT_ACTIVITY_INSTRUMENTATION)) {
-                    LogX.o("activity local INSTRUMENTATION");
-                    InstrumentationHooker.doHook();
-                } else {
-                    LogX.o("activity local aop");
-                }
-            } else if (type == TaskConfig.ACTIVITY_TYPE_INSTRUMENTATION) {
-                LogX.o("activity cloud INSTRUMENTATION");
-                InstrumentationHooker.doHook();
-            } else {
-                LogX.o("activity cloud type(" + type + ")");
-            }
-
-        }
         List<ITask> taskList = getAllTask();
         for (ITask task : taskList) {
             if (!task.isCanWork()) {
@@ -180,8 +168,6 @@ public class TaskManager {
             taskMap.put(ApmTask.TASK_FPS, new FpsTask());
         }
         taskMap.put(ApmTask.TASK_MEM, new MemoryTask());
-        taskMap.put(ApmTask.TASK_ACTIVITY, new ActivityTask());
-        taskMap.put(ApmTask.TASK_NET, new NetTask());
         taskMap.put(ApmTask.TASK_APP_START, new AppStartTask());
         taskMap.put(ApmTask.TASK_ANR, new AnrLoopTask(Manager.getContext()));
         taskMap.put(ApmTask.TASK_FILE_INFO, new FileInfoTask());

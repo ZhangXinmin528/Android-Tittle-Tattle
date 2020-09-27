@@ -74,9 +74,6 @@ public class ArgusApmConfigManager {
      */
     public void initLocalData() {
         String data = "";
-        if (Manager.getInstance().getConfig().isEnabled(ApmTask.FLAG_LOCAL_DEBUG)) {
-            data = ApmDebugEnable.load(); //读取本地配置
-        }
         if (TextUtils.isEmpty(data)) {
             data = readConfigFile(); //读取app私有目录缓存文件
         }
@@ -193,7 +190,7 @@ public class ArgusApmConfigManager {
             Collection<String> tasks = ApmTask.getTaskMap().keySet();
             for (String task : tasks) {
                 //此开关设置为数据库写入时的开关。此处开关设置应该为云控文件的开关为准，不应该以为常驻进程的模块开关为准
-                ExtraInfoHelper.notifyV5Update(task, getDBTaskEnable(task));
+//                ExtraInfoHelper.notifyV5Update(task, getDBTaskEnable(task));
             }
         }
     }

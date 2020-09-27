@@ -1,6 +1,22 @@
 package com.coding.zxm.lib_apm_plugin.api;
 
 
+import com.coding.zxm.lib_apm_plugin.core.job.appstart.AppStartStorage;
+import com.coding.zxm.lib_apm_plugin.core.job.appstart.AppStartTable;
+import com.coding.zxm.lib_apm_plugin.core.job.block.BlockStorage;
+import com.coding.zxm.lib_apm_plugin.core.job.block.BlockTable;
+import com.coding.zxm.lib_apm_plugin.core.job.fileinfo.FileInfoStorage;
+import com.coding.zxm.lib_apm_plugin.core.job.fileinfo.FileTable;
+import com.coding.zxm.lib_apm_plugin.core.job.fps.FpsStorage;
+import com.coding.zxm.lib_apm_plugin.core.job.fps.FpsTable;
+import com.coding.zxm.lib_apm_plugin.core.job.memory.MemStorage;
+import com.coding.zxm.lib_apm_plugin.core.job.memory.MemoryTable;
+import com.coding.zxm.lib_apm_plugin.core.job.processinfo.ProcessInfoStorage;
+import com.coding.zxm.lib_apm_plugin.core.job.processinfo.ProgessInfoTable;
+import com.coding.zxm.lib_apm_plugin.core.job.watchDog.WatchDogInfoStorage;
+import com.coding.zxm.lib_apm_plugin.core.job.watchDog.WatchDogInfoTable;
+import com.coding.zxm.lib_apm_plugin.core.job.webview.WebStorage;
+import com.coding.zxm.lib_apm_plugin.core.job.webview.WebTable;
 import com.coding.zxm.lib_apm_plugin.core.storage.IStorage;
 import com.coding.zxm.lib_apm_plugin.core.storage.ITable;
 
@@ -99,12 +115,9 @@ public class ApmTask {
     public static ITable[] sTableList = {
             new FpsTable(),
             new MemoryTable(),
-            new ActivityTable(),
-            new NetTable(),
             new AppStartTable(),
             new FileTable(),
             new ProgessInfoTable(),
-            new FuncTable(),
             new BlockTable(),
             new WebTable(),
             new WatchDogInfoTable()
@@ -113,14 +126,11 @@ public class ApmTask {
      * 数据库查询表Storage对象列表
      */
     public static List<IStorage> sAllStorage = Arrays.<IStorage>asList(
-            new NetStorage(),
-            new ActivityStorage(),
             new MemStorage(),
             new FpsStorage(),
             new AppStartStorage(),
             new FileInfoStorage(),
             new ProcessInfoStorage(),
-            new FuncStorage(),
             new BlockStorage(),
             new WebStorage(),
             new WatchDogInfoStorage());
