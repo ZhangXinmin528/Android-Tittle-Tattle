@@ -64,97 +64,90 @@ public final class SortDispatcher {
                             .withString(DisplayUtil.PARAMS_LABEL, label)
                             .navigation();
                     break;
-                //RxJava 1.x
                 case 3:
-                    ARouter.getInstance()
-                            .build(RoutePath.ROUTE_RXJAVA_ONE)
-                            .withString(DisplayUtil.PARAMS_LABEL, label)
-                            .navigation();
-                    break;
-                //Retrofit
-                case 4:
+                    //Retrofit
                     ARouter.getInstance()
                             .build(RoutePath.ROUTE_NET_MOVIE)
                             .withString(DisplayUtil.PARAMS_LABEL, label)
                             .navigation();
                     break;
-                //对象池
-                case 5:
+                case 4:
+                    //对象池
                     ARouter.getInstance()
                             .build(RoutePath.ROUTE_POOL_OBJECT)
                             .withString(DisplayUtil.PARAMS_LABEL, label)
                             .navigation();
                     break;
-                //消息轮询
-                case 6:
+                case 5:
+                    //消息轮询
                     ARouter.getInstance()
                             .build(RoutePath.ROUTE_POOLING_EXAMPLE)
                             .withString(DisplayUtil.PARAMS_LABEL, label)
                             .navigation();
                     break;
-                //TODO:location
-                //OkHttp
-                case 7:
+                case 6:
+                    //TODO:location
+                    //OkHttp
                     intent.setClass(context, OkUsageActivity.class);
                     intent.putExtra(DisplayUtil.PARAMS_LABEL, label);
                     context.startActivity(intent);
                     break;
-                //Queue
-                case 8:
+                case 7:
+                    //Queue
                     intent.setClass(context, LinkeBlockingQueueActivity.class);
                     intent.putExtra(DisplayUtil.PARAMS_LABEL, label);
                     context.startActivity(intent);
                     break;
-                //视频播放
-                case 9:
+                case 8:
+                    //视频播放
                     intent.setClass(context, VideoNavigationActivity.class);
                     intent.putExtra(DisplayUtil.PARAMS_LABEL, label);
                     context.startActivity(intent);
                     break;
-                //Loading
-                case 10:
+                case 9:
+                    //Loading
                     intent.setClass(context, LoadingActivity.class);
                     intent.putExtra(DisplayUtil.PARAMS_LABEL, label);
                     context.startActivity(intent);
                     break;
-                //xml解析
-                case 11:
+                case 10:
+                    //xml解析
                     intent.setClass(context, XmlTestActivity.class);
                     intent.putExtra(DisplayUtil.PARAMS_LABEL, label);
                     context.startActivity(intent);
                     break;
-                //RecyclerViewHelper
-                case 12:
+                case 11:
+                    //RecyclerViewHelper
 //                    intent.setClass(context, RvActivity.class);
 //                    intent.putExtra(DisplayUtil.PARAMS_LABEL, label);
 //                    context.startActivity(intent);
                     break;
-                //卡片堆叠效果
-                case 13:
+                case 12:
+                    //卡片堆叠效果
                     intent.setClass(context, StackingActivity.class);
                     intent.putExtra(DisplayUtil.PARAMS_LABEL, label);
                     context.startActivity(intent);
                     break;
-                //LeakCanary
-                case 14:
+                case 13:
+                    //LeakCanary
                     /*intent.setClass(context, StackingActivity.class);
                     intent.putExtra(DisplayUtil.PARAMS_LABEL, label);
                     context.startActivity(intent);*/
                     break;
-                //爬虫
-                case 15:
+                case 14:
+                    //爬虫
                     intent.setClass(context, YiCaiNewsActivity.class);
                     intent.putExtra(DisplayUtil.PARAMS_LABEL, label);
                     context.startActivity(intent);
                     break;
-                //列表效果
-                case 16:
+                case 15:
+                    //列表效果
                     intent.setClass(context, ListExampleActivity.class);
                     intent.putExtra(DisplayUtil.PARAMS_LABEL, label);
                     context.startActivity(intent);
                     break;
-                //Bitmap
-                case 17:
+                case 16:
+                    //Bitmap
                     intent.setClass(context, BitmapActivity.class);
                     intent.putExtra(DisplayUtil.PARAMS_LABEL, label);
                     context.startActivity(intent);

@@ -1,11 +1,11 @@
 apply plugin: 'com.android.library'
 
 android {
-    compileSdkVersion rootProject.ext.compileSdkVersion
-    buildToolsVersion rootProject.ext.buildToolsVersion
+    compileSdkVersion build_versions.compile_sdk
+    buildToolsVersion build_versions.build_tools
     defaultConfig {
-        minSdkVersion rootProject.ext.minSdkVersion
-        targetSdkVersion rootProject.ext.targetSdkVersion
+        minSdkVersion build_versions.min_sdk
+        targetSdkVersion build_versions.target_sdk
         versionCode 1
         versionName "1.0.0"
     }
@@ -32,17 +32,17 @@ dependencies {
 
     //网络请求
     //retrofit
-    implementation "com.squareup.retrofit2:retrofit:$rootProject.retrofitVersion"
+    implementation deps.retrofit.retrofit2
     //gson
-    implementation "com.google.code.gson:gson:$rootProject.gsonVersion"
+    implementation deps.gson
     //converter-gson
-    implementation "com.squareup.retrofit2:converter-gson:$rootProject.retrofitVersion"
+    implementation deps.retrofit.gsonConverter
     //rxjava
-    implementation "io.reactivex.rxjava2:rxjava:$rootProject.rxjava2Version"
+    implementation deps.rxjava2
     //rxandroid
-    implementation "io.reactivex.rxjava2:rxandroid:$rootProject.rxandroid2Version"
+    implementation deps.rx_android
     //adapter-rxjava2
-    implementation "com.squareup.retrofit2:adapter-rxjava2:$rootProject.retrofitVersion"
+    implementation deps.retrofit.retrofit2_rxjava2
 
     implementation 'com.makeramen:roundedimageview:2.3.0'
 }

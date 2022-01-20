@@ -1,12 +1,14 @@
 apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
 
 android {
-    compileSdkVersion rootProject.ext.compileSdkVersion
-    buildToolsVersion rootProject.ext.buildToolsVersion
+    compileSdkVersion build_versions.compile_sdk
+    buildToolsVersion build_versions.build_tools
 
     defaultConfig {
-        minSdkVersion rootProject.ext.minSdkVersion
-        targetSdkVersion rootProject.ext.targetSdkVersion
+        minSdkVersion build_versions.min_sdk
+        targetSdkVersion build_versions.target_sdk
         versionCode 1
         versionName "1.0.0"
 
@@ -23,9 +25,16 @@ android {
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
-    api "androidx.appcompat:appcompat:$rootProject.appcompatVersion"
-    api "androidx.recyclerview:recyclerview:$rootProject.recyclerviewVersion"
-    api "androidx.constraintlayout:constraintlayout:$rootProject.constraintLayoutVersion"
 
-    api "com.github.CymChad:BaseRecyclerViewAdapterHelper:$rootProject.ext.recyclerAdapterVersion"
+    //Kotlin
+    api deps.kotlin.stdlib
+    api deps.core_ktx
+
+    //androidx
+    api deps.app_compat
+
+    api deps.recyclerview
+    api deps.constraint_layout
+
+    api deps.rvadapterhelper
 }

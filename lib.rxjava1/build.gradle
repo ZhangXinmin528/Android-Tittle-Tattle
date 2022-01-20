@@ -35,8 +35,8 @@ dependencies {
     implementation "io.reactivex:rxjava:$rootProject.rxjava1Version"
 
     //ARouter
-    implementation 'com.alibaba:arouter-api:1.5.0'
-    annotationProcessor 'com.alibaba:arouter-compiler:1.2.2'
+    implementation deps.arouter.api
+    kapt deps.arouter.compiler
 
     implementation project(':lib.core')
     implementation project(':lib.util')

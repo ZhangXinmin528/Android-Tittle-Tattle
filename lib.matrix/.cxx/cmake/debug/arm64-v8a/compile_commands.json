@@ -1,0 +1,61 @@
+[
+{
+  "directory": "/Users/zhangxinmin/Development/AndroidStudy/Android-Training/lib.matrix/.cxx/cmake/debug/arm64-v8a",
+  "command": "/Users/zhangxinmin/Library/Android/sdk/ndk/21.1.6352462/toolchains/llvm/prebuilt/darwin-x86_64/bin/clang++ --target=aarch64-none-linux-android21 --gcc-toolchain=/Users/zhangxinmin/Library/Android/sdk/ndk/21.1.6352462/toolchains/llvm/prebuilt/darwin-x86_64 --sysroot=/Users/zhangxinmin/Library/Android/sdk/ndk/21.1.6352462/toolchains/llvm/prebuilt/darwin-x86_64/sysroot  -Dnative_lib_EXPORTS -I/include  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security   -O0 -fno-limit-debug-info  -fPIC   -o CMakeFiles/native-lib.dir/src/main/jni/MallocTest.cpp.o -c /Users/zhangxinmin/Development/AndroidStudy/Android-Training/lib.matrix/src/main/jni/MallocTest.cpp",
+  "file": "/Users/zhangxinmin/Development/AndroidStudy/Android-Training/lib.matrix/src/main/jni/MallocTest.cpp"
+},
+
+{
+  "directory": "/Users/zhangxinmin/Development/AndroidStudy/Android-Training/lib.matrix/.cxx/cmake/debug/arm64-v8a",
+  "command": "/Users/zhangxinmin/Library/Android/sdk/ndk/21.1.6352462/toolchains/llvm/prebuilt/darwin-x86_64/bin/clang++ --target=aarch64-none-linux-android21 --gcc-toolchain=/Users/zhangxinmin/Library/Android/sdk/ndk/21.1.6352462/toolchains/llvm/prebuilt/darwin-x86_64 --sysroot=/Users/zhangxinmin/Library/Android/sdk/ndk/21.1.6352462/toolchains/llvm/prebuilt/darwin-x86_64/sysroot  -Dnative_lib_EXPORTS -I/include  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security   -O0 -fno-limit-debug-info  -fPIC   -o CMakeFiles/native-lib.dir/src/main/jni/MemObj.cpp.o -c /Users/zhangxinmin/Development/AndroidStudy/Android-Training/lib.matrix/src/main/jni/MemObj.cpp",
+  "file": "/Users/zhangxinmin/Development/AndroidStudy/Android-Training/lib.matrix/src/main/jni/MemObj.cpp"
+},
+
+{
+  "directory": "/Users/zhangxinmin/Development/AndroidStudy/Android-Training/lib.matrix/.cxx/cmake/debug/arm64-v8a",
+  "command": "/Users/zhangxinmin/Library/Android/sdk/ndk/21.1.6352462/toolchains/llvm/prebuilt/darwin-x86_64/bin/clang++ --target=aarch64-none-linux-android21 --gcc-toolchain=/Users/zhangxinmin/Library/Android/sdk/ndk/21.1.6352462/toolchains/llvm/prebuilt/darwin-x86_64 --sysroot=/Users/zhangxinmin/Library/Android/sdk/ndk/21.1.6352462/toolchains/llvm/prebuilt/darwin-x86_64/sysroot  -Dnative_lib_EXPORTS -I/include  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security   -O0 -fno-limit-debug-info  -fPIC   -o CMakeFiles/native-lib.dir/src/main/jni/benchmark/BenchMarkMain.cpp.o -c /Users/zhangxinmin/Development/AndroidStudy/Android-Training/lib.matrix/src/main/jni/benchmark/BenchMarkMain.cpp",
+  "file": "/Users/zhangxinmin/Development/AndroidStudy/Android-Training/lib.matrix/src/main/jni/benchmark/BenchMarkMain.cpp"
+},
+
+{
+  "directory": "/Users/zhangxinmin/Development/AndroidStudy/Android-Training/lib.matrix/.cxx/cmake/debug/arm64-v8a",
+  "command": "/Users/zhangxinmin/Library/Android/sdk/ndk/21.1.6352462/toolchains/llvm/prebuilt/darwin-x86_64/bin/clang++ --target=aarch64-none-linux-android21 --gcc-toolchain=/Users/zhangxinmin/Library/Android/sdk/ndk/21.1.6352462/toolchains/llvm/prebuilt/darwin-x86_64 --sysroot=/Users/zhangxinmin/Library/Android/sdk/ndk/21.1.6352462/toolchains/llvm/prebuilt/darwin-x86_64/sysroot  -Dnative_lib_EXPORTS -I/include  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security   -O0 -fno-limit-debug-info  -fPIC   -o CMakeFiles/native-lib.dir/src/main/jni/benchmark/MemoryBenchmarkTest.cpp.o -c /Users/zhangxinmin/Development/AndroidStudy/Android-Training/lib.matrix/src/main/jni/benchmark/MemoryBenchmarkTest.cpp",
+  "file": "/Users/zhangxinmin/Development/AndroidStudy/Android-Training/lib.matrix/src/main/jni/benchmark/MemoryBenchmarkTest.cpp"
+},
+
+{
+  "directory": "/Users/zhangxinmin/Development/AndroidStudy/Android-Training/lib.matrix/.cxx/cmake/debug/arm64-v8a",
+  "command": "/Users/zhangxinmin/Library/Android/sdk/ndk/21.1.6352462/toolchains/llvm/prebuilt/darwin-x86_64/bin/clang++ --target=aarch64-none-linux-android21 --gcc-toolchain=/Users/zhangxinmin/Library/Android/sdk/ndk/21.1.6352462/toolchains/llvm/prebuilt/darwin-x86_64 --sysroot=/Users/zhangxinmin/Library/Android/sdk/ndk/21.1.6352462/toolchains/llvm/prebuilt/darwin-x86_64/sysroot  -Dnative_lib_EXPORTS -I/include  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security   -O0 -fno-limit-debug-info  -fPIC   -o CMakeFiles/native-lib.dir/src/main/jni/benchmark/MemoryConcurrentAlloc.cpp.o -c /Users/zhangxinmin/Development/AndroidStudy/Android-Training/lib.matrix/src/main/jni/benchmark/MemoryConcurrentAlloc.cpp",
+  "file": "/Users/zhangxinmin/Development/AndroidStudy/Android-Training/lib.matrix/src/main/jni/benchmark/MemoryConcurrentAlloc.cpp"
+},
+
+{
+  "directory": "/Users/zhangxinmin/Development/AndroidStudy/Android-Training/lib.matrix/.cxx/cmake/debug/arm64-v8a",
+  "command": "/Users/zhangxinmin/Library/Android/sdk/ndk/21.1.6352462/toolchains/llvm/prebuilt/darwin-x86_64/bin/clang++ --target=aarch64-none-linux-android21 --gcc-toolchain=/Users/zhangxinmin/Library/Android/sdk/ndk/21.1.6352462/toolchains/llvm/prebuilt/darwin-x86_64 --sysroot=/Users/zhangxinmin/Library/Android/sdk/ndk/21.1.6352462/toolchains/llvm/prebuilt/darwin-x86_64/sysroot  -Dnative_lib_EXPORTS -I/include  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security   -O0 -fno-limit-debug-info  -fPIC   -o CMakeFiles/native-lib.dir/src/main/jni/benchmark/MemoryCrossThread.cpp.o -c /Users/zhangxinmin/Development/AndroidStudy/Android-Training/lib.matrix/src/main/jni/benchmark/MemoryCrossThread.cpp",
+  "file": "/Users/zhangxinmin/Development/AndroidStudy/Android-Training/lib.matrix/src/main/jni/benchmark/MemoryCrossThread.cpp"
+},
+
+{
+  "directory": "/Users/zhangxinmin/Development/AndroidStudy/Android-Training/lib.matrix/.cxx/cmake/debug/arm64-v8a",
+  "command": "/Users/zhangxinmin/Library/Android/sdk/ndk/21.1.6352462/toolchains/llvm/prebuilt/darwin-x86_64/bin/clang++ --target=aarch64-none-linux-android21 --gcc-toolchain=/Users/zhangxinmin/Library/Android/sdk/ndk/21.1.6352462/toolchains/llvm/prebuilt/darwin-x86_64 --sysroot=/Users/zhangxinmin/Library/Android/sdk/ndk/21.1.6352462/toolchains/llvm/prebuilt/darwin-x86_64/sysroot  -Dnative_lib_EXPORTS -I/include  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security   -O0 -fno-limit-debug-info  -fPIC   -o CMakeFiles/native-lib.dir/src/main/jni/benchmark/MemorySingleThread.cpp.o -c /Users/zhangxinmin/Development/AndroidStudy/Android-Training/lib.matrix/src/main/jni/benchmark/MemorySingleThread.cpp",
+  "file": "/Users/zhangxinmin/Development/AndroidStudy/Android-Training/lib.matrix/src/main/jni/benchmark/MemorySingleThread.cpp"
+},
+
+{
+  "directory": "/Users/zhangxinmin/Development/AndroidStudy/Android-Training/lib.matrix/.cxx/cmake/debug/arm64-v8a",
+  "command": "/Users/zhangxinmin/Library/Android/sdk/ndk/21.1.6352462/toolchains/llvm/prebuilt/darwin-x86_64/bin/clang++ --target=aarch64-none-linux-android21 --gcc-toolchain=/Users/zhangxinmin/Library/Android/sdk/ndk/21.1.6352462/toolchains/llvm/prebuilt/darwin-x86_64 --sysroot=/Users/zhangxinmin/Library/Android/sdk/ndk/21.1.6352462/toolchains/llvm/prebuilt/darwin-x86_64/sysroot  -Dnative_lib_EXPORTS -I/include  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security   -O0 -fno-limit-debug-info  -fPIC   -o CMakeFiles/native-lib.dir/src/main/jni/benchmark/benchmark.cpp.o -c /Users/zhangxinmin/Development/AndroidStudy/Android-Training/lib.matrix/src/main/jni/benchmark/benchmark.cpp",
+  "file": "/Users/zhangxinmin/Development/AndroidStudy/Android-Training/lib.matrix/src/main/jni/benchmark/benchmark.cpp"
+},
+
+{
+  "directory": "/Users/zhangxinmin/Development/AndroidStudy/Android-Training/lib.matrix/.cxx/cmake/debug/arm64-v8a",
+  "command": "/Users/zhangxinmin/Library/Android/sdk/ndk/21.1.6352462/toolchains/llvm/prebuilt/darwin-x86_64/bin/clang++ --target=aarch64-none-linux-android21 --gcc-toolchain=/Users/zhangxinmin/Library/Android/sdk/ndk/21.1.6352462/toolchains/llvm/prebuilt/darwin-x86_64 --sysroot=/Users/zhangxinmin/Library/Android/sdk/ndk/21.1.6352462/toolchains/llvm/prebuilt/darwin-x86_64/sysroot  -Dnative_lib_EXPORTS -I/include  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security   -O0 -fno-limit-debug-info  -fPIC   -o CMakeFiles/native-lib.dir/src/main/jni/benchmark/thread.cpp.o -c /Users/zhangxinmin/Development/AndroidStudy/Android-Training/lib.matrix/src/main/jni/benchmark/thread.cpp",
+  "file": "/Users/zhangxinmin/Development/AndroidStudy/Android-Training/lib.matrix/src/main/jni/benchmark/thread.cpp"
+},
+
+{
+  "directory": "/Users/zhangxinmin/Development/AndroidStudy/Android-Training/lib.matrix/.cxx/cmake/debug/arm64-v8a",
+  "command": "/Users/zhangxinmin/Library/Android/sdk/ndk/21.1.6352462/toolchains/llvm/prebuilt/darwin-x86_64/bin/clang++ --target=aarch64-none-linux-android21 --gcc-toolchain=/Users/zhangxinmin/Library/Android/sdk/ndk/21.1.6352462/toolchains/llvm/prebuilt/darwin-x86_64 --sysroot=/Users/zhangxinmin/Library/Android/sdk/ndk/21.1.6352462/toolchains/llvm/prebuilt/darwin-x86_64/sysroot  -Dnative_lib_EXPORTS -I/include  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security   -O0 -fno-limit-debug-info  -fPIC   -o CMakeFiles/native-lib.dir/src/main/jni/benchmark/timer.cpp.o -c /Users/zhangxinmin/Development/AndroidStudy/Android-Training/lib.matrix/src/main/jni/benchmark/timer.cpp",
+  "file": "/Users/zhangxinmin/Development/AndroidStudy/Android-Training/lib.matrix/src/main/jni/benchmark/timer.cpp"
+}
+]

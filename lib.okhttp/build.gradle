@@ -1,11 +1,11 @@
 apply plugin: 'com.android.library'
 
 android {
-    compileSdkVersion rootProject.ext.compileSdkVersion
-    buildToolsVersion rootProject.ext.buildToolsVersion
+    compileSdkVersion build_versions.compile_sdk
+    buildToolsVersion build_versions.build_tools
     defaultConfig {
-        minSdkVersion rootProject.ext.minSdkVersion
-        targetSdkVersion rootProject.ext.targetSdkVersion
+        minSdkVersion build_versions.min_sdk
+        targetSdkVersion build_versions.target_sdk
         versionCode 1
         versionName "1.0.0"
 
@@ -23,12 +23,12 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
-    implementation "com.squareup.okhttp3:okhttp:$rootProject.okhttpVersion"
+    implementation deps.okhttp.okhttp3
 
     //noinspection GradleDependency
-    implementation "com.google.android:flexbox:$rootProject.flexboxVersion"
+    implementation deps.flexbox
 
-    implementation 'com.itkacher.okhttpprofiler:okhttpprofiler:1.0.5'
+//    implementation 'com.itkacher.okhttpprofiler:okhttpprofiler:1.0.8'
 
     implementation project(path: ':lib.core')
     implementation project(path: ':lib.util')

@@ -10,5 +10,6 @@
 
     <application>
 
+        <activity android:name=".res.ManualDumpActivity" />
     </application>
 </manifest>

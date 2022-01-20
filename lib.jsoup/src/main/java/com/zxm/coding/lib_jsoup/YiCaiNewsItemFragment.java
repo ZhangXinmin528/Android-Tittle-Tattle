@@ -71,7 +71,7 @@ public class YiCaiNewsItemFragment extends BaseFragment implements SwipeRefreshL
     protected void initViews(View rootView) {
         mSwipeRefreshLayout = rootView.findViewById(R.id.swl_yicai_news);
         mSwipeRefreshLayout.setOnRefreshListener(this);
-        mSwipeRefreshLayout.setColorSchemeColors(Color.BLUE, Color.CYAN, Color.RED);
+        mSwipeRefreshLayout.setColorSchemeColors(Color.parseColor("#ff0000"));
 
         mRecyclerView = rootView.findViewById(R.id.rv_yicai_news);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(mContext));

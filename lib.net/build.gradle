@@ -1,12 +1,15 @@
 apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
 
 android {
-    compileSdkVersion rootProject.ext.compileSdkVersion
-    buildToolsVersion rootProject.ext.buildToolsVersion
+    compileSdkVersion build_versions.compile_sdk
+    buildToolsVersion build_versions.build_tools
 
     defaultConfig {
-        minSdkVersion rootProject.ext.minSdkVersion
-        targetSdkVersion rootProject.ext.targetSdkVersion
+        minSdkVersion build_versions.min_sdk
+        targetSdkVersion build_versions.target_sdk
         versionCode 1
         versionName "1.0.0"
 
@@ -35,22 +38,21 @@ dependencies {
 
     //网络请求
     //retrofit
-    implementation "com.squareup.retrofit2:retrofit:$rootProject.retrofitVersion"
-
+    implementation deps.retrofit.retrofit2
+    implementation deps.retrofit.retrofit2_rxjava2
     //gson
-    implementation "com.google.code.gson:gson:$rootProject.gsonVersion"
+    implementation deps.gson
     //converter-gson
-    implementation "com.squareup.retrofit2:converter-gson:$rootProject.retrofitVersion"
+    implementation deps.retrofit.gsonConverter
     //rxjava
-    implementation "io.reactivex.rxjava2:rxjava:$rootProject.rxjava2Version"
+    implementation deps.rxjava2
     //rxandroid
-    implementation "io.reactivex.rxjava2:rxandroid:$rootProject.rxandroid2Version"
-    //adapter-rxjava2
-    implementation "com.squareup.retrofit2:adapter-rxjava2:$rootProject.retrofitVersion"
+    implementation deps.rx_android
+
 
     implementation project(':lib.webview')
 
     //ARouter
-    implementation 'com.alibaba:arouter-api:1.5.0'
-    annotationProcessor 'com.alibaba:arouter-compiler:1.2.2'
+    implementation deps.arouter.api
+    kapt deps.arouter.compiler
 }

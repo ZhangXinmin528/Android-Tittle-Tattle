@@ -1,99 +1,93 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 
 buildscript {
-    repositories {
-        google()
-        jcenter()
+    apply from: 'versions.gradle'
 
-    }
+    addRepos(repositories)
+
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.6.0'
-
-        classpath "com.alibaba:arouter-register:1.0.2"
-
+        classpath deps.android_gradle_plugin
+        classpath deps.kotlin.plugin
+        classpath deps.arouter.register
+//        classpath deps.bugly_tinker_support
         classpath("com.tencent.matrix:matrix-gradle-plugin:${MATRIX_VERSION}") { changing = true }
     }
+
 }
 
 allprojects {
-    repositories {
-        google()
-        jcenter()
-
-        maven { url "https://jitpack.io" }
-
-    }
+    addRepos(repositories)
 }
 
 task clean(type: Delete) {
     delete rootProject.buildDir
 }
 
-ext {
-    // Sdk and tools
-    compileSdkVersion = 28
-    buildToolsVersion = '28.0.3'
-    minSdkVersion = 19
-    targetSdkVersion = 28
-
-    // App dependencies
-    appcompatVersion = '1.1.0'
-    constraintLayoutVersion = '2.0.1'
-    cardviewVersion = '1.0.0'
-    recyclerviewVersion = '1.1.0'
-    swiperefreshlayoutVersion = '1.1.0'
-
-    //util
-    utilVersion = '3.0.1'
-
-    //RxJava1
-    rxandroid1Version = '1.2.1'
-    rxjava1Version = '1.2.9'
-
-    //retrofit
-    retrofitVersion = '2.9.0'
-
-    //okHttp
-    okhttpVersion = '4.8.0'
-
-    //gson
-    gsonVersion = '2.8.6'
-
-    //rxjava2
-    rxjava2Version = '2.2.19'
-
-    //rxandroid2
-    rxandroid2Version = '2.1.1'
-
-    //glide
-    glideVersion = '4.11.0'
-
-    //leakcanary
-    leakcanaryVersion = '1.6.3'
-
-    //permission
-    permissionVersion = "1.0.1"
-    permissionsDispatcher = "3.1.0"
-
-    //multidex
-    multidexVersion = '1.0.3'
-
-    //flexbox
-    flexboxVersion = '1.0.0'
-
-    smartrefreshVersion = '1.1.0'
-
-    recyclerAdapterVersion = "3.0.4"
-
-    lottieVersion = '2.5.0-beta3'
-
-    okgoVersion = '3.0.4'
-
-    fastjsonVersion = '1.2.46'
-
-    eventbusVersion = '3.1.1'
-
-    crashreportVersion = '2.6.6.1'
-
-    nativecrashreportVersion = '3.3.1'
-}
+//ext {
+//    // Sdk and tools
+//    compileSdkVersion = 28
+//    buildToolsVersion = '28.0.3'
+//    minSdkVersion = 19
+//    targetSdkVersion = 28
+//
+//    // App dependencies
+//    appcompatVersion = '1.1.0'
+//    constraintLayoutVersion = '2.0.1'
+//    cardviewVersion = '1.0.0'
+//    recyclerviewVersion = '1.1.0'
+//    swiperefreshlayoutVersion = '1.1.0'
+//
+//    //util
+//    utilVersion = '3.0.4'
+//
+//    //RxJava1
+//    rxandroid1Version = '1.2.1'
+//    rxjava1Version = '1.2.9'
+//
+//    //retrofit
+//    retrofitVersion = '2.9.0'
+//
+//    //okHttp
+//    okhttpVersion = '4.8.0'
+//
+//    //gson
+//    gsonVersion = '2.8.6'
+//
+//    //rxjava2
+//    rxjava2Version = '2.2.19'
+//
+//    //rxandroid2
+//    rxandroid2Version = '2.1.1'
+//
+//    //glide
+//    glideVersion = '4.11.0'
+//
+//    //leakcanary
+//    leakcanaryVersion = '1.6.3'
+//
+//    //permission
+//    permissionVersion = "1.0.1"
+//    permissionsDispatcher = "3.1.0"
+//
+//    //multidex
+//    multidexVersion = '1.0.3'
+//
+//    //flexbox
+//    flexboxVersion = '1.0.0'
+//
+//    smartrefreshVersion = '1.1.0'
+//
+//    recyclerAdapterVersion = "3.0.4"
+//
+//    lottieVersion = '2.5.0-beta3'
+//
+//    okgoVersion = '3.0.4'
+//
+//    fastjsonVersion = '1.2.46'
+//
+//    eventbusVersion = '3.1.1'
+//
+//    crashreportVersion = '2.6.6.1'
+//
+//    nativecrashreportVersion = '3.3.1'
+//}

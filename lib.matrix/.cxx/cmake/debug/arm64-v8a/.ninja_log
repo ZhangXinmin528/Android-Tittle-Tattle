@@ -1,0 +1,12 @@
+# ninja log v5
+4	142	1642667968	CMakeFiles/native-lib.dir/src/main/jni/benchmark/MemorySingleThread.cpp.o	2fcd52d4740452f1
+9	143	1642667968	CMakeFiles/native-lib.dir/src/main/jni/benchmark/timer.cpp.o	8ca038a0980daebe
+8	144	1642667968	CMakeFiles/native-lib.dir/src/main/jni/benchmark/thread.cpp.o	d5df9837b858660a
+2	163	1642667968	CMakeFiles/native-lib.dir/src/main/jni/benchmark/MemoryConcurrentAlloc.cpp.o	dd4acfccb8c47d5d
+3	216	1642667968	CMakeFiles/native-lib.dir/src/main/jni/benchmark/MemoryCrossThread.cpp.o	be15c4dc10141b7e
+6	224	1642667968	CMakeFiles/native-lib.dir/src/main/jni/benchmark/benchmark.cpp.o	892f5e233d7370d4
+1	225	1642667968	CMakeFiles/native-lib.dir/src/main/jni/benchmark/MemoryBenchmarkTest.cpp.o	aaa8a59c1305ca21
+0	239	1642667968	CMakeFiles/native-lib.dir/src/main/jni/MallocTest.cpp.o	d74a1f514fb8cf3e
+1	294	1642667968	CMakeFiles/native-lib.dir/src/main/jni/benchmark/BenchMarkMain.cpp.o	aeaa244ecae758a1
+1	845	1642667968	CMakeFiles/native-lib.dir/src/main/jni/MemObj.cpp.o	9f49cdaca8265158
+845	953	1642667968	../../../../build/intermediates/cmake/debug/obj/arm64-v8a/libnative-lib.so	841acd0198df436e

@@ -1,13 +1,16 @@
 apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
 apply plugin: 'com.alibaba.arouter'
 
 android {
-    compileSdkVersion rootProject.ext.compileSdkVersion
-    buildToolsVersion rootProject.ext.buildToolsVersion
+    compileSdkVersion build_versions.compile_sdk
+    buildToolsVersion build_versions.build_tools
     defaultConfig {
         applicationId "com.coding.zxm.android_tittle_tattle"
-        minSdkVersion rootProject.ext.minSdkVersion
-        targetSdkVersion rootProject.ext.targetSdkVersion
+        minSdkVersion build_versions.min_sdk
+        targetSdkVersion build_versions.target_sdk
         versionCode 1
         versionName "1.0.0"
 
@@ -39,6 +42,12 @@ android {
 
         }
     }
+    packagingOptions {
+        pickFirst 'lib/armeabi-v7a/libc++_shared.so'
+        pickFirst 'lib/arm64-v8a/libc++_shared.so'
+        pickFirst 'lib/armeabi-v7a/libwechatbacktrace.so'
+        pickFirst 'lib/arm64-v8a/libwechatbacktrace.so'
+    }
 
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
@@ -55,22 +64,16 @@ android {
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
 
-    implementation "com.google.android.material:material:$rootProject.appcompatVersion"
-    implementation "androidx.cardview:cardview:$rootProject.cardviewVersion"
-    implementation "androidx.appcompat:appcompat:$rootProject.appcompatVersion"
-    implementation "androidx.constraintlayout:constraintlayout:$rootProject.constraintLayoutVersion"
+    implementation deps.material
+    implementation deps.cardview
 
-    debugImplementation "com.squareup.leakcanary:leakcanary-android:$rootProject.leakcanaryVersion"
-    releaseImplementation "com.squareup.leakcanary:leakcanary-android-no-op:$rootProject.leakcanaryVersion"
-    // Optional, if you use support library fragments:
-//    debugImplementation "com.squareup.leakcanary:leakcanary-support-fragment:$rootProject.leakcanaryVersion"
+    debugImplementation deps.leakcanary_android
 
-    //ARouter
-    implementation 'com.alibaba:arouter-api:1.5.0'
-    annotationProcessor 'com.alibaba:arouter-compiler:1.2.2'
+    implementation deps.arouter.api
+    kapt deps.arouter.compiler
 
     //分包
-    implementation 'androidx.multidex:multidex:2.0.1'
+    implementation deps.multidex
 
     //核心
     implementation project(':lib.core')
@@ -79,7 +82,7 @@ dependencies {
     //数据库
     implementation project(path: ':lib.database')
     //RxJava1
-    implementation project(':lib.rxjava1')
+//    implementation project(':lib.rxjava1')
     //网络
     implementation project(':lib.net')
     //池技术

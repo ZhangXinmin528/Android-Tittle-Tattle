@@ -3,16 +3,17 @@ package com.zxm.coding.lib_list.ui;
 import android.content.Intent;
 import android.text.TextUtils;
 
+import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.coding.zxm.libcore.ui.BaseActivity;
 import com.coding.zxm.libutil.DisplayUtil;
-import com.scwang.smartrefresh.layout.SmartRefreshLayout;
-import com.scwang.smartrefresh.layout.api.RefreshLayout;
-import com.scwang.smartrefresh.layout.listener.OnLoadMoreListener;
-import com.scwang.smartrefresh.layout.listener.OnRefreshListener;
+import com.scwang.smart.refresh.layout.SmartRefreshLayout;
+import com.scwang.smart.refresh.layout.api.RefreshLayout;
+import com.scwang.smart.refresh.layout.listener.OnLoadMoreListener;
+import com.scwang.smart.refresh.layout.listener.OnRefreshListener;
 import com.zxm.coding.lib_list.R;
 import com.zxm.coding.lib_list.adapter.ListExampleAdapter;
 
@@ -66,7 +67,7 @@ public class ListExampleActivity extends BaseActivity {
 
         mRefreshLayout.setOnRefreshListener(new OnRefreshListener() {
             @Override
-            public void onRefresh(RefreshLayout refreshLayout) {
+            public void onRefresh(@NonNull RefreshLayout refreshLayout) {
                 mRefreshLayout.postDelayed(new Runnable() {
                     @Override
                     public void run() {
@@ -74,8 +75,8 @@ public class ListExampleActivity extends BaseActivity {
                         mRefreshLayout.finishRefresh();
                     }
                 }, 2000);
-
             }
+
         });
 
         mRefreshLayout.setOnLoadMoreListener(new OnLoadMoreListener() {

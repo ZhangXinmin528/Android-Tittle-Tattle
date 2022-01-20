@@ -1,0 +1,2 @@
+ninja: Entering directory `/Users/zhangxinmin/Development/AndroidStudy/Android-Training/lib.matrix/.cxx/cmake/debug/arm64-v8a'
+ninja: no work to do.
