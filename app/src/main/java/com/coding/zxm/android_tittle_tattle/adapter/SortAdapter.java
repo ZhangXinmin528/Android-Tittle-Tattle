@@ -1,5 +1,6 @@
 package com.coding.zxm.android_tittle_tattle.adapter;
 
+import android.annotation.SuppressLint;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -37,7 +38,7 @@ public class SortAdapter extends RecyclerView.Adapter<SortViewHolder> {
 
 
     @Override
-    public void onBindViewHolder(@NonNull SortViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull SortViewHolder holder, @SuppressLint("RecyclerView") int position) {
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -83,7 +83,7 @@ public class OkUsageActivity extends BaseActivity implements View.OnClickListene
         mResultTv = findViewById(R.id.tv_result);
 
         findViewById(R.id.btn_do_get).setOnClickListener(this);
-        findViewById(R.id.btn_do_get).setOnClickListener(this);
+        findViewById(R.id.btn_do_post).setOnClickListener(this);
         findViewById(R.id.btn_accessing_headers).setOnClickListener(this);
         findViewById(R.id.btn_post_form).setOnClickListener(this);
         findViewById(R.id.btn_multipart_request).setOnClickListener(this);

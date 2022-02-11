@@ -50,12 +50,6 @@
             android:launchMode="singleTask"
             android:screenOrientation="nosensor" />
 
-        <!--RxJava1-->
-        <activity
-            android:name="com.coding.zxm.librxjava1.ui.RxJava1Activity"
-            android:launchMode="singleTask"
-            android:screenOrientation="nosensor" />
-
         <!--对象池-->
         <activity
             android:name="com.coding.zxm.lib_pool.ui.ObjectPoolActivity"

@@ -8,14 +8,17 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="app/src/main/res/layout/activity_home.xml" value="0.2078125" />
+        <entry key="app/src/main/res/layout/layout_home_list_item.xml" value="0.335" />
         <entry key="lib.jsoup/src/main/res/layout/activity_yicai_news.xml" value="0.1935185185185185" />
         <entry key="lib.jsoup/src/main/res/layout/fragment_yicai_news_item.xml" value="0.17314814814814813" />
         <entry key="lib.list/src/main/res/layout/activity_list_example.xml" value="0.2078125" />
         <entry key="lib.matrix/src/main/res/layout/activity_manual_dump.xml" value="0.13703703703703704" />
+        <entry key="lib.okhttp/src/main/res/layout/activity_okhttp_usage.xml" value="0.17222222222222222" />
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_7" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">

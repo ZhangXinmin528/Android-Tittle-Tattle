@@ -36,6 +36,8 @@ public class T136 {
     public int singleNumber(int[] nums) {
         final Map<Integer, Integer> map = new HashMap<>();
         final int size = nums.length;
+
+        String
         for (int i = 0; i < size; i++) {
             final int value = nums[i];
             if (map.containsKey(value)) {

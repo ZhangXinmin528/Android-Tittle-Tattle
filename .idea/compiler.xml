@@ -1,7 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="CompilerConfiguration">
-    <bytecodeTargetLevel target="1.8">
+    <bytecodeTargetLevel target="1.7">
+      <module name="Android-Training.app" target="1.8" />
+      <module name="Android-Training.lib.apm-plugin" target="1.8" />
+      <module name="Android-Training.lib.core" target="1.8" />
+      <module name="Android-Training.lib.database" target="1.8" />
+      <module name="Android-Training.lib.fragment" target="1.8" />
+      <module name="Android-Training.lib.image" target="1.8" />
+      <module name="Android-Training.lib.jsoup" target="1.8" />
+      <module name="Android-Training.lib.list" target="1.8" />
+      <module name="Android-Training.lib.matrix" target="1.8" />
+      <module name="Android-Training.lib.net" target="1.8" />
+      <module name="Android-Training.lib.okhttp" target="1.8" />
+      <module name="Android-Training.lib.polling" target="1.8" />
+      <module name="Android-Training.lib.pools" target="1.8" />
+      <module name="Android-Training.lib.queue" target="1.8" />
+      <module name="Android-Training.lib.stacking" target="1.8" />
+      <module name="Android-Training.lib.util" target="1.8" />
+      <module name="Android-Training.lib.video" target="1.8" />
+      <module name="Android-Training.lib.view" target="1.8" />
+      <module name="Android-Training.lib.webview" target="1.8" />
+      <module name="Android-Training.lib.xml" target="1.8" />
+      <module name="Android-Training.recyclerviewhelper" target="1.8" />
       <module name="lib.algorithm" target="1.7" />
     </bytecodeTargetLevel>
   </component>
